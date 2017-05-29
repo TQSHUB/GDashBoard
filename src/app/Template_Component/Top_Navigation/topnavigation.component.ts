@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { TopNavigationService } from '../../Services/topnavigation.service';
 
 @Component({
@@ -6,12 +7,12 @@ import { TopNavigationService } from '../../Services/topnavigation.service';
   templateUrl: './topnavigation.component.html',
   providers: [TopNavigationService]
 })
-export class TopNavigation {
+export class TopNavigationComponent {
   
     NavigationPagesArray;
 
 
-    constructor(private topNavigationService: TopNavigationService){
+    constructor(private router: Router ,private topNavigationService: TopNavigationService){
         this.getNavigationPages();
     }
     getNavigationPages(){
@@ -19,6 +20,9 @@ export class TopNavigation {
             this.NavigationPagesArray = res.Data;
             console.log(this.NavigationPagesArray);
         });
+    }
+    SignOut(){
+        this.router.navigate(['/Login']);
     }
 }
 

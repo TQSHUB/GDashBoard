@@ -2,7 +2,7 @@
     <nav class="navbar navbar-static-top">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand"><b>Admin</b>LTE</a>
+          <a class="navbar-brand"><b>Galva</b></a>
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
             <i class="fa fa-bars"></i>
           </button>
@@ -14,7 +14,7 @@
             <li class="dropdown" *ngFor="let Nav of NavigationPagesArray">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" >{{Nav.headerNav}}<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu" >
-                <li *ngFor="let Page of Nav.subNav"><a>{{Page.Description}}</a>
+                <li *ngFor="let Page of Nav.subNav"><a routerLink="{{Page.PageUrl}}">{{Page.Description}}</a>
                   <hr style="padding: 0px; margin: 5px;"/>
                 </li>
               </ul>
@@ -160,7 +160,7 @@
                     <a href="#" class="btn btn-default btn-flat">Profile</a>
                   </div>
                   <div class="pull-right">
-                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                    <a (click)="SignOut()" class="btn btn-default btn-flat">Sign out</a>
                   </div>
                 </li>
               </ul>
