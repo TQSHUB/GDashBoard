@@ -5,9 +5,14 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 
+//Template Components
+import { TopNavigation } from './Template_Component/Top_Navigation/topnavigation.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    //Template Components
+    TopNavigation
   ],
   imports: [
     BrowserModule,
