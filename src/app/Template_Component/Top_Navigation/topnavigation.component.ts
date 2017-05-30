@@ -18,7 +18,6 @@ export class TopNavigationComponent {
     getNavigationPages(){
         this.topNavigationService.getNavigationPages('anusha').subscribe( res => {
             this.NavigationPagesArray = res.Data;
-            console.log(this.NavigationPagesArray);
         });
     }
     SignOut(){

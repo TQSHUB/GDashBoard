@@ -1,4 +1,3 @@
- <div class="content-wrapper">
     <div class="container-main">
       <!-- Content Header (Page header) -->
       <section class="content-header">
@@ -10,18 +9,139 @@
 
       <!-- Main content -->
       <section class="content">
-        <div class="box box-default color-palette-box">
+        <div class="box box-default">
         <div class="box-header with-border">
           <h3 class="box-title"><i class="fa fa-search"></i>&nbsp;Search Criteria</h3>
         </div>
         <div class="box-body">
-          
+            <div class="row">
+                <div class="col-md-3 col-sm-12">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">Month</span>
+                            <select class="form-control select2">
+                                <option selected="selected">--Select Month--</option>
+                                <option>January</option>
+                                <option>February</option>
+                                <option>March</option>
+                                <option>April</option>
+                                <option>May</option>
+                                <option>June</option>
+                                <option>July</option>
+                                <option>August</option>
+                                <option>September</option>
+                                <option>October</option>
+                                <option>November</option>
+                                <option>December</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12 col-md-offset-1">
+                    <div class="form-group">
+                    <div class="input-group date">
+                        <span class="input-group-addon">From Date</span>
+                        <input type="text" class="form-control pull-right" id="FromDate" placeholder="From Date">
+                    </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12 col-md-offset-1">
+                    <div class="form-group">
+                    <div class="input-group date">
+                        <span class="input-group-addon">To Date</span>
+                        <input type="text" class="form-control pull-right" id="ToDate" placeholder="To Date">
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 1%;">
+                <div class="col-md-3 col-sm-12">
+                    <div class="form-group">
+                    <div class="input-group">
+                            <span class="input-group-addon">Item Type</span>
+                            <select class="form-control select2" style="width: 100%;">
+                                <option selected="selected">--Select Item Type--</option>
+                                <option>Chrome</option>
+                                <option>Satine</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12 col-md-offset-1">
+                    <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">Nature of Component</span>
+                        <select class="form-control select2" style="width: 100%;">
+                            <option selected="selected">--Select Nature of Component--</option>
+                            <option>Big</option>
+                            <option>Medium</option>
+                            <option>Small</option>
+                        </select>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 1%;">
+                <div class="col-md-3 col-sm-12">
+                    <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">Alias Name</span>
+                        <select class="form-control select2" multiple="multiple" data-placeholder="Select Alias Name" style="width: 100%;">
+                        <option>Alabama</option>
+                        <option>Alaska</option>
+                        <option>California</option>
+                        <option>Delaware</option>
+                        <option>Tennessee</option>
+                        <option>Texas</option>
+                        <option>Washington</option>
+                        </select>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12 col-md-offset-1">
+                    <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">Customer Name</span>
+                        <select class="form-control select2" multiple="multiple" data-placeholder="Select Customer Name" style="width: 100%;">
+                        <option>Alabama</option>
+                        <option>Alaska</option>
+                        <option>California</option>
+                        <option>Delaware</option>
+                        <option>Tennessee</option>
+                        <option>Texas</option>
+                        <option>Washington</option>
+                        </select>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12 col-md-offset-1">
+                    <button type="button" class="btn btn-primary" aria-label="Left Align">
+                        <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true"></span> Search
+                    </button>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 1%;">
+                <div class="col-md-6">
+                <div class="callout callout-default">
+                    <table>
+                        <tr>
+                            <td><b>Select To Upload</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                            <td><input type="file" id="exampleInputFile"></td>
+                            <td><button type="button" class="btn btn-primary" aria-label="Left Align">
+                                    <span class="glyphicon glyphicon glyphicon-upload" aria-hidden="true"></span> Upload
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+            </div>        
         </div>
         <!-- /.box-body -->
-      </div>
+        </div>
         <!-- /.box -->
       </section>
       <!-- /.content -->
     </div>
-    <!-- /.container -->
-  </div>

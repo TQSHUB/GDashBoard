@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //Routing Module
 import { routing } from './app.routing';
@@ -36,6 +37,7 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
     FormsModule,
     HttpModule,
     routing,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
