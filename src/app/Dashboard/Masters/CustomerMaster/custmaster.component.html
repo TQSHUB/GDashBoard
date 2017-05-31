@@ -1,0 +1,50 @@
+<div class="content-wrapper">
+    <div class="container-main">
+        <section class="content-header">
+            <h1 class="box-title">Customer 
+                <small>Master</small>
+            </h1>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="box box-default color-palette-box">
+                <div class="box-body">
+                    <form method="post">
+                        <div class="row">
+                            <div class="form-group">                                
+                                <div class="col-sm-10 col-md-4">
+                                    <label for="lblfullname">Customer Name</label>
+                                    <input type="text" name="txtcustomername" [(ngModel)]="txtcustomername" class="form-control" id="txtcustomername" required>                                    
+                                </div>
+                                
+                                <div class="col-sm-10 col-md-4" style="margin-bottom: 20px">
+                                    <label for="lblfullname">Long Name</label>
+                                    <input type="text" name="txtlongname" [(ngModel)]="txtlongname" class="form-control" id="txtlongname" required>                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <!--<label class="pull-left" >{{display_message}}</label>-->
+                            <button type="button" class="btn btn-primary" (click)="createCustMaster()">ADD</button>
+                            <button type="button" class="btn btn-default">CANCEL</button>
+                                <!--<asp:Button ID="addnew" runat="server" Text="ADD" class="btn btn-primary" margin-left="70px" OnClick="addnew_Click"  />
+                                <asp:Button ID="canel" runat="server" Text="CANCEL" class="btn btn-primary" OnClick="canel_Click" />                                   -->
+                        </div>
+                    </form>                                                                
+                </div>
+                <!-- /.box-body -->
+
+               <!--<div class="box box-info">
+               <div class="box-header with-border">
+                    
+               </div>
+
+               </div>-->
+            </div>
+            <!-- /.box -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.container -->
+</div>
