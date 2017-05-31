@@ -2,15 +2,14 @@ import { Injectable } from '@angular/core';
 import { Http,Headers } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
+import { host } from '../../Configurations/application.config';
 import 'rxjs/add/operator/catch';
 
 @Injectable()
     export class ItemService{
-        host: string= '192.168.0.101';
-
-        constructor(private http:Http){}
-
-        addNewItem(aliasname:string, componentname:string, rate:string, natureofcomponent:string, roundqty:string, uom:string, natureofplating:string){
+       
+         constructor(private http:Http){}
+         addNewItem(aliasname:string, componentname:string, rate:string, natureofcomponent:string, roundqty:string, uom:string, natureofplating:string){
              var headers = new Headers();
              headers.append('Authorization','Bearer');
              headers.append('Content-Type','Application/Json');
@@ -24,7 +23,7 @@ import 'rxjs/add/operator/catch';
                 Uom : uom,
                 Nature_of_Plating : natureofplating
             });
-            return this.http.post('http://'+ this.host +'/galvaapi/api/Item/Inseritem',body,{headers:headers})
+            return this.http.post(host +'Item/Inseritem',body,{headers:headers})
             .map(res=>res.json());
         }
 
