@@ -20,7 +20,7 @@ export class FrmLoading{
     ngOnInit(){
         var script = document.createElement('script');
         document.body.appendChild(script);
-        script.src = '../assets/component/Master/frmloading.component.js';
+        script.src = '../assets/ComponentJs/Master/frmloading.component.js';
 
         this.getAllItem();
     }

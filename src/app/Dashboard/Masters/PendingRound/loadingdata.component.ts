@@ -13,7 +13,7 @@ export class LoadingData{
     ngOnInit(){
         var script = document.createElement('script');
         document.body.appendChild(script);
-        script.src = '../assets/component/Master/loadingdata.component.js';
+        script.src = '../assets/ComponentJs/Master/loadingdata.component.js';
     }
 
 }
