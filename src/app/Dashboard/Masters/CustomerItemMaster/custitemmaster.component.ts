@@ -23,7 +23,7 @@ export class CustomerItemMasterComponent{
     ngOnInit(){
         var script = document.createElement('script');
         document.body.appendChild(script);
-        script.src = '../assets/component/custitemmaster.component.js';
+        script.src = '../assets/ComponentJs/Masters/custitemmaster.component.js';
 
         this.getAllCustomers();
         this.getAllItems();

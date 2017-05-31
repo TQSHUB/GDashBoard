@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FrmLoadingService } from '../../../Services/Master/frmloading.service';
+import { FrmLoadingService } from '../../../Services/Masters/frmloading.service';
 
 
 @Component({
@@ -20,7 +20,7 @@ export class FrmLoading{
     ngOnInit(){
         var script = document.createElement('script');
         document.body.appendChild(script);
-        script.src = '../assets/ComponentJs/Master/frmloading.component.js';
+        script.src = '../assets/ComponentJs/Masters/frmloading.component.js';
 
         this.getAllItem();
     }

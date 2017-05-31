@@ -29,7 +29,7 @@ export class CustomerMasterComponent{
     ngOnInit(){
         var script = document.createElement('script');
         document.body.appendChild(script);
-        script.src = '../assets/component/custmaster.component.js';
+        script.src = '../assets/ComponentJs/Masters/custmaster.component.js';
     }
 
     createCustMaster()
