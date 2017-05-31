@@ -9,7 +9,7 @@ import 'rxjs/add/operator/catch';
 
 export class TopNavigationService{
     constructor(private http: Http){
-        console.log('service started...');
+        // console.log('service started...');
     }
 
     getNavigationPages(username: string){

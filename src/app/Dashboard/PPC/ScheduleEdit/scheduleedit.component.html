@@ -1,4 +1,3 @@
- <div class="content-wrapper">
     <div class="container-main">
       <!-- Content Header (Page header) -->
       <section class="content-header">
@@ -10,18 +9,156 @@
 
       <!-- Main content -->
       <section class="content">
-        <div class="box box-default color-palette-box">
+        <div class="box box-default">
         <div class="box-header with-border">
           <h3 class="box-title"><i class="fa fa-search"></i>&nbsp;Search Criteria</h3>
         </div>
         <div class="box-body">
-          
+            <div class="row">
+                <div class="col-md-3 col-sm-12">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <select id="Month" class="form-control select2" (change)="searchMonth($event.target.value)">
+                                <option selected="selected" value="NULL">--Select Month--</option>
+                                <option value="01">January</option>
+                                <option value="02">February</option>
+                                <option value="03">March</option>
+                                <option value="04">April</option>
+                                <option value="05">May</option>
+                                <option value="06">June</option>
+                                <option value="07">July</option>
+                                <option value="08">August</option>
+                                <option value="09">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true" (click)="SearchMonthly()"></span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12 col-md-offset-1">
+                    <div class="form-group">
+                    <div class="input-group date">
+                        <span class="input-group-addon">From Date</span>
+                        <input type="text" class="form-control pull-right" id="FromDate" name="FromDate" [(ngModel)]="FromDate">
+                    </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12 col-md-offset-1">
+                    <div class="form-group">
+                    <div class="input-group date">
+                        <span class="input-group-addon">To Date</span>
+                        <input type="text" class="form-control pull-right" id="ToDate" name="ToDate" [(ngModel)]="ToDate">
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 0.5%;">
+                <div class="col-md-3 col-sm-12">
+                    <div class="form-group">
+                    <div class="input-group">
+                            <span class="input-group-addon">Item Type</span>
+                            <select id="ItemType" class="form-control select2" style="width: 100%;">
+                                <option selected="selected" value="NULL">--Select--</option>
+                                <option value="Chrome">Chrome</option>
+                                <option value="Satin">Satin</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12 col-md-offset-1">
+                    <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">Nature of Component</span>
+                        <select class="form-control select2" style="width: 100%;">
+                            <option id="NatureOfComp" selected="selected" value="NULL">--Select--</option>
+                            <option value="Big">Big</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Small">Small</option>
+                        </select>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12 col-md-offset-1">
+                    <button type="button" class="btn btn-primary" aria-label="Left Align" (click)="Search()">
+                        <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true"></span> Search
+                    </button>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 0.5%;">
+                <div class="col-md-3 col-sm-12">
+                    <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">Alias Name</span>
+                        <select id="Alias_Names"  class="form-control select2" multiple="multiple" data-placeholder="Select" style="width: 100%;">
+                            <option *ngFor="let Alias of Alias_Names" [value]="Alias.Code">{{Alias.Alias_Name}}</option>
+                        </select>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12 col-md-offset-1">
+                    <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">Customer Name</span>
+                        <select id="Customer_Names" class="form-control select2" multiple="multiple" data-placeholder="Select" style="width: 100%;">
+                            <option *ngFor="let Customer of Customer_Names" [value]="Customer.Code">{{Customer.Name}}</option>
+                        </select>
+                    </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row" style="margin-top: 0.5%;">
+                <div class="col-md-6">
+                <div class="callout callout-default">
+                    <table>
+                        <tr>
+                            <td><b>Select To Upload</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                            <td><input type="file" id="exampleInputFile"></td>
+                            <td><button type="button" class="btn btn-primary" aria-label="Left Align">
+                                    <span class="glyphicon glyphicon glyphicon-upload" aria-hidden="true"></span> Upload
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                </div>
+            </div>        
         </div>
         <!-- /.box-body -->
-      </div>
+        </div>
         <!-- /.box -->
+        <div class="box box-default">
+        <div class="box-header with-border">
+          <h3 class="box-title"><i class="fa fa-table"></i>&nbsp;Result Data</h3>
+        </div>
+        <div class="box-body">
+            <div class="row" style="margin: 0.5%;">
+                <div class="col-md-6 col-sm-12">
+                <input class="form-control form-control-sm mb-2 mr-sm-2 mb-lg-0" #search (keyup)="myTable.gtSearch(search.value)" placeholder="Search">
+                </div>
+            </div>
+            <div class="row" style="margin: 0.5%;">
+                <gt-column-settings [genericTable]="myTable" #columnSettings>
+                    <div class="table table-responsive table-striped">
+                        <generic-table #myTable [gtSettings]="configObject.settings" [gtFields]="configObject.fields" [gtData]="configObject.data" [gtOptions]="{highlightSearch:true, rowSelection:true}"></generic-table>
+                    </div>
+                    <div class="text-right">
+                        <gt-pagination [gtClasses]="'justify-content-center'" [genericTable]="myTable" ></gt-pagination>
+                    </div>
+                </gt-column-settings>
+            </div>
+        </div>
+        </div>
       </section>
       <!-- /.content -->
     </div>
-    <!-- /.container -->
-  </div>
+
+<div [ngBusy]="busy"></div>
