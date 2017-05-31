@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ItemService } from '../../../Services/Master/item.service';
+import { ItemService } from '../../../Services/Masters/item.service';
 import * as $ from 'jquery';
 
 @Component({

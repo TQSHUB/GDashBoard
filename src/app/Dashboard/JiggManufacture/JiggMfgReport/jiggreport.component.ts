@@ -16,6 +16,6 @@ export class JiggReport{
     ngOnInit(){
         var script = document.createElement('script');
         document.body.appendChild(script);
-        script.src = '../assets/component/JiggManufacture/jiggreport.component.js';
+        script.src = '../assets/ComponentJs/JiggManufacture/jiggreport.component.js';
     }
 }
