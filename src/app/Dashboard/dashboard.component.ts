@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
 })
 
 export class DashboardComponent {
+
+  ngOnInit(){
+        var script = document.createElement('script');
+        document.body.appendChild(script);
+        script.src = 'assets/plugins/datepicker/bootstrap-datepicker.js';
+    }
   
 }

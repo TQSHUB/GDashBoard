@@ -18,6 +18,14 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
   //PPC Components
   import { ScheduleEditComponent } from './Dashboard/PPC/ScheduleEdit/scheduleedit.component';
 
+ //Mater Component
+ import { ItemComponent } from './Dashboard/Masters/ComponentMaster/item.component';
+ import { LoadingData } from './Dashboard/Masters/PendingRound/loadingdata.component';
+ import { FrmLoading } from './Dashboard/Masters/EditPendingRound/frmloading.component';
+
+ //Jigg 
+import { JiggReport } from './Dashboard/JiggManufacture/JiggMfgReport/jiggreport.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +38,11 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
     DashboardComponent,
       //PPC Components
       ScheduleEditComponent,
+      //Master Component
+      ItemComponent,
+      LoadingData,
+      FrmLoading,
+      JiggReport,
   ],
   imports: [
     BrowserModule,

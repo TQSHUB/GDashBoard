@@ -1,0 +1,76 @@
+<div class="content-wrapper">
+    <div class="container-main">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          Jigg Mfg
+          <small>Report</small>
+        </h1>
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+        <div class="box box-default color-palette-box">
+        <div class="box-header with-border">
+          <!--<h3 class="box-title"><i class="fa fa-search"></i>&nbsp;Search Criteria</h3>-->
+        </div>
+        <div class="box-body">
+          <form method="post">
+         <div class="row">
+            <div class="col-sm-12 col-md-4"style="margin-bottom: 20px">
+               <div class="input-group">
+                    <div class="input-group-addon">
+                        <span class="input-group">From Date</span>
+                        <!--<i class="fa fa-calendar"></i>-->
+                    </div>
+                    <input type="text" name="d pdob" class="form-control pull-right" id="datepicker">                    
+                 </div>
+            </div>
+
+            <div class="col-sm-12 col-md-4" >
+                <div class="input-group">
+                    <div class="input-group-addon" >
+                         <span class="input-group">To Date</span>
+                        <!--<i class="fa fa-calendar"></i>-->
+                    </div>
+                    <input type="text" name="dpdob" class="form-control pull-right" id="datepicker1">                    
+                 </div>
+            </div>
+            <div class="col-md-6 col-md-4">
+                <button  style="margin-left: 140px;" type="button" class="btn btn-primary" (click)="createItem()"  >Submit</button>
+            </div>
+        </div>
+         
+          <div class="row">
+            <div class="col-sm-12 col-md-4" style="margin-bottom: 20px">
+                <input  type="text" class="form-control"  name="txtaliasname" [(ngModel)]="txtaliasname" id="txtaliasname" placeholder="Alias Name" required>
+            </div>
+
+            <div class="col-sm-12 col-md-4">
+                <div class="input-group" >
+                    <span class="input-group-addon">Purpose</span>
+                      <select id="natureofcomp" class="form-control select2"  style="width: 100%;"   name="txtcomp">
+                             <option selected="selected">--Select--</option>
+                            <option value="Big">Design Change</option>
+                            <option value="Medium">New Jigg</option>
+                            <option value="Small">Repair</option>
+                            <option value="Small">Scrape</option>
+                     </select>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-4">
+                
+            </div>
+        </div>
+
+        </form>
+        </div>
+        <!-- /.box-body -->
+      </div>
+        <!-- /.box -->
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.container -->
+  </div>

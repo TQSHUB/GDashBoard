@@ -8,7 +8,13 @@ import { LoginComponent } from './Template_Component/login/login.component';
 import { DashboardComponent } from './Dashboard/dashboard.component'
     //PPC Components
     import { ScheduleEditComponent } from './Dashboard/PPC/ScheduleEdit/scheduleedit.component'
-
+    //Master Components
+     import { ItemComponent } from './Dashboard/Masters/ComponentMaster/item.component'
+     import { LoadingData } from './Dashboard/Masters/PendingRound/loadingdata.component';
+     import { FrmLoading } from './Dashboard/Masters/EditPendingRound/frmloading.component';
+     
+     //Jigg Manufacture
+     import { JiggReport } from './Dashboard/JiggManufacture/JiggMfgReport/jiggreport.component';
 
 const appRoute: Routes = [
     {
@@ -22,7 +28,23 @@ const appRoute: Routes = [
             {
                 path: 'PPC/ScheduleEdit',
                 component: ScheduleEditComponent
-            }
+            },
+            {
+                path: 'Masters/ComponentMaster',
+                component: ItemComponent
+            },
+            {
+                path: 'Masters/PendingRound',
+                component: LoadingData
+            },
+            {
+                path: 'Masters/EditPendingRound',
+                component: FrmLoading
+            },
+             {
+                path: 'JiggManufacture/JiggMfgReport',
+                component: JiggReport
+            },
         ]
     }
 ];
