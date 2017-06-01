@@ -34,13 +34,8 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
  import { CustomerMasterComponent } from './Dashboard/Masters/CustomerMaster/custmaster.component'
 
  //Jigg 
-<<<<<<< HEAD
-import { JiggReport } from './Dashboard/JiggManufacture/JiggMfgReport/jiggreport.component';
-import { JigMasterComponent } from './Dashboard/JiggManufacture/JigMaster/jigmaster.component';
-=======
   import { JiggReport } from './Dashboard/JiggManufacture/JiggMfgReport/jiggreport.component';
   import { JigMasterComponent } from './Dashboard/JiggManufacture/JigMaster/jigmaster.component';
->>>>>>> 4eff1bbd9dffe9260d7400b467ea7b812aff7961
 
 @NgModule({
   declarations: [
