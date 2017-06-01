@@ -12,6 +12,8 @@ import { DashboardComponent } from './Dashboard/dashboard.component'
      import { ItemComponent } from './Dashboard/Masters/ComponentMaster/item.component'
      import { LoadingData } from './Dashboard/Masters/PendingRound/loadingdata.component';
      import { FrmLoading } from './Dashboard/Masters/EditPendingRound/frmloading.component';
+     import { CustomerItemMasterComponent } from './Dashboard/Masters/CustomerItemMaster/custitemmaster.component'
+     import { CustomerMasterComponent } from './Dashboard/Masters/CustomerMaster/custmaster.component'
      
      //Jigg Manufacture
      import { JiggReport } from './Dashboard/JiggManufacture/JiggMfgReport/jiggreport.component';
@@ -41,6 +43,14 @@ const appRoute: Routes = [
             {
                 path: 'Masters/EditPendingRound',
                 component: FrmLoading
+            },
+            {
+                path: 'Masters/CustomerItem',
+                component: CustomerItemMasterComponent
+            },
+            {
+                path: 'Masters/CustomerMaster',
+                component: CustomerMasterComponent
             },
              {
                 path: 'JiggManufacture/JiggMfgReport',
