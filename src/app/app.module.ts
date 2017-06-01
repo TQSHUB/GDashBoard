@@ -53,14 +53,10 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
       ItemComponent,
       LoadingData,
       FrmLoading,
-<<<<<<< HEAD
-      //jigg component
-=======
       CustomerItemMasterComponent,
       CustomerMasterComponent,
 
       //Jigg Component
->>>>>>> 4eff1bbd9dffe9260d7400b467ea7b812aff7961
       JiggReport,
       JigMasterComponent
   ],
