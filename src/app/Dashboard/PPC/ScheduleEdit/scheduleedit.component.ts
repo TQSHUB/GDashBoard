@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { fields } from './gridFields.config';
+import { settings } from './gridSettings.config';
 import {GenericTableComponent, GtConfig} from '@angular-generic-table/core';
 import { ScheduleEditService } from '../../../Services/PPC/scheduleedit.service'
 import { Subscription } from 'rxjs';
@@ -48,9 +50,10 @@ export class ScheduleEditComponent {
     }
     else{
     this.busy = this.scheduleEditService.getScheduleEditData(Month,'','','','','','',).subscribe(res => {
+        console.log(res.Data);
         this.configObject.data = res.Data.data;
-        this.configObject.fields = res.Data.fields;
-        this.configObject.settings = res.Data.settings;
+        this.configObject.fields = fields;
+        this.configObject.settings = settings;
       });
     }
   }
