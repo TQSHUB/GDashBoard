@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { CustomerItemMasterService } from '../../../Services/Masters/custitemmaster.service';
+//import { CustomerItemMasterService } from '../../../Services/Masters/custitemmaster.service';
 import { Http } from '@angular/http';
 import { Subscription } from 'rxjs';
 import { Observable } from 'rxjs/Observable';
@@ -9,7 +9,7 @@ import 'rxjs/add/operator/map';
 @Component({
     selector: 'customeritem-master',
     templateUrl: './custitemmaster.component.html',
-    providers: [ CustomerItemMasterService]
+    //providers: [ CustomerItemMasterService]
 })
 export class CustomerItemMasterComponent{
     title = 'This is an Angular!';

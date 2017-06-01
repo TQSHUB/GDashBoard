@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { JigMasterService } from '../../../Services/Jigg Manufacture/jigmaster.service';
+import { JigMasterService } from '../../../Services/JiggManufacture/jigmaster.service';
 import { Http } from '@angular/http';
 import { Subscription } from 'rxjs';
 import { Observable } from 'rxjs/Observable';
@@ -18,7 +18,7 @@ export class JigMasterComponent{
     allitems;
     response: Response;
 
-    constructor(private router: Router, private jigmasterService: JigMasterService)
+   constructor(private router: Router, private jigmasterService: JigMasterService)
     {        
     }
     ngOnInit(){
