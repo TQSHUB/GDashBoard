@@ -32,7 +32,8 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
  import { FrmLoading } from './Dashboard/Masters/EditPendingRound/frmloading.component';
 
  //Jigg 
-import { JiggReport } from './Dashboard/JiggManufacture/JiggMfgReport/jiggreport.component';
+  import { JiggReport } from './Dashboard/JiggManufacture/JiggMfgReport/jiggreport.component';
+  import { JigMasterComponent } from './Dashboard/JiggManufacture/JigMaster/jigmaster.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,10 @@ import { JiggReport } from './Dashboard/JiggManufacture/JiggMfgReport/jiggreport
       ItemComponent,
       LoadingData,
       FrmLoading,
+
+      //Jigg Component
       JiggReport,
+      JigMasterComponent
   ],
   imports: [
     BrowserModule,
