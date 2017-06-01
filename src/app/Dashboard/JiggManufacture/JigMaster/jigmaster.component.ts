@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { JigMasterService } from '../../../Services/Jigg Manufacture/jigmaster.service';
+import { JigMasterService } from '../../../Services/JiggManufacture/jigmaster.service';
 import { Http } from '@angular/http';
 import { Subscription } from 'rxjs';
 import { Observable } from 'rxjs/Observable';
@@ -24,7 +24,7 @@ export class JigMasterComponent{
     ngOnInit(){
         var script = document.createElement('script');
         document.body.appendChild(script);
-        script.src = '../assets/component/jigmaster.component.js';
+        script.src = '../assets/ComponentJs/JiggManufacture/jigmaster.component.js';
 
         this.getAllItems();
     }

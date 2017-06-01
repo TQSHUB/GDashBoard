@@ -15,6 +15,7 @@ import { DashboardComponent } from './Dashboard/dashboard.component'
      
      //Jigg Manufacture
      import { JiggReport } from './Dashboard/JiggManufacture/JiggMfgReport/jiggreport.component';
+     import { JigMasterComponent } from './Dashboard/JiggManufacture/JigMaster/jigmaster.component';
 
 const appRoute: Routes = [
     {
@@ -44,6 +45,10 @@ const appRoute: Routes = [
              {
                 path: 'JiggManufacture/JiggMfgReport',
                 component: JiggReport
+            },
+            {
+                path: 'JiggManufacture/JiggMaster',
+                component: JigMasterComponent
             },
         ]
     }
