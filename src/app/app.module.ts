@@ -30,6 +30,8 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
  import { ItemComponent } from './Dashboard/Masters/ComponentMaster/item.component';
  import { LoadingData } from './Dashboard/Masters/PendingRound/loadingdata.component';
  import { FrmLoading } from './Dashboard/Masters/EditPendingRound/frmloading.component';
+ import { CustomerItemMasterComponent } from './Dashboard/Masters/CustomerItemMaster/custitemmaster.component'
+ import { CustomerMasterComponent } from './Dashboard/Masters/CustomerMaster/custmaster.component'
 
  //Jigg 
   import { JiggReport } from './Dashboard/JiggManufacture/JiggMfgReport/jiggreport.component';
@@ -51,7 +53,14 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
       ItemComponent,
       LoadingData,
       FrmLoading,
+<<<<<<< HEAD
       //jigg component
+=======
+      CustomerItemMasterComponent,
+      CustomerMasterComponent,
+
+      //Jigg Component
+>>>>>>> 4eff1bbd9dffe9260d7400b467ea7b812aff7961
       JiggReport,
       JigMasterComponent
   ],
