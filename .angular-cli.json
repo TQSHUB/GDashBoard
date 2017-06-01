@@ -24,11 +24,7 @@
         "../node_modules/angular2-busy/build/style/busy.css"
       ],
       "scripts": [
-<<<<<<< HEAD
-        "../node_modules/bootstrap/dist/js/bootstrap.min.js",
-=======
         "../node_modules/bootstrap/dist/js/bootstrap.min.js"
->>>>>>> 3efdecd1547dcd9674cd26f61217d06eff25511a
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
