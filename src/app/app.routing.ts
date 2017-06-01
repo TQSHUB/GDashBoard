@@ -47,7 +47,7 @@ const appRoute: Routes = [
                 component: JiggReport
             },
             {
-                path: 'JiggManufacture/JiggMaster',
+                path: 'JiggManufacture/JigMaster',
                 component: JigMasterComponent
             },
         ]
