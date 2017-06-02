@@ -37,4 +37,19 @@ export class ScheduleEditService{
         return this.http.post( host +'PPCController/getScheduleEditData',body,{headers:headers})
             .map(res => res.json());
     }
+    updateCustomer(RoundReq, ScheduleQty, CustomerID, ItemID, ID){
+        var headers = new Headers();
+        headers.append('Content-Type','Application/Json');
+
+        var body = JSON.stringify({
+            RoundReq: RoundReq,
+            ScheduleQty: ScheduleQty,
+            CustomerID: CustomerID,
+            ItemID: ItemID,
+            Id: ID,
+        });
+
+        return this.http.post( host +'PPCController/updateCustomer',body,{headers:headers})
+            .map(res => res.json());
+    }
 }
