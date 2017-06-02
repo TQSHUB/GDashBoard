@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
-import { fields } from './gridFields.config';
-import { settings } from './gridSettings.config';
+import { SearchPipe } from './searchtable.pipe'
 import {GenericTableComponent, GtConfig} from '@angular-generic-table/core';
 import { ScheduleEditService } from '../../../Services/PPC/scheduleedit.service'
 import { Subscription } from 'rxjs';
@@ -11,26 +10,33 @@ import * as $ from 'jquery';
 @Component({
   selector: 'schedule-edit',
   templateUrl: './scheduleedit.component.html',
-  providers: [ScheduleEditService, DatePipe]
+  providers: [ScheduleEditService, DatePipe, SearchPipe]
 })
 export class ScheduleEditComponent {
   busy: Subscription;
-  public configObject: GtConfig<any>;
+  ResponseData;
+  ResponseDataCopy;
+  //css class
+  display_message;
+  display_message_class;
+  //local variables
   Alias_Names;
   Customer_Names;
   Selected_Alias_Names; 
   Selected_Customer_Names;
   FromDate;
   ToDate;
-  responseTable;
+  whichfunctioncalled;
+  //update fileds
+  txtroundreq;
+  txtscheduleqty;
+  CustomerID;
+  ItemID;
+  ID;
+  //search
+  searchText
 
-  constructor(private scheduleEditService: ScheduleEditService, private datepipe: DatePipe){
-    this.configObject = {
-      settings:[],
-      fields:[],
-      data:[]
-    }
-  }
+  constructor(private scheduleEditService: ScheduleEditService, private datepipe: DatePipe, private searchPipe: SearchPipe){}
 
   ngOnInit(){
     var script = document.createElement('script');
@@ -40,6 +46,9 @@ export class ScheduleEditComponent {
     this.getBindCustomer_ByName();
     this.getBindItems_ByAliasName();
 
+    var d = new Date();
+    $("#Month").val(d.getMonth());
+    this.SearchMonthly();
   }
 
   SearchMonthly(){
@@ -50,10 +59,9 @@ export class ScheduleEditComponent {
     }
     else{
     this.busy = this.scheduleEditService.getScheduleEditData(Month,'','','','','','',).subscribe(res => {
-        console.log(res.Data);
-        this.configObject.data = res.Data.data;
-        this.configObject.fields = fields;
-        this.configObject.settings = settings;
+        this.ResponseData = res.Data;
+        this.ResponseDataCopy = res.Data;
+        this.whichfunctioncalled = 'SearchMonthly';
       });
     }
   }
@@ -81,10 +89,55 @@ export class ScheduleEditComponent {
         natureofcomp_string = '';
 
       this.busy = this.scheduleEditService.getScheduleEditData('',this.FromDate, this.ToDate, itemtype_string, natureofcomp_string, alias_string,customer_string).subscribe(res => {
-        this.configObject.data = res.Data.data;
-        this.configObject.fields = res.Data.fields;
-        this.configObject.settings = res.Data.settings;
+        this.ResponseData = res.Data;
+        this.ResponseDataCopy = res.Data;
+        this.whichfunctioncalled = 'SearchMonthly';
       });
+  }
+
+  clearValues(){
+    this.txtroundreq = '';
+    this.txtscheduleqty = '';
+    this.CustomerID = '';
+    this.ID = '';
+    this.ItemID = '';
+
+    setTimeout(() => {
+      this.display_message = '';
+      this.display_message_class = '';
+    }, 2000);
+  }
+
+  updateCustomer(){
+    this.scheduleEditService.updateCustomer(this.txtroundreq,this.txtscheduleqty,this.CustomerID,this.ItemID,this.ID).subscribe(res=>{
+      if(res.Data)
+      {
+        this.display_message = 'Updated';
+        this.display_message_class = 'alert alert-success alert-dismissible';
+        this.clearValues();
+      }
+      else
+      {
+        this.display_message = 'Error';
+        this.display_message_class = 'alert alert-danger alert-dismissible';
+        this.clearValues();
+      }
+    });
+  }
+
+  onCloseUpdate(){
+    if(this.whichfunctioncalled == 'Search')
+      this.Search();
+    else
+      this.SearchMonthly();
+  }
+
+  selectedCustomer(customer){
+    this.txtroundreq = customer.RoundReq;
+    this.txtscheduleqty = customer.ScheduleQty;
+    this.CustomerID = customer.CustomerID;
+    this.ItemID = customer.ItemID;
+    this.ID = customer.Id;
   }
 
   inStringBuilder(a: any){
@@ -108,5 +161,13 @@ export class ScheduleEditComponent {
     this.scheduleEditService.getBindCustomer_ByName().subscribe(res => {
       this.Customer_Names = res.Data;
     });
+  }
+
+  SearchTextBox(){
+    var filterData = this.searchPipe.transform(this.ResponseDataCopy, this.searchText);
+    if(filterData == 'Empty')
+      this.ResponseData = this.ResponseDataCopy;
+    else
+      this.ResponseData = filterData;
   }
 }
