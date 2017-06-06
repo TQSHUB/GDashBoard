@@ -2,15 +2,14 @@ import { Injectable } from '@angular/core';
 import { Http,Headers } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
+import { host } from '../../Configurations/application.config';
 import 'rxjs/add/operator/catch';
 
 @Injectable()
     export class ItemService{
-        host: string= '192.168.0.101';
-
-        constructor(private http:Http){}
-
-        addNewItem(aliasname:string, componentname:string, rate:string, natureofcomponent:string, roundqty:string, uom:string, natureofplating:string){
+       
+         constructor(private http:Http){}
+         addNewItem(aliasname:string, componentname:string, rate:string, natureofcomponent:string, roundqty:string, uom:string, natureofplating:string){
              var headers = new Headers();
              headers.append('Authorization','Bearer');
              headers.append('Content-Type','Application/Json');
@@ -24,7 +23,31 @@ import 'rxjs/add/operator/catch';
                 Uom : uom,
                 Nature_of_Plating : natureofplating
             });
-            return this.http.post('http://'+ this.host +'/galvaapi/api/Item/Inseritem',body,{headers:headers})
+            return this.http.post(host +'Item/Inseritem',body,{headers:headers})
+            .map(res=>res.json());
+        }
+
+       updateItem(code :string, aliasname:string, componentname:string, rate:string, natureofcomponent:string, roundqty:string, uom:string, natureofplating:string){
+             var headers = new Headers();
+             headers.append('Authorization','Bearer');
+             headers.append('Content-Type','Application/Json');
+
+            var body = JSON.stringify({
+                Code : code,
+                Alias_Name : aliasname,
+                Component_Name : componentname,
+                Rate : rate,
+                Nature_of_Comp : natureofcomponent,
+                Round_Qty : roundqty,
+                Uom : uom,
+                Nature_of_Plating : natureofplating
+            });
+            return this.http.put(host +'Item/Updateitem',body,{headers:headers})
+            .map(res=>res.json());
+        }
+
+        getAllItem(){
+            return this.http.get(host + 'PPCController/getBindItems_ByAliasName')
             .map(res=>res.json());
         }
 

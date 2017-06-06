@@ -7,9 +7,10 @@ import { LoginComponent } from './Template_Component/login/login.component';
 //Dashboard Components
 import { DashboardComponent } from './Dashboard/dashboard.component'
     //PPC Components
-    import { ScheduleEditComponent } from './Dashboard/PPC/ScheduleEdit/scheduleedit.component'
+    import { ScheduleEditComponent } from './Dashboard/PPC/ScheduleEdit/scheduleedit.component';
+    import { PPCSummaryComponent } from './Dashboard/PPC/PPCSummary/ppcsummary.component';
     //Master Components
-     import { ItemComponent } from './Dashboard/Masters/ComponentMaster/item.component'
+     import { ItemComponent } from './Dashboard/Masters/ComponentMaster/item.component';
      import { LoadingData } from './Dashboard/Masters/PendingRound/loadingdata.component';
      import { FrmLoading } from './Dashboard/Masters/EditPendingRound/frmloading.component';
      import { CustomerItemMasterComponent } from './Dashboard/Masters/CustomerItemMaster/custitemmaster.component'
@@ -18,6 +19,8 @@ import { DashboardComponent } from './Dashboard/dashboard.component'
      //Jigg Manufacture
      import { JiggReport } from './Dashboard/JiggManufacture/JiggMfgReport/jiggreport.component';
      import { JigMasterComponent } from './Dashboard/JiggManufacture/JigMaster/jigmaster.component';
+     import { JiggCount } from './Dashboard/JiggManufacture/JiggCount/jiggcount.component';
+     import { JiggingReport } from './Dashboard/JiggManufacture/JiggingReport/jiggingreport.component';
 
 const appRoute: Routes = [
     {
@@ -31,6 +34,10 @@ const appRoute: Routes = [
             {
                 path: 'PPC/ScheduleEdit',
                 component: ScheduleEditComponent
+            },
+            {
+                path: 'PPC/PPCSummary',
+                component: PPCSummaryComponent
             },
             {
                 path: 'Masters/ComponentMaster',
@@ -56,10 +63,18 @@ const appRoute: Routes = [
                 path: 'JiggManufacture/JiggMfgReport',
                 component: JiggReport
             },
-            {
+             {
                 path: 'JiggManufacture/JiggMaster',
                 component: JigMasterComponent
             },
+            {
+                path: 'JiggManufacture/JiggCount',
+                component: JiggCount
+            },
+            {
+                path: 'JiggManufacture/JiggingReport',
+                component: JiggingReport
+            }
         ]
     }
 ];

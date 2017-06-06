@@ -11,9 +11,6 @@
       <!-- Main content -->
       <section class="content">
         <div class="box box-default color-palette-box">
-        <div class="box-header with-border">
-          <!--<h3 class="box-title"><i class="fa fa-search"></i>&nbsp;Search Criteria</h3>-->
-        </div>
         <div class="box-body">
           <form method="post">
           <div class="row">
@@ -38,7 +35,7 @@
             <div class="col-sm-12 col-md-4" style="margin-bottom: 20px">
                 <div class="input-group" >
                        <label for="lblcomponent">Nature of Component</label>
-                         <select id="natureofcomp" class="form-control select2"  style="width: 100%;"   name="txtcomp">
+                         <select id="natureofcomp" class="form-control select2"  style="width: 100%;" name="txtcomp">
                              <option selected="selected">--Select Nature of Component--</option>
                             <option value="Big">Big</option>
                             <option value="Medium">Medium</option>
@@ -63,7 +60,7 @@
             <div class="col-sm-12 col-md-4"style="margin-bottom: 20px">
                 <div class="input-group" >
                     <label for="lblplating">Nature of Plating</label>
-                        <select id="natureofplating" class="form-control select2"  style="width: 100%;"   name="txtplating">
+                        <select id="natureofplating"  class="form-control select2"  style="width: 100%;" name="txtplating">
                              <option selected="selected">--Select Nature of Plating--</option>
                             <option value="Satin">Satin</option>
                             <option value="Chrome">Chrome</option>
@@ -73,8 +70,8 @@
          </div>
          <div class="modal-footer" [ngClass]="display_message_class" >
              <label class="pull-left" >{{display_message}}</label>
-            <button type="button" class="btn btn-primary" (click)="createItem()"  >Add Item</button>
-            <button type="button" class="btn btn-default">Close</button>
+            <button type="button" class="btn btn-primary" (click)="FunctionOnCaption()"  >{{caption}}</button>
+            <button type="button" class="btn btn-default" (click)="clearvalue()">Close</button>
          </div>
 
         </form>
@@ -82,6 +79,61 @@
         <!-- /.box-body -->
       </div>
         <!-- /.box -->
+        <!-- /Datatable-->
+        <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header bg-primary">
+              <h3 class="box-title" style="color:#fff;"><strong>List of Item</strong></h3>
+            </div>
+            <div style="width:100%; height:100%; overflow: auto;" >
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="row" style="margin: 0.5%;">
+                <div class="col-md-6 col-sm-12">
+                <input class="form-control form-control-sm mb-2 mr-sm-2 mb-lg-0" #search (keyup)="SearchTextBox()" placeholder="Search" [(ngModel)]="searchText"> {{searchText}}
+                </div>
+            </div>
+            <div class="row">
+              <table id="itemsTable" class="table table-bordered table-striped table-responsive">
+                <thead>
+                <tr>
+                  <th>Code</th>
+                  <th>Alias Name</th>
+                  <th>Component Name</th>
+                  <th>Rate</th>
+                  <th>Nature of Comp</th>
+                  <th>Round Qty</th>
+                  <th>Uom</th>
+                  <th>Nature of Plating</th>
+                  <th>Edit</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of allitems | paginate: { itemsPerPage: 10, currentPage: p }">
+                  <td>{{item.Code}}</td>
+                  <td>{{item.Alias_Name}}</td>
+                  <td>{{item.Component_Name}}</td>
+                  <td>{{item.Rate}}</td>
+                  <td>{{item.Nature_of_Comp}}</td>
+                  <td>{{item.Round_Qty}}</td>
+                  <td>{{item.Uom}}</td>
+                  <td>{{item.Nature_of_Plating}}</td>
+                  <td><a (click)="selectedItem(item)"><span class="btn glyphicon glyphicon-pencil"  data-target=".box-body"></span></a></td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+        </div>
+      </div>
+        <!-- datatable end -->
+        <!-- Edit model pop -up --> 
+        <!-- end of model pop - up -->
       </section>
       <!-- /.content -->
     </div>

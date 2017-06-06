@@ -18,28 +18,28 @@
           <form method="post">
           <div class="row">
             <div class="col-sm-12 col-md-4"style="margin-bottom: 20px">
-                <label for="lblaliasname">Loading form</label>
+                <label for="lblaliasname">From Date</label>
                 <div class="input-group">
                     <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="text" name="dpdob" class="form-control pull-right" id="datepicker">                    
+                    <input type="text" name="FromDate" [(ngModel)]="FromDate" class="form-control pull-right" id="datepicker">                    
                  </div>
             </div>
 
             <div class="col-sm-12 col-md-4">
-                <label for="lblcomponent">Loading To</label>
+                <label for="lblcomponent">To Date</label>
                 <div class="input-group">
                     <div class="input-group-addon" >
                         <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="text" name="dpdob" class="form-control pull-right" id="datepicker1">                    
+                    <input type="text" name="ToDate" [(ngModel)]="ToDate" class="form-control pull-right" id="datepicker1">                    
                  </div>
             </div>
         </div>
         <div class="modal-footer" [ngClass]="display_message_class" >
              <label class="pull-left" >{{display_message}}</label>
-            <button type="button" class="btn btn-primary" (click)="createItem()"  >Add Round</button>
+            <button type="button" class="btn btn-primary" (click)="Search()"  >Search</button>
             <button type="button" class="btn btn-default">Close</button>
          </div>
         </form>
@@ -47,6 +47,58 @@
         <!-- /.box-body -->
       </div>
         <!-- /.box -->
+        <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header bg-primary">
+              <h3 class="box-title" style="color:#fff;"><strong>List of Pending Round</strong></h3>
+            </div>
+            <div style="width:100%; height:100%; overflow: auto;" >
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="row" style="margin: 0.5%;">
+                <div class="col-md-6 col-sm-12">
+                <input class="form-control form-control-sm mb-2 mr-sm-2 mb-lg-0" #search (keyup)="SearchTextBox()" placeholder="Search" [(ngModel)]="searchText"> {{searchText}}
+                </div>
+              </div>
+            <div class="row">
+              <table id="loadingTable" class="table table-bordered table-striped table-responsive">
+                <thead>
+                <tr>
+                  <th>Shift Date</th>
+                  <th>Shift</th>
+                  <th>Alias Name</th>
+                  <th>Component Name</th>
+                  <th>Nature of Plating</th>
+                  <th>Reason</th>
+                  <th>Round No</th>
+                  <th>Qty</th>
+                  <th>Loading Value</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of ResponseData | paginate: { itemsPerPage: 10, currentPage: p }">
+                  <td>{{item.ShiftDate}}</td>
+                  <td>{{item.Shift}}</td>
+                  <td>{{item.Alias_Name}}</td>
+                  <td>{{item.Component_Name}}</td>
+                  <td>{{item.Nature_of_Plating}}</td>
+                  <td>{{item.Reason}}</td>
+                  <td>{{item.RoundNo}}</td>
+                  <td>{{item.Qty}}</td>
+                  <td>{{item.Loading_Value}}</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+        </div>
+      </div>
+
       </section>
       <!-- /.content -->
     </div>

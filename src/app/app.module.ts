@@ -5,6 +5,9 @@ import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Ng2PaginationModule } from 'ng2-pagination';
 
+//Pagination
+import {Ng2PaginationModule} from 'ng2-pagination';
+
 //Generic Table Imports
 import { GenericTableModule } from '@angular-generic-table/core';
 import { ColumnSettingsModule } from "@angular-generic-table/column-settings/column-settings.module";
@@ -26,6 +29,7 @@ import { LoginComponent } from './Template_Component/login/login.component';
 import { DashboardComponent } from './Dashboard/dashboard.component';
   //PPC Components
   import { ScheduleEditComponent } from './Dashboard/PPC/ScheduleEdit/scheduleedit.component';
+  import { PPCSummaryComponent } from './Dashboard/PPC/PPCSummary/ppcsummary.component';
 
  //Mater Component
  import { ItemComponent } from './Dashboard/Masters/ComponentMaster/item.component';
@@ -37,6 +41,8 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
  //Jigg 
   import { JiggReport } from './Dashboard/JiggManufacture/JiggMfgReport/jiggreport.component';
   import { JigMasterComponent } from './Dashboard/JiggManufacture/JigMaster/jigmaster.component';
+  import { JiggCount } from './Dashboard/JiggManufacture/JiggCount/jiggcount.component';
+  import { JiggingReport } from './Dashboard/JiggManufacture/JiggingReport/jiggingreport.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +56,7 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
     DashboardComponent,
       //PPC Components
       ScheduleEditComponent,
+      PPCSummaryComponent,
       //Master Component
       ItemComponent,
       LoadingData,
@@ -59,7 +66,9 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
 
       //Jigg Component
       JiggReport,
-      JigMasterComponent
+      JigMasterComponent,
+      JiggCount,
+      JiggingReport
   ],
   imports: [
     BrowserModule,

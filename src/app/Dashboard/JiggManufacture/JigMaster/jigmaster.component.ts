@@ -18,7 +18,7 @@ export class JigMasterComponent{
     allitems;
     response: Response;
 
-    constructor(private router: Router, private jigmasterService: JigMasterService)
+   constructor(private router: Router, private jigmasterService: JigMasterService)
     {        
     }
     ngOnInit(){

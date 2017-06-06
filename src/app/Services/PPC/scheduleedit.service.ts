@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { host } from '../../Configurations/application.config';
 import 'rxjs/add/operator/map';
@@ -9,7 +9,7 @@ import 'rxjs/add/operator/catch';
 
 export class ScheduleEditService{
     constructor(private http: Http){
-        console.log("scheduleedit service...")
+        //console.log("scheduleedit service...")
     }
 
     getBindItems_ByAliasName(){
@@ -35,6 +35,25 @@ export class ScheduleEditService{
         });
 
         return this.http.post( host +'PPCController/getScheduleEditData',body,{headers:headers})
+            .map(res => res.json());
+    }
+    getAllData(){
+        return this.http.get(host + 'PPCController/getAllData')
+            .map(res => res.json());
+    }
+    updateCustomer(RoundReq, ScheduleQty, CustomerID, ItemID, ID){
+        var headers = new Headers();
+        headers.append('Content-Type','Application/Json');
+
+        var body = JSON.stringify({
+            RoundReq: RoundReq,
+            ScheduleQty: ScheduleQty,
+            CustomerID: CustomerID,
+            ItemID: ItemID,
+            Id: ID,
+        });
+
+        return this.http.post( host +'PPCController/updateCustomer',body,{headers:headers})
             .map(res => res.json());
     }
 }
