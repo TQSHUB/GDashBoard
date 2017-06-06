@@ -13,7 +13,7 @@ import * as $ from 'jquery';
 declare var ETE: any;
 
 @Component({
-  selector: 'schedule-edit',
+  selector: 'ppc-schedule-edit',
   templateUrl: './scheduleedit.component.html',
   providers: [ScheduleEditService, DatePipe, SearchPipe],
 })

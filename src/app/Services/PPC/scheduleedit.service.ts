@@ -9,7 +9,7 @@ import 'rxjs/add/operator/catch';
 
 export class ScheduleEditService{
     constructor(private http: Http){
-        console.log("scheduleedit service...")
+        //console.log("scheduleedit service...")
     }
 
     getBindItems_ByAliasName(){

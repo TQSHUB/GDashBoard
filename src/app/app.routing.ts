@@ -7,9 +7,10 @@ import { LoginComponent } from './Template_Component/login/login.component';
 //Dashboard Components
 import { DashboardComponent } from './Dashboard/dashboard.component'
     //PPC Components
-    import { ScheduleEditComponent } from './Dashboard/PPC/ScheduleEdit/scheduleedit.component'
+    import { ScheduleEditComponent } from './Dashboard/PPC/ScheduleEdit/scheduleedit.component';
+    import { PPCSummaryComponent } from './Dashboard/PPC/PPCSummary/ppcsummary.component';
     //Master Components
-     import { ItemComponent } from './Dashboard/Masters/ComponentMaster/item.component'
+     import { ItemComponent } from './Dashboard/Masters/ComponentMaster/item.component';
      import { LoadingData } from './Dashboard/Masters/PendingRound/loadingdata.component';
      import { FrmLoading } from './Dashboard/Masters/EditPendingRound/frmloading.component';
      import { CustomerItemMasterComponent } from './Dashboard/Masters/CustomerItemMaster/custitemmaster.component'
@@ -33,6 +34,10 @@ const appRoute: Routes = [
             {
                 path: 'PPC/ScheduleEdit',
                 component: ScheduleEditComponent
+            },
+            {
+                path: 'PPC/PPCSummary',
+                component: PPCSummaryComponent
             },
             {
                 path: 'Masters/ComponentMaster',

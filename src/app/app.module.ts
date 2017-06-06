@@ -28,6 +28,7 @@ import { LoginComponent } from './Template_Component/login/login.component';
 import { DashboardComponent } from './Dashboard/dashboard.component';
   //PPC Components
   import { ScheduleEditComponent } from './Dashboard/PPC/ScheduleEdit/scheduleedit.component';
+  import { PPCSummaryComponent } from './Dashboard/PPC/PPCSummary/ppcsummary.component';
 
  //Mater Component
  import { ItemComponent } from './Dashboard/Masters/ComponentMaster/item.component';
@@ -54,6 +55,7 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
     DashboardComponent,
       //PPC Components
       ScheduleEditComponent,
+      PPCSummaryComponent,
       //Master Component
       ItemComponent,
       LoadingData,
