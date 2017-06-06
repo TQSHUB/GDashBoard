@@ -43,6 +43,9 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
   import { JiggCount } from './Dashboard/JiggManufacture/JiggCount/jiggcount.component';
   import { JiggingReport } from './Dashboard/JiggManufacture/JiggingReport/jiggingreport.component';
 
+  //Dashboard
+  import { CSDashboardComponent } from './Dashboard/Dashboard/CSDashboard/csdashboard.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +70,10 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
       JiggReport,
       JigMasterComponent,
       JiggCount,
-      JiggingReport
+      JiggingReport,
+
+      //Dashboard
+      CSDashboardComponent
   ],
   imports: [
     BrowserModule,

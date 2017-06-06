@@ -22,6 +22,9 @@ import { DashboardComponent } from './Dashboard/dashboard.component'
      import { JiggCount } from './Dashboard/JiggManufacture/JiggCount/jiggcount.component';
      import { JiggingReport } from './Dashboard/JiggManufacture/JiggingReport/jiggingreport.component';
 
+     //Dashboard
+     import { CSDashboardComponent } from './Dashboard/Dashboard/CSDashboard/csdashboard.component';
+
 const appRoute: Routes = [
     {
         path: 'Login',
@@ -74,6 +77,11 @@ const appRoute: Routes = [
             {
                 path: 'JiggManufacture/JiggingReport',
                 component: JiggingReport
+            }
+            ,
+            {
+                path: '',
+                component: CSDashboardComponent
             }
         ]
     }
