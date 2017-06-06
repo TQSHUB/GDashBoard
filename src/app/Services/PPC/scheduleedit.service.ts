@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import { host } from '../../Configurations/application.config';
 import 'rxjs/add/operator/map';
@@ -35,6 +35,10 @@ export class ScheduleEditService{
         });
 
         return this.http.post( host +'PPCController/getScheduleEditData',body,{headers:headers})
+            .map(res => res.json());
+    }
+    getAllData(){
+        return this.http.get(host + 'PPCController/getAllData')
             .map(res => res.json());
     }
     updateCustomer(RoundReq, ScheduleQty, CustomerID, ItemID, ID){
