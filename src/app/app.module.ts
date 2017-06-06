@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Ng2PaginationModule } from 'ng2-pagination';
 
 //Generic Table Imports
 import { GenericTableModule } from '@angular-generic-table/core';
@@ -68,7 +69,8 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
     BrowserAnimationsModule,
     GenericTableModule,
     ColumnSettingsModule,
-    BusyModule
+    BusyModule,
+    Ng2PaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
