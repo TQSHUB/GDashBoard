@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ItemService } from '../../../Services/Masters/item.service';
 import { GenericTableComponent ,GtConfig } from '@angular-generic-table/core';
-import { fields } from './gridFields.config';
-import { settings } from './gridSettings.config';
+import { SearchPipe } from './searchtable.pipe'
 import * as $ from 'jquery';
 import { Subscription } from 'rxjs';
 
@@ -11,12 +10,15 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'itemcomponent',
   templateUrl: './item.component.html',
-  providers : [ItemService ]
+  providers : [ItemService,SearchPipe ]
 })
 export class ItemComponent {
 
-  allitems : Item[];
+  allitems ;
   busy: Subscription;
+  ResponseDataCopy;
+  ResponseData;
+  searchText;
 
   Additem : String;
   updateitem :string; 
@@ -37,7 +39,7 @@ export class ItemComponent {
   response: Response;
   display_message_class;
 
-  constructor(private router:Router, private itemservice:ItemService){
+  constructor(private router:Router, private itemservice:ItemService,private searchPipe: SearchPipe){
    
   }
 
@@ -67,7 +69,7 @@ export class ItemComponent {
   getAllItem(){
    this.busy =  this.itemservice.getAllItem().subscribe(res=>{
       this.allitems =res.Data;
-      console.log(res.Data);
+      this.ResponseDataCopy = res.Data;
     })
   }
 
@@ -144,6 +146,14 @@ export class ItemComponent {
               this.display_message_class = 'alert alert-danger alert-dismissible';
       }
     })
+  }
+
+  SearchTextBox(){
+    var filterData = this.searchPipe.transform(this.ResponseDataCopy, this.searchText);
+    if(filterData == 'Empty')
+      this.allitems = this.ResponseDataCopy;
+    else
+      this.allitems = filterData;
   }
 }
 interface Response{

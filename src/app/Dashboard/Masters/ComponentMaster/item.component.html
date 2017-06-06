@@ -89,7 +89,13 @@
             <div style="width:100%; height:100%; overflow: auto;" >
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="itemsTable" class="table table-bordered table-striped">
+              <div class="row" style="margin: 0.5%;">
+                <div class="col-md-6 col-sm-12">
+                <input class="form-control form-control-sm mb-2 mr-sm-2 mb-lg-0" #search (keyup)="SearchTextBox()" placeholder="Search" [(ngModel)]="searchText"> {{searchText}}
+                </div>
+            </div>
+            <div class="row">
+              <table id="itemsTable" class="table table-bordered table-striped table-responsive">
                 <thead>
                 <tr>
                   <th>Code</th>
@@ -117,6 +123,7 @@
                 </tr>
                 </tbody>
               </table>
+            </div>
               <pagination-controls (pageChange)="p = $event"></pagination-controls>
             </div>
             </div>
@@ -126,82 +133,6 @@
       </div>
         <!-- datatable end -->
         <!-- Edit model pop -up --> 
-        <div class="modal fade bs-example-modal-sm-edit" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-            <div class="modal-dialog modal-md" role="document">
-                <div class="modal-content">
-                <div class="modal-header bg-primary">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title"><i class="ion ion-person-add"></i>&nbsp;&nbsp; New Teacher</h4>
-                </div>
-                <div class="modal-body">
-                    <form method="post">
-                   <div class="row">
-            <div class="col-sm-12 col-md-4"style="margin-bottom: 20px">
-                <label for="lblaliasname">Alias Name</label>
-                <input  type="text" class="form-control"  name="txtaliasname" [(ngModel)]="txtaliasname" id="txtaliasname" placeholder="" required>
-            </div>
-
-            <div class="col-sm-12 col-md-4">
-                <label for="lblcomponent">Component Name</label>
-                <input type="text" class="form-control"  name="txtcomponentname" [(ngModel)]="txtcomponentname" id="txtcomponentname" placeholder="" required>
-            </div>
-
-            <div class="col-sm-12 col-md-4">
-                <label for="lblrate">Rate</label>
-                <input type="text" class="form-control"  name="txtrate" [(ngModel)]="txtrate" id="txtrate" placeholder="" required>
-            </div>
-
-          </div>
-
-         <div class="row">
-            <div class="col-sm-12 col-md-4" style="margin-bottom: 20px">
-                <div class="input-group" >
-                       <label for="lblcomponent">Nature of Component</label>
-                         <select id="natureofcomp" class="form-control select2"  style="width: 100%;"   name="txtcomp">
-                             <option selected="selected">--Select Nature of Component--</option>
-                            <option value="Big">Big</option>
-                            <option value="Medium">Medium</option>
-                            <option value="Small">Small</option>
-                        </select>
-                    </div>
-            </div>
-
-            <div class="col-sm-12 col-md-4">
-                <label for="lblroundqty">Round Qty</label>
-                <input  type="text" class="form-control"  name="txtroundqty" [(ngModel)]="txtroundqty" id="txtroundqty" placeholder="" required>
-            </div>
-
-            <div class="col-sm-12 col-md-4">
-                <label for="lbluom">Uom</label>
-                <input type="text" class="form-control"  name="txtuom" [(ngModel)]="txtuom" id="txtuom" placeholder="" required>
-            </div>
-
-         </div>
-
-         <div class="row">
-            <div class="col-sm-12 col-md-4"style="margin-bottom: 20px">
-                <div class="input-group" >
-                    <label for="lblplating">Nature of Plating</label>
-                        <select id="natureofplating" class="form-control select2"  style="width: 100%;"   name="txtplating">
-                             <option selected="selected">--Select Nature of Plating--</option>
-                            <option value="Satin">Satin</option>
-                            <option value="Chrome">Chrome</option>
-                        </select>
-                    </div>
-            </div>
-         </div>
-
-                    </form>
-                </div>
-                <div class="modal-footer" [ngClass]="display_message_class">
-                    <label class="pull-left" >{{display_message}}</label>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" (click)="updateTeacher()">Update Item</button>
-                </div>
-                </div>
-            </div>
-        </div>
-
         <!-- end of model pop - up -->
       </section>
       <!-- /.content -->

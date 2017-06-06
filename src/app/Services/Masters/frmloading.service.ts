@@ -14,4 +14,31 @@ import 'rxjs/add/operator/catch';
         return this.http.get(host + 'PPCController/getBindItems_ByAliasName/')
         .map(res => res.json());
     }
+
+    getFrmLoading(fromdate:string , todate:string){
+        var headers = new Headers();
+        headers.append('Content-Type','Application/Json');
+
+         var body = JSON.stringify({
+            FromDate: fromdate,
+            ToDate: todate,
+        });
+        return this.http.post( host +'ItemController/getLFrmLoading',body,{headers:headers})
+            .map(res => res.json());
+    }
+
+    updateFrmloading(item_code:string,qty:String){
+         var headers = new Headers();
+             headers.append('Authorization','Bearer');
+             headers.append('Content-Type','Application/Json');
+
+              var body = JSON.stringify({
+                Item_Code : item_code,
+                Qty : qty,
+            });
+             return this.http.put(host +'ItemController/updatefrmloading',body,{headers:headers})
+            .map(res=>res.json());
+    }
+
+    
 }

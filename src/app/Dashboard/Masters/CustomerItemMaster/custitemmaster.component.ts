@@ -9,7 +9,7 @@ import 'rxjs/add/operator/map';
 @Component({
     selector: 'customeritem-master',
     templateUrl: './custitemmaster.component.html',
-    //providers: [ CustomerItemMasterService]
+    providers: [ CustomerItemMasterService]
 })
 export class CustomerItemMasterComponent{
     title = 'This is an Angular!';
