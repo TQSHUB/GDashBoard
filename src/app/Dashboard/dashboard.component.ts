@@ -14,5 +14,7 @@ export class DashboardComponent {
     var script = document.createElement('script');
     document.body.appendChild(script);
     script.src = 'assets/plugins/select2/select2.full.min.js';
+
+    
   }
 }
