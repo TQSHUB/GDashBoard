@@ -4,6 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+//Pipes
+import { JsonDate } from './Pipes/jsondate.pipe';
+
 //Pagination
 import {Ng2PaginationModule} from 'ng2-pagination';
 
@@ -49,6 +52,9 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
+    //Pipes
+    JsonDate,
+    
     //Template Components
     TopNavigationComponent,
     FooterComponent,

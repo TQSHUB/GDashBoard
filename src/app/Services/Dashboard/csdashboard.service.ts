@@ -12,16 +12,28 @@ export class CSDashboardService{
         //console.log("ppc service service...")
     }
 
-    getMonthlySummary(month: string, natureofcomp: string){
-        var headers = new Headers();
-        headers.append('Content-Type','Application/Json');
-
-        var body = JSON.stringify({
-            Month: month,
-            NatureOfComp: natureofcomp
-        });
-
-        return this.http.post( host +'PPCController/PPCSummary',body,{headers:headers})
+    getMonthlyInspection(type: string){
+        return this.http.get( host +'DashboardPrimaryController/GetMonthlyInspection/' + type)
+            .map(res => res.json());
+    }
+    getMonthlyRoundNo(type: string){
+        return this.http.get( host +'DashboardPrimaryController/GetMonthlyRoundNo/' + type)
+            .map(res => res.json());
+    }
+    GetMonthlyPending(type: string){
+        return this.http.get( host +'DashboardPrimaryController/GetMonthlyPending/' + type)
+            .map(res => res.json());
+    }
+    GetMonthlyEmptyRound(type: string){
+        return this.http.get( host +'DashboardPrimaryController/GetMonthlyEmptyRound/' + type)
+            .map(res => res.json());
+    }
+    LoadingChromeData(){
+        return this.http.get( host +'DashboardPrimaryController/LoadingChromeData')
+            .map(res => res.json());
+    }
+    LoadingSatinData(){
+        return this.http.get( host +'DashboardPrimaryController/LoadingSatinData')
             .map(res => res.json());
     }
 }

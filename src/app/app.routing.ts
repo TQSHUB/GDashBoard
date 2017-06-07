@@ -80,7 +80,7 @@ const appRoute: Routes = [
             }
             ,
             {
-                path: '',
+                path: 'Dashboard/DashboardPrimary',
                 component: CSDashboardComponent
             }
         ]
