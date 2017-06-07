@@ -18,6 +18,7 @@ declare var cvsMonthlySatin: any;
   providers: [DatePipe, CSDashboardService, CurrencyPipe]
 })
 export class CSDashboardComponent {
+  busy: Subscription;
   //Chrome
   ChromeInspectionResponse;
   TotalInspectionChrome = 0;
@@ -65,7 +66,7 @@ export class CSDashboardComponent {
 
   //Chrome Inspection
   getMonthlyInspectionChrome(){
-      this.csDashboardService.getMonthlyInspection('Chrome').subscribe(res => {
+      this.busy = this.csDashboardService.getMonthlyInspection('Chrome').subscribe(res => {
         this.ChromeInspectionResponse = JSON.parse(res);
         this.ChartBindCMI(this.ChromeInspectionResponse);
       });
@@ -97,7 +98,7 @@ export class CSDashboardComponent {
 
   //Chrome Monthly
   getMonthlyRoundNoChrome(){
-    this.csDashboardService.getMonthlyRoundNo('Chrome').subscribe(res => {
+    this.busy = this.csDashboardService.getMonthlyRoundNo('Chrome').subscribe(res => {
       this.ChromeMonthlyResponse = JSON.parse(res);
       this.csDashboardService.GetMonthlyPending('Chrome').subscribe(res => {
         this.ChromePendingResponse = JSON.parse(res);
@@ -128,7 +129,7 @@ export class CSDashboardComponent {
 
   //Satine Inspection
   getMonthlyInspectionSatine(){
-      this.csDashboardService.getMonthlyInspection('Satin').subscribe(res => {
+      this.busy = this.csDashboardService.getMonthlyInspection('Satin').subscribe(res => {
         this.SatinInspectionResponse = JSON.parse(res);
         this.ChartBindSMI(this.SatinInspectionResponse);
       });
@@ -158,9 +159,9 @@ export class CSDashboardComponent {
     cvsSatinInspection(lables,d1,d2,d3,d4,d5);
   }
 
-  //Chrome Monthly
+  //Satin Monthly
   getMonthlyRoundNoSatine(){
-    this.csDashboardService.getMonthlyRoundNo('Satin').subscribe(res => {
+    this.busy = this.csDashboardService.getMonthlyRoundNo('Satin').subscribe(res => {
       this.ChromeMonthlyResponse = JSON.parse(res);
       this.csDashboardService.GetMonthlyPending('Satin').subscribe(res => {
         this.ChromePendingResponse = JSON.parse(res);

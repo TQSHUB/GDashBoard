@@ -48,6 +48,8 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
 
   //Dashboard
   import { CSDashboardComponent } from './Dashboard/Dashboard/CSDashboard/csdashboard.component';
+  import { JiggDashboardComponent } from './Dashboard/Dashboard/JiggDashboard/jiggdashboard.component';
+  import { PPCDashboardComponent } from './Dashboard/Dashboard/PPCDashboard/ppcdashboard.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +81,9 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
       JiggingReport,
 
       //Dashboard
-      CSDashboardComponent
+      CSDashboardComponent,
+      JiggDashboardComponent,
+      PPCDashboardComponent
   ],
   imports: [
     BrowserModule,
