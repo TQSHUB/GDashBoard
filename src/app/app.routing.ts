@@ -7,9 +7,10 @@ import { LoginComponent } from './Template_Component/login/login.component';
 //Dashboard Components
 import { DashboardComponent } from './Dashboard/dashboard.component'
     //PPC Components
-    import { ScheduleEditComponent } from './Dashboard/PPC/ScheduleEdit/scheduleedit.component'
+    import { ScheduleEditComponent } from './Dashboard/PPC/ScheduleEdit/scheduleedit.component';
+    import { PPCSummaryComponent } from './Dashboard/PPC/PPCSummary/ppcsummary.component';
     //Master Components
-     import { ItemComponent } from './Dashboard/Masters/ComponentMaster/item.component'
+     import { ItemComponent } from './Dashboard/Masters/ComponentMaster/item.component';
      import { LoadingData } from './Dashboard/Masters/PendingRound/loadingdata.component';
      import { FrmLoading } from './Dashboard/Masters/EditPendingRound/frmloading.component';
      import { CustomerItemMasterComponent } from './Dashboard/Masters/CustomerItemMaster/custitemmaster.component'
@@ -20,6 +21,11 @@ import { DashboardComponent } from './Dashboard/dashboard.component'
      import { JigMasterComponent } from './Dashboard/JiggManufacture/JigMaster/jigmaster.component';
      import { JiggCount } from './Dashboard/JiggManufacture/JiggCount/jiggcount.component';
      import { JiggingReport } from './Dashboard/JiggManufacture/JiggingReport/jiggingreport.component';
+
+     //Dashboard
+     import { CSDashboardComponent } from './Dashboard/Dashboard/CSDashboard/csdashboard.component';
+     import { JiggDashboardComponent } from './Dashboard/Dashboard/JiggDashboard/jiggdashboard.component';
+     import { PPCDashboardComponent } from './Dashboard/Dashboard/PPCDashboard/ppcdashboard.component';
 
 const appRoute: Routes = [
     {
@@ -33,6 +39,10 @@ const appRoute: Routes = [
             {
                 path: 'PPC/ScheduleEdit',
                 component: ScheduleEditComponent
+            },
+            {
+                path: 'PPC/PPCSummary',
+                component: PPCSummaryComponent
             },
             {
                 path: 'Masters/ComponentMaster',
@@ -69,6 +79,18 @@ const appRoute: Routes = [
             {
                 path: 'JiggManufacture/JiggingReport',
                 component: JiggingReport
+            },
+            {
+                path: 'Dashboard/DashboardPrimary',
+                component: CSDashboardComponent
+            },
+            {
+                path: 'Dashboard/JiggDashboard',
+                component: JiggDashboardComponent
+            },
+            {
+                path: 'Dashboard/PPCDashboard',
+                component: PPCDashboardComponent
             }
         ]
     }
