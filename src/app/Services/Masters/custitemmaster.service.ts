@@ -25,7 +25,7 @@ export class CustomerItemMasterService{
             Name: customername,
             Alias_Name: itemname
         });
-        return this.http.post(host + 'customer/insertCustomerItem',body,{headers: headers})
+        return this.http.post(host + 'customer/InsertCustomeritem',body,{headers: headers})
             .map(res => res.json);
     }
 

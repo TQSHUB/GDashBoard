@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Ng2PaginationModule } from 'ng2-pagination';
+//import { Ng2PaginationModule } from 'ng2-pagination';
 
 //Pagination
 import {Ng2PaginationModule} from 'ng2-pagination';

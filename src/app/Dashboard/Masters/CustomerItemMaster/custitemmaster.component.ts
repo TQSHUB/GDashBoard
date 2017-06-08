@@ -25,9 +25,14 @@ export class CustomerItemMasterComponent{
     ddcustomername;
     ddaliasname;
 
+    customername;
+    aliasname;
+
     display_message;
     response: Response;
     display_message_class;
+
+    caption = 'ADD';
 
     constructor(private router: Router, private customeritemmasterService: CustomerItemMasterService)
     {
@@ -69,30 +74,45 @@ export class CustomerItemMasterComponent{
 
     createCustomerItemMaster()
     {
+        this.customername = $("#Customer_Names").val();
+        this.aliasname = $("#Item_Names").val();
+
         this.customeritemmasterService.addNewCustomerItem(this.ddcustomername, this.ddaliasname)
             .subscribe(res => {
                 this.insertcustitems = res;
+                console.log(this.insertcustitems);
                 
                 //Success and failure message code
-                if(this.response)
+                if(this.insertcustitems)
                 {
                     this.display_message = 'Customer Master added successfully';
                     this.display_message_class = 'alert alert-success alert-dismissible';                    
                     this.clearValues();
+                    this.getAllCustomerItems();
                 }
                 else
                 {
                     this.display_message = 'Customer Master not added successfully';
                     this.display_message_class = 'alert alert-danger alert-dismissible';
+                    this.clearValues();
                 }
             });
     }
 
     selectedCustomerItem(CustomerItem)
     {
+        var customername = CustomerItem.Name;
+        var aliasname = CustomerItem.Alias_Name;
+
+        this.aliasname = CustomerItem.Alias_Name;
+
         this.itemid = CustomerItem.ItemId;
+        $("#Item_Names").val(CustomerItem.ItemId);
+        
         this.ddcustomername = CustomerItem.Name;
         this.ddaliasname = CustomerItem.Alias_Name;
+        console.log(this.itemid);
+        this.caption = 'UPDATE';
     }
 
     searchCustomerItems()
@@ -109,20 +129,38 @@ export class CustomerItemMasterComponent{
     {
         this.ddcustomername = '';
         this.ddaliasname = '';
+
+        setTimeout(()=> {
+        this.display_message_class = '';
+        this.display_message = '';
+        }, 2000);
+    }
+
+    FunctionOnCaption()
+    {
+        if(this.caption == 'ADD')
+            this.createCustomerItemMaster();
+        if(this.caption == 'UPDATE')
+            //console.log(this.caption);
+            this.updateCustomerItem(this.itemid, this.customername, this.aliasname);
     }
 
     updateCustomerItem(itemid: string, customername: string, itemname: string)
     {
+        this.aliasname = $("#Item_Names").val();
+        console.log(this.aliasname);
+
         this.busy = this.customeritemmasterService.updateCustomerItem(this.itemid, this.ddcustomername, this.ddaliasname)
             .subscribe(res => {
                 this.updatecustitems = res;
 
                 //Success and failure message code
-                if(this.response)
+                if(this.updatecustitems)
                 {
                     this.display_message = 'Customer Master updated successfully';
                     this.display_message_class = 'alert alert-success alert-dismissible';                    
                     this.clearValues();
+                    this.getAllCustomerItems();
                 }
                 else
                 {

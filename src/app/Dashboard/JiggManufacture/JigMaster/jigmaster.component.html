@@ -28,25 +28,58 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <!--<label class="pull-left" >{{display_message}}</label>-->
+                        <div class="modal-footer" [ngClass]="display_message_class">
+                            <label class="pull-left" >{{display_message}}</label>
                             <button type="button" class="btn btn-primary" (click)="createCustMaster()">ADD</button>
                             <button type="button" class="btn btn-default">CANCEL</button>
-                                <!--<asp:Button ID="addnew" runat="server" Text="ADD" class="btn btn-primary" margin-left="70px" OnClick="addnew_Click"  />
-                                <asp:Button ID="canel" runat="server" Text="CANCEL" class="btn btn-primary" OnClick="canel_Click" />                                   -->
                         </div>
                     </form>                                                                
                 </div>
                 <!-- /.box-body -->
-
-               <!--<div class="box box-info">
-               <div class="box-header with-border">
-                    
-               </div>
-
-               </div>-->
             </div>
             <!-- /.box -->
+
+            <div class="box box-default">
+                <div class="box-header with-border">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-12">
+                            <h3 class="box-title"><i class="fa fa-table"></i>&nbsp;Result Data</h3>
+                        </div>
+                        <div class="col-md-3 col-md-offset-1 col-sm-12">
+                            <input class="form-control form-control-sm mb-2 mr-sm-2 mb-lg-0" #search (keyup)="SearchTextBox()" placeholder="Search" [(ngModel)]="searchText">
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <form method="post">
+                        <div style="width:100%; height:100%; overflow: auto;" >
+                            <div class="box-body">
+                                <table id="JiggMstTable" class="table table-bordered table-striped table-responsive">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Code</th>
+                                            <th>Alias Name</th>
+                                            <th>Item Id</th>
+                                            <th>Edit</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let JiggMst of alljiggmstdata_aliasname | paginate: { itemsPerPage: 5, currentPage: p }">
+                                            <td>{{JiggMst.Id}}</td>
+                                            <td>{{JiggMst.Jig_Code}}</td>
+                                            <td>{{JiggMst.Alias_Name}}</td>
+                                            <td>{{JiggMst.Item_Id}}</td>
+                                            <td><a (click)="selectedCustomerItem(CustomerItem)"><span class="btn glyphicon glyphicon-pencil" data-toggle="modal" data-target=".bs-example-modal-sm-edit"></span></a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                            </div>
+                        </div>
+                    </form>                
+                </div>
+            </div>
         </section>
         <!-- /.content -->
     </div>

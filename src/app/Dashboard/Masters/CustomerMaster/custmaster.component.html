@@ -24,8 +24,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <!--<label class="pull-left" >{{display_message}}</label>-->
+                        <div class="modal-footer" [ngClass]="display_message_class">
+                            <label class="pull-left" >{{display_message}}</label>
                             <button type="button" class="btn btn-primary" (click)="FunctionOnCaption()">{{caption}}</button>
                             <button type="button" class="btn btn-default">CANCEL</button>
                         </div>

@@ -63,6 +63,7 @@ export class CustomerMasterComponent{
                 {
                     this.display_message = 'Customer Master not added successfully';
                     this.display_message_class = 'alert alert-danger alert-dismissible';
+                    this.clearValues();
                 }
             });
     }
@@ -71,6 +72,11 @@ export class CustomerMasterComponent{
     {
         this.txtcustomername = '';
         this.txtlongname = '';
+
+        setTimeout(()=> {
+        this.display_message_class = '';
+        this.display_message = '';
+        }, 2000);
     }
 
     selectedCustomer(customer: CustomerMaster)

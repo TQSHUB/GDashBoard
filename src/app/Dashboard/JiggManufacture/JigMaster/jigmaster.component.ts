@@ -13,10 +13,14 @@ import 'rxjs/add/operator/map';
 })
 
 export class JigMasterComponent{
-    title = 'This is an Angular!';
+    busy: Subscription;
+
+    id;
 
     allitems;
-    response: Response;
+    response;
+    alljiggmstdata;
+    alljiggmstdata_aliasname;
 
    constructor(private router: Router, private jigmasterService: JigMasterService)
     {        
@@ -27,6 +31,8 @@ export class JigMasterComponent{
         script.src = '../assets/ComponentJs/JiggManufacture/jigmaster.component.js';
 
         this.getAllItems();
+        this.getAllJiggMstData();
+        this.getAllJiggMstDataAliasnames();
     }
 
     getAllItems()
@@ -36,8 +42,24 @@ export class JigMasterComponent{
             console.log(this.allitems);
         });
     }
+
+    getAllJiggMstData()
+    {
+        this.jigmasterService.getAllJiggMstData().subscribe(res => {
+            this.alljiggmstdata = res;
+            console.log(this.alljiggmstdata);
+        });
+    }
+
+    getAllJiggMstDataAliasnames()
+    {
+        this.jigmasterService.getAllJiggMstDataAliasnames(this.id).subscribe(res => {
+            this.alljiggmstdata_aliasname = res;
+            console.log(this.alljiggmstdata_aliasname);
+        });
+    }
 }
 
-interface Response{
+/*interface Response{
     Data: boolean;
-}
+}*/
