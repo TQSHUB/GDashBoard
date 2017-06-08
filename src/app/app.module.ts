@@ -5,6 +5,9 @@ import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { Ng2PaginationModule } from 'ng2-pagination';
 
+//Pipes
+import { JsonDate } from './Pipes/jsondate.pipe';
+
 //Pagination
 import {Ng2PaginationModule} from 'ng2-pagination';
 
@@ -44,9 +47,17 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
   import { JiggCount } from './Dashboard/JiggManufacture/JiggCount/jiggcount.component';
   import { JiggingReport } from './Dashboard/JiggManufacture/JiggingReport/jiggingreport.component';
 
+  //Dashboard
+  import { CSDashboardComponent } from './Dashboard/Dashboard/CSDashboard/csdashboard.component';
+  import { JiggDashboardComponent } from './Dashboard/Dashboard/JiggDashboard/jiggdashboard.component';
+  import { PPCDashboardComponent } from './Dashboard/Dashboard/PPCDashboard/ppcdashboard.component';
+
 @NgModule({
   declarations: [
     AppComponent,
+    //Pipes
+    JsonDate,
+    
     //Template Components
     TopNavigationComponent,
     FooterComponent,
@@ -68,7 +79,12 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
       JiggReport,
       JigMasterComponent,
       JiggCount,
-      JiggingReport
+      JiggingReport,
+
+      //Dashboard
+      CSDashboardComponent,
+      JiggDashboardComponent,
+      PPCDashboardComponent
   ],
   imports: [
     BrowserModule,

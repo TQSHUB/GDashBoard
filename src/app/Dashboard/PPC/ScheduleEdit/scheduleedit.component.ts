@@ -42,6 +42,11 @@ export class ScheduleEditComponent {
   searchText
   //file upload
   files;
+  //Total
+  totalRoundReq = 0;
+  totalProRound = 0;
+  totalScheduleQty = 0;
+  totalOkQty = 0;
 
 
   constructor(private http: Http, private scheduleEditService: ScheduleEditService, private datepipe: DatePipe, private searchPipe: SearchPipe){}
@@ -59,6 +64,21 @@ export class ScheduleEditComponent {
     this.SearchMonthly();
   }
 
+  TotalData(res){
+    var i;
+    this.totalRoundReq = 0;
+    this.totalProRound = 0;
+    this.totalScheduleQty = 0;
+    this.totalOkQty = 0;
+    for(i = 0; i < res.length; i++)
+    {
+      this.totalRoundReq += parseInt(res[i].RoundReq);
+      this.totalProRound += parseInt(res[i].RoundNo);
+      this.totalScheduleQty += parseInt(res[i].ScheduleQty);
+      this.totalOkQty += parseInt(res[i].OkQty);
+    }
+  }
+
   SearchMonthly(){
     var Month = $("#Month").val();
     if(Month == 'NULL')
@@ -70,6 +90,7 @@ export class ScheduleEditComponent {
         this.ResponseData = res.Data;
         this.ResponseDataCopy = res.Data;
         this.whichfunctioncalled = 'SearchMonthly';
+        this.TotalData(this.ResponseData);
       });
     }
   }
@@ -99,6 +120,7 @@ export class ScheduleEditComponent {
         this.ResponseData = res.Data;
         this.ResponseDataCopy = res.Data;
         this.whichfunctioncalled = 'SearchMonthly';
+        this.TotalData(this.ResponseData);
       });
   }
 
@@ -215,8 +237,14 @@ export class ScheduleEditComponent {
   SearchTextBox(){
     var filterData = this.searchPipe.transform(this.ResponseDataCopy, this.searchText);
     if(filterData == 'Empty')
+    {
       this.ResponseData = this.ResponseDataCopy;
+      this.TotalData(this.ResponseData);
+    }
     else
+    {
       this.ResponseData = filterData;
+      this.TotalData(this.ResponseData);
+    }
   }
 }
