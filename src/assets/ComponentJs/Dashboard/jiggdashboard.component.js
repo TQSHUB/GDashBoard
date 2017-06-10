@@ -171,8 +171,13 @@ function cvsjigguse(CRlabels, CRdata){
 
 
           var ctx1 = document.getElementById("cvsjigguse").getContext("2d");
+          var opt3 = {
+                  responsive: true,
+                  maintainAspectRatio: false
+              }
               window.myBarChart = new Chart(ctx1, {
                   type: 'bar',  
+                  options: opt3,
                   data: chartDatajigg
         });
 }

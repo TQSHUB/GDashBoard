@@ -12,11 +12,11 @@ export class PPCDashboardService{
         //console.log("ppc service service...")
     }
     getPpcMonthlyChartChrome(){
-        return this.http.get( host +'DashboardPrimaryController/getPpcMonthlyChartChrome')
+        return this.http.get( host +'DashboardPrimaryController/getPpcMonthlyChartChrome/' + localStorage.getItem('Month') + '/' + localStorage.getItem('Year'))
             .map(res => res.json());
     }
     getPpcMonthlyChartSatin(){
-        return this.http.get( host +'DashboardPrimaryController/getPpcMonthlyChartSatin')
+        return this.http.get( host +'DashboardPrimaryController/getPpcMonthlyChartSatin/' + localStorage.getItem('Month') + '/' + localStorage.getItem('Year'))
             .map(res => res.json());
     }
 }

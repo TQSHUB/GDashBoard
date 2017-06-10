@@ -13,19 +13,19 @@ export class CSDashboardService{
     }
 
     getMonthlyInspection(type: string){
-        return this.http.get( host +'DashboardPrimaryController/GetMonthlyInspection/' + type)
+        return this.http.get( host +'DashboardPrimaryController/GetMonthlyInspection/' + type + '/' + localStorage.getItem('Month') + '/' + localStorage.getItem('Year'))
             .map(res => res.json());
     }
     getMonthlyRoundNo(type: string){
-        return this.http.get( host +'DashboardPrimaryController/GetMonthlyRoundNo/' + type)
+        return this.http.get( host +'DashboardPrimaryController/GetMonthlyRoundNo/' + type + '/' + localStorage.getItem('Month') + '/' + localStorage.getItem('Year'))
             .map(res => res.json());
     }
     GetMonthlyPending(type: string){
-        return this.http.get( host +'DashboardPrimaryController/GetMonthlyPending/' + type)
+        return this.http.get( host +'DashboardPrimaryController/GetMonthlyPending/' + type + '/' + localStorage.getItem('Month') + '/' + localStorage.getItem('Year'))
             .map(res => res.json());
     }
     GetMonthlyEmptyRound(type: string){
-        return this.http.get( host +'DashboardPrimaryController/GetMonthlyEmptyRound/' + type)
+        return this.http.get( host +'DashboardPrimaryController/GetMonthlyEmptyRound/' + type + '/' + localStorage.getItem('Month') + '/' + localStorage.getItem('Year'))
             .map(res => res.json());
     }
     LoadingChromeData(){

@@ -9,6 +9,8 @@ import { DashboardComponent } from './Dashboard/dashboard.component'
     //PPC Components
     import { ScheduleEditComponent } from './Dashboard/PPC/ScheduleEdit/scheduleedit.component';
     import { PPCSummaryComponent } from './Dashboard/PPC/PPCSummary/ppcsummary.component';
+    import { PPCDailyReportComponent } from './Dashboard/PPC/PPCDailyReport/ppcdailyreport.component';
+
     //Master Components
      import { ItemComponent } from './Dashboard/Masters/ComponentMaster/item.component';
      import { LoadingData } from './Dashboard/Masters/PendingRound/loadingdata.component';
@@ -43,6 +45,10 @@ const appRoute: Routes = [
             {
                 path: 'PPC/PPCSummary',
                 component: PPCSummaryComponent
+            },
+            {
+                path: 'PPC/PPCDailyReport',
+                component: PPCDailyReportComponent
             },
             {
                 path: 'Masters/ComponentMaster',
@@ -81,15 +87,15 @@ const appRoute: Routes = [
                 component: JiggingReport
             },
             {
-                path: 'Dashboard/DashboardPrimary',
+                path: 'DashboardPrimary',
                 component: CSDashboardComponent
             },
             {
-                path: 'Dashboard/JiggDashboard',
+                path: 'JiggDashboard',
                 component: JiggDashboardComponent
             },
             {
-                path: 'Dashboard/PPCDashboard',
+                path: 'PPCDashboard',
                 component: PPCDashboardComponent
             }
         ]

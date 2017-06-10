@@ -64,15 +64,14 @@ export class JiggDashboardComponent {
         this.MonthlyMfgRepRes = JSON.parse(res);
         this.jiggDashboardService.getMonthlyMfgScrape().subscribe(res => {
             this.MonthlyMfgScrRes = JSON.parse(res);
+              this.jiggDashboardService.getMonthlyMfgNew().subscribe(res => {
+              this.JiggMfgResponse = JSON.parse(res);
+                this.jiggDashboardService.getMonthlyMfgDesign().subscribe(res => {
+                  this.MonthlyMfgDesRes = JSON.parse(res);
+                    this.JiggMfg(this.JiggMfgResponse, this.MonthlyMfgDesRes, this.MonthlyMfgRepRes, this.MonthlyMfgScrRes);
+                });
+            });
         });
-    });
-    
-    this.busy = this.jiggDashboardService.getMonthlyMfgNew().subscribe(res => {
-      this.JiggMfgResponse = JSON.parse(res);
-      this.jiggDashboardService.getMonthlyMfgDesign().subscribe(res => {
-        this.MonthlyMfgDesRes = JSON.parse(res);
-          this.JiggMfg(this.JiggMfgResponse, this.MonthlyMfgDesRes, this.MonthlyMfgRepRes, this.MonthlyMfgScrRes);
-      });
     });
   }
 

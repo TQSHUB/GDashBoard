@@ -13,35 +13,35 @@ export class JiggDashboardService{
     }
 
     getMonthlyMfgNew(){
-        return this.http.get( host +'DashboardPrimaryController/GetMonthlyMfgNew')
+        return this.http.get( host +'DashboardPrimaryController/GetMonthlyMfgNew/' + localStorage.getItem('Month') + '/' + localStorage.getItem('Year'))
             .map(res => res.json());
     }
     getMonthlyMfgDesign(){
-        return this.http.get( host +'DashboardPrimaryController/GetMonthlyMfgDesign')
+        return this.http.get( host +'DashboardPrimaryController/GetMonthlyMfgDesign/' + localStorage.getItem('Month') + '/' + localStorage.getItem('Year'))
             .map(res => res.json());
     }
     getMonthlyMfgRepair(){
-        return this.http.get( host +'DashboardPrimaryController/GetMonthlyMfgRepair')
+        return this.http.get( host +'DashboardPrimaryController/GetMonthlyMfgRepair/' + localStorage.getItem('Month') + '/' + localStorage.getItem('Year'))
             .map(res => res.json());
     }
     getMonthlyMfgScrape(){
-        return this.http.get( host +'DashboardPrimaryController/GetMonthlyMfgScrape')
+        return this.http.get( host +'DashboardPrimaryController/GetMonthlyMfgScrape/' + localStorage.getItem('Month') + '/' + localStorage.getItem('Year'))
             .map(res => res.json());
     }
     getMonthlyMfgRectify(){
-        return this.http.get( host +'DashboardPrimaryController/GetMonthlyMfgRectify')
+        return this.http.get( host +'DashboardPrimaryController/GetMonthlyMfgRectify/' + localStorage.getItem('Month') + '/' + localStorage.getItem('Year'))
             .map(res => res.json());
     }
     getMonthlyJiggRoundChrome(){
-        return this.http.get( host +'DashboardPrimaryController/GetMonthlyJiggRoundChrome')
+        return this.http.get( host +'DashboardPrimaryController/GetMonthlyJiggRoundChrome/' + localStorage.getItem('Month') + '/' + localStorage.getItem('Year'))
             .map(res => res.json());
     }
     getMonthlyJiggRoundSatin(){
-        return this.http.get( host +'DashboardPrimaryController/GetMonthlyJiggRoundSatin')
+        return this.http.get( host +'DashboardPrimaryController/GetMonthlyJiggRoundSatin/' + localStorage.getItem('Month') + '/' + localStorage.getItem('Year'))
             .map(res => res.json());
     }
     getMonthlyRoundNoJigg(type: string){
-        return this.http.get( host +'DashboardPrimaryController/GetMonthlyRoundNoJigg/' + type)
+        return this.http.get( host +'DashboardPrimaryController/GetMonthlyRoundNoJigg/' + type + '/' + localStorage.getItem('Month') + '/' + localStorage.getItem('Year'))
             .map(res => res.json());
     }
     getTop10Jigg(){

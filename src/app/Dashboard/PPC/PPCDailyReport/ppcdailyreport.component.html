@@ -3,7 +3,7 @@
       <section class="content-header">
         <h1>
           PPC
-          <small>Schedule Edit</small>
+          <small>Daily Report</small>
         </h1>
       </section>
 
@@ -150,32 +150,30 @@
         </div>
         <div class="box-body">
             <div class="row" style="margin: 0.5%;overflow-x: auto;">
-                <table class="table table-responsive table-striped table-bordered" id="myTable" style="width: 100%;">
+                <div class="col-md-12 col-sm-12">
+                <div class="scrolling outer">
+                <div class="inner">
+                <table class="table table-responsive table-striped table-bordered table-condensed" id="myTable" style="width: 100%;">
                     <thead>
                         <tr>
-                            <th>Customer</th>
-                            <th>Component Alias</th>
-                            <th>{{totalRoundReq}} <br /> RoundReq</th>
-                            <th>{{totalProRound}} <br /> Pro.Round No</th>
-                            <th>{{totalScheduleQty}} <br /> ScheduleQty</th>
-                            <th>{{totalOkQty}} <br /> OKQty</th>
-                            <th>Rejected Qty (%)</th>
-                            <th>Edit</th>
+                            <th id="First">Edit</th>
+                            <th id="Second">Name</th>
+                            <th id="Third">Alias Name</th>
+                            <td *ngFor="let t_header of TopHeader"><b>{{t_header}}</b></td>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let response of ResponseData | paginate: { itemsPerPage: 10, currentPage: p }">
-                            <td>{{response.Name}}</td>
-                            <td>{{response.Alias_Name}}</td>
-                            <td>{{response.RoundReq}}</td>
-                            <td>{{response.RoundNo}}</td>
-                            <td>{{response.ScheduleQty}}</td>
-                            <td>{{response.OkQty}}</td>
-                            <td>{{response.RejectedQty}}</td>
-                            <td><a (click)="selectedCustomer(response)"><span class="btn glyphicon glyphicon-pencil" data-toggle="modal" data-target=".bs-example-modal-sm-edit"></span></a></td>
+                            <th id="First"><a (click)="selectedItem(response)"><span class="btn glyphicon glyphicon-pencil" data-toggle="modal" data-target=".bs-example-modal-sm-edit"></span></a></th>
+                            <th id="Second">{{response.Name}}</th>
+                            <th id="Third">{{response.AliasName}}</th>
+                            <td *ngFor="let column of TopHeader">{{response[column]}}</td>
                         </tr>
                     </tbody>
                 </table>
+                </div>
+                </div>
+                </div>
             </div>
         </div>
         <div class="box-footer">
@@ -198,39 +196,60 @@
 
 
 <div class="modal fade bs-example-modal-sm-edit" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-  <div class="modal-dialog modal-md" role="document">
+  <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
       <div class="modal-header bg-primary">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="onCloseUpdate()"><span aria-hidden="true">&times;</span></button>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title"><i class="ion ion-edit"></i>&nbsp;&nbsp; Update</h4>
       </div>
       <div class="modal-body">
         <form method="post">
           <div class="row">
-            <div class="col-md-5 col-sm-12">
+            <div class="col-md-10 col-sm-12 col-md-offset-1">
               <div class="form-group">
-                <label for="lblfullname">Round Req</label>
-                <input type="text" name="txtroundreq" [(ngModel)]="txtroundreq" class="form-control" id="txtfullname" placeholder="00" required>
+                <label for="lblMStatus">M. Status</label>
+                <select class="form-control select2" style="width: 100%;" id="MStatus">
+                    <option value="None">None</option>
+                    <option value="Confirmed">Confirmed</option>
+                    <option value="Transit">Transit</option>
+                    <option value="Development">Development</option>
+                </select>
               </div>
             </div>
-            <div class="col-md-5 col-sm-12 col-md-offset-1">
+            <div class="col-md-10 col-sm-12 col-md-offset-1">
               <div class="form-group">
-                <label for="lblfullname">Schedule Qty</label>
-                <input type="text" name="txtscheduleqty" [(ngModel)]="txtscheduleqty" class="form-control" id="txtfullname" placeholder="00" required>
+                <label for="lblMQty">M. Qty</label>
+                <input type="text" name="txtMQty" [(ngModel)]="MQty" class="form-control" id="txtMQty" placeholder="00" required>
+              </div>
+            </div>
+            <div class="col-md-10 col-sm-12 col-md-offset-1">
+              <div class="form-group">
+                <label for="lblPlanA">Plan A</label>
+                <input type="text" name="txtPlanA" [(ngModel)]="PlanA" class="form-control" id="txtPlanA" placeholder="00" required>
+              </div>
+            </div>
+            <div class="col-md-10 col-sm-12 col-md-offset-1">
+              <div class="form-group">
+                <label for="lblPlanB">Plan B</label>
+                <input type="text" name="txtPlanB" [(ngModel)]="PlanB" class="form-control" id="txtPlanB" placeholder="00" required>
+              </div>
+            </div>
+            <div class="col-md-10 col-sm-12 col-md-offset-1">
+              <div class="form-group">
+                <label for="lblPlanC">Plan C</label>
+                <input type="text" name="txtPlanC" [(ngModel)]="PlanC" class="form-control" id="txtPlanC" placeholder="00" required>
               </div>
             </div>
           </div>
         </form>
       </div>
-      <div class="modal-footer" [ngClass]="display_message_class">
-        <label class="pull-left" >{{display_message}}</label>
+      <div class="modal-footer" [ngClass]="display_message_class_1">
+        <label class="pull-left" >{{display_message_1}}</label>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="updateCustomer()">Update</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="updatePPCReport()">Update</button>
       </div>
     </div>
   </div>
 </div>
-
-
 
 <div [ngBusy]="busy"></div>
