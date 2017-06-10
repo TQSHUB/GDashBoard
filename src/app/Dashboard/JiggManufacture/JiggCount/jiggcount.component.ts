@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { JiggCountData } from '../../../Services/JiggManufacture/jiggcount.service'
 import { Subscription } from 'rxjs';
+import * as $ from 'jquery';
 
 
 @Component({
@@ -16,6 +17,8 @@ export class JiggCount{
   Alias_Names;
   JigCode;
   ResponseData;
+  Selected_Alias_Names;
+  Selected_JigCode;
   
   constructor(private jiggcountdata:JiggCountData){} 
 
@@ -40,11 +43,35 @@ export class JiggCount{
     });
   }
 
+    inStringBuilder(a: any){
+    var i;
+    var stringBuilder = '';
+    for(i=0; i < a.length; i++)
+    {
+      if(i == a.length -1)
+        stringBuilder = stringBuilder + '\'' + a[i] + '\'';
+      else
+        stringBuilder = stringBuilder + '\'' + a[i] + '\',';
+    }
+    return stringBuilder;
+  }
+
   Search()
   {
-        this.busy = this.jiggcountdata.getJigCount('','').subscribe(res => {
-        this.ResponseData = res.Data;
-        console.log(this.ResponseData);
+              
+              this.Selected_Alias_Names = $("#Alias_Names").val();
+              this.Selected_JigCode = $("#JiggCode").val();
+              var alias_string = this.inStringBuilder(this.Selected_Alias_Names);
+              var JigCode = this.inStringBuilder(this.Selected_JigCode);
+              if(alias_string == '')
+                  alias_string = '';
+              if(JigCode == '')
+                    JigCode =''
+              this.busy = this.jiggcountdata.getJigCount(JigCode,alias_string).subscribe(res => {
+              this.ResponseData = JSON.parse(res);
+              console.log(this.ResponseData);
+              console.log(alias_string);
+              console.log(JigCode);
       });
   }
 }

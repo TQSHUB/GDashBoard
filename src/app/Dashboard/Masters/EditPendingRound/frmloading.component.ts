@@ -63,7 +63,7 @@ export class FrmLoading{
       this.busy = this.frmloadingservice.updateFrmloading(this.noc,this.txtqty)
         .subscribe(res=>{
         this.response = res;
-        
+        console.log(this.noc)
       if(this.response.Data)
       {
           this.display_message = 'Item UPdate Successfully.';

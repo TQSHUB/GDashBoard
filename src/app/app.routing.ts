@@ -21,6 +21,7 @@ import { DashboardComponent } from './Dashboard/dashboard.component'
      import { JigMasterComponent } from './Dashboard/JiggManufacture/JigMaster/jigmaster.component';
      import { JiggCount } from './Dashboard/JiggManufacture/JiggCount/jiggcount.component';
      import { JiggingReport } from './Dashboard/JiggManufacture/JiggingReport/jiggingreport.component';
+     import {JiggEntry} from './Dashboard/JiggManufacture/JiggMfgEntry/jiggentry.component';
 
      //Dashboard
      import { CSDashboardComponent } from './Dashboard/Dashboard/CSDashboard/csdashboard.component';
@@ -79,6 +80,10 @@ const appRoute: Routes = [
             {
                 path: 'JiggManufacture/JiggingReport',
                 component: JiggingReport
+            },
+             {
+                path: 'JiggManufacture/JiggEntry',
+                component: JiggEntry
             },
             {
                 path: 'Dashboard/DashboardPrimary',

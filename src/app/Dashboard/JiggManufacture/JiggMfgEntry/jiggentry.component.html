@@ -1,0 +1,235 @@
+<div class="content-wrapper">
+    <div class="container-main">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          Jigg Report
+          <small></small>
+        </h1>
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+        <div class="box box-default color-palette-box">
+        <div class="box-header with-border">
+          <!--<h3 class="box-title"><i class="fa fa-search"></i>&nbsp;Search Criteria</h3>-->
+        </div>
+        <div class="box-body">
+          <form method="post">
+        <div class="row">
+            <div class="col-sm-6 col-md-3" style="margin-bottom: 20px">
+                <div class="input-group" >
+                    <span class="input-group-addon">Select Item</span>
+                      <select id="Alias_Name" class="form-control select2"  style="width: 100%;"   name="txtcomponentname"  >
+                            <option  *ngFor="let Item of allitems" [value]="Item.Code">{{Item.Alias_Name}}</option>
+                        </select>
+                        <span class="input-group-btn">
+                              <button class="btn btn-default" type="button">
+                                 <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true" (click)="selectedJiggcode()"></span>
+                              </button>
+                        </span>
+                    </div>
+            </div>
+
+            <div class="col-sm-6 col-md-3" style="margin-bottom: 20px">
+                <div class="input-group" >
+                    <span class="input-group-addon">Select Jigg</span>
+                      <select id="natureofcomp" class="form-control select2"  style="width: 100%;"   name="txtcomponentname">
+                            <option  *ngFor="let Item of item" [value]="Item.Jig_Code">{{Item.Jig_Code}}</option>
+                        </select>
+                    </div>
+            </div>
+
+            <div class="col-sm-6 col-md-3" style="margin-bottom: 20px">
+                <div class="input-group" >
+                       <span class="input-group-addon">Jigg Purpose</span>
+                         <select id="natureofcomp" class="form-control select2"  style="width: 100%;" name="txtcomp">
+                             <option selected="selected">--Select Purpose--</option>
+                            <option value="Design Change">Design Change</option>
+                            <option value="New Jigg">New Jigg</option>
+                            <option value="Repair">Repair</option>
+                            <option value="Scrape">Scrape</option>
+                        </select>
+                    </div>
+            </div>
+            <div class="col-sm-6 col-md-3" style="margin-bottom: 20px">
+                <div class="input-group" >
+                       <span class="input-group-addon">For New Jigg</span>
+                         <input  type="text" class="form-control"  name="txtroundqty" [(ngModel)]="txtroundqty" id="txtroundqty" placeholder="" required>
+                    </div>
+            </div>
+            
+        </div>
+        <div class="row">
+                <div class="col-sm-6 col-md-3" style="margin-bottom: 20px">
+                    <div class="input-group" >
+                        <span class="input-group-addon">Recieved Date</span>
+                        <input type="text" name="FromDate" [(ngModel)]="FromDate" class="form-control pull-right" id="datepicker">                    
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3" style="margin-bottom: 20px">
+                    <div class="input-group" >
+                        <span class="input-group-addon">Rectified Date</span>
+                        <input type="text" name="FromDate" [(ngModel)]="FromDate" class="form-control pull-right" id="datepicker1">                    
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3" style="margin-bottom: 20px">
+                    <div class="input-group" >
+                        <span class="input-group-addon">Jigg No</span>
+                        <input type="text" name="FromDate" [(ngModel)]="FromDate" class="form-control pull-right" id="datepicker">                    
+                    </div>
+                </div>
+        </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div>
+            
+            <div style="width:100%; height:100%; overflow: auto;" >
+            <!-- /.box-header -->
+                <div>
+                    <div class="row">
+                      <table class="table table-responsive table-bordered">
+                        <th> &nbsp;&nbsp;&nbsp;&nbsp;Handling Defects</th>
+                        <th>Recd Defects</th>
+                        <th>Rect Defects</th>
+                        <th>Technical Defects</th>
+                        <th>Recd Defects</th>
+                        <th>Rect Defects</th>
+                        <tr>
+                            <td>&nbsp;&nbsp;Coating Punture Base</td>
+                            <td align="center"><input type="checkbox" value=""></td>
+                            <td align="center"><input type="checkbox" value=""></td>
+                            <td>Coating Skip</td>
+                            <td align="center"><input type="checkbox" value=""></td>
+                            <td align="center"><input type="checkbox" value=""></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp; Setting Change </td>
+                            <td align="center"><input type="checkbox" value=""> </td>
+                            <td align="center"><input type="checkbox" value="">  </td>
+                            <td> Pin Hole </td>
+                            <td align="center"><input type="checkbox" value="">  </td>
+                            <td align="center"> <input type="checkbox" value=""> </td>
+                        </tr>
+                         <tr>
+                            <td>&nbsp; Jigg Band </td>
+                            <td align="center"><input type="checkbox" value=""></td>
+                            <td align="center"><input type="checkbox" value=""></td>
+                            <td> Contact Broken </td>
+                            <td align="center"><input type="checkbox" value=""> </td>
+                            <td align="center"> <input type="checkbox" value=""></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp; Jigg Broken </td>
+                            <td align="center"> <input type="checkbox" value="">  </td>
+                            <td align="center"> <input type="checkbox" value=""> </td>
+                            <td> Contact abression </td>
+                            <td align="center"><input type="checkbox" value=""> </td>
+                            <td align="center"> <input type="checkbox" value=""> </td>
+                        </tr>
+                        <tr>
+                            <td> &nbsp; </td>
+                            <td align="center"> &nbsp; </td>
+                            <td align="center">  &nbsp; </td>
+                            <td> Coating on Punture on Jigg  </td>
+                            <td align="center"><input type="checkbox" value=""> </td>
+                            <td align="center">  <input type="checkbox" value=""></td>
+                        </tr>
+                         <tr>
+                            <td> &nbsp; </td>
+                            <td align="center"> &nbsp; </td>
+                            <td align="center">  &nbsp; </td>
+                            <td> Contact Burn </td>
+                            <td align="center"> <input type="checkbox" value=""> </td>
+                            <td align="center"><input type="checkbox" value=""></td>
+                        </tr>
+                         <tr>
+                            <td> &nbsp; </td>
+                            <td align="center"> &nbsp; </td>
+                            <td align="center">  &nbsp; </td>
+                            <td> Coating Burn </td>
+                            <td align="center"> <input type="checkbox" value=""> </td>
+                            <td align="center"> <input type="checkbox" value=""> </td>
+                        </tr>
+                         <tr>
+                        <td> &nbsp; </td>
+                            <td align="center"> &nbsp; </td>
+                            <td align="center">  &nbsp; </td>
+                            <td> ECN </td>
+                            <td align="center"> <input type="checkbox" value="">  </td>
+                            <td align="center"> <input type="checkbox" value=""> </td>
+                        </tr>
+                         <tr>
+                            <td> &nbsp; </td>
+                            <td align="center"> &nbsp; </td>
+                            <td align="center">  &nbsp; </td>
+                            <td> Others  </td>
+                            <td align="center"> <input type="checkbox" value=""> </td>
+                            <td align="center"> <input type="checkbox" value=""> </td>
+                        </tr>
+                         <tr>
+                            <td>&nbsp; Total Handling Defects </td>
+                            <td align="center"> </td>
+                            <td align="center"></td>
+                            <td> Total Technical Defects  </td>
+                            <td align="center"> </td>
+                            <td align="center"></td>
+                        </tr>
+                      </table>
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+        </div>
+      </div>
+        <!-- footer -->
+         <div class="modal-footer" [ngClass]="display_message_class" >
+             <label class="pull-left" >{{display_message}}</label>
+            <button type="button" class="btn btn-primary" (click)="FunctionOnCaption()"  >Save</button>
+            <button type="button" class="btn btn-default" (click)="clearvalue()">Close</button>
+         </div>
+         <!-- End of  footer -->
+        </form>
+    </div>
+        <!-- /.box-body -->
+      </div>
+        <!-- /.box -->
+                <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header bg-primary">
+              <h3 class="box-title" style="color:#fff;"><strong>List of Jii Report</strong></h3>
+            </div>
+            <div style="width:100%; height:100%; overflow: auto;" >
+            <!-- /.box-header -->
+            <div class="box-body">
+            <div class="row">
+              <table id="getjiggTable" class="table table-bordered table-striped table-responsive">
+                <thead>
+                    <th id="First">Edit</th>
+                    <td *ngFor="let t_header of TopHeader"><b>{{t_header}}</b></td>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of ResponseData | paginate: { itemsPerPage: 10, currentPage: p }">
+                    <td><a (click)="selectedItem(item)"><span class="btn glyphicon glyphicon-pencil"  data-target=".box-body"></span></a></td>
+                     <td *ngFor="let column of TopHeader">{{item[column]}}</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+        </div>
+      </div>
+      </section>
+      <!-- /.content -->
+
+    </div>
+    <!-- /.container -->
+  </div>
+
+    <div [ngBusy]="busy"></div>

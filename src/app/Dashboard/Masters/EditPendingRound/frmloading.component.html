@@ -37,7 +37,7 @@
                  </div>
             </div>
             <div class="col-md-6 col-md-4">
-                <button  style="margin-left: 140px;" type="button" class="btn btn-primary" (click)="Search()"  >Submit</button>
+                <button   type="button" class="btn btn-primary" (click)="Search()"  >Submit</button>
             </div>
         </div>
 
@@ -57,7 +57,7 @@
 
             <div class="col-sm-12 col-md-4" [ngClass]="display_message_class">
               <label class="pull-left" >{{display_message}}</label>
-                <button style="margin-left: 140px;" type="button" class="btn btn-primary" (click)="updateFrmloading()">Update</button>
+                <button  type="button" class="btn btn-primary" (click)="updateFrmloading()">Update</button>
             </div>
         </div>
         </form>
@@ -118,3 +118,5 @@
     </div>
     <!-- /.container -->
   </div>
+
+    <div [ngBusy]="busy"></div>

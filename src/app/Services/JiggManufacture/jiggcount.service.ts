@@ -26,8 +26,8 @@ export class JiggCountData{
         headers.append('Content-Type','Application/Json');
 
          var body = JSON.stringify({
+            Jig_Code: jigcode,
             Alias_Names: alias_name,
-            JigCode: jigcode,
         });
         return this.http.post( host +'JiggManufature/getjiggcountdata',body,{headers:headers})
             .map(res => res.json());

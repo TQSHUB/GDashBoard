@@ -100,6 +100,7 @@ export class ScheduleEditComponent {
       //Get For Values
       this.Selected_Alias_Names = $("#Alias_Names").val();
       this.Selected_Customer_Names = $("#Customer_Names").val();
+      
       //string builder for multiple Alias_Name and Customer_Name
       var alias_string = this.inStringBuilder(this.Selected_Alias_Names);
       var customer_string = this.inStringBuilder(this.Selected_Customer_Names);
