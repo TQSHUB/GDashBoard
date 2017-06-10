@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CustomerMasterService } from '../../../Services/Masters/custmaster.service';
-import { Http } from '@angular/http';
+import { Ng2PaginationModule } from 'ng2-pagination';
+//import { Http } from '@angular/http';
 import { Subscription } from 'rxjs';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -12,9 +13,10 @@ import 'rxjs/add/operator/map';
     providers:[CustomerMasterService]
 })
 export class CustomerMasterComponent{
-    title = 'This is an Angular!';
-    //allcustmasters: CustomerMaster[];
+    busy: Subscription;
+    allcustmasters: CustomerMaster[];
 
+    code;
     txtcustomername;
     txtlongname;
 
@@ -22,14 +24,25 @@ export class CustomerMasterComponent{
     response: Response;
     display_message_class;
 
+    caption = 'ADD';
+
     constructor(private router: Router, private customermasterService: CustomerMasterService)
     {
-
     }
     ngOnInit(){
         var script = document.createElement('script');
         document.body.appendChild(script);
         script.src = '../assets/ComponentJs/Masters/custmaster.component.js';
+
+        this.getAllCustomers();
+    }
+
+    getAllCustomers()
+    {
+        this.customermasterService.getAllCustomers().subscribe(res => {
+            this.allcustmasters = res;
+            console.log(this.allcustmasters);
+        });
     }
 
     createCustMaster()
@@ -42,13 +55,15 @@ export class CustomerMasterComponent{
                 if(this.response.Data)
                 {
                     this.display_message = 'Customer Master added successfully';
-                    this.display_message_class = 'bg-success';
+                    this.display_message_class = 'alert alert-success alert-dismissible';                    
                     this.clearValues();
+                    this.getAllCustomers();
                 }
                 else
                 {
                     this.display_message = 'Customer Master not added successfully';
-                    this.display_message_class = 'bg-danger';
+                    this.display_message_class = 'alert alert-danger alert-dismissible';
+                    this.clearValues();
                 }
             });
     }
@@ -57,6 +72,49 @@ export class CustomerMasterComponent{
     {
         this.txtcustomername = '';
         this.txtlongname = '';
+
+        setTimeout(()=> {
+        this.display_message_class = '';
+        this.display_message = '';
+        }, 2000);
+    }
+
+    selectedCustomer(customer: CustomerMaster)
+    {
+        this.code = customer.Code;
+        this.txtcustomername = customer.Name;
+        this.txtlongname = customer.Name_2;
+        this.caption = 'UPDATE';
+    }
+
+    FunctionOnCaption()
+    {
+        if(this.caption == 'ADD')
+            this.createCustMaster();
+        if(this.caption == 'UPDATE')
+            console.log(this.caption);
+            this.updateCustomer();
+    }
+
+    updateCustomer()
+    {
+        this.busy = this.customermasterService.updateCustomer(this.code, this.txtcustomername, this.txtlongname)
+            .subscribe(res => {
+                this.response = res;
+
+                // Success and Failure message code
+                if(this.response.Data)
+                {
+                this.display_message = 'Customer Master updated successfully.';
+                this.display_message_class = 'alert alert-success alert-dismissible';
+                this.clearValues();
+                this.getAllCustomers();
+                }
+                else{
+                this.display_message = 'Customer Master not updated successfully';
+                this.display_message_class = 'alert alert-danger alert-dismissible';
+                }
+            });
     }
 }
 
@@ -64,7 +122,8 @@ interface Response{
     Data: boolean;
 }
 
-/*interface CustomerMaster{
-    CustomerName: string;
-    LongName: string;
-}*/
+interface CustomerMaster{
+    Code: string;
+    Name: string;
+    Name_2: string;
+}

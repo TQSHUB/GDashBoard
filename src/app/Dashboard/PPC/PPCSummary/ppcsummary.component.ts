@@ -13,7 +13,8 @@ declare var ETE: any;
 @Component({
   selector: 'ppc-summary',
   templateUrl: './ppcsummary.component.html',
-  providers: [PPCSummaryService, DatePipe, SearchPipe]
+  providers: [PPCSummaryService, DatePipe, SearchPipe],
+  styleUrls: ['./ppcsummary.component.css']
 })
 export class PPCSummaryComponent {
   busy: Subscription;

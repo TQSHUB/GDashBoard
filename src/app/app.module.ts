@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//import { Ng2PaginationModule } from 'ng2-pagination';
 
 //Pipes
 import { JsonDate } from './Pipes/jsondate.pipe';
@@ -32,6 +33,7 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
   //PPC Components
   import { ScheduleEditComponent } from './Dashboard/PPC/ScheduleEdit/scheduleedit.component';
   import { PPCSummaryComponent } from './Dashboard/PPC/PPCSummary/ppcsummary.component';
+  import { PPCDailyReportComponent } from './Dashboard/PPC/PPCDailyReport/ppcdailyreport.component';
 
  //Mater Component
  import { ItemComponent } from './Dashboard/Masters/ComponentMaster/item.component';
@@ -68,6 +70,8 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
       //PPC Components
       ScheduleEditComponent,
       PPCSummaryComponent,
+      PPCDailyReportComponent,
+
       //Master Component
       ItemComponent,
       LoadingData,
