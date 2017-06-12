@@ -1801,6 +1801,8 @@ a:focus {
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
   padding: 10px;
+  padding-left: 25px !important;
+  padding-right: 25px !important;
 }
 .no-header .box-body {
   border-top-right-radius: 3px;

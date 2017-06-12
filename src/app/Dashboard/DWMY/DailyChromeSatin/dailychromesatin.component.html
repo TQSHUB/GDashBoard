@@ -1,0 +1,154 @@
+    <div class="container-main">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          {{calledComponent}}
+          <small>Daily</small>
+        </h1>
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+          <div class="row">
+              <div class="col-sm-12">
+                <div class="box box-default">
+                <div class="box-header with-border">
+                    <h3 class="box-title"><i class="fa fa-bar-chart-o"></i>&nbsp;Daily Inspection for {{calledComponent}}</h3>
+                    <div style="float: right; margin-right: 30px;">
+                        <label Style="padding-left: 5px;padding-right: 5px;background-color: #3c8dbc; margin-right: 5px; color: black;text-align: center;font-weight: bolder;">{{Idata1 | number : '1.2-2'}}</label>
+                        <label Style="padding-left: 5px;padding-right: 5px;background-color: #00a65a; margin-right: 5px; color: black;text-align: center;font-weight: bolder;">{{Idata2 | number : '1.2-2'}}</label>
+                        <label Style="padding-left: 5px;padding-right: 5px;background-color: #f39c12; margin-right: 5px; color: black;text-align: center;font-weight: bolder;">{{Idata3 | number : '1.2-2'}}</label>
+                        <label Style="padding-left: 5px;padding-right: 5px;background-color: #d2d6de; margin-right: 5px; color: black;text-align: center;font-weight: bolder;">{{Idata4 | number : '1.2-2'}}</label>
+                        <label Style="padding-left: 5px;padding-right: 5px;background-color: #f56954; margin-right: 5px; color: black;text-align: center;font-weight: bolder;">{{Idata5 | number : '1.2-2'}} %</label>
+                    </div>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="chart">
+                            <div>
+                                <canvas id="cvsInspection" style="height: 230px"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="col-sm-12 col-md-6">
+                <div class="box box-default">
+                <div class="box-header with-border">
+                    <h3 class="box-title"><i class="fa fa-bar-chart-o"></i>&nbsp;Daily Rounds for {{calledComponent}}</h3>
+                    <div style="float: right; margin-right: 30px;">
+                        <label Style="padding-left: 5px;padding-right: 5px;background-color: #038686; margin-right: 5px; color: white;text-align: center;font-weight: bolder;">{{Rdata1 | number : '1.2-2'}}</label>
+                    </div>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="chart">
+                            <div>
+                                <canvas id="cvsChromeMonthly" style="height: 230px"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+              </div>
+
+              <div class="col-sm-12 col-md-6">
+                <div class="box box-default">
+                <div class="box-header with-border">
+                    <h3 class="box-title"><i class="fa fa-bar-chart-o"></i>&nbsp;Daily Rejectionwise Defect for {{calledComponent}}</h3>
+                    <div style="float: right; margin-right: 30px;">
+                    </div>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="chart">
+                            <div>
+                                <canvas id="cvsRDefect" style="height: 230px"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="col-sm-12">
+                <div class="box box-default">
+                <div class="box-header with-border">
+                    <h3 class="box-title"><i class="fa fa-bar-chart-o"></i>&nbsp;Top Componentwise Rejection for {{calledComponent}}</h3>
+                    <div style="float: right; margin-right: 30px;">
+                    </div>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="chart">
+                            <div>
+                                <canvas id="cvsTopDefect" style="height: 230px"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="col-sm-12 col-md-6">
+                <div class="box box-default">
+                <div class="box-header with-border">
+                    <h3 class="box-title"><i class="fa fa-pie-chart"></i>&nbsp;Daily Defects for {{calledComponent}}</h3>
+                    <div style="float: right; margin-right: 30px;">
+                        <label Style="padding-left: 5px;padding-right: 5px;background-color: #f56954; margin-right: 5px; color: black;text-align: center;font-weight: bolder;">{{Ddata1 | number : '1.2-2'}} Lac</label>
+                        <label Style="padding-left: 5px;padding-right: 5px;background-color: #00a65a; margin-right: 5px; color: black;text-align: center;font-weight: bolder;">{{Ddata2 | number : '1.2-2'}} Lac</label>
+                        <label Style="padding-left: 5px;padding-right: 5px;background-color: #f39c12; margin-right: 5px; color: black;text-align: center;font-weight: bolder;">{{Ddata3 | number : '1.2-2'}} Lac</label>
+                        <label Style="padding-left: 5px;padding-right: 5px;background-color: #00c0ef; margin-right: 5px; color: black;text-align: center;font-weight: bolder;">{{Ddata4 | number : '1.2-2'}} Lac</label>
+                        <label Style="padding-left: 5px;padding-right: 5px;background-color: #3c8dbc; margin-right: 5px; color: black;text-align: center;font-weight: bolder;">{{Ddata5 | number : '1.2-2'}} Lac</label>
+                    </div>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="chart">
+                        <div>
+                            <canvas id="pieChart" style="height: 230px">[No canvas support]
+                            </canvas>
+                        </div>
+                        <div id="js-legend" class="chart-legend"></div>
+                    </div>
+                </div>
+                </div>
+              </div>
+          </div>
+      </section>
+      <!-- /.content -->
+    </div>
+
+<div [ngBusy]="busy"></div>

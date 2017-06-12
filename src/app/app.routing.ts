@@ -30,6 +30,12 @@ import { DashboardComponent } from './Dashboard/dashboard.component'
      import { JiggDashboardComponent } from './Dashboard/Dashboard/JiggDashboard/jiggdashboard.component';
      import { PPCDashboardComponent } from './Dashboard/Dashboard/PPCDashboard/ppcdashboard.component';
 
+     //DWMY
+     import { DailyChromeSatinComponent } from './Dashboard/DWMY/DailyChromeSatin/dailychromesatin.component';
+     import { WeeklyChromeSatinComponent } from './Dashboard/DWMY/WeeklyChromeSatin/weeklychromesatin.component';
+     import { MonthlyChromeSatinComponent } from './Dashboard/DWMY/MonthlyChromeSatin/monthlychromesatin.component';
+     import { yearlyChromeSatinComponent } from './Dashboard/DWMY/YearlyChromeSatin/yearlychromesatin.component';
+
 const appRoute: Routes = [
     {
         path: 'Login',
@@ -102,6 +108,38 @@ const appRoute: Routes = [
             {
                 path: 'PPCDashboard',
                 component: PPCDashboardComponent
+            },
+            {
+                path: 'Chrome/Daily',
+                component: DailyChromeSatinComponent
+            },
+            {
+                path: 'Satin/Daily',
+                component: DailyChromeSatinComponent
+            },
+            {
+                path: 'Chrome/Weekly',
+                component: WeeklyChromeSatinComponent
+            },
+            {
+                path: 'Satin/Weekly',
+                component: WeeklyChromeSatinComponent
+            },
+            {
+                path: 'Chrome/Monthly',
+                component: MonthlyChromeSatinComponent
+            },
+            {
+                path: 'Satin/Monthly',
+                component: MonthlyChromeSatinComponent
+            },
+            {
+                path: 'Chrome/Yearly',
+                component: yearlyChromeSatinComponent
+            },
+            {
+                path: 'Satin/Yearly',
+                component: yearlyChromeSatinComponent
             }
         ]
     }
