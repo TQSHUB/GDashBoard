@@ -13,7 +13,6 @@ declare var pieChartYearly: any;
 @Component({
   selector: 'yearly-chrome-satin',
   templateUrl: './yearlychromesatin.component.html',
-  styleUrls: ['./yearlychromesatin.component.css'],
   providers: [YearlyService]
 })
 export class yearlyChromeSatinComponent {
