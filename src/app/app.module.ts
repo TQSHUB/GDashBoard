@@ -60,6 +60,9 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
      import { MonthlyChromeSatinComponent } from './Dashboard/DWMY/MonthlyChromeSatin/monthlychromesatin.component';
      import { yearlyChromeSatinComponent } from './Dashboard/DWMY/YearlyChromeSatin/yearlychromesatin.component';
 
+  //Statistics Dashboard
+     import { StatisticsDashboardComponent } from './Dashboard/StatisticsDashboard/statisticsdashboard.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,6 +76,8 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
 
     //Dashboard Components
     DashboardComponent,
+      //Statistics Dashboard
+      StatisticsDashboardComponent,
       //PPC Components
       ScheduleEditComponent,
       PPCSummaryComponent,

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'dashboard-component',
@@ -6,11 +7,14 @@ import { Component } from '@angular/core';
 })
 
 export class DashboardComponent {
+
+  constructor(private router: Router){}
   ngOnInit(){
 
     var script = document.createElement('script');
     document.body.appendChild(script);
     script.src = 'assets/ComponentJs/Shared.js';
     
+    this.router.navigate(['/Dashboard/'])
   }
 }

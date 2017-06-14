@@ -36,6 +36,9 @@ import { DashboardComponent } from './Dashboard/dashboard.component'
      import { MonthlyChromeSatinComponent } from './Dashboard/DWMY/MonthlyChromeSatin/monthlychromesatin.component';
      import { yearlyChromeSatinComponent } from './Dashboard/DWMY/YearlyChromeSatin/yearlychromesatin.component';
 
+     //Statistics Dashboard
+     import { StatisticsDashboardComponent } from './Dashboard/StatisticsDashboard/statisticsdashboard.component';
+
 const appRoute: Routes = [
     {
         path: 'Login',
@@ -45,6 +48,10 @@ const appRoute: Routes = [
         path: 'Dashboard',
         component: DashboardComponent,
         children: [
+            {
+                path: '',
+                component: StatisticsDashboardComponent
+            },
             {
                 path: 'PPC/ScheduleEdit',
                 component: ScheduleEditComponent

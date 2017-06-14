@@ -34,6 +34,10 @@ export class PPCDashboardComponent {
     ngOnInit(){
         var script = document.createElement('script');
         document.body.appendChild(script);
+        script.src = '../assets/plugins/Chart_new.js/Chart.bundle.js';
+
+        var script = document.createElement('script');
+        document.body.appendChild(script);
         script.src = 'assets/ComponentJs/Dashboard/ppcdashboard.component.js';
 
         this.getMonthlyInspectionChrome();

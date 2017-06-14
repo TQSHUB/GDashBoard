@@ -47,6 +47,10 @@ export class DailyChromeSatinComponent {
   constructor(private router: Router, private dailyService: DailyService){}
 
   ngOnInit(){ 
+    var script = document.createElement('script');
+    document.body.appendChild(script);
+    script.src = '../assets/plugins/chartjs/Chart.min.js';
+
 
     var script = document.createElement('script');
     document.body.appendChild(script);
