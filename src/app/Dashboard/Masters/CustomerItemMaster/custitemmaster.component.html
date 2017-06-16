@@ -29,11 +29,11 @@
                                 </div>                                
                                 <div class="col-sm-10 col-md-4" style="margin-bottom: 20px">
                                     <label for="lblfullname">Item Name</label>
-                                    <div class="input-group" >                       
+                                    <!--<div class="input-group" >-->
                                         <select id="Item_Names" class="form-control select2" style="width: 100%;">
                                             <option *ngFor="let Item of allitemmasters" [value]="Item.Code">{{Item.Alias_Name}}</option>
                                         </select>
-                                    </div>
+                                    <!--</div>-->
                                 </div>
                             </div>
                         </div>
@@ -72,7 +72,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                                <pagination-controls class="text-right" (pageChange)="p = $event"></pagination-controls>
                             </div>
                         </div>
                     </form>                
