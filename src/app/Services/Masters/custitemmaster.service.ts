@@ -14,7 +14,7 @@ export class CustomerItemMasterService{
         console.log('Customer Item Master service started...');
     }
 
-    addNewCustomerItem(customername: string, itemname: string)
+    addNewCustomerItem(customername: string, itemname: string, itemid: string)
     {
         var headers = new Headers();
 
@@ -23,9 +23,10 @@ export class CustomerItemMasterService{
         
         var body = JSON.stringify({
             Name: customername,
-            Alias_Name: itemname
+            Alias_Name: itemname,
+            Item_Id: itemid
         });
-        return this.http.post(host + 'customer/InsertCustomeritem',body,{headers: headers})
+        return this.http.post(host + 'CustomerItem/InsertCustomeritem',body,{headers: headers})
             .map(res => res.json);
     }
 
@@ -41,7 +42,7 @@ export class CustomerItemMasterService{
             Name: customername,
             Alias_Name: itemname
         });
-        return this.http.post(host + 'customer/updateCustomerItem',body,{headers: headers})
+        return this.http.put(host + 'CustomerItem/updateCustomerItem',body,{headers: headers})
             .map(res => res.json);
     }
 

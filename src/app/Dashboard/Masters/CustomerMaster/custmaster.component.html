@@ -37,7 +37,12 @@
 
             <div class="box box-default">
                 <div class="box-header with-border">
-                    <h3 class="box-title"><i class="fa fa-table"></i>&nbsp;Result Data</h3>
+                    <div class="col-md-8 col-sm-12">
+                        <h3 class="box-title"><i class="fa fa-table"></i>&nbsp;Result Data</h3>
+                    </div>
+                    <div class="col-md-3 col-md-offset-1 col-sm-12">
+                        <input class="form-control form-control-sm mb-2 mr-sm-2 mb-lg-0" #search (keyup)="SearchTextBox()" placeholder="Search" [(ngModel)]="searchText">{{searchText}}
+                    </div>
                 </div>
                 <div class="box-body">
                     <form method="post">
@@ -61,7 +66,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                                <pagination-controls class="text-right" (pageChange)="p = $event"></pagination-controls>
                             </div>
                                 <!--<div class="modal-footer" [ngClass]="display_message_class">
                                 <label class="pull-left" >{{display_message}}</label>

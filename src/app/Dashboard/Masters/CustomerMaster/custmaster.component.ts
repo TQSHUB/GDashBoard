@@ -6,15 +6,16 @@ import { Ng2PaginationModule } from 'ng2-pagination';
 import { Subscription } from 'rxjs';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { SearchPipe } from './searchtable.pipe';
 
 @Component({
     selector: 'customer-master',
     templateUrl: './custmaster.component.html',
-    providers:[CustomerMasterService]
+    providers:[CustomerMasterService, SearchPipe]
 })
 export class CustomerMasterComponent{
     busy: Subscription;
-    allcustmasters: CustomerMaster[];
+    allcustmasters;
 
     code;
     txtcustomername;
@@ -25,14 +26,17 @@ export class CustomerMasterComponent{
     display_message_class;
 
     caption = 'ADD';
+    ResponseData;
+    ResponseDataCopy;
+    searchText;
 
-    constructor(private router: Router, private customermasterService: CustomerMasterService)
+    constructor(private router: Router, private customermasterService: CustomerMasterService, private searchPipe: SearchPipe)
     {
     }
     ngOnInit(){
         var script = document.createElement('script');
         document.body.appendChild(script);
-        script.src = '../assets/ComponentJs/Masters/custmaster.component.js';
+        script.src = '../../assets/ComponentJs/Masters/custmaster.component.js';
 
         this.getAllCustomers();
     }
@@ -41,7 +45,8 @@ export class CustomerMasterComponent{
     {
         this.customermasterService.getAllCustomers().subscribe(res => {
             this.allcustmasters = res;
-            console.log(this.allcustmasters);
+            //console.log(this.allcustmasters);
+            this.ResponseDataCopy = res;
         });
     }
 
@@ -79,7 +84,7 @@ export class CustomerMasterComponent{
         }, 2000);
     }
 
-    selectedCustomer(customer: CustomerMaster)
+    selectedCustomer(customer)
     {
         this.code = customer.Code;
         this.txtcustomername = customer.Name;
@@ -92,7 +97,7 @@ export class CustomerMasterComponent{
         if(this.caption == 'ADD')
             this.createCustMaster();
         if(this.caption == 'UPDATE')
-            console.log(this.caption);
+            //console.log(this.caption);
             this.updateCustomer();
     }
 
@@ -116,14 +121,17 @@ export class CustomerMasterComponent{
                 }
             });
     }
+
+    SearchTextBox()
+    {
+        var filterdata = this.searchPipe.transform(this.ResponseDataCopy, this.searchText)
+        if(filterdata == 'Empty')
+            this.allcustmasters = this.ResponseDataCopy;
+        else
+            this.allcustmasters = filterdata;
+    }
 }
 
 interface Response{
     Data: boolean;
-}
-
-interface CustomerMaster{
-    Code: string;
-    Name: string;
-    Name_2: string;
 }

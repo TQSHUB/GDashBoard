@@ -46,8 +46,8 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
   import { JiggReport } from './Dashboard/JiggManufacture/JiggMfgReport/jiggreport.component';
   import { JigMasterComponent } from './Dashboard/JiggManufacture/JigMaster/jigmaster.component';
   import { JiggCount } from './Dashboard/JiggManufacture/JiggCount/jiggcount.component';
-  import { JiggingReport } from './Dashboard/JiggManufacture/JiggingReport/jiggingreport.component';
-   import {JiggEntry} from './Dashboard/JiggManufacture/JiggMfgEntry/jiggentry.component';
+  import { JiggingReportComponent } from './Dashboard/JiggManufacture/JiggingReport/jiggingreport.component';
+  import {JiggEntry} from './Dashboard/JiggManufacture/JiggMfgEntry/jiggentry.component';
 
   //Dashboard
   import { CSDashboardComponent } from './Dashboard/Dashboard/CSDashboard/csdashboard.component';
@@ -66,6 +66,7 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
 //Chrome
   import {ChromeDetailComponet} from './Dashboard/Chrome/InspReportQtyWise/chromedetail.componet';
   import {ChromeLineSummary} from './Dashboard/Chrome/InspReportValueWise/chromelinesummary.component';
+  import { ChromeRejectionReviewComponent } from './Dashboard/Chrome/ChromeRejectionReview/chromerejectionreview.component';
 
 @NgModule({
   declarations: [
@@ -98,7 +99,7 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
       JiggReport,
       JigMasterComponent,
       JiggCount,
-      JiggingReport,
+      JiggingReportComponent,
       JiggEntry,
 
       //Dashboard
@@ -112,10 +113,15 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
       MonthlyChromeSatinComponent,
       yearlyChromeSatinComponent,
 
+<<<<<<< HEAD
        //Chrome
        ChromeDetailComponet,
        ChromeLineSummary,
       
+=======
+      //Chrome
+      ChromeRejectionReviewComponent
+>>>>>>> dff10a7e17944801bc5b7f2e8c0fdd5575590405
   ],
   imports: [
     BrowserModule,

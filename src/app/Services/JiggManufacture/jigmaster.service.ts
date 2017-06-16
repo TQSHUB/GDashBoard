@@ -25,9 +25,55 @@ export class JigMasterService{
             .map(res => res.json());
     }
 
-    getAllJiggMstDataAliasnames(id: string)
+    getAllJiggMstDataAliasnames()
     {
-        return this.http.get(host + 'JiggMst/getalljiggmstDataAliasnames/' + id)
+        return this.http.get(host + 'JiggMst/getalljiggmstDataAliasnames/')
+            .map(res => res.json());
+    }
+
+    addNewJiggandItemNames(jiggname: string, itemid: string)
+    {
+        var headers = new Headers();
+
+        headers.append('Authorization','Bearer');
+        headers.append('Content-Type','Application/Json')
+
+        var body = JSON.stringify({
+            Jig_Code: jiggname,
+            Item_Id: itemid
+        });
+        return this.http.post(host + 'JiggMst/InsertJiggItemNames',body,{headers: headers})
+            .map(res => res.json());
+    }
+
+    updateNewJiggandItemNames(Item_id: string, jiggname: string, ID: string)
+    {
+        var headers = new Headers();
+
+        headers.append('Authorization','Bearer');
+        headers.append('Content-Type','Application/Json');
+
+        var body = JSON.stringify({
+            Item_Id: Item_id,
+            Jig_Code: jiggname,
+            Id: ID
+        });
+        return this.http.put(host + 'JiggMst/UpdateJiggItemNames',body,{headers: headers})
+            .map(res => res.json());
+    }
+
+    deleteJiggandItemNames(id: string)
+    {
+        var headers = new Headers();
+
+        headers.append('Authorization','Bearer');
+        headers.append('Content-Type','Application/Json');
+
+        var body = JSON.stringify({
+            Id: id
+        });
+
+        return this.http.delete(host + 'JiggMst/DeleteJiggItemNames/' + id)
             .map(res => res.json());
     }
 }
