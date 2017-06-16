@@ -113,15 +113,10 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
       MonthlyChromeSatinComponent,
       yearlyChromeSatinComponent,
 
-<<<<<<< HEAD
-       //Chrome
-       ChromeDetailComponet,
-       ChromeLineSummary,
-      
-=======
       //Chrome
+      ChromeDetailComponet,
+      ChromeLineSummary,
       ChromeRejectionReviewComponent
->>>>>>> dff10a7e17944801bc5b7f2e8c0fdd5575590405
   ],
   imports: [
     BrowserModule,
