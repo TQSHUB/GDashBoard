@@ -14689,11 +14689,11 @@ input:focus ~ .bg-teal {
 }
 
 .teal.darken-2 {
-  color : #00796B /*!important*/;
+  color : #00796B !important;
 }
 
 .bg-teal.bg-darken-2 {
-  background-color : #00796B /*!important*/;
+  background-color : #00796B !important;
 }
 
 .btn-teal.btn-darken-2 {

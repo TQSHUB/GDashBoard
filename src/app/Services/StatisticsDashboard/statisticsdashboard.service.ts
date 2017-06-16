@@ -28,4 +28,25 @@ export class StatisticsDashboardService{
         return this.http.post( host +'StatisticsDashboardController/getPPCDailyReport',body,{headers:headers})
             .map(res => res.json());
     }
+    getJiggDaily(fromdate, todate){
+        var headers = new Headers();
+        headers.append('Content-Type','Application/Json');
+
+        var body = JSON.stringify({
+            Shift: '',
+            FromDate: fromdate,
+            ToDate: todate,
+            ItemType: '',
+            NatOfComp: '',
+            Alias_Names: '',
+            Customer_Names: '',
+        });
+
+        return this.http.post( host +'StatisticsDashboardController/getJiggingDetailData',body,{headers:headers})
+            .map(res => res.json());
+    }
+    GetDailyInspection(param: string){
+        return this.http.get( host +'DMWYController/GetDailyInspection/' + param)
+            .map(res => res.json());
+    }
 }
