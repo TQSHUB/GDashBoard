@@ -63,6 +63,10 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
   //Statistics Dashboard
      import { StatisticsDashboardComponent } from './Dashboard/StatisticsDashboard/statisticsdashboard.component';
 
+//Chrome
+  import {ChromeDetailComponet} from './Dashboard/Chrome/InspReportQtyWise/chromedetail.componet';
+  import {ChromeLineSummary} from './Dashboard/Chrome/InspReportValueWise/chromelinesummary.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -106,7 +110,12 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
       DailyChromeSatinComponent,
       WeeklyChromeSatinComponent,
       MonthlyChromeSatinComponent,
-      yearlyChromeSatinComponent
+      yearlyChromeSatinComponent,
+
+       //Chrome
+       ChromeDetailComponet,
+       ChromeLineSummary,
+      
   ],
   imports: [
     BrowserModule,
