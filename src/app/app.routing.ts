@@ -43,6 +43,10 @@ import { DashboardComponent } from './Dashboard/dashboard.component'
      import {ChromeDetailComponet} from './Dashboard/Chrome/InspReportQtyWise/chromedetail.componet';
      import {ChromeLineSummary} from './Dashboard/Chrome/InspReportValueWise/chromelinesummary.component';
      import { ChromeRejectionReviewComponent } from './Dashboard/Chrome/ChromeRejectionReview/chromerejectionreview.component'
+   
+     //Satin
+     import {SatinDetailComponet} from './Dashboard/Satin/InspReportQtyWise/satindetail.component'; 
+     import {SatinLineSummary} from './Dashboard/Satin/InspReportValueWise/satinlinesummary.componet';
 
 const appRoute: Routes = [
     {
@@ -164,7 +168,15 @@ const appRoute: Routes = [
             {
                 path: 'Chrome/ChromeRejectionReview',
                 component: ChromeRejectionReviewComponent
-            }
+            },
+             {
+                path:'Satin/InspReportQtyWise',
+                component: SatinDetailComponet
+            },
+             {
+                path: 'Satin/InspReportValueWise',
+                component: SatinLineSummary
+            },
         ]
     }
 ];
