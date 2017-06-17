@@ -315,7 +315,7 @@ function cvsMonthlySatin(CRlabels, CRdata, CPdata, CEdata){
                   },
                   {
                       label: "Pending Loading",
-                      backgroundColor: "#00a65a",
+                      backgroundColor: "#d2d6de",
                       data: pdata
                   }
                 ]

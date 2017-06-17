@@ -49,4 +49,16 @@ export class StatisticsDashboardService{
         return this.http.get( host +'DMWYController/GetDailyInspection/' + param)
             .map(res => res.json());
     }
+    GetDailyRoundNo(param: string){
+        return this.http.get( host +'DMWYController/GetDailyRoundNo/' + param)
+            .map(res => res.json());
+    }
+    GetDailyPending(param: string){
+        return this.http.get( host +'DMWYController/GetDailyPending/' + param)
+            .map(res => res.json());
+    }
+    GetDailyEmptyRound(param: string){
+        return this.http.get( host +'DMWYController/GetDailyEmptyRound/' + param)
+            .map(res => res.json());
+    }
 }

@@ -128,7 +128,7 @@ export class CSDashboardComponent {
         this.AggregateRoundChrome = this.ProducedRoundChrome + this.EmptyRoundChrome;
     }
     this.csDashboardService.LoadingChromeData().subscribe(res => this.InspPendingRoundChrome = res);
-    cvsChromeMonthly(lables,d1,d3);
+    cvsChromeMonthly(lables,d1,d2,d3);
   }
 
   //Satine Inspection
@@ -191,7 +191,7 @@ export class CSDashboardComponent {
         this.AggregateRoundSatin = this.ProducedRoundSatin + this.EmptyRoundSatin;
     }
     this.csDashboardService.LoadingSatinData().subscribe(res => this.InspPendingRoundSatin = res);
-    cvsMonthlySatin(lables,d1,d3);
+    cvsMonthlySatin(lables,d1,d2,d3);
   }
   
 }

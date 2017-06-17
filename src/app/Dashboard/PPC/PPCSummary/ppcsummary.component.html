@@ -96,7 +96,7 @@
                 <div class="col-md-4 col-sm-12">
                     <button class="btn btn-primary" id="export" (click)="ExportToExcel()">Export to Excel</button>
                 </div>
-                <div class="col-md-7 col-md-offset-1 col-sm-12">
+                <div class="col-md-7 col-md-offset-1 col-sm-12" *ngIf="ResponseData">
                     <pagination-controls class="text-right" (pageChange)="p = $event"></pagination-controls>                   
                 </div>
             </div>

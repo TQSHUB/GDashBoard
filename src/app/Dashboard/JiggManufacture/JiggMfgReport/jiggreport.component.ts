@@ -36,6 +36,9 @@ export class JiggReportComponent{
 
         var fromdate = Date.now();
         var date = this.datepipe.transform(fromdate, 'dd/MM/yyyy');
+
+        this.FromDate = date;
+        this.ToDate = date;
         
         this.jiggMfgReportService.getJiggMfgReport(date, date, '','').subscribe(res => {
             this.JiggMfgReportRes = JSON.parse(res.JsonData);
