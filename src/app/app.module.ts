@@ -43,7 +43,7 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
  import { CustomerMasterComponent } from './Dashboard/Masters/CustomerMaster/custmaster.component'
 
  //Jigg 
-  import { JiggReport } from './Dashboard/JiggManufacture/JiggMfgReport/jiggreport.component';
+  import { JiggReportComponent } from './Dashboard/JiggManufacture/JiggMfgReport/jiggreport.component';
   import { JigMasterComponent } from './Dashboard/JiggManufacture/JigMaster/jigmaster.component';
   import { JiggCount } from './Dashboard/JiggManufacture/JiggCount/jiggcount.component';
   import { JiggingReportComponent } from './Dashboard/JiggManufacture/JiggingReport/jiggingreport.component';
@@ -100,7 +100,7 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
       CustomerMasterComponent,
 
       //Jigg Component
-      JiggReport,
+      JiggReportComponent,
       JigMasterComponent,
       JiggCount,
       JiggingReportComponent,
