@@ -22,7 +22,7 @@ import { DashboardComponent } from './Dashboard/dashboard.component'
      import { JiggReportComponent } from './Dashboard/JiggManufacture/JiggMfgReport/jiggreport.component';
      import { JigMasterComponent } from './Dashboard/JiggManufacture/JigMaster/jigmaster.component';
      import { JiggCount } from './Dashboard/JiggManufacture/JiggCount/jiggcount.component';
-     import { JiggingReport } from './Dashboard/JiggManufacture/JiggingReport/jiggingreport.component';
+     import { JiggingReportComponent } from './Dashboard/JiggManufacture/JiggingReport/jiggingreport.component';
      import {JiggEntry} from './Dashboard/JiggManufacture/JiggMfgEntry/jiggentry.component';
 
      //Dashboard
@@ -38,6 +38,11 @@ import { DashboardComponent } from './Dashboard/dashboard.component'
 
      //Statistics Dashboard
      import { StatisticsDashboardComponent } from './Dashboard/StatisticsDashboard/statisticsdashboard.component';
+
+    //Chrome
+     import {ChromeDetailComponet} from './Dashboard/Chrome/InspReportQtyWise/chromedetail.componet';
+     import {ChromeLineSummary} from './Dashboard/Chrome/InspReportValueWise/chromelinesummary.component';
+     import { ChromeRejectionReviewComponent } from './Dashboard/Chrome/ChromeRejectionReview/chromerejectionreview.component'
 
 const appRoute: Routes = [
     {
@@ -98,7 +103,7 @@ const appRoute: Routes = [
             },
             {
                 path: 'JiggManufacture/JiggingReport',
-                component: JiggingReport
+                component: JiggingReportComponent
             },
              {
                 path: 'JiggManufacture/JiggEntry',
@@ -147,6 +152,18 @@ const appRoute: Routes = [
             {
                 path: 'Satin/Yearly',
                 component: yearlyChromeSatinComponent
+            },
+            {
+                path: 'Chrome/InspReportQtyWise',
+                component: ChromeDetailComponet
+            },
+            {
+                path: 'Chrome/InspReportValueWise',
+                component: ChromeLineSummary
+            },
+            {
+                path: 'Chrome/ChromeRejectionReview',
+                component: ChromeRejectionReviewComponent
             }
         ]
     }
