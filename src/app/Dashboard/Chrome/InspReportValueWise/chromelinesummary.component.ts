@@ -125,8 +125,8 @@ search()
      var FromDate = $("input[name=FromDate]").val();
       var ToDate = $("input[name=ToDate]").val();  
 
-      this.FromDate = this.datepipe.transform(FromDate,"MM/dd/yyyy");
-      this.ToDate = this.datepipe.transform(ToDate,"MM/dd/yyyy"); 
+   //   this.FromDate = this.datepipe.transform(FromDate,"MM/dd/yyyy");
+   //   this.ToDate = this.datepipe.transform(ToDate,"MM/dd/yyyy"); 
       console.log(this.FromDate);
       console.log(this.ToDate);
         
@@ -147,11 +147,11 @@ search()
          if(orderbyA_string == 'NULL')
             orderbyA_string = '';
 
-        this.busy = this.chromelinesummaryService.getChromeLineSummaryGrid(this.FromDate, this.ToDate, alias_string, Top_string, loadingshift_string, orderby_string,orderbyA_string).subscribe(res => {
+        this.busy = this.chromelinesummaryService.getChromeLineSummaryGrid(FromDate,ToDate, alias_string, Top_string, loadingshift_string, orderby_string,orderbyA_string).subscribe(res => {
        //  this.ResponseData = res.Data;
         // this.ResponseDataCopy = res.Data;
      
-   //  localStorage.Arrayjson = JSON.stringify(res);
+ 
         
          this.json = JSON.parse(res);
            this.ResponseDataCopy = this.json;

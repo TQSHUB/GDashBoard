@@ -68,6 +68,10 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
   import {ChromeLineSummary} from './Dashboard/Chrome/InspReportValueWise/chromelinesummary.component';
   import { ChromeRejectionReviewComponent } from './Dashboard/Chrome/ChromeRejectionReview/chromerejectionreview.component';
 
+ //Satin
+  import {SatinDetailComponet} from './Dashboard/Satin/InspReportQtyWise/satindetail.component'; 
+  import {SatinLineSummary} from './Dashboard/Satin/InspReportValueWise/satinlinesummary.componet';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -116,7 +120,11 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
       //Chrome
       ChromeDetailComponet,
       ChromeLineSummary,
-      ChromeRejectionReviewComponent
+      ChromeRejectionReviewComponent,
+      
+      //Satin
+      SatinDetailComponet,
+      SatinLineSummary
   ],
   imports: [
     BrowserModule,
