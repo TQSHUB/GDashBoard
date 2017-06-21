@@ -56,7 +56,11 @@ export class CSDashboardComponent {
   ngOnInit(){
     var script = document.createElement('script');
     document.body.appendChild(script);
-    script.src = 'assets/ComponentJs/Dashboard/csdashboard.component.js';
+    script.src = '../assets/plugins/Chart_new.js/Chart.bundle.js';
+
+    var script = document.createElement('script');
+    document.body.appendChild(script);
+    script.src = '../assets/ComponentJs/Dashboard/csdashboard.component.js';
 
       this.getMonthlyInspectionChrome();
       this.getMonthlyRoundNoChrome();
@@ -124,7 +128,7 @@ export class CSDashboardComponent {
         this.AggregateRoundChrome = this.ProducedRoundChrome + this.EmptyRoundChrome;
     }
     this.csDashboardService.LoadingChromeData().subscribe(res => this.InspPendingRoundChrome = res);
-    cvsChromeMonthly(lables,d1,d3);
+    cvsChromeMonthly(lables,d1,d2,d3);
   }
 
   //Satine Inspection
@@ -187,7 +191,7 @@ export class CSDashboardComponent {
         this.AggregateRoundSatin = this.ProducedRoundSatin + this.EmptyRoundSatin;
     }
     this.csDashboardService.LoadingSatinData().subscribe(res => this.InspPendingRoundSatin = res);
-    cvsMonthlySatin(lables,d1,d3);
+    cvsMonthlySatin(lables,d1,d2,d3);
   }
   
 }

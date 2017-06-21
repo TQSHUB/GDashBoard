@@ -16,7 +16,7 @@ export class SearchPipe implements PipeTransform{
             {
                 var row = [];
                 row.push(value[i]);
-                if(row.filter(item => item.CuatomerName.toLowerCase().indexOf(term.toLowerCase()) !== -1).length == 1 ||
+                if(row.filter(item => item.Name.toLowerCase().indexOf(term.toLowerCase()) !== -1).length == 1 ||
                    row.filter(item => item.AliasName.toLowerCase().indexOf(term.toLowerCase()) !== -1).length == 1
                 )
                     filteredArray.push(row[0]);

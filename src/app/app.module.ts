@@ -43,16 +43,34 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
  import { CustomerMasterComponent } from './Dashboard/Masters/CustomerMaster/custmaster.component'
 
  //Jigg 
-  import { JiggReport } from './Dashboard/JiggManufacture/JiggMfgReport/jiggreport.component';
+  import { JiggReportComponent } from './Dashboard/JiggManufacture/JiggMfgReport/jiggreport.component';
   import { JigMasterComponent } from './Dashboard/JiggManufacture/JigMaster/jigmaster.component';
   import { JiggCount } from './Dashboard/JiggManufacture/JiggCount/jiggcount.component';
-  import { JiggingReport } from './Dashboard/JiggManufacture/JiggingReport/jiggingreport.component';
-   import {JiggEntry} from './Dashboard/JiggManufacture/JiggMfgEntry/jiggentry.component';
+  import { JiggingReportComponent } from './Dashboard/JiggManufacture/JiggingReport/jiggingreport.component';
+  import {JiggEntry} from './Dashboard/JiggManufacture/JiggMfgEntry/jiggentry.component';
 
   //Dashboard
   import { CSDashboardComponent } from './Dashboard/Dashboard/CSDashboard/csdashboard.component';
   import { JiggDashboardComponent } from './Dashboard/Dashboard/JiggDashboard/jiggdashboard.component';
   import { PPCDashboardComponent } from './Dashboard/Dashboard/PPCDashboard/ppcdashboard.component';
+
+  //DWMY
+     import { DailyChromeSatinComponent } from './Dashboard/DWMY/DailyChromeSatin/dailychromesatin.component';
+     import { WeeklyChromeSatinComponent } from './Dashboard/DWMY/WeeklyChromeSatin/weeklychromesatin.component';
+     import { MonthlyChromeSatinComponent } from './Dashboard/DWMY/MonthlyChromeSatin/monthlychromesatin.component';
+     import { yearlyChromeSatinComponent } from './Dashboard/DWMY/YearlyChromeSatin/yearlychromesatin.component';
+
+  //Statistics Dashboard
+     import { StatisticsDashboardComponent } from './Dashboard/StatisticsDashboard/statisticsdashboard.component';
+
+//Chrome
+  import {ChromeDetailComponet} from './Dashboard/Chrome/InspReportQtyWise/chromedetail.componet';
+  import {ChromeLineSummary} from './Dashboard/Chrome/InspReportValueWise/chromelinesummary.component';
+  import { ChromeRejectionReviewComponent } from './Dashboard/Chrome/ChromeRejectionReview/chromerejectionreview.component';
+
+ //Satin
+  import {SatinDetailComponet} from './Dashboard/Satin/InspReportQtyWise/satindetail.component'; 
+  import {SatinLineSummary} from './Dashboard/Satin/InspReportValueWise/satinlinesummary.componet';
 
 @NgModule({
   declarations: [
@@ -67,6 +85,8 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
 
     //Dashboard Components
     DashboardComponent,
+      //Statistics Dashboard
+      StatisticsDashboardComponent,
       //PPC Components
       ScheduleEditComponent,
       PPCSummaryComponent,
@@ -80,16 +100,31 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
       CustomerMasterComponent,
 
       //Jigg Component
-      JiggReport,
+      JiggReportComponent,
       JigMasterComponent,
       JiggCount,
-      JiggingReport,
+      JiggingReportComponent,
       JiggEntry,
 
       //Dashboard
       CSDashboardComponent,
       JiggDashboardComponent,
-      PPCDashboardComponent
+      PPCDashboardComponent,
+
+      //DWMY
+      DailyChromeSatinComponent,
+      WeeklyChromeSatinComponent,
+      MonthlyChromeSatinComponent,
+      yearlyChromeSatinComponent,
+
+      //Chrome
+      ChromeDetailComponet,
+      ChromeLineSummary,
+      ChromeRejectionReviewComponent,
+      
+      //Satin
+      SatinDetailComponet,
+      SatinLineSummary
   ],
   imports: [
     BrowserModule,

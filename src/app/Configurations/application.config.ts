@@ -5,6 +5,5 @@
 //     setHost(host:string){ this.host = host; }
 // }
 
-
 export var host = 'http://192.168.0.201:4002/api/';
 

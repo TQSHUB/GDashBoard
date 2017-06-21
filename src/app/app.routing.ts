@@ -19,16 +19,34 @@ import { DashboardComponent } from './Dashboard/dashboard.component'
      import { CustomerMasterComponent } from './Dashboard/Masters/CustomerMaster/custmaster.component'
      
      //Jigg Manufacture
-     import { JiggReport } from './Dashboard/JiggManufacture/JiggMfgReport/jiggreport.component';
+     import { JiggReportComponent } from './Dashboard/JiggManufacture/JiggMfgReport/jiggreport.component';
      import { JigMasterComponent } from './Dashboard/JiggManufacture/JigMaster/jigmaster.component';
      import { JiggCount } from './Dashboard/JiggManufacture/JiggCount/jiggcount.component';
-     import { JiggingReport } from './Dashboard/JiggManufacture/JiggingReport/jiggingreport.component';
+     import { JiggingReportComponent } from './Dashboard/JiggManufacture/JiggingReport/jiggingreport.component';
      import {JiggEntry} from './Dashboard/JiggManufacture/JiggMfgEntry/jiggentry.component';
 
      //Dashboard
      import { CSDashboardComponent } from './Dashboard/Dashboard/CSDashboard/csdashboard.component';
      import { JiggDashboardComponent } from './Dashboard/Dashboard/JiggDashboard/jiggdashboard.component';
      import { PPCDashboardComponent } from './Dashboard/Dashboard/PPCDashboard/ppcdashboard.component';
+
+     //DWMY
+     import { DailyChromeSatinComponent } from './Dashboard/DWMY/DailyChromeSatin/dailychromesatin.component';
+     import { WeeklyChromeSatinComponent } from './Dashboard/DWMY/WeeklyChromeSatin/weeklychromesatin.component';
+     import { MonthlyChromeSatinComponent } from './Dashboard/DWMY/MonthlyChromeSatin/monthlychromesatin.component';
+     import { yearlyChromeSatinComponent } from './Dashboard/DWMY/YearlyChromeSatin/yearlychromesatin.component';
+
+     //Statistics Dashboard
+     import { StatisticsDashboardComponent } from './Dashboard/StatisticsDashboard/statisticsdashboard.component';
+
+    //Chrome
+     import {ChromeDetailComponet} from './Dashboard/Chrome/InspReportQtyWise/chromedetail.componet';
+     import {ChromeLineSummary} from './Dashboard/Chrome/InspReportValueWise/chromelinesummary.component';
+     import { ChromeRejectionReviewComponent } from './Dashboard/Chrome/ChromeRejectionReview/chromerejectionreview.component'
+   
+     //Satin
+     import {SatinDetailComponet} from './Dashboard/Satin/InspReportQtyWise/satindetail.component'; 
+     import {SatinLineSummary} from './Dashboard/Satin/InspReportValueWise/satinlinesummary.componet';
 
 const appRoute: Routes = [
     {
@@ -39,6 +57,10 @@ const appRoute: Routes = [
         path: 'Dashboard',
         component: DashboardComponent,
         children: [
+            {
+                path: '',
+                component: StatisticsDashboardComponent
+            },
             {
                 path: 'PPC/ScheduleEdit',
                 component: ScheduleEditComponent
@@ -73,7 +95,7 @@ const appRoute: Routes = [
             },
              {
                 path: 'JiggManufacture/JiggMfgReport',
-                component: JiggReport
+                component: JiggReportComponent
             },
              {
                 path: 'JiggManufacture/JiggMaster',
@@ -85,7 +107,7 @@ const appRoute: Routes = [
             },
             {
                 path: 'JiggManufacture/JiggingReport',
-                component: JiggingReport
+                component: JiggingReportComponent
             },
              {
                 path: 'JiggManufacture/JiggEntry',
@@ -102,7 +124,59 @@ const appRoute: Routes = [
             {
                 path: 'PPCDashboard',
                 component: PPCDashboardComponent
-            }
+            },
+            {
+                path: 'Chrome/Daily',
+                component: DailyChromeSatinComponent
+            },
+            {
+                path: 'Satin/Daily',
+                component: DailyChromeSatinComponent
+            },
+            {
+                path: 'Chrome/Weekly',
+                component: WeeklyChromeSatinComponent
+            },
+            {
+                path: 'Satin/Weekly',
+                component: WeeklyChromeSatinComponent
+            },
+            {
+                path: 'Chrome/Monthly',
+                component: MonthlyChromeSatinComponent
+            },
+            {
+                path: 'Satin/Monthly',
+                component: MonthlyChromeSatinComponent
+            },
+            {
+                path: 'Chrome/Yearly',
+                component: yearlyChromeSatinComponent
+            },
+            {
+                path: 'Satin/Yearly',
+                component: yearlyChromeSatinComponent
+            },
+            {
+                path: 'Chrome/InspReportQtyWise',
+                component: ChromeDetailComponet
+            },
+            {
+                path: 'Chrome/InspReportValueWise',
+                component: ChromeLineSummary
+            },
+            {
+                path: 'Chrome/ChromeRejectionReview',
+                component: ChromeRejectionReviewComponent
+            },
+             {
+                path:'Satin/InspReportQtyWise',
+                component: SatinDetailComponet
+            },
+             {
+                path: 'Satin/InspReportValueWise',
+                component: SatinLineSummary
+            },
         ]
     }
 ];

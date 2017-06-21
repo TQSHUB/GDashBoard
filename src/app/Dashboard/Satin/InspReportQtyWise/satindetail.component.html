@@ -1,0 +1,358 @@
+<div class="content-wrapper">
+    <div class="container-main">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+         SatinLine Detail 
+          <small>Report</small>
+        </h1>
+      </section>
+    
+      <!-- Main content -->
+      <section class="content">
+        <div class="box box-default color-palette-box">
+        <div class="box-header with-border">
+          <!--<h3 class="box-title"><i class="fa fa-search"></i>&nbsp;Search Criteria</h3>-->
+        </div>
+
+          <div class="box-body">
+          <form method="post">
+          <div class="row">
+            <div class="col-sm-12 col-md-3"style="margin-bottom: 20px">
+                <label for="lblloadingfrom">Loading From</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                    <input type="text" name="FromDate"  class="form-control pull-right" id="FromDate"  [(ngModel)]="FromDate">                    
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-3">
+                <label for="lblloadingto">Loading To</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                   <input type="text" name="ToDate" class="form-control pull-right" id="ToDate" [(ngModel)]="ToDate">                    
+                </div>
+             </div>
+        <div class="col-sm-12 col-md-3">
+            <label for="lblaliasname">Alias Name</label>
+            <select id="Alias_Names"  class="form-control select2" multiple="multiple" data-placeholder="--Select--" style="width: 100%;">
+                <option *ngFor="let Alias of Alias_Names" [value]="Alias.Alias_Name">{{Alias.Alias_Name}}</option>
+            </select>
+                <!--<input  type="text" class="form-control"  name="txtaliasname" [(ngModel)]="txtaliasname" id="txtaliasname" placeholder="" required>-->
+        </div>
+            <div class="col-sm-12 col-md-3">
+              <div class="input-group" >
+                  <label for="lbltop">Top</label>
+                     <select id="top" class="form-control select2"  style="width: 100%;"   name="txttop" >
+                           <option selected="Select" value="NULL">--Select--</option>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                    </select>
+               </div>
+            </div>
+        
+ </div>
+
+         <div class="row">
+            <div class="col-sm-12 col-md-3" style="margin-bottom: 20px">
+                <div class="input-group" >
+                       <label for="lblloadingshift">Loading Shift</label>
+                         <select id="loadingshift" class="form-control select2"  style="width: 100%;"   name="txtshift">
+                             <option selected="Select" value="NULL">--Select--</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                        </select>
+                    </div>
+            </div>
+
+            <div class="col-sm-12 col-md-3">
+                <div class="input-group" >
+                       <label for="lblorderby">Order by</label>
+                         <select id="orderby" class="form-control select2"  style="width: 100%;"   name="txtorderby">
+                             <option selected="Select" value="NULL">--Select--</option>
+                             <option value="[Rejected Qty]">Rejected Qty</option>
+                        </select>
+                    </div>
+                 </div>
+
+            <div class="col-sm-12 col-md-3">
+               <div class="input-group" >
+                       <label for="lblorderby">Order by</label>
+                         <select id="orderbyA" class="form-control select2"  style="width: 100%;"   name="txtorderbyA" >
+                             <option selected="Select" value="NULL">--Select--</option>
+                             <option value="asc">Ascending</option>
+                             <option value="desc">Descendig</option>
+                        </select>
+                    </div>
+           </div>
+         <div class="col-sm-12 col-md-3">
+              
+              <button type="button" class="btn btn-primary" (click)="search()" style="margin-top: 7%">Submit</button>
+        </div>
+         </div>
+
+         
+         <!--<div class="modal-footer" [ngClass]="display_message_class" >
+             <label class="pull-left" >{{display_message}}</label>
+          
+            <button type="button" class="btn btn-default">Close</button>
+         </div>-->
+      </form>
+        </div>
+        <!-- /.box-body -->
+      </div>
+        <!-- /.box -->
+        <div class="box box-default">
+        <div class="box-header with-border">
+             <div class="row" style="margin: 0.5%;">
+          <h3 class="box-title pull-left" ><i class="fa fa-table"></i>&nbsp;Result Data</h3>
+          <div class="col-md-6 col-sm-12 pull-right">
+                <input class="form-control form-control-sm mb-2 mr-sm-2 mb-lg-0" (keyup)="SearchTextBox()" placeholder="Search" [(ngModel)]="searchText">
+         </div>
+        </div>
+          </div>
+        <div class="box-body">
+           
+                
+          
+            <div class="row" style="margin: 0.5%;overflow-x: auto;">
+                <table class="table table-responsive table-striped table-bordered" style="width: 100%;">
+                    <thead>
+                        <tr style="border: none">
+                               
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>{{totInsp}} </td>
+                                <td></td>
+                                <td>{{totOkQty}}</td>
+                                <td>{{totHoldQty}} </td>
+                                <td>{{totRejectedQty}}</td>
+                                <td>{{totMismatchQty}}</td>
+                                <td>{{totBufferingQty}}</td>
+                                <td>{{totPinHole}} </td>
+                                <td>{{totPitmarks}} </td>
+                                <td>{{totSkipPlating}}</td>
+                                <td>{{totDotPlastic}}</td>
+                                <td>{{totWhiteMark}} </td>
+                                <td>{{totChormBurning}} </td>
+                                <td>{{totDentMarck}}</td>
+                                <td>{{totJigDamage}} </td>
+                                <td>{{totHighGloss}}</td>
+                                <td>{{totLowGloss}} </td>
+                                <td>{{totShadeVariation}} </td>
+                                <td>{{totNickel}} </td>
+                                <td>{{totScratches}}</td>
+                                <td>{{totRoughness}}</td>
+                                <td>{{totBlister}}</td>
+                                <td>{{totBlackSpot}}</td>
+                                <td>{{totSatinMark}}</td>
+                                <td>{{totTouchBurning}} </td>
+                                <td>{{totChemicalMark}}</td>
+                                <td>{{totWaterMark}}</td>
+                                <td>{{totOther}}</td>
+                                <td>{{totPatchMark}}</td>
+                                <td>{{totCopperBurning}}</td>
+                                <td>{{totProMouRej}}</td>
+                                <td>{{totHandMouRej}}</td>
+                                <td>{{totSilverMark}}</td>
+                                <td>{{totWarPage}}</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                
+                        </tr>
+                        <tr>
+                               
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>{{avgOkQty}} %</td>
+                                <td>{{avgHoldQty}} %</td>
+                                <td>{{avgRejectedQty}} %</td>
+                                <td>{{avgMismatchQty}} %</td>
+                                <td>{{avgBufferingQty}} %</td>
+                                <td>{{avgPinHole}} %</td>
+                                <td>{{avgPitmarks}} %</td>
+                                <td>{{avgSkipPlating}} %</td>
+                                <td>{{avgDotPlastic}} %</td>
+                                <td>{{avgWhiteMark}} %</td>
+                                <td>{{avgChormBurning}} %</td>
+                                <td>{{avgDentMarck}} %</td>
+                                <td>{{avgJigDamage}} %</td>
+                                <td>{{avgHighGloss}} %</td>
+                                <td>{{avgLowGloss}} %</td>
+                                <td>{{avgShadeVariation}} %</td>
+                                <td>{{avgNickel}} %</td>
+                                <td>{{avgScratches}} %</td>
+                                <td>{{avgRoughness}} %</td>
+                                <td>{{avgBlister}} %</td>
+                                <td>{{avgBlackSpot}} %</td>
+                                <td>{{avgSatinMark}} %</td>
+                                <td>{{avgTouchBurning}} %</td>
+                                <td>{{avgChemicalMark}} %</td>
+                                <td>{{avgWaterMark}} %</td>
+                                <td>{{avgOther}} %</td>
+                                <td>{{avgPatchMark}} %</td>
+                                <td>{{avgCopperBurning}} %</td>
+                                <td>{{avgProMouRej}} %</td>
+                                <td>{{avgHandMouRej}} %</td>
+                                <td>{{avgSilverMark}} %</td>
+                                <td>{{avgWarPage}} %</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                
+                        </tr>
+                        <tr>
+                              
+                           <td><b>Loading Date </b></td> 
+                           <td><b>Inspection Date</b></td>
+                           <td><b>Loading Shift</b></td>
+                     
+                           <td><b>Component Name</b></td>
+                           <td><b>Alias Name</b></td>
+                           <td><b>Insp Name</b></td>
+                           <td><b>Round No</b></td>
+                            <td><b>Total Insp</b></td>
+                            <td><b>Loading Qty</b></td>
+                             <td><b>Ok Qty</b></td>
+                             <td><b>Hold Qty</b></td>
+                             <td><b>Rejected Qty</b></td>
+                             <td><b>Mismatch Qty</b></td>
+                             <td><b>Buffering Qty</b></td>
+                             <td><b>PinHole</b></td>
+                             <td><b>Pitmarks</b></td>
+                             <td><b>Skip Plating</b></td>
+                             <td><b> Dot Plastic</b></td>
+                             <td><b> White Mark</b></td>
+                             <td><b> ChormBurning</b></td>
+                             <td><b> DentMarck</b></td>
+                             <td><b> Jig Damage</b></td> 
+                             <td><b> HighGloss</b></td> 
+                             <td><b> LowGloss</b></td>
+                             <td><b> ShadeVariation</b></td>  
+                             <td><b>Nickel</b></td>
+                             <td><b>Scratches</b></td>
+                             <td><b>Roughness</b></td>
+                             <td><b> Blister</b></td>
+                             <td><b> BlackSpot</b></td>
+                             <td><b> SatinMark</b></td>
+                             <td><b>TouchBurning</b></td>
+                             <td><b>ChemicalMark</b></td>
+                             <td><b> Water Mark</b></td>
+                             <td><b> Other</b></td>
+                             <td><b>Patch  Mark</b></td>
+                             <td><b> Copper Burning</b></td>
+                             <td><b>Pro Mou Rej</b></td>
+                             <td><b> Hand Mou Rej</b></td>
+                             <td><b>Silver Mark</b></td>
+                             <td><b> War Page </b></td>
+                             <td><b>Tech. Fail.</b></td>
+                             <td><b>Remark</b></td>
+                             <td><b>NatureOfComponent</b></td>
+                           
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let response of json | paginate: { itemsPerPage: 10, currentPage: p }">
+                            <td>{{response.LoadingDate | jsondate | date: 'MM/dd/yyyy'}}</td>
+                            <td>{{response.ModifyDate  | jsondate | date: 'MM/dd/yyyy'}}</td>
+                            <td>{{response.LoadingShift}}</td>
+                            
+                            <td>{{response.Component_Name}}</td>
+                            <td>{{response.Alias_Name}}</td>
+                            <td>{{response.InspName}}</td>
+                            <td>{{response.rno}}</td>
+                            <td>{{response.TotalInsp}}</td>
+                            <td>{{response.LoadingQty}}</td>
+                            <td>{{response.OkQty}}</td>
+                            <td>{{response.HoldQty}}</td>
+                            <td>{{response.RejectedQty}}</td>
+                            <td>{{response.MismatchQty}}</td>
+                            <td>{{response.BufferingQty}}</td>
+                            <td>{{response.PinHole}}</td>
+                            <td>{{response.Pitmarks}}</td>
+                            <td>{{response.SkipPlating}}</td>
+                            <td>{{response.DotPlastic}}</td>
+                            <td>{{response.WhiteMark}}</td>
+                            <td>{{response.ChromeBurning}}</td>
+                            <td>{{response.DentMark}}</td>
+                            <td>{{response.Jigdamage}}</td>
+                            <td>{{response.HighGloss}}</td>
+                            <td>{{response.LowGloss}}</td>
+                            <td>{{response.ShadeVariation}}</td>
+                            <td>{{response.Nickel}}</td>
+                            <td>{{response.Scratches}}</td>
+                            <td>{{response.Roughness}}</td>
+                            <td>{{response.Blister}}</td>
+                            <td>{{response.BlackSport}}</td>
+                            <td>{{response.SatinMark}}</td>
+                            <td>{{response.TouchBurning}}</td>
+                            <td>{{response.ChemicalMark}}</td>
+                            <td>{{response.WaterMark}}</td>
+                            <td>{{response.Other}}</td>
+                            <td>{{response.PatchMark}}</td>
+                            <td>{{response.CopperBurning}}</td>
+                            <td>{{response.ProMouRej}}</td>
+                            <td>{{response.HandMouRej}}</td>
+                            <td>{{response.SilverMark}}</td>
+                            <td>{{response.WarPage}}</td>
+                            <td>{{response.TechnicalFailure}}</td>
+                            <td>{{response.Remark}}</td>
+                            <td>{{response.NatureofComp}}</td>
+                         
+
+                            <!--<td><a (click)="selectedCustomer(response)"><span class="btn glyphicon glyphicon-pencil" data-toggle="modal" data-target=".bs-example-modal-sm-edit"></span></a></td>-->
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <!--<gt-column-settings [genericTable]="myTable" #columnSettings>
+                    <div class="table table-responsive table-striped">
+                        <generic-table #myTable [gtSettings]="configObject.settings" [gtFields]="configObject.fields" [gtData]="configObject.data" [gtOptions]="{highlightSearch:true, rowSelection:true}"></generic-table>
+                    </div>
+                    <div class="text-right">
+                        <gt-pagination [gtClasses]="'justify-content-center'" [genericTable]="myTable" ></gt-pagination>
+                    </div>
+                </gt-column-settings>-->
+            </div>
+           
+        </div>
+         <div class="box-footer">
+            <div id="dvjson"></div>
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <button class="btn btn-primary" id="export" (click)="ExportToExcel()">Export to Excel</button>
+                </div>
+                <div class="col-md-7 col-md-offset-1 col-sm-12">
+                    <pagination-controls class="text-right" (pageChange)="p = $event"></pagination-controls>                   
+                </div>
+            </div>
+        </div>
+        </div>
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.container -->
+  </div>

@@ -186,7 +186,7 @@
                         <span class="glyphicon glyphicon glyphicon-download" aria-hidden="true"></span> Export to Excel
                     </button>
                 </div>
-                <div class="col-md-7 col-md-offset-1 col-sm-12">
+                <div class="col-md-7 col-md-offset-1 col-sm-12" *ngIf="ResponseData">
                     <pagination-controls class="text-right" (pageChange)="p = $event"></pagination-controls>                   
                 </div>
             </div>

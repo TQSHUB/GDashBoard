@@ -1801,6 +1801,8 @@ a:focus {
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
   padding: 10px;
+  padding-left: 25px !important;
+  padding-right: 25px !important;
 }
 .no-header .box-body {
   border-top-right-radius: 3px;
@@ -4457,7 +4459,7 @@ table.text-center th {
   background-color: #001f3f !important;
 }
 .bg-teal {
-  background-color: #39cccc !important;
+  background-color: #39cccc /*!important*/;
 }
 .bg-olive {
   background-color: #3d9970 !important;

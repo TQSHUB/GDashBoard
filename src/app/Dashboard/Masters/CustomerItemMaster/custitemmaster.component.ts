@@ -29,7 +29,7 @@ export class CustomerItemMasterComponent{
     aliasname;
 
     display_message;
-    response: Response;
+    response;
     display_message_class;
 
     caption = 'ADD';
@@ -40,7 +40,7 @@ export class CustomerItemMasterComponent{
     ngOnInit(){
         var script = document.createElement('script');
         document.body.appendChild(script);
-        script.src = '../assets/ComponentJs/Masters/custitemmaster.component.js';
+        script.src = '../../assets/ComponentJs/Masters/custitemmaster.component.js';
 
         this.getAllCustomers();
         this.getAllItems();
@@ -65,19 +65,18 @@ export class CustomerItemMasterComponent{
 
     getAllCustomerItems()
     {
-        console.log(this.itemid);
         this.customeritemmasterService.getAllCutomerItems(this.itemid).subscribe(res => {
-            this.allcustitemmasters = res;
+            this.allcustitemmasters = res.Data;
             console.log(this.allcustitemmasters);
         });
     }
 
     createCustomerItemMaster()
     {
-        this.customername = $("#Customer_Names").val();
-        this.aliasname = $("#Item_Names").val();
+        var ddcustomername = $("#Customer_Names").val();
+        var ddaliasname = $("#Item_Names").val();
 
-        this.customeritemmasterService.addNewCustomerItem(this.ddcustomername, this.ddaliasname)
+        this.customeritemmasterService.addNewCustomerItem(ddcustomername, ddaliasname, this.itemid)
             .subscribe(res => {
                 this.insertcustitems = res;
                 console.log(this.insertcustitems);
@@ -85,14 +84,16 @@ export class CustomerItemMasterComponent{
                 //Success and failure message code
                 if(this.insertcustitems)
                 {
-                    this.display_message = 'Customer Master added successfully';
-                    this.display_message_class = 'alert alert-success alert-dismissible';                    
+                    this.display_message = 'Customer Item Master added successfully';
+                    this.display_message_class = 'alert alert-success alert-dismissible';
                     this.clearValues();
+                    this.getAllItems();
+                    this.getAllCustomers();
                     this.getAllCustomerItems();
                 }
                 else
                 {
-                    this.display_message = 'Customer Master not added successfully';
+                    this.display_message = 'Customer Item Master not added successfully';
                     this.display_message_class = 'alert alert-danger alert-dismissible';
                     this.clearValues();
                 }
@@ -101,17 +102,12 @@ export class CustomerItemMasterComponent{
 
     selectedCustomerItem(CustomerItem)
     {
-        var customername = CustomerItem.Name;
-        var aliasname = CustomerItem.Alias_Name;
-
         this.aliasname = CustomerItem.Alias_Name;
 
         this.itemid = CustomerItem.ItemId;
         $("#Item_Names").val(CustomerItem.ItemId);
-        
-        this.ddcustomername = CustomerItem.Name;
-        this.ddaliasname = CustomerItem.Alias_Name;
         console.log(this.itemid);
+
         this.caption = 'UPDATE';
     }
 
@@ -127,6 +123,7 @@ export class CustomerItemMasterComponent{
 
     clearValues()
     {
+        this.caption = 'ADD';
         this.ddcustomername = '';
         this.ddaliasname = '';
 
@@ -160,6 +157,8 @@ export class CustomerItemMasterComponent{
                     this.display_message = 'Customer Master updated successfully';
                     this.display_message_class = 'alert alert-success alert-dismissible';                    
                     this.clearValues();
+                    this.getAllItems();
+                    this.getAllCustomers();
                     this.getAllCustomerItems();
                 }
                 else
@@ -171,9 +170,9 @@ export class CustomerItemMasterComponent{
     }
 }
 
-interface Response{
+/*interface Response{
     Data: boolean;
-}
+}*/
 
 /*interface CustomerItemMaster
 {

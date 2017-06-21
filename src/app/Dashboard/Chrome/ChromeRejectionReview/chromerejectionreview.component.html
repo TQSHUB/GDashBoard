@@ -1,0 +1,95 @@
+<div class="content-wrapper">
+    <div class="container-main">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          Jigging Detail Report
+          <!--<small>in Insp.</small>-->
+        </h1>
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+        <div class="box box-default color-palette-box">
+            <div class="box-body">
+                <form method="post">
+                    <div class="row">
+                        <div class="col-sm-10 col-md-3"style="margin-bottom: 20px">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <span class="input-group">Date</span>
+                                    <!--<i class="fa fa-calendar"></i>-->
+                                </div>
+                                <input type="text" name="Date" class="form-control pull-right" id="Date" [(ngModel)]="Date">
+                            </div>
+                        </div>
+                        <div class="col-sm-10 col-md-3"style="margin-bottom: 20px">
+                            <div class="input-group" >
+                                <!--<label for="lblnatureofpltng">Line Type</label>-->
+                                <div class="input-group-addon">
+                                    <span class="input-group">Line Type</span>
+                                </div>
+                                <select id="ItemType"  class="form-control select2"  style="width: 100%;" name="ItemType">
+                                    <!--<option selected="selected" value="NULL">Select</option>-->
+                                    <option value="Chrome">Chrome</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-md-3">
+                            <button  style="margin-left: 140px;" type="button" class="btn btn-primary" (click)="Search()">Search</button>
+                        </div>
+                        <div class="col-sm-10 col-md-3" style="margin-bottom: 20px">
+                            <div class="input-group" >
+                                <!--<label for="lblaliasname">Alias Name</label>-->
+                                <div class="input-group-addon">
+                                    <span class="input-group">Part Name</span>
+                                </div>
+                                <select id="Alias_Names"  class="form-control select2" multiple="multiple" data-placeholder="Select" style="width: 100%;">
+                                    <option *ngFor="let Alias of Alias_Names" [value]="Alias.Code">{{Alias.Alias_Name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-10 col-md-3" style="margin-bottom: 20px">
+                            <div class="form-group" >
+                                <label for="lblhldqty">Hold Qty</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-10 col-md-3" style="margin-bottom: 20px">
+                            <div class="input-group" >
+                                <label for="lblbfrqty">Buffer Qty</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-10 col-md-3" style="margin-bottom: 20px">
+                            <div class="input-group" >
+                                <label for="lblrejqty">Rejected Qty</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-10 col-md-3" style="margin-bottom: 20px">
+                            <div class="input-group" >
+                                <!--<label for="lblnatureofcomp">Type</label>-->
+                                <span class="input-group-addon">Type</span>
+                                <select id="natureofcomp" class="form-control select2"  style="width: 100%;" name="natureofcomp">
+                                    <option selected="selected" value="NULL">--Select--</option>
+                                    <option value="Hold">Hold</option>
+                                    <option value="Rejction Review">Rejction Review</option>
+                                    <option value="Buffing">Buffing</option>
+                                    <option value="Customer Return Review">Customer Return Review</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.container -->
+  </div>
+
+  <div [ngBusy]="busy"></div>

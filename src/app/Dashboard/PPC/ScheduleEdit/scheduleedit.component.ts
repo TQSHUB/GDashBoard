@@ -62,8 +62,7 @@ export class ScheduleEditComponent {
 
     var d = new Date();
     $("#Month").val(d.getMonth() + 1);
-    console.log(d.getMonth() + 1);
-    this.SearchMonthly();
+    this.SearchMonthly();  
   }
 
   TotalData(res){
