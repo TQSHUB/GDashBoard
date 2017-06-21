@@ -67,10 +67,13 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
   import {ChromeDetailComponet} from './Dashboard/Chrome/InspReportQtyWise/chromedetail.componet';
   import {ChromeLineSummary} from './Dashboard/Chrome/InspReportValueWise/chromelinesummary.component';
   import { ChromeRejectionReviewComponent } from './Dashboard/Chrome/ChromeRejectionReview/chromerejectionreview.component';
+  import {ChromeRejectionQtyComponet} from './Dashboard/Chrome/ChromeRejectionQtyWise/chromerejectiondetail.component';
+  import {ChromeRejectionValueComponet} from './Dashboard/Chrome/ChromeRejectionValueWise/chromelinerejection.component';
 
  //Satin
   import {SatinDetailComponet} from './Dashboard/Satin/InspReportQtyWise/satindetail.component'; 
   import {SatinLineSummary} from './Dashboard/Satin/InspReportValueWise/satinlinesummary.componet';
+  import {SatinRejectionQtyComponet} from './Dashboard/Satin/SatinRejectionQtyWise/satinrejectiondetail.component';
 
 @NgModule({
   declarations: [
@@ -121,10 +124,13 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
       ChromeDetailComponet,
       ChromeLineSummary,
       ChromeRejectionReviewComponent,
+      ChromeRejectionQtyComponet,
+      ChromeRejectionValueComponet,
       
       //Satin
       SatinDetailComponet,
-      SatinLineSummary
+      SatinLineSummary,
+      SatinRejectionQtyComponet
   ],
   imports: [
     BrowserModule,

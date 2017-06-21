@@ -7,13 +7,13 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 
-export class ChromeLineSummaryService{
+export class SatinRejectionQtyService{
      
       host1: string = 'http://202.71.9.14:4002';
      constructor(private http: Http){
-           
+              
     }
-       getChromeLineSummaryGrid(fromdate:string, todate:string,alias_names: string,top:string, loadingshift: string, orderby: string, orderbya:string){
+     getSatinRejectionDetailGrid(fromdate:string, todate:string,alias_names: string,top:string, type: string, orderby: string, orderbya:string){
         var headers = new Headers();
         headers.append('Content-Type','Application/Json');
 
@@ -22,12 +22,12 @@ export class ChromeLineSummaryService{
             ToDate: todate,
             Alias_Name: alias_names,
             Top: top,
-            LoadingShift: loadingshift,
+            Type: type,
             Orderby: orderby,
             Orderby1: orderbya,
         });
 
-        return this.http.post(host + 'ChromeLineSummaryController/getChromelineSummary',body,{headers:headers})
+        return this.http.post(host + 'SatinRejectionDetailController/getSatinrejectionDetail',body,{headers:headers})
             .map(res => res.json());
     }
      getBindItems_ByAliasName(){

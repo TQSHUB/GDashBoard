@@ -43,10 +43,14 @@ import { DashboardComponent } from './Dashboard/dashboard.component'
      import {ChromeDetailComponet} from './Dashboard/Chrome/InspReportQtyWise/chromedetail.componet';
      import {ChromeLineSummary} from './Dashboard/Chrome/InspReportValueWise/chromelinesummary.component';
      import { ChromeRejectionReviewComponent } from './Dashboard/Chrome/ChromeRejectionReview/chromerejectionreview.component'
-   
+     import {ChromeRejectionQtyComponet} from './Dashboard/Chrome/ChromeRejectionQtyWise/chromerejectiondetail.component';
+     import {ChromeRejectionValueComponet} from './Dashboard/Chrome/ChromeRejectionValueWise/chromelinerejection.component';
+
      //Satin
      import {SatinDetailComponet} from './Dashboard/Satin/InspReportQtyWise/satindetail.component'; 
      import {SatinLineSummary} from './Dashboard/Satin/InspReportValueWise/satinlinesummary.componet';
+     import {SatinRejectionQtyComponet} from './Dashboard/Satin/SatinRejectionQtyWise/satinrejectiondetail.component';
+
 
 const appRoute: Routes = [
     {
@@ -176,6 +180,18 @@ const appRoute: Routes = [
              {
                 path: 'Satin/InspReportValueWise',
                 component: SatinLineSummary
+            },
+            {
+                path:'Chrome/ChromeRejectionQtyWise',
+                component: ChromeRejectionQtyComponet
+            },
+            {
+                path:'Satin/SatinRejectionQtyWise',
+                component: SatinRejectionQtyComponet
+            },
+            {
+                path:'Chrome/ChromeRejectionValueWise',
+                component: ChromeRejectionValueComponet
             },
         ]
     }
