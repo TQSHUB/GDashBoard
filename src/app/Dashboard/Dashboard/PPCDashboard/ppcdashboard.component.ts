@@ -38,7 +38,7 @@ export class PPCDashboardComponent {
 
         var script = document.createElement('script');
         document.body.appendChild(script);
-        script.src = 'assets/ComponentJs/Dashboard/ppcdashboard.component.js';
+        script.src = '../assets/ComponentJs/Dashboard/ppcdashboard.component.js';
 
         this.getMonthlyInspectionChrome();
         this.getMonthlyInspectionSatin();
