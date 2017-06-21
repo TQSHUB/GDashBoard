@@ -36,7 +36,7 @@
                     <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                     </div>
-                    <!--<span>Date : {{fdate | date:"dd-MM-yyyy"}}</span>-->
+                   
                     <input type="text" name="FromDate"  class="form-control pull-right" id="FromDate"  [(ngModel)]="FromDate">                    
                 </div>
             </div>
@@ -267,8 +267,8 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let response of json | paginate: { itemsPerPage: 10, currentPage: p }">
-                            <td>{{response.LoadingDate | jsondate | date: 'MM/dd/yyyy'}}</td>
-                            <td>{{response.Modifydate | jsondate | date: 'MM/dd/yyyy'}}</td>
+                            <td>{{response.LoadingDate | jsondate | date: 'dd/MM/yyyy'}}</td>
+                            <td>{{response.Modifydate | jsondate | date: 'dd/MM/yyyy'}}</td>
                             <td>{{response.LoadingShift}}</td>
                           
                             <td>{{response.Component_Name}}</td>

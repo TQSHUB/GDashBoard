@@ -11,7 +11,7 @@ export class SatinLineSummaryService{
      
       host1: string = 'http://202.71.9.14:4002';
      constructor(private http: Http){
-        console.log('Satin Line Summary service started');        
+      
     }
  getSatinlinesummaryGrid(fromdate:string, todate:string,alias_names: string,top:string, orderby: string, orderbya:string){
         var headers = new Headers();
