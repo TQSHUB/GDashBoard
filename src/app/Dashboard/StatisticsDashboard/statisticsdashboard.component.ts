@@ -99,7 +99,7 @@ export class StatisticsDashboardComponent {
     var to = this.datepipe.transform(Date.now(), 'dd/MM/yyyy'); 
     this.busy = this.statisticsDashboardService.getJiggDaily(from.toString(), to.toString()).subscribe(res => {
         this.JiggResponse = JSON.parse(res);
-        this.JiggTotal(this.PPCResponse);
+        this.JiggTotal(this.JiggResponse);
         setTimeout(() => {
           this.getJiggReport();
         }, 300000);

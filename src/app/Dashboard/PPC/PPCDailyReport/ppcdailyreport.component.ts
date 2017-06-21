@@ -127,11 +127,11 @@ export class PPCDailyReportComponent {
     this.CustomerID = item.CustomerID;
     this.ItemID = item.Itemid;
     var status = $("#MStatus").val(item.Mstatus);
-    console.log(status);
+    //console.log(status);
     this.PlanA = item['Plan A'];
     this.PlanB = item['Plan B'];
     this.PlanC = item['Plan C'];
-    console.log(item);
+    //console.log(item);
   }
 
 updatePPCReport(){
