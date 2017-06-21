@@ -98,7 +98,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let response of JiggMfgReportRes | paginate: { itemsPerPage: 10, currentPage: p }">
+                        <tr *ngFor="let response of JiggMfgReportRes | paginate: { itemsPerPage: 10, currentPage: page }">
                             <td *ngFor="let header of Headers">{{response[header]}}</td>
                         </tr>
                     </tbody>
@@ -113,8 +113,8 @@
                         <span class="glyphicon glyphicon glyphicon-download" aria-hidden="true"></span> Export to Excel
                     </button>
                 </div>
-                <div class="col-md-7 col-md-offset-1 col-sm-12">
-                    <pagination-controls class="text-right" (pageChange)="p = $event"></pagination-controls>                   
+                <div class="col-md-7 col-md-offset-1 col-sm-12" *ngIf="JiggMfgReportRes">
+                    <pagination-controls class="text-right" (pageChange)="page = $event"></pagination-controls>                   
                 </div>
             </div>
         </div>

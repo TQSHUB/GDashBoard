@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { StatisticsDashboardService } from '../../Services/StatisticsDashboard/statisticsdashboard.service';
 import { JsonDate } from '../../Pipes/jsondate.pipe';
 import { DatePipe } from '@angular/common';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 
 @Component({
   selector: 'statistics-dashboard',
@@ -12,10 +12,27 @@ import { Subscription } from 'rxjs';
 
 export class StatisticsDashboardComponent {
   busy: Subscription;
+  clock;
   PPCResponse;
   JiggResponse;
   dailyInspectionResponseChrome;
   dailyInspectionResponseSatin;
+
+  ChromeRes;
+  ChromePendingRes;
+  ChromeEmptyRes;
+
+  SatinRes;
+  SatinPendingRes;
+  SatinEmptyRes;
+
+  ChromeTotalRoundNo = 0;
+  ChromePendingRoundNo = 0;
+  ChromeEmptyRoundNo = 0;
+
+  SatinTotalRoundNo = 0;
+  SatinPendingRoundNo = 0;
+  SatinEmptyRoundNo = 0;
 
   ppcTotalPlan = 0;
   ppcActualJigg = 0;
@@ -40,10 +57,16 @@ export class StatisticsDashboardComponent {
   constructor(private statisticsDashboardService: StatisticsDashboardService, private jsondate: JsonDate, private datepipe: DatePipe){}
 
   ngOnInit(){  
+      this.clock = Observable
+        .interval(1000)
+        .map(()=> new Date());
+
       this.getPPCReport(); 
       this.getJiggReport();
       this.dailyInspectionChrome();
       this.dailyInspectionSatin();
+      this.getDailyRoundNoChrome();
+      this.getDailyRoundNoSatin();
   }
 
   getPPCReport(){
@@ -141,6 +164,50 @@ export class StatisticsDashboardComponent {
         this.SatinIdata2 += res[i].Data2;
         this.SatinIdata3 += res[i].Data3;
         this.SatinIdata4 += res[i].Data4;
+    }
+  }
+
+  getDailyRoundNoChrome(){
+    this.busy = this.statisticsDashboardService.GetDailyRoundNo('Chrome').subscribe(res => {
+      this.ChromeRes = JSON.parse(res);
+      this.statisticsDashboardService.GetDailyPending('Chrome').subscribe(res => {
+        this.ChromePendingRes = JSON.parse(res);
+        this.statisticsDashboardService.GetDailyEmptyRound('Chrome').subscribe(res => {
+          this.ChromeEmptyRes = JSON.parse(res);
+          this.TotalRoundsChrome(this.ChromeRes, this.ChromePendingRes, this.ChromeEmptyRes)
+        });
+      });
+    });
+  }
+
+  TotalRoundsChrome(res, pendingres, emptyres){
+    var lables = [];var d1 = [];var d2 = [];var d3 = [];var i;
+    for(i =0; i< res.length; i++){
+        this.ChromeTotalRoundNo += res[i].Data;
+        this.ChromeEmptyRoundNo += emptyres[i].Data;
+        this.ChromePendingRoundNo += pendingres[i].Data;
+    }
+  }
+
+  getDailyRoundNoSatin(){
+    this.busy = this.statisticsDashboardService.GetDailyRoundNo('Satin').subscribe(res => {
+      this.SatinRes = JSON.parse(res);
+      this.statisticsDashboardService.GetDailyPending('Satin').subscribe(res => {
+        this.SatinPendingRes = JSON.parse(res);
+        this.statisticsDashboardService.GetDailyEmptyRound('Satin').subscribe(res => {
+          this.SatinEmptyRes = JSON.parse(res);
+          this.TotalRoundsSatin(this.SatinRes, this.SatinPendingRes, this.SatinEmptyRes)
+        });
+      });
+    });
+  }
+
+  TotalRoundsSatin(res, pendingres, emptyres){
+    var lables = [];var d1 = [];var d2 = [];var d3 = [];var i;
+    for(i =0; i< res.length; i++){
+        this.SatinTotalRoundNo += res[i].Data;
+        this.SatinEmptyRoundNo += emptyres[i].Data;
+        this.SatinPendingRoundNo += pendingres[i].Data;
     }
   }
 }

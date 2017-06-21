@@ -36,11 +36,7 @@ export class LoadingData{
 
          var FromDate = $("input[name=FromDate]").val();
          var ToDate = $("input[name=ToDate]").val();  
-
-        
-         
-     
-           if(FromDate == '' && ToDate == '' )
+          if(FromDate == '' && ToDate == '' )
            { 
                this.FromDate = '';
                this.ToDate = '';
