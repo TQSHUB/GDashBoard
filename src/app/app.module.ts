@@ -124,12 +124,6 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
       yearlyChromeSatinComponent,
 
       //Chrome
-<<<<<<< HEAD
-      ChromeRejectionReviewComponent,
-
-      //Satin
-      SatinRejectionReviewComponent
-=======
       ChromeDetailComponet,
       ChromeLineSummary,
       ChromeRejectionReviewComponent,
@@ -139,8 +133,8 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
       //Satin
       SatinDetailComponet,
       SatinLineSummary,
-      SatinRejectionQtyComponet
->>>>>>> d45b6237b7c49be8fb9bde33b42d4c1a6b5afddd
+      SatinRejectionQtyComponet,
+      SatinRejectionReviewComponent
   ],
   imports: [
     BrowserModule,
