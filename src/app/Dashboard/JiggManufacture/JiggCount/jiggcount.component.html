@@ -45,11 +45,13 @@
         <!-- /.box-body -->
       </div>
         <!-- /.box -->
-        <div class="row">
+      <div class="row">
         <div class="col-xs-12">
           <div class="box">
-            <div class="box-header bg-primary">
-              <h3 class="box-title" style="color:#fff;"><strong>List of Jig Count </strong></h3>
+           <div class="row">
+              <div class="col-md-8 col-sm-12">
+                      <h4 class="box-title"><i class="fa fa-table"></i>&nbsp;Result Data</h4>
+              </div>
             </div>
             <div style="width:100%; height:100%; overflow: auto;" >
             <!-- /.box-header -->
@@ -63,6 +65,7 @@
                   <th>Component Name</th>
                   <th>Count</th>
                   <th>Image</th>
+                  <th>View Details</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -81,14 +84,96 @@
                           </p>
                       </div>
                   </td>
+                   <td><a (click)="selectedData(item)"><span class="btn glyphicon glyphicon-pencil" data-toggle="modal" data-target=".bs-example-modal-sm-edit"></span></a></td>
                 </tr>
                 </tbody>
               </table>
             </div>
+            <div *ngIf="ResponseData">
               <pagination-controls (pageChange)="p = $event"></pagination-controls>
             </div>
             </div>
+            </div>
             <!-- /.box-body -->
+            <div class="modal fade bs-example-modal-sm-edit" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                <div class="modal-dialog modal-md" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header bg-primary">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title"><i class="ion ion-person-add"></i>&nbsp;&nbsp; Jigg Count Details</h4>
+                    </div>
+                    <div class="modal-body">
+                      <form method="post">
+                        <div class="row">
+                          <div class="col-sm-6 col-md-6" style="margin-bottom: 20px">
+                              <div class="input-group" >
+                                  <span class="input-group-addon">Recieved Date</span>
+                                  <input type="text" name="FromDate" [(ngModel)]="FromDate" class="form-control pull-right" id="datepicker">                    
+                              </div>
+                          </div>
+                          <div class="col-sm-6 col-md-6" style="margin-bottom: 20px">
+                                <div class="input-group" >
+                                    <span class="input-group-addon">Rectified Date</span>
+                                    <input type="text" name="ToDate" [(ngModel)]="ToDate" [disabled]="flagdisable" class="form-control pull-right" id="datepicker1" >                    
+                                </div>
+                          </div>
+                        
+
+                        </div>
+
+                        <div class="row">
+                          <div class="col-sm-6 col-md-6" style="margin-bottom: 20px">
+                              <div class="input-group">
+                                  <span class="input-group-addon">Item Type</span>
+                                  <select id="ItemType" class="form-control select2" style="width: 100%;">
+                                      <option selected="selected" value="NULL">--Select--</option>
+                                      <option value="Chrome">Chrome</option>
+                                      <option value="Satin">Satin</option>
+                                  </select>
+                              </div>
+                          </div>
+                          <div class="col-sm-6 col-md-6" style="margin-bottom: 20px">
+                              <div class="input-group" >
+                                  <button type="button" class="btn btn-primary" (click)="SearchJiggCount()">Search</button>
+                              </div>
+                          </div>
+                        </div>
+                      </form>
+                        <!-- table -->
+                      <div style="width:100%; height:100%; overflow: auto;" >
+                      <!-- /.box-header -->
+                          <div class="box-body">
+                          <div class="row">
+                            <table id="JigcountTable" class="table table-bordered table-striped table-responsive">
+                              <thead>
+                              <tr>
+                                <th>Alias Name</th>
+                                <th>Jigg No</th>
+                                <th>Jigg Date</th>
+                                <th>Load Round No</th>
+                                <th>Item Type</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr *ngFor="let item of ResponseData1 | paginate: { itemsPerPage: 5, currentPage: p }">
+                                <td>{{item.Alias_Name}}</td>
+                                <td>{{item.Jigg_No}}</td>
+                                <td>{{item.Jigg_Date}}</td>
+                                <td>{{item.Load_Round_No}}</td>
+                                <td>{{item.Item_Type}}</td>
+                              </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <div *ngIf="ResponseData1">
+                            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                          </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
           </div>
         </div>
         </div>

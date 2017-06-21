@@ -3,12 +3,13 @@ import { Router } from '@angular/router';
 import { JiggCountData } from '../../../Services/JiggManufacture/jiggcount.service'
 import { Subscription } from 'rxjs';
 import * as $ from 'jquery';
+import {DatePipe} from '@angular/common'
 
 
 @Component({
   selector: 'jiggcount',
   templateUrl: './jiggcount.component.html',
-  providers: [JiggCountData],
+  providers: [JiggCountData,DatePipe]
 })
 
 export class JiggCount{  
@@ -17,10 +18,15 @@ export class JiggCount{
   Alias_Names;
   JigCode;
   ResponseData;
+  ResponseData1;
+  getjiggcountdetail;
   Selected_Alias_Names;
   Selected_JigCode;
+  Jiggcode;
+  FromDate;
+  ToDate;
   
-  constructor(private jiggcountdata:JiggCountData){} 
+  constructor(private jiggcountdata:JiggCountData,private datepipe: DatePipe){} 
 
   ngOnInit(){
     var script = document.createElement('script');
@@ -29,6 +35,7 @@ export class JiggCount{
     this.getBindItems_ByAliasName();
     this.getJiggcode();
     this.Search();
+    //this.SearchJiggCount();
 } 
 
   getBindItems_ByAliasName(){
@@ -56,6 +63,11 @@ export class JiggCount{
     return stringBuilder;
   }
 
+  selectedData(item){
+    this.Jiggcode = item.JiggCode
+    this.SearchJiggCount();
+  }
+
   Search()
   {
               
@@ -73,5 +85,33 @@ export class JiggCount{
               console.log(alias_string);
               console.log(JigCode);
       });
+  }
+
+  SearchJiggCount()
+  {
+         var FromDate = $("input[name=FromDate]").val();
+         var ToDate = $("input[name=ToDate]").val(); 
+         console.log(this.FromDate);
+         console.log(this.ToDate);
+         if(FromDate == '' && ToDate == '' )
+           { 
+               this.FromDate = '';
+               this.ToDate = '';
+           }
+           else
+           {
+                this.FromDate = this.datepipe.transform(FromDate,"MM/dd/yyyy");
+                this.ToDate = this.datepipe.transform(ToDate,"MM/dd/yyyy"); 
+           }
+
+        var itemtype = $("#ItemType").val();
+        if(itemtype == 'NULL')
+        itemtype = '';
+
+        this.busy = this.jiggcountdata.getJigCountdetail(this.FromDate,this.ToDate,itemtype,this.Jiggcode).subscribe(res => {
+        this.ResponseData1 = res.Data;
+        console.log(this.ResponseData1);
+        
+    })
   }
 }
