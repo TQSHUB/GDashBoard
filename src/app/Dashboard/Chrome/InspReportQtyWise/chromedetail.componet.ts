@@ -101,9 +101,14 @@ export class ChromeDetailComponet{
   ngOnInit(){
     var script = document.createElement('script');
     document.body.appendChild(script);
-    script.src = 'assets/ComponentJs/Chrome/chromedetail.component.js';
+    script.src = '../../assets/ComponentJs/Chrome/chromedetail.component.js';
 
-  
+        /*var fromdate = Date.now();
+        var date = this.datepipe.transform(fromdate, 'dd/MM/yyyy');
+        this.FromDate = date;
+        this.ToDate = date;*/
+
+
 
     this.getBindItems_ByAliasName();
     this.search();
@@ -113,14 +118,30 @@ export class ChromeDetailComponet{
   search()
   {
        
+      var fromdate = Date.now();
+      var date = this.datepipe.transform(fromdate, 'dd/MM/yyyy');
 
-     var FromDate = $("input[name=FromDate]").val();
-      var ToDate = $("input[name=ToDate]").val();  
+     if($("input[name=FromDate]").val() == ''){
+        this.FromDate = date;
+     }
+     else{
+       this.FromDate = $("input[name=FromDate]").val();
+     }
+
+
+     if($("input[name=ToDate]").val() == ''){
+        this.ToDate = date;
+     } 
+     else{
+       this.ToDate = $("input[name=ToDate]").val();
+     }
 
     //  this.FromDate = this.datepipe.transform(FromDate,"MM/dd/yyyy");
     //  this.ToDate = this.datepipe.transform(ToDate,"MM/dd/yyyy"); 
-      console.log(this.FromDate);
-      console.log(this.ToDate);
+    
+
+       console.log(this.FromDate);
+      // console.log(this.ToDate);
       
        this.Selected_Alias_Names = $("#Alias_Names").val();
        var alias_string = this.inStringBuilder(this.Selected_Alias_Names);
@@ -140,7 +161,7 @@ export class ChromeDetailComponet{
          if(orderbyA_string == 'NULL')
             orderbyA_string = '';
 
-        this.busy = this.chromeDetailService.getChromeGrid(FromDate,ToDate, alias_string, Top_string, loadingshift_string, orderby_string,orderbyA_string).subscribe(res => {
+        this.busy = this.chromeDetailService.getChromeGrid(this.FromDate,this.ToDate, alias_string, Top_string, loadingshift_string, orderby_string,orderbyA_string).subscribe(res => {
         // this.ResponseData = res.Data;
         // this.ResponseDataCopy = res.Data;
      

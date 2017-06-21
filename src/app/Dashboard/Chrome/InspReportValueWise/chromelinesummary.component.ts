@@ -98,23 +98,14 @@ export class ChromeLineSummary{
     
     
     constructor(private chromelinesummaryService: ChromeLineSummaryService, private datepipe: DatePipe, private searchPipe: SearchPipe, private jsondate: JsonDate){}
+  
     ngOnInit(){
     var script = document.createElement('script');
     document.body.appendChild(script);
-    script.src = 'assets/ComponentJs/Chrome/chromelinesummary.component.js';
+    script.src = '../../assets/ComponentJs/Chrome/chromelinesummary.component.js';
 
-  //        var Top_string = $("#top").val();
-  //        var loadingshift_string = $("#loadingshift").val();
-  //        var orderby_string = $("#orderby").val();
-  //        var orderbyA_string = $("#orderbyA").val();
-
-
-  //   this.chromeDetailService.getChromeGrid(this.FromDate, this.ToDate, this.Alias_Names, Top_string, loadingshift_string, orderby_string,orderbyA_string).subscribe(res => {
-  //     this.json = JSON.parse(res);
-  //     this.TotalData(this.json);
-  //     this.Avgdata(this.json);
-  //  })
-
+      
+        
     this.getBindItems_ByAliasName();
     this.search();
 }
@@ -122,14 +113,27 @@ search()
   {
        
 
-     var FromDate = $("input[name=FromDate]").val();
-      var ToDate = $("input[name=ToDate]").val();  
+    //  var FromDate = $("input[name=FromDate]").val();
+    //   var ToDate = $("input[name=ToDate]").val();  
 
-   //   this.FromDate = this.datepipe.transform(FromDate,"MM/dd/yyyy");
-   //   this.ToDate = this.datepipe.transform(ToDate,"MM/dd/yyyy"); 
-      console.log(this.FromDate);
-      console.log(this.ToDate);
-        
+      var fromdate = Date.now();
+      var date = this.datepipe.transform(fromdate, 'dd/MM/yyyy');
+
+     if($("input[name=FromDate]").val() == ''){
+        this.FromDate = date;
+     }
+     else{
+       this.FromDate = $("input[name=FromDate]").val();
+     }
+
+
+     if($("input[name=ToDate]").val() == ''){
+        this.ToDate = date;
+     } 
+     else{
+       this.ToDate = $("input[name=ToDate]").val();
+     }
+
         this.Selected_Alias_Names = $("#Alias_Names").val();
         var alias_string = this.inStringBuilder(this.Selected_Alias_Names);
         
@@ -147,7 +151,7 @@ search()
          if(orderbyA_string == 'NULL')
             orderbyA_string = '';
 
-        this.busy = this.chromelinesummaryService.getChromeLineSummaryGrid(FromDate,ToDate, alias_string, Top_string, loadingshift_string, orderby_string,orderbyA_string).subscribe(res => {
+        this.busy = this.chromelinesummaryService.getChromeLineSummaryGrid(this.FromDate,this.ToDate, alias_string, Top_string, loadingshift_string, orderby_string,orderbyA_string).subscribe(res => {
        //  this.ResponseData = res.Data;
         // this.ResponseDataCopy = res.Data;
      

@@ -75,7 +75,10 @@ export class StatisticsDashboardComponent {
     this.busy = this.statisticsDashboardService.getPPCDaily(from.toString(), to.toString()).subscribe(res => {
         this.PPCResponse = JSON.parse(res);
         this.PPCTotal(this.PPCResponse);
-    })
+        setTimeout(() => {
+          this.getPPCReport();
+        }, 300000);
+    });
   }
 
   PPCTotal(res){
@@ -96,8 +99,10 @@ export class StatisticsDashboardComponent {
     var to = this.datepipe.transform(Date.now(), 'dd/MM/yyyy'); 
     this.busy = this.statisticsDashboardService.getJiggDaily(from.toString(), to.toString()).subscribe(res => {
         this.JiggResponse = JSON.parse(res);
-        console.log(this.JiggResponse);
-        //this.PPCTotal(this.PPCResponse);
+        this.JiggTotal(this.PPCResponse);
+        setTimeout(() => {
+          this.getJiggReport();
+        }, 300000);
     })
   }
 
@@ -123,6 +128,9 @@ export class StatisticsDashboardComponent {
     this.busy = this.statisticsDashboardService.GetDailyInspection('Chrome').subscribe(res => {
         this.dailyInspectionResponseChrome = JSON.parse(res);
         this.TotalDailyInspectionChrome(this.dailyInspectionResponseChrome);
+        setTimeout(() => {
+          this.dailyInspectionChrome();
+        }, 300000);
     })
   }
 
@@ -147,6 +155,9 @@ export class StatisticsDashboardComponent {
     this.busy = this.statisticsDashboardService.GetDailyInspection('Satin').subscribe(res => {
         this.dailyInspectionResponseSatin = JSON.parse(res);
         this.TotalDailyInspectionSatin(this.dailyInspectionResponseSatin);
+        setTimeout(() => {
+          this.dailyInspectionSatin();
+        }, 300000);
     })
   }
 
@@ -175,6 +186,9 @@ export class StatisticsDashboardComponent {
         this.statisticsDashboardService.GetDailyEmptyRound('Chrome').subscribe(res => {
           this.ChromeEmptyRes = JSON.parse(res);
           this.TotalRoundsChrome(this.ChromeRes, this.ChromePendingRes, this.ChromeEmptyRes)
+          setTimeout(() => {
+            this.getDailyRoundNoChrome();
+          }, 300000);
         });
       });
     });
@@ -197,6 +211,9 @@ export class StatisticsDashboardComponent {
         this.statisticsDashboardService.GetDailyEmptyRound('Satin').subscribe(res => {
           this.SatinEmptyRes = JSON.parse(res);
           this.TotalRoundsSatin(this.SatinRes, this.SatinPendingRes, this.SatinEmptyRes)
+          setTimeout(() => {
+            this.getDailyRoundNoSatin();
+          }, 300000);
         });
       });
     });

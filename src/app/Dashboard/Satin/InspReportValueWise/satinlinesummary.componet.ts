@@ -115,20 +115,9 @@ export class SatinLineSummary{
 ngOnInit(){
     var script = document.createElement('script');
     document.body.appendChild(script);
-    script.src = 'assets/ComponentJs/Satin/satinlinesummary.component.js';
+    script.src = '../../assets/ComponentJs/Satin/satinlinesummary.component.js';
 
-  //        var Top_string = $("#top").val();
-  //        var loadingshift_string = $("#loadingshift").val();
-  //        var orderby_string = $("#orderby").val();
-  //        var orderbyA_string = $("#orderbyA").val();
-
-
-  //   this.chromeDetailService.getChromeGrid(this.FromDate, this.ToDate, this.Alias_Names, Top_string, loadingshift_string, orderby_string,orderbyA_string).subscribe(res => {
-  //     this.json = JSON.parse(res);
-  //     this.TotalData(this.json);
-  //     this.Avgdata(this.json);
-  //  })
-
+ 
      this.getBindItems_ByAliasName();
      this.search();
 
@@ -139,14 +128,26 @@ ngOnInit(){
   {
        
 
-     var FromDate = $("input[name=FromDate]").val();
-      var ToDate = $("input[name=ToDate]").val();  
+    //  var FromDate = $("input[name=FromDate]").val();
+    //   var ToDate = $("input[name=ToDate]").val();  
+      var fromdate = Date.now();
+      var date = this.datepipe.transform(fromdate, 'dd/MM/yyyy');
 
-    //  this.FromDate = this.datepipe.transform(FromDate,"MM/dd/yyyy");
-   //   this.ToDate = this.datepipe.transform(ToDate,"MM/dd/yyyy"); 
-      console.log(this.FromDate);
-      console.log(this.ToDate);
-      
+     if($("input[name=FromDate]").val() == ''){
+        this.FromDate = date;
+     }
+     else{
+       this.FromDate = $("input[name=FromDate]").val();
+     }
+
+
+     if($("input[name=ToDate]").val() == ''){
+        this.ToDate = date;
+     } 
+     else{
+       this.ToDate = $("input[name=ToDate]").val();
+     }
+     
        this.Selected_Alias_Names = $("#Alias_Names").val();
        var alias_string = this.inStringBuilder(this.Selected_Alias_Names);
       
@@ -161,12 +162,8 @@ ngOnInit(){
          if(orderbyA_string == 'NULL')
             orderbyA_string = '';
 
-        this.busy = this.satinlinesummaryService.getSatinlinesummaryGrid(FromDate,ToDate, alias_string, Top_string, orderby_string,orderbyA_string).subscribe(res => {
-       //  this.ResponseData = res.Data;
-        // this.ResponseDataCopy = res.Data;
-     
-        // this.TotalData(this.ResponseData);
-        // this.Avgdata(this.ResponseData);
+        this.busy = this.satinlinesummaryService.getSatinlinesummaryGrid(this.FromDate,this.ToDate, alias_string, Top_string, orderby_string,orderbyA_string).subscribe(res => {
+      
          this.json = JSON.parse(res);
          this.ResponseDataCopy = this.json;
          this.TotalData(this.json);

@@ -11,7 +11,7 @@ export class SatinDetailService{
      
       host1: string = 'http://202.71.9.14:4002';
      constructor(private http: Http){
-        console.log('Satin Detail service started');        
+         
     }
 
      getSatinGrid(fromdate:string, todate:string,alias_names: string,top:string, loadingshift: string, orderby: string, orderbya:string){

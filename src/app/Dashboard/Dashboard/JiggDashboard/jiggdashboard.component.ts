@@ -52,7 +52,7 @@ export class JiggDashboardComponent {
 
         var script = document.createElement('script');
         document.body.appendChild(script);
-        script.src = 'assets/ComponentJs/Dashboard/jiggdashboard.component.js';
+        script.src = '../assets/ComponentJs/Dashboard/jiggdashboard.component.js';
 
         this.getJiggMfgChart();
         this.getJiggMfgRRChart();

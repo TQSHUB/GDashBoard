@@ -28,6 +28,12 @@ export class PPCSummaryComponent {
 
   constructor(private http: Http, private ppcSummaryService: PPCSummaryService, private datepipe: DatePipe, private searchPipe: SearchPipe){}
 
+  ngOnInit(){
+    var script = document.createElement('script');
+    document.body.appendChild(script);
+    script.src = '../../assets/ComponentJs/PPC/ppcsummary.component.js';
+  }
+
   Search(){
       var Month = $("#Month").val();
       var NatureOfComp = $("#NatureOfComp").val();
