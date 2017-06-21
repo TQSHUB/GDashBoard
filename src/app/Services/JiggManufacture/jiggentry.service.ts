@@ -42,7 +42,7 @@ export class JiggMfgEntry  {
              var headers = new Headers();
              headers.append('Authorization','Bearer');
              headers.append('Content-Type','Application/Json');
-
+             console.log(jiggmst);
              var body = JSON.stringify({
                  item_id : itemid,
                  jigg_code : jiggcode,
@@ -67,8 +67,10 @@ export class JiggMfgEntry  {
                  Jiggmst : jiggmst,
                  user : UserName,
              })
+             console.log(jiggmst);
               return this.http.post(host +'/JigMfgEntry/insertjiggdata',body,{headers:headers})
             .map(res=>res.json());
+            
     }
 
     UpdateJigg(itemid :string,jiggcode:string,purpose:string,dpdoj:string,CoatingPuntureBase:string,CPSKIP:string,SETTING:string,PinHole:string,JiggBand:string,ContactBroken:string,JiggBroken:string,Contactabression:string,CoatingonPuntureonJigg:string,ContactBurn:string,CoatingBurn:string,Others:string,ECN:string,TotalTechnicalDefects:string,TotalHandlingDefects:string,flag:string,newJigg:string){
