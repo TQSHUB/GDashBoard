@@ -25,7 +25,7 @@ export class LoadingData{
     ngOnInit(){
         var script = document.createElement('script');
         document.body.appendChild(script);
-        script.src = '../assets/ComponentJs/Masters/loadingdata.component.js';
+        script.src = '../../assets/ComponentJs/Masters/loadingdata.component.js';
 
         this.Search();
     }
@@ -49,9 +49,9 @@ export class LoadingData{
           this.busy = this.loadingdataservice.getLoadingData(this.FromDate,this.ToDate).subscribe(res=>{
           this.ResponseData =res.Data;
           this.ResponseDataCopy =res.Data;
-          console.log(this.ResponseData)
-          console.log(this.FromDate);
-          console.log(this.ToDate);
+          //console.log.log(this.ResponseData)
+          //console.log.log(this.FromDate);
+          //console.log.log(this.ToDate);
       })
     }
 
