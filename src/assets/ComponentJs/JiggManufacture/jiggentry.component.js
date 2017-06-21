@@ -2,7 +2,7 @@ $(function () {
 
     //Date Picker
     $('#datepicker').datepicker({
-        autoclose :true
+       autoclose :true
     });
 
     $('#datepicker1').datepicker({

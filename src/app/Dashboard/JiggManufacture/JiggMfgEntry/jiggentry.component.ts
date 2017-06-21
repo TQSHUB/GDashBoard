@@ -140,13 +140,15 @@ jiggmst;
 
      if(this.noa == "N")
      {
-        this.jiggmst =1;
+        this.jiggmst ='1';
         this.noc = "NEW JIGG"
+        console.log(this.jiggmst);
      }
      else
      {
-       this.jiggmst =0;
+       this.jiggmst ='0';
        this.noc = $("#natureofcomp").val();
+       console.log(this.jiggmst);
      }
     if($("#coatingpunturebase").is(':checked'))
       this.coatingpunturebase = 1;
