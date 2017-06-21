@@ -99,7 +99,7 @@ export class ChromeRejectionQtyComponet{
     ngOnInit(){
     var script = document.createElement('script');
     document.body.appendChild(script);
-    script.src = 'assets/ComponentJs/Chrome/chromerejectiondetail.component.js';
+    script.src = '../../assets/ComponentJs/Chrome/chromerejectiondetail.component.js';
 
   
 

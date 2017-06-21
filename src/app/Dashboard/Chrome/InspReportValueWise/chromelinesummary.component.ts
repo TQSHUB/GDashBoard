@@ -102,7 +102,7 @@ export class ChromeLineSummary{
     ngOnInit(){
     var script = document.createElement('script');
     document.body.appendChild(script);
-    script.src = 'assets/ComponentJs/Chrome/chromelinesummary.component.js';
+    script.src = '../../assets/ComponentJs/Chrome/chromelinesummary.component.js';
 
       
         

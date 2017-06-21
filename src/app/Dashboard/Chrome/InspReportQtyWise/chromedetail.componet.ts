@@ -101,7 +101,7 @@ export class ChromeDetailComponet{
   ngOnInit(){
     var script = document.createElement('script');
     document.body.appendChild(script);
-    script.src = 'assets/ComponentJs/Chrome/chromedetail.component.js';
+    script.src = '../../assets/ComponentJs/Chrome/chromedetail.component.js';
 
         /*var fromdate = Date.now();
         var date = this.datepipe.transform(fromdate, 'dd/MM/yyyy');

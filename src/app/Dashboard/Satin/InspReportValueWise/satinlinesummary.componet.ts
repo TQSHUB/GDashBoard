@@ -115,7 +115,7 @@ export class SatinLineSummary{
 ngOnInit(){
     var script = document.createElement('script');
     document.body.appendChild(script);
-    script.src = 'assets/ComponentJs/Satin/satinlinesummary.component.js';
+    script.src = '../../assets/ComponentJs/Satin/satinlinesummary.component.js';
 
  
      this.getBindItems_ByAliasName();

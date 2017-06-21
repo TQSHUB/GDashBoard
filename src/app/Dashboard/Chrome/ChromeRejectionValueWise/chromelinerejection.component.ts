@@ -47,7 +47,7 @@ export class ChromeRejectionValueComponet{
     ngOnInit(){
     var script = document.createElement('script');
     document.body.appendChild(script);
-    script.src = 'assets/ComponentJs/Chrome/chromelinerejection.componet.js';
+    script.src = '../../assets/ComponentJs/Chrome/chromelinerejection.componet.js';
 
   
 
