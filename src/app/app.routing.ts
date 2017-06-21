@@ -19,7 +19,7 @@ import { DashboardComponent } from './Dashboard/dashboard.component'
      import { CustomerMasterComponent } from './Dashboard/Masters/CustomerMaster/custmaster.component'
      
      //Jigg Manufacture
-     import { JiggReport } from './Dashboard/JiggManufacture/JiggMfgReport/jiggreport.component';
+     import { JiggReportComponent } from './Dashboard/JiggManufacture/JiggMfgReport/jiggreport.component';
      import { JigMasterComponent } from './Dashboard/JiggManufacture/JigMaster/jigmaster.component';
      import { JiggCount } from './Dashboard/JiggManufacture/JiggCount/jiggcount.component';
      import { JiggingReportComponent } from './Dashboard/JiggManufacture/JiggingReport/jiggingreport.component';
@@ -39,11 +39,18 @@ import { DashboardComponent } from './Dashboard/dashboard.component'
      //Statistics Dashboard
      import { StatisticsDashboardComponent } from './Dashboard/StatisticsDashboard/statisticsdashboard.component';
 
-     //Chrome
-     import { ChromeRejectionReviewComponent } from './Dashboard/Chrome/ChromeRejectionReview/chromerejectionreview.component';
+    //Chrome
+     import {ChromeDetailComponet} from './Dashboard/Chrome/InspReportQtyWise/chromedetail.componet';
+     import {ChromeLineSummary} from './Dashboard/Chrome/InspReportValueWise/chromelinesummary.component';
+     import { ChromeRejectionReviewComponent } from './Dashboard/Chrome/ChromeRejectionReview/chromerejectionreview.component'
+     import {ChromeRejectionQtyComponet} from './Dashboard/Chrome/ChromeRejectionQtyWise/chromerejectiondetail.component';
+     import {ChromeRejectionValueComponet} from './Dashboard/Chrome/ChromeRejectionValueWise/chromelinerejection.component';
 
      //Satin
-     import { SatinRejectionReviewComponent } from './Dashboard/Satin/SatinRejectionReview/satinrejectionreview.component';
+     import {SatinDetailComponet} from './Dashboard/Satin/InspReportQtyWise/satindetail.component'; 
+     import {SatinLineSummary} from './Dashboard/Satin/InspReportValueWise/satinlinesummary.componet';
+     import {SatinRejectionQtyComponet} from './Dashboard/Satin/SatinRejectionQtyWise/satinrejectiondetail.component';
+     import {SatinRejectionReviewComponent } from './Dashboard/Satin/SatinRejectionReview/satinrejectionreview.component';
 
 const appRoute: Routes = [
     {
@@ -92,7 +99,7 @@ const appRoute: Routes = [
             },
              {
                 path: 'JiggManufacture/JiggMfgReport',
-                component: JiggReport
+                component: JiggReportComponent
             },
              {
                 path: 'JiggManufacture/JiggMaster',
@@ -155,13 +162,41 @@ const appRoute: Routes = [
                 component: yearlyChromeSatinComponent
             },
             {
+                path: 'Chrome/InspReportQtyWise',
+                component: ChromeDetailComponet
+            },
+            {
+                path: 'Chrome/InspReportValueWise',
+                component: ChromeLineSummary
+            },
+            {
                 path: 'Chrome/ChromeRejectionReview',
                 component: ChromeRejectionReviewComponent
             },
             {
                 path: 'Satin/SatinRejectionReview',
                 component: SatinRejectionReviewComponent
-            }
+            },
+             {
+                path:'Satin/InspReportQtyWise',
+                component: SatinDetailComponet
+            },
+            {
+                path: 'Satin/InspReportValueWise',
+                component: SatinLineSummary
+            },
+            {
+                path:'Chrome/ChromeRejectionQtyWise',
+                component: ChromeRejectionQtyComponet
+            },
+            {
+                path:'Satin/SatinRejectionQtyWise',
+                component: SatinRejectionQtyComponet
+            },
+            {
+                path:'Chrome/ChromeRejectionValueWise',
+                component: ChromeRejectionValueComponet
+            },
         ]
     }
 ];

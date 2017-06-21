@@ -1,0 +1,306 @@
+<div class="content-wrapper">
+    <div class="container-main">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          ChromeLine Summary  
+          <small>Report</small>
+        </h1>
+      </section>
+    
+      <!-- Main content -->
+      <section class="content">
+        <div class="box box-default color-palette-box">
+        <div class="box-header with-border">
+          <!--<h3 class="box-title"><i class="fa fa-search"></i>&nbsp;Search Criteria</h3>-->
+        </div>
+
+          <div class="box-body">
+          <form method="post">
+          <div class="row">
+            <div class="col-sm-12 col-md-3"style="margin-bottom: 20px">
+                <label for="lblloadingfrom">Loading From</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                     <input type="text" name="FromDate"  class="form-control pull-right" id="FromDate"  [(ngModel)]="FromDate">                    
+                    <!--<input type="text" name="dpfrom" class="form-control pull-right" id="datepicker">   -->
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-3">
+                <label for="lblloadingto">Loading To</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                     <input type="text" name="ToDate" class="form-control pull-right" id="ToDate" [(ngModel)]="ToDate">                    
+                    <!--<input type="text" name="dpto" class="form-control pull-right" id="datepicker1">                    -->
+                </div>
+             </div>
+        <div class="col-sm-12 col-md-3">
+            <label for="lblaliasname">Alias Name</label>
+            <select id="Alias_Names"  class="form-control select2" multiple="multiple" data-placeholder="--Select--" style="width: 100%;">
+                <option *ngFor="let Alias of Alias_Names" [value]="Alias.Alias_Name">{{Alias.Alias_Name}}</option>
+            </select>
+               
+        </div>
+           
+        
+ </div>
+
+         <div class="row">
+            <div class="col-sm-12 col-md-3" style="margin-bottom: 20px">
+             <div class="input-group" >
+                  <label for="lbltop">Top</label>
+                     <select id="top" class="form-control select2"  style="width: 100%;"   name="txttop" >
+                           <option selected="Select" value="NULL">--Select--</option>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                    </select>
+               </div>
+            </div>
+
+            <div class="col-sm-12 col-md-3">
+                <div class="input-group" >
+                       <label for="lblorderby">Order by</label>
+                         <select id="orderby" class="form-control select2"  style="width: 100%;"   name="txtorderby">
+                             <option selected="Select" value="NULL">--Select--</option>
+                             <option value="[RejectedValue]">Rejected Value</option>
+                        </select>
+                    </div>
+                 </div>
+
+            <div class="col-sm-12 col-md-3">
+               <div class="input-group" >
+                       <label for="lblorderby">Order by</label>
+                         <select id="orderbyA" class="form-control select2"  style="width: 100%;"   name="txtorderbyA">
+                             <option selected="Select" value="NULL">--Select--</option>
+                             <option value="asc">Ascending</option>
+                             <option value="desc">Descendig</option>
+                        </select>
+                    </div>
+           </div>
+         <div class="col-sm-12 col-md-3">
+              
+              <button type="button" class="btn btn-primary" (click)="search()" style="margin-top: 7%">Submit</button>
+        </div>
+         </div>
+
+         
+         <!--<div class="modal-footer" [ngClass]="display_message_class" >
+             <label class="pull-left" >{{display_message}}</label>
+          
+            <button type="button" class="btn btn-default">Close</button>
+         </div>-->
+      </form>
+        </div>
+        <!-- /.box-body -->
+      </div>
+        <!-- /.box -->
+         <div class="box box-default">
+        <div class="box-header with-border">
+             <div class="row" style="margin: 0.5%;">
+          <h3 class="box-title pull-left" ><i class="fa fa-table"></i>&nbsp;Result Data</h3>
+          <div class="col-md-6 col-sm-12 pull-right">
+                <input class="form-control form-control-sm mb-2 mr-sm-2 mb-lg-0" (keyup)="SearchTextBox()" placeholder="Search" [(ngModel)]="searchText">
+         </div>
+        </div>
+          </div>
+        <div class="box-body">
+           
+                
+          
+            <div class="row" style="margin: 0.5%;overflow-x: auto;">
+                <table class="table table-responsive table-striped table-bordered" style="width: 100%;">
+                    <thead>
+                        <tr style="border: none">
+                               
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>{{totTotalInspection}}</td>
+                                <td>{{totProductionvalue}} </td>
+                                <td>{{totTotalInspectionValue}}</td>
+                                <td>{{totOkValue}}</td>
+                                <td>{{totHoldValue}} </td>
+                                <td>{{totRejectedValue}}</td>
+                                <td>{{totBufferingQtyValue}}</td>
+                                <td>{{totPittingValue}}</td>
+                                <td>{{totSkipPlatingValue}} </td>
+                                <td>{{totNickleShowValue}}</td>
+                                <td>{{totScratchMarksValue}}</td>
+                                <td>{{totPatchMarksValue}} </td>
+                                <td>{{totRoughnessValue}} </td>
+                                <td>{{totSilverMarkValue}}</td>
+                                <td>{{totCrBurnValue}} </td>
+                                <td>{{totWarPageValue}}</td>
+                                <td>{{totMouldingRejValue}} </td>
+                                <td>{{totDentValue}} </td>
+                                <td>{{totMismatchQtyValue}} </td>
+                                <td>{{totOtherValue}}</td>
+                                <td>{{totPinHole}}</td>
+                                <td>{{totDotPlastic}}</td>
+                                <td>{{totCopperBurning}}</td>
+                                <td>{{totWhiteMark}}</td>
+                                <td>{{totWaterMark}} </td>
+                                <td>{{totBlister}}</td>
+                                <td>{{totJigDamage}}</td>
+                                <td>{{totHandMouRej}}</td>
+                               
+
+                        </tr>
+                        <tr>
+                         
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                               
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>{{avgOkValue}} %</td>
+                                <td>{{avgHoldValue}} %</td>
+                                <td>{{avgRejectedValue}} %</td>
+                                <td>{{avgBufferingQtyValue}} %</td>
+                                <td>{{avgPittingValue}} %</td>
+                                <td>{{avgSkipPlatingValue}} %</td>
+                                <td>{{avgNickleShowValue}} %</td>
+                                <td>{{avgScratchMarksValue}} %</td>
+                                <td>{{avgPatchMarksValue}} %</td>
+                                <td>{{avgRoughnessValue}} %</td>
+                                <td>{{avgSilverMarkValue}} %</td>
+                                <td>{{avgCrBurnValue}} %</td>
+                                <td>{{avgWarPageValue}} %</td>
+                                <td>{{avgMouldingRejValue}} %</td>
+                                <td>{{avgDentValue}} %</td>
+                                <td>{{avgMismatchQtyValue}} %</td>
+                                <td>{{avgOtherValue}} %</td>
+                                <td>{{avgPinHole}} %</td>
+                                <td>{{avgDotPlastic}} %</td>
+                                <td>{{avgCopperBurning}} %</td>
+                                <td>{{avgWhiteMark}} %</td>
+                                <td>{{avgWaterMark}} %</td>
+                                <td>{{avgBlister}} %</td>
+                                <td>{{avgJigDamage}} %</td>
+                                <td>{{avgHandMouRej}} %</td>
+                                
+                        </tr>
+                        <tr>
+                          
+                             <td><b>Alias Name</b></td>
+                             <td><b>Component Name</b></td>
+                             <td><b>Inspection Round</b></td>
+                             <td><b>Total Insp</b></td>
+                             <td><b>Production Value</b></td>
+                             <td><b>Total Inspection Value</b></td>
+                             <td><b>Ok Value</b></td>
+                             <td><b>Hold Value</b></td>
+                             <td><b>Rejected Value</b></td>
+                             
+                             <td><b>Buffering Qty Value</b></td>
+                             <td><b>Pitting Value</b></td>
+                             <td><b>Skip Plating Value</b></td>
+                             <td><b>NickleShow'g Value</b></td>
+                             <td><b>Scratch Marks Value</b></td>
+                             <td><b> Patch Marks Value</b></td>
+                             <td><b> Roughness Value</b></td>
+                             <td><b> Silver Mark Value</b></td>
+                             <td><b> Cr Burn Value</b></td>
+                             <td><b> War Page Value</b></td> 
+                             <td><b> Moulding Rej Value</b></td> 
+                             <td><b> Dent Value</b></td>
+                              <td><b>Mismatch Qty Value</b></td>
+                             <td><b> Other Value</b></td>  
+                             <td><b>Pin Hole</b></td>
+                             <td><b>Dot Plastic</b></td>
+                             <td><b> Copper Burning</b></td>
+                             <td><b> White Mark</b></td>
+                             <td><b> Water Mark</b></td>
+                             <td><b>Blister</b></td>
+                             <td><b>Jig Damage</b></td>
+                             <td><b> Hand Mou Rej</b></td>
+                            
+                            
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let response of json | paginate: { itemsPerPage: 10, currentPage: p }">
+                            <!--<td>{{response.LoadingDate | jsondate | date: 'dd/MM/yyyy'}}</td>
+                            <td>{{response.Modifydate | jsondate | date: 'dd/MM/yyyy'}}</td>
+                            <td>{{response.LoadingShift}}</td>-->
+                          
+                            <td>{{response.Alias_Name}}</td>
+                            <td>{{response.Component_Name}}</td>
+                            <td>{{response.Inspectionround}}</td>
+                            <td>{{response.TotalInspection}}</td>
+                            <td>{{response.Productionvalue}}</td>
+                            <td>{{response.TotalInspectionValue}}</td>
+                            <td>{{response.OkValue}}</td>
+                            <td>{{response.HoldValue}}</td>
+                            <td>{{response.RejectedValue}}</td>
+                            <td>{{response.BufferingQtyValue}}</td>
+                            <td>{{response.PittingValue}}</td>
+                            <td>{{response.SkipPlatingValue}}</td>
+                            <td>{{response.NickleShowValue}}</td>
+                            <td>{{response.ScratchMarksValue}}</td>
+                            <td>{{response. PatchMarksValue}}</td>
+                            <td>{{response.RoughnessValue}}</td>
+                            <td>{{response.SilverMarkValue}}</td>
+                            <td>{{response.CrBurnValue}}</td>
+                            <td>{{response.WarPageValue}}</td>
+                            <td>{{response.MouldingRejValue}}</td>
+                            <td>{{response.DentValue}}</td>
+                            <td>{{response.MismatchQtyValue}}</td>
+                            <td>{{response.OtherValue}}</td>
+                            <td>{{response.PinHole}}</td>
+                            <td>{{response.DotPlastic}}</td>
+                            <td>{{response.CopperBurning}}</td>
+                            <td>{{response.WhiteMark}}</td>
+                            <td>{{response.WaterMark}}</td>
+                            <td>{{response.Blister}}</td>
+                            <td>{{response.JigDamage}}</td>
+                            <td>{{response.HandMouRej}}</td>
+                            
+                         
+
+                            <!--<td><a (click)="selectedCustomer(response)"><span class="btn glyphicon glyphicon-pencil" data-toggle="modal" data-target=".bs-example-modal-sm-edit"></span></a></td>-->
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <!--<gt-column-settings [genericTable]="myTable" #columnSettings>
+                    <div class="table table-responsive table-striped">
+                        <generic-table #myTable [gtSettings]="configObject.settings" [gtFields]="configObject.fields" [gtData]="configObject.data" [gtOptions]="{highlightSearch:true, rowSelection:true}"></generic-table>
+                    </div>
+                    <div class="text-right">
+                        <gt-pagination [gtClasses]="'justify-content-center'" [genericTable]="myTable" ></gt-pagination>
+                    </div>
+                </gt-column-settings>-->
+            </div>
+           
+        </div>
+         <div class="box-footer">
+            <div id="dvjson"></div>
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <button class="btn btn-primary" id="export" (click)="ExportToExcel()">Export to Excel</button>
+                </div>
+                <div class="col-md-7 col-md-offset-1 col-sm-12">
+                    <pagination-controls class="text-right" (pageChange)="p = $event"></pagination-controls>                   
+                </div>
+            </div>
+        </div>
+        </div>
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.container -->
+  </div>
+  <div [ngBusy]="busy"></div>

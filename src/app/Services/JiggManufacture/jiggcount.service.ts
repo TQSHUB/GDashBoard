@@ -32,4 +32,18 @@ export class JiggCountData{
         return this.http.post( host +'JiggManufature/getjiggcountdata',body,{headers:headers})
             .map(res => res.json());
     }
+
+    getJigCountdetail(fromdate:string , todate:string , itemtype:string ,Jiggcode:string){
+       var headers = new Headers();
+        headers.append('Content-Type','Application/Json');
+
+        var body = JSON.stringify({
+            FromDate : fromdate,
+            ToDate : todate,
+            ItemType : itemtype,
+            JiggNo : Jiggcode,
+        });
+        return this.http.post(host +'JiggCountDetail/getjiggcountdetail',body,{headers : headers}) 
+            .map(res=> res.json());
+    }
 }

@@ -58,7 +58,7 @@ export class PPCDailyReportComponent {
   ngOnInit(){
     var script = document.createElement('script');
     document.body.appendChild(script);
-    script.src = 'assets/ComponentJs/PPC/scheduleedit.component.js';
+    script.src = '../../assets/ComponentJs/PPC/scheduleedit.component.js';
 
     this.getBindCustomer_ByName();
     this.getBindItems_ByAliasName();
@@ -127,11 +127,11 @@ export class PPCDailyReportComponent {
     this.CustomerID = item.CustomerID;
     this.ItemID = item.Itemid;
     var status = $("#MStatus").val(item.Mstatus);
-    console.log(status);
+    //console.log(status);
     this.PlanA = item['Plan A'];
     this.PlanB = item['Plan B'];
     this.PlanC = item['Plan C'];
-    console.log(item);
+    //console.log(item);
   }
 
 updatePPCReport(){

@@ -20,41 +20,50 @@
             <div class="col-sm-12 col-md-4"style="margin-bottom: 20px">
                <div class="input-group">
                     <div class="input-group-addon">
-                        <span class="input-group">From Date</span>
+                        <span class="input-group">Received Data From</span>
                         <!--<i class="fa fa-calendar"></i>-->
                     </div>
-                    <input type="text" name="d pdob" class="form-control pull-right" id="datepicker">                    
+                    <input type="text" name="FromDate" class="form-control pull-right" id="datepicker" [(ngModel)]="FromDate">                    
                  </div>
             </div>
 
             <div class="col-sm-12 col-md-4" >
                 <div class="input-group">
                     <div class="input-group-addon" >
-                         <span class="input-group">To Date</span>
+                         <span class="input-group">Received Data To</span>
                         <!--<i class="fa fa-calendar"></i>-->
                     </div>
-                    <input type="text" name="dpdob" class="form-control pull-right" id="datepicker1">                    
+                    <input type="text" name="ToDate" class="form-control pull-right" id="datepicker1" [(ngModel)]="ToDate">                    
                  </div>
             </div>
             <div class="col-md-6 col-md-4">
-                <button  style="margin-left: 140px;" type="button" class="btn btn-primary" (click)="createItem()"  >Submit</button>
+                <button type="button" class="btn btn-primary" aria-label="Left Align" (click)="getJiggMfgReport()">
+                    <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true"></span> Search
+                </button>
             </div>
-        </div>
+         </div>
          
           <div class="row">
             <div class="col-sm-12 col-md-4" style="margin-bottom: 20px">
-                <input  type="text" class="form-control"  name="txtaliasname" [(ngModel)]="txtaliasname" id="txtaliasname" placeholder="Alias Name" required>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">Alias Name</span>
+                        <select id="Alias_Names"  class="form-control select2" multiple="multiple" data-placeholder="Select" style="width: 100%;">
+                            <option *ngFor="let Alias of Alias_Names" [value]="Alias.Code">{{Alias.Alias_Name}}</option>
+                        </select>
+                    </div>
+                  </div>
             </div>
 
             <div class="col-sm-12 col-md-4">
                 <div class="input-group" >
                     <span class="input-group-addon">Purpose</span>
-                      <select id="natureofcomp" class="form-control select2"  style="width: 100%;"   name="txtcomp">
-                             <option selected="selected">--Select--</option>
-                            <option value="Big">Design Change</option>
-                            <option value="Medium">New Jigg</option>
-                            <option value="Small">Repair</option>
-                            <option value="Small">Scrape</option>
+                      <select id="Purpose" class="form-control select2"  style="width: 100%;"   name="txtcomp">
+                             <option selected="selected" value="NULL">--Select--</option>
+                            <option value="D">Design Change</option>
+                            <option value="N">New Jigg</option>
+                            <option value="R">Repair</option>
+                            <option value="S">Scrape</option>
                      </select>
                 </div>
             </div>
@@ -62,12 +71,54 @@
             <div class="col-sm-12 col-md-4">
                 
             </div>
-        </div>
+          </div>
 
         </form>
         </div>
         <!-- /.box-body -->
       </div>
+
+      <div class="box box-default">
+        <div class="box-header with-border">
+            <div class="row">
+                <div class="col-md-8 col-sm-12">
+                    <h3 class="box-title"><i class="fa fa-table"></i>&nbsp;Result Data</h3>
+                </div>
+                <div class="col-md-3 col-md-offset-1 col-sm-12">
+                    <input class="form-control form-control-sm mb-2 mr-sm-2 mb-lg-0" #search (keyup)="SearchTextBox()" placeholder="Search" [(ngModel)]="searchText">
+                </div>
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="row" style="margin: 0.5%;overflow-x: auto;">
+                <table class="table table-responsive table-striped table-bordered" id="myTable" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th *ngFor="let header of Headers">{{header}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let response of JiggMfgReportRes | paginate: { itemsPerPage: 10, currentPage: page }">
+                            <td *ngFor="let header of Headers">{{response[header]}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="box-footer">
+            <div id="dvjson"></div>
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <button class="btn btn-primary" id="export" (click)="ExportToExcel()">
+                        <span class="glyphicon glyphicon glyphicon-download" aria-hidden="true"></span> Export to Excel
+                    </button>
+                </div>
+                <div class="col-md-7 col-md-offset-1 col-sm-12" *ngIf="JiggMfgReportRes">
+                    <pagination-controls class="text-right" (pageChange)="page = $event"></pagination-controls>                   
+                </div>
+            </div>
+        </div>
+        </div>
         <!-- /.box -->
       </section>
       <!-- /.content -->
