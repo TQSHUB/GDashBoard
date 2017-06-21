@@ -36,7 +36,7 @@ export class JigMasterService{
         var headers = new Headers();
 
         headers.append('Authorization','Bearer');
-        headers.append('Content-Type','Application/Json')
+        headers.append('Content-Type','Application/Json');
 
         var body = JSON.stringify({
             Jig_Code: jiggname,

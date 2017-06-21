@@ -66,6 +66,9 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
   //Chrome
   import { ChromeRejectionReviewComponent } from './Dashboard/Chrome/ChromeRejectionReview/chromerejectionreview.component';
 
+  //Satin
+  import { SatinRejectionReviewComponent } from './Dashboard/Satin/SatinRejectionReview/satinrejectionreview.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -112,7 +115,10 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
       yearlyChromeSatinComponent,
 
       //Chrome
-      ChromeRejectionReviewComponent
+      ChromeRejectionReviewComponent,
+
+      //Satin
+      SatinRejectionReviewComponent
   ],
   imports: [
     BrowserModule,

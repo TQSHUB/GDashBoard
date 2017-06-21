@@ -40,7 +40,10 @@ import { DashboardComponent } from './Dashboard/dashboard.component'
      import { StatisticsDashboardComponent } from './Dashboard/StatisticsDashboard/statisticsdashboard.component';
 
      //Chrome
-     import { ChromeRejectionReviewComponent } from './Dashboard/Chrome/ChromeRejectionReview/chromerejectionreview.component'
+     import { ChromeRejectionReviewComponent } from './Dashboard/Chrome/ChromeRejectionReview/chromerejectionreview.component';
+
+     //Satin
+     import { SatinRejectionReviewComponent } from './Dashboard/Satin/SatinRejectionReview/satinrejectionreview.component';
 
 const appRoute: Routes = [
     {
@@ -154,6 +157,10 @@ const appRoute: Routes = [
             {
                 path: 'Chrome/ChromeRejectionReview',
                 component: ChromeRejectionReviewComponent
+            },
+            {
+                path: 'Satin/SatinRejectionReview',
+                component: SatinRejectionReviewComponent
             }
         ]
     }

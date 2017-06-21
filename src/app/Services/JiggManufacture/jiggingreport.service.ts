@@ -9,7 +9,7 @@ import 'rxjs/add/operator/catch';
 
 export class JiggingReportService{
     constructor(private http: Http){
-        console.log('Jigging Report Service Started')
+        console.log('Jigging Report Service Started');
     }
     
     getBindItems_ByAliasName()
