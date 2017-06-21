@@ -58,7 +58,7 @@ export class PPCDailyReportComponent {
   ngOnInit(){
     var script = document.createElement('script');
     document.body.appendChild(script);
-    script.src = 'assets/ComponentJs/PPC/scheduleedit.component.js';
+    script.src = '../../assets/ComponentJs/PPC/scheduleedit.component.js';
 
     this.getBindCustomer_ByName();
     this.getBindItems_ByAliasName();
