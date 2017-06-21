@@ -114,7 +114,7 @@ export class SatinDetailComponet{
     ngOnInit(){
     var script = document.createElement('script');
     document.body.appendChild(script);
-    script.src = 'assets/ComponentJs/Satin/satindetail.component.js';
+    script.src = '../../assets/ComponentJs/Satin/satindetail.component.js';
 
 
     this.getBindItems_ByAliasName();

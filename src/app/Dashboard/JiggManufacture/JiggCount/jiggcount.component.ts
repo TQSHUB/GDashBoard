@@ -31,7 +31,7 @@ export class JiggCount{
   ngOnInit(){
     var script = document.createElement('script');
     document.body.appendChild(script);
-    script.src = 'assets/ComponentJs/JiggManufacture/jiggcount.component.js';
+    script.src = '../../assets/ComponentJs/JiggManufacture/jiggcount.component.js';
     this.getBindItems_ByAliasName();
     this.getJiggcode();
     this.Search();
@@ -81,9 +81,9 @@ export class JiggCount{
                     JigCode =''
               this.busy = this.jiggcountdata.getJigCount(JigCode,alias_string).subscribe(res => {
               this.ResponseData = JSON.parse(res);
-              console.log(this.ResponseData);
-              console.log(alias_string);
-              console.log(JigCode);
+              //console.log(this.ResponseData);
+              //console.log(alias_string);
+              //console.log(JigCode);
       });
   }
 
@@ -91,8 +91,8 @@ export class JiggCount{
   {
          var FromDate = $("input[name=FromDate]").val();
          var ToDate = $("input[name=ToDate]").val(); 
-         console.log(this.FromDate);
-         console.log(this.ToDate);
+         //console.log(this.FromDate);
+         //console.log(this.ToDate);
          if(FromDate == '' && ToDate == '' )
            { 
                this.FromDate = '';
@@ -110,7 +110,7 @@ export class JiggCount{
 
         this.busy = this.jiggcountdata.getJigCountdetail(this.FromDate,this.ToDate,itemtype,this.Jiggcode).subscribe(res => {
         this.ResponseData1 = res.Data;
-        console.log(this.ResponseData1);
+        //console.log(this.ResponseData1);
         
     })
   }

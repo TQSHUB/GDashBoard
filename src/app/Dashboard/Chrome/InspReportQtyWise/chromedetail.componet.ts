@@ -101,7 +101,7 @@ export class ChromeDetailComponet{
   ngOnInit(){
     var script = document.createElement('script');
     document.body.appendChild(script);
-    script.src = 'assets/ComponentJs/Chrome/chromedetail.component.js';
+    script.src = '../../assets/ComponentJs/Chrome/chromedetail.component.js';
 
         /*var fromdate = Date.now();
         var date = this.datepipe.transform(fromdate, 'dd/MM/yyyy');
@@ -140,12 +140,12 @@ export class ChromeDetailComponet{
     //  this.ToDate = this.datepipe.transform(ToDate,"MM/dd/yyyy"); 
     
 
-       console.log(this.FromDate);
-      // console.log(this.ToDate);
+       //console.log(this.FromDate);
+      // //console.log(this.ToDate);
       
        this.Selected_Alias_Names = $("#Alias_Names").val();
        var alias_string = this.inStringBuilder(this.Selected_Alias_Names);
-        console.log(this.Alias_Names);
+        //console.log(this.Alias_Names);
 
          var Top_string = $("#top").val();
          var loadingshift_string = $("#loadingshift").val();

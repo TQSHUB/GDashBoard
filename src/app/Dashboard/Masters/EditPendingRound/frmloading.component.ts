@@ -45,7 +45,7 @@ export class FrmLoading{
     ngOnInit(){
         var script = document.createElement('script');
         document.body.appendChild(script);
-        script.src = '../assets/ComponentJs/Masters/frmloading.component.js';
+        script.src = '../../assets/ComponentJs/Masters/frmloading.component.js';
 
         this.getAllItem();
         this.Search();
@@ -54,16 +54,16 @@ export class FrmLoading{
      this.id= item.ItemId;
       $("#natureofcomp").val(item.ItemId.trim());  
       this.txtqty = item.Qty;
-    //console.log(this.id);
+    ////console.log.log(this.id);
     
   }
   updateFrmloading(){
       this.noc = $("#natureofcomp").val();
-      console.log(this.noc);
+      //console.log.log(this.noc);
       this.busy = this.frmloadingservice.updateFrmloading(this.noc,this.txtqty)
         .subscribe(res=>{
         this.response = res;
-        console.log(this.noc)
+        //console.log.log(this.noc)
       if(this.response.Data)
       {
           this.display_message = 'Item UPdate Successfully.';
