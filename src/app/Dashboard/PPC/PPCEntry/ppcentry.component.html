@@ -1,0 +1,263 @@
+<div class="container-main">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          PPC
+          <small>Entry Module</small>
+        </h1>
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+        <div class="box box-default">
+        <div class="box-header with-border">
+          <h3 class="box-title"><i class="fa fa-search"></i>&nbsp;Search Criteria</h3>
+        </div>
+        <div class="box-body">
+            <div class="row">
+                <div class="col-md-3 col-sm-12">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <select id="Month" class="form-control select2">
+                                <option selected="selected" value="NULL">--Select Month--</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true" (click)="SearchMonthly()"></span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12 col-md-offset-1">
+                    <div class="form-group">
+                    <div class="input-group date">
+                        <span class="input-group-addon">From Date</span>
+                        <input type="text" class="form-control pull-right" id="FromDate" name="FromDate" [(ngModel)]="FromDate">
+                    </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12 col-md-offset-1">
+                    <div class="form-group">
+                    <div class="input-group date">
+                        <span class="input-group-addon">To Date</span>
+                        <input type="text" class="form-control pull-right" id="ToDate" name="ToDate" [(ngModel)]="ToDate">
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 0.5%;">
+                <div class="col-md-3 col-sm-12">
+                    <div class="form-group">
+                    <div class="input-group">
+                            <span class="input-group-addon">Item Type</span>
+                            <select id="ItemType" class="form-control select2" style="width: 100%;">
+                                <option selected="selected" value="NULL">--Select--</option>
+                                <option value="Chrome">Chrome</option>
+                                <option value="Satin">Satin</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12 col-md-offset-1">
+                    <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">Nature of Component</span>
+                        <select class="form-control select2" style="width: 100%;" id="NatureOfComp">
+                            <option selected="selected" value="NULL">--Select--</option>
+                            <option value="Big">Big</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Small">Small</option>
+                        </select>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12 col-md-offset-1">
+                    <button type="button" class="btn btn-primary" aria-label="Left Align" (click)="Search()">
+                        <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true"></span> Search
+                    </button>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 0.5%;">
+                <div class="col-md-3 col-sm-12">
+                    <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">Alias Name</span>
+                        <select id="Alias_Names"  class="form-control select2" multiple="multiple" data-placeholder="Select" style="width: 100%;">
+                            <option *ngFor="let Alias of Alias_Names" [value]="Alias.Code">{{Alias.Alias_Name}}</option>
+                        </select>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12 col-md-offset-1">
+                    <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">Customer Name</span>
+                        <select id="Customer_Names" class="form-control select2" multiple="multiple" data-placeholder="Select" style="width: 100%;">
+                            <option *ngFor="let Customer of Customer_Names" [value]="Customer.Code">{{Customer.Name}}</option>
+                        </select>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12 col-md-offset-1">
+                    <div class="form-group">
+                    <div class="input-group">
+                        <span>Planed Round &nbsp;</span>
+                        <input type="checkbox" value="" [checked]="PlanedRound" id="PlanedRound">
+                    </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--<div class="row" style="margin-top: 0.5%;">
+                <div class="col-md-12 col-sm-12" [ngClass]="display_message_class">
+                <div class="callout callout-default">
+                    <table >
+                        <tr>
+                            <td><b>Select To Upload</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                            <td><input type="file" id="exampleInputFile" >{{files}}</td>
+                            <td><button type="button" class="btn btn-primary" aria-label="Left Align" (click)="uploadFile()">
+                                    <span class="glyphicon glyphicon glyphicon-upload" aria-hidden="true"></span> Upload
+                                </button>
+                            </td>
+                            <td><label class="pull-left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{display_message}}</label></td>
+                        </tr>
+                    </table>
+                    
+                </div>
+                </div>
+            </div>        -->
+        </div>
+        <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+        <div class="box box-default">
+        <div class="box-header with-border">
+            <div class="row">
+                <div class="col-md-8 col-sm-12">
+                    <h3 class="box-title"><i class="fa fa-table"></i>&nbsp;Result Data</h3>
+                </div>
+                <div class="col-md-3 col-md-offset-1 col-sm-12">
+                    <input class="form-control form-control-sm mb-2 mr-sm-2 mb-lg-0" #search (keyup)="SearchTextBox()" placeholder="Search" [(ngModel)]="searchText">
+                </div>
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="row" style="margin: 0.5%;overflow-x: auto;">
+                <div class="col-md-12 col-sm-12">
+                <div class="scrolling outer">
+                <div class="inner">
+                <table class="table table-responsive table-striped table-bordered table-condensed" id="myTable" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th id="First">Edit</th>
+                            <th id="Second">Name</th>
+                            <th id="Third">Alias Name</th>
+                            <td *ngFor="let t_header of TopHeader"><b>{{t_header}}</b></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let response of ResponseData | paginate: { itemsPerPage: 10, currentPage: p }">
+                            <th id="First"><a (click)="selectedItem(response)"><span class="btn glyphicon glyphicon-pencil" data-toggle="modal" data-target=".bs-example-modal-sm-edit"></span></a></th>
+                            <th id="Second">{{response.Name}}</th>
+                            <th id="Third">{{response.AliasName}}</th>
+                            <td *ngFor="let column of TopHeader">{{response[column]}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="box-footer">
+            <div id="dvjson"></div>
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <button class="btn btn-primary" id="export" (click)="ExportToExcel()">
+                        <span class="glyphicon glyphicon glyphicon-download" aria-hidden="true"></span> Export to Excel
+                    </button>
+                </div>
+                <div class="col-md-7 col-md-offset-1 col-sm-12" *ngIf="ResponseData">
+                    <pagination-controls class="text-right" (pageChange)="p = $event"></pagination-controls>                   
+                </div>
+            </div>
+        </div>
+        </div>
+      </section>
+      <!-- /.content -->
+    </div>
+
+
+<div class="modal fade bs-example-modal-sm-edit" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-primary">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title"><i class="ion ion-edit"></i>&nbsp;&nbsp; Update</h4>
+      </div>
+      <div class="modal-body">
+        <form method="post">
+          <div class="row">
+            <div class="col-md-10 col-sm-12 col-md-offset-1">
+              <div class="form-group">
+                <label for="lblMStatus">M. Status</label>
+                <select class="form-control select2" style="width: 100%;" id="MStatus">
+                    <option value="None">None</option>
+                    <option value="Confirmed">Confirmed</option>
+                    <option value="Transit">Transit</option>
+                    <option value="Development">Development</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-10 col-sm-12 col-md-offset-1">
+              <div class="form-group">
+                <label for="lblMQty">M. Qty</label>
+                <input type="text" name="txtMQty" [(ngModel)]="MQty" class="form-control" id="txtMQty" placeholder="00" required>
+              </div>
+            </div>
+            <div class="col-md-10 col-sm-12 col-md-offset-1">
+              <div class="form-group">
+                <label for="lblPlanA">Plan A</label>
+                <input type="text" name="txtPlanA" [(ngModel)]="PlanA" class="form-control" id="txtPlanA" placeholder="00" required>
+              </div>
+            </div>
+            <div class="col-md-10 col-sm-12 col-md-offset-1">
+              <div class="form-group">
+                <label for="lblPlanB">Plan B</label>
+                <input type="text" name="txtPlanB" [(ngModel)]="PlanB" class="form-control" id="txtPlanB" placeholder="00" required>
+              </div>
+            </div>
+            <div class="col-md-10 col-sm-12 col-md-offset-1">
+              <div class="form-group">
+                <label for="lblPlanC">Plan C</label>
+                <input type="text" name="txtPlanC" [(ngModel)]="PlanC" class="form-control" id="txtPlanC" placeholder="00" required>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer" [ngClass]="display_message_class_1">
+        <label class="pull-left" >{{display_message_1}}</label>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="updatePPCReport()">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div [ngBusy]="busy"></div>

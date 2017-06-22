@@ -10,6 +10,7 @@ import { DashboardComponent } from './Dashboard/dashboard.component'
     import { ScheduleEditComponent } from './Dashboard/PPC/ScheduleEdit/scheduleedit.component';
     import { PPCSummaryComponent } from './Dashboard/PPC/PPCSummary/ppcsummary.component';
     import { PPCDailyReportComponent } from './Dashboard/PPC/PPCDailyReport/ppcdailyreport.component';
+    import { PPCEntry } from './Dashboard/PPC/PPCEntry/ppcentry.component';
 
     //Master Components
      import { ItemComponent } from './Dashboard/Masters/ComponentMaster/item.component';
@@ -76,6 +77,10 @@ const appRoute: Routes = [
             {
                 path: 'PPC/PPCDailyReport',
                 component: PPCDailyReportComponent
+            },
+            {
+                path: 'PPC/PPCEntry',
+                component: PPCEntry
             },
             {
                 path: 'Masters/ComponentMaster',

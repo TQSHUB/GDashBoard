@@ -34,6 +34,7 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
   import { ScheduleEditComponent } from './Dashboard/PPC/ScheduleEdit/scheduleedit.component';
   import { PPCSummaryComponent } from './Dashboard/PPC/PPCSummary/ppcsummary.component';
   import { PPCDailyReportComponent } from './Dashboard/PPC/PPCDailyReport/ppcdailyreport.component';
+  import { PPCEntry } from './Dashboard/PPC/PPCEntry/ppcentry.component';
 
  //Mater Component
  import { ItemComponent } from './Dashboard/Masters/ComponentMaster/item.component';
@@ -97,6 +98,7 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
       ScheduleEditComponent,
       PPCSummaryComponent,
       PPCDailyReportComponent,
+      PPCEntry,
 
       //Master Component
       ItemComponent,
