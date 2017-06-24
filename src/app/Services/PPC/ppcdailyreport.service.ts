@@ -21,7 +21,7 @@ export class PPCDailyReportService{
             .map(res => res.json());
     }
 
-    getPPCDailyReport(month:string, fromdate:string, todate:string, itemtype: string, natofcomp: string, alias_names: string, customer_names: string){
+    getPPCDailyReport(month:string, fromdate:string, todate:string, itemtype: string, natofcomp: string, alias_names: string, customer_names: string,PlanedRound: string){
         var headers = new Headers();
         headers.append('Content-Type','Application/Json');
 
@@ -33,6 +33,7 @@ export class PPCDailyReportService{
             NatOfComp: natofcomp,
             Alias_Names: alias_names,
             Customer_Names: customer_names,
+            PlanedRound : PlanedRound,
         });
 
         return this.http.post( host +'PPCController/getPPCDailyReport',body,{headers:headers})
