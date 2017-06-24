@@ -32,7 +32,7 @@ export class JiggReportComponent{
     ngOnInit(){
         var script = document.createElement('script');
         document.body.appendChild(script);
-        script.src = '../assets/ComponentJs/JiggManufacture/jiggmfgreport.component.js';
+        script.src = '../../assets/ComponentJs/JiggManufacture/jiggmfgreport.component.js';
 
         var fromdate = Date.now();
         var date = this.datepipe.transform(fromdate, 'dd/MM/yyyy');

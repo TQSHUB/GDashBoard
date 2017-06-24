@@ -43,6 +43,14 @@ export class JiggingReportComponent{
         document.body.appendChild(script);
         script.src = '../../assets/ComponentJs/JiggManufacture/jiggingreport.component.js';
 
+        var fromdate = Date.now();
+        var date = this.datepipe.transform(fromdate, 'dd/MM/yyyy');
+
+        this.FromDate = date;
+        this.ToDate = date;
+
+        console.log(this.FromDate);
+
         this.getBindItems_ByAliasName();
         this.getBindCustomer_ByName();
         this.Search();

@@ -60,6 +60,14 @@ export class CustomerItemMasterService{
 
     getAllCutomerItems(itemid: string)
     {
+        var headers = new Headers();
+        headers.append('Content-Type','Application/Json');
+
+        var body = JSON.stringify({
+            Item_Id: itemid,
+            //CustomerName: customername
+        });
+
         return this.http.get(host + 'CustomerItem/getallCustomerAliasNames/' + itemid)
             .map(res => res.json());
     }

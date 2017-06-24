@@ -34,6 +34,7 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
   import { ScheduleEditComponent } from './Dashboard/PPC/ScheduleEdit/scheduleedit.component';
   import { PPCSummaryComponent } from './Dashboard/PPC/PPCSummary/ppcsummary.component';
   import { PPCDailyReportComponent } from './Dashboard/PPC/PPCDailyReport/ppcdailyreport.component';
+  import { PPCEntry } from './Dashboard/PPC/PPCEntry/ppcentry.component';
 
  //Mater Component
  import { ItemComponent } from './Dashboard/Masters/ComponentMaster/item.component';
@@ -77,6 +78,9 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
   import {SatinRejectionValueComponet} from './Dashboard/Satin/SatinRejectionValueWise/satinlinerejection.component';
 
 
+  //Satin
+  import { SatinRejectionReviewComponent } from './Dashboard/Satin/SatinRejectionReview/satinrejectionreview.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -96,6 +100,7 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
       ScheduleEditComponent,
       PPCSummaryComponent,
       PPCDailyReportComponent,
+      PPCEntry,
 
       //Master Component
       ItemComponent,
@@ -133,8 +138,12 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
       SatinDetailComponet,
       SatinLineSummary,
       SatinRejectionQtyComponet,
+<<<<<<< HEAD
       SatinRejectionValueComponet
       
+=======
+      SatinRejectionReviewComponent
+>>>>>>> 55afc658b76fc544d41d661c6ff9d72d1e3770fa
   ],
   imports: [
     BrowserModule,
@@ -145,7 +154,7 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
     GenericTableModule,
     ColumnSettingsModule,
     BusyModule,
-    Ng2PaginationModule
+    Ng2PaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

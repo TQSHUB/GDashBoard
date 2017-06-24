@@ -9,6 +9,9 @@ import { Router } from '@angular/router';
 export class AppComponent {
   constructor(private router: Router){}
   ngOnInit(){
-    this.router.navigate(['/Login'])
+    if(localStorage.getItem('UserName') === null)
+    {
+      this.router.navigate(['/Login'])      
+    }
   }
 }

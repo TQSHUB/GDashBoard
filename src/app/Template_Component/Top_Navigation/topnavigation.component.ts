@@ -49,6 +49,9 @@ export class TopNavigationComponent {
         });
     }
     SignOut(){
+        localStorage.removeItem('Month');
+        localStorage.removeItem('Year');
+        localStorage.removeItem('UserName');
         this.router.navigate(['/Login']);
     }
 }

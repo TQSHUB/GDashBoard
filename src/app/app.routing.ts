@@ -10,6 +10,7 @@ import { DashboardComponent } from './Dashboard/dashboard.component'
     import { ScheduleEditComponent } from './Dashboard/PPC/ScheduleEdit/scheduleedit.component';
     import { PPCSummaryComponent } from './Dashboard/PPC/PPCSummary/ppcsummary.component';
     import { PPCDailyReportComponent } from './Dashboard/PPC/PPCDailyReport/ppcdailyreport.component';
+    import { PPCEntry } from './Dashboard/PPC/PPCEntry/ppcentry.component';
 
     //Master Components
      import { ItemComponent } from './Dashboard/Masters/ComponentMaster/item.component';
@@ -50,7 +51,11 @@ import { DashboardComponent } from './Dashboard/dashboard.component'
      import {SatinDetailComponet} from './Dashboard/Satin/InspReportQtyWise/satindetail.component'; 
      import {SatinLineSummary} from './Dashboard/Satin/InspReportValueWise/satinlinesummary.componet';
      import {SatinRejectionQtyComponet} from './Dashboard/Satin/SatinRejectionQtyWise/satinrejectiondetail.component';
+<<<<<<< HEAD
      import {SatinRejectionValueComponet} from './Dashboard/Satin/SatinRejectionValueWise/satinlinerejection.component';
+=======
+     import {SatinRejectionReviewComponent } from './Dashboard/Satin/SatinRejectionReview/satinrejectionreview.component';
+>>>>>>> 55afc658b76fc544d41d661c6ff9d72d1e3770fa
 
 const appRoute: Routes = [
     {
@@ -76,6 +81,10 @@ const appRoute: Routes = [
             {
                 path: 'PPC/PPCDailyReport',
                 component: PPCDailyReportComponent
+            },
+            {
+                path: 'PPC/PPCEntry',
+                component: PPCEntry
             },
             {
                 path: 'Masters/ComponentMaster',
@@ -173,11 +182,15 @@ const appRoute: Routes = [
                 path: 'Chrome/ChromeRejectionReview',
                 component: ChromeRejectionReviewComponent
             },
+            {
+                path: 'Satin/SatinRejectionReview',
+                component: SatinRejectionReviewComponent
+            },
              {
                 path:'Satin/InspReportQtyWise',
                 component: SatinDetailComponet
             },
-             {
+            {
                 path: 'Satin/InspReportValueWise',
                 component: SatinLineSummary
             },
