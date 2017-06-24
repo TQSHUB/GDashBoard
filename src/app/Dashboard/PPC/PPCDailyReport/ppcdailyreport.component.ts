@@ -22,7 +22,8 @@ export class PPCDailyReportComponent {
   busy: Subscription;
   ResponseData;
   ResponseDataCopy;
-  TopHeader;
+  TopHeader = [];
+  ModifiedHeaders;
   display_message;
   display_message_class;
   display_message_1;
@@ -44,6 +45,19 @@ export class PPCDailyReportComponent {
   PlanA;
   PlanB;
   PlanC;
+
+  //Totals
+  TotalPA = 0;
+  TotalPB = 0;
+  TotalPC = 0;
+  TotalTP = 0;
+  TotalARJA = 0;
+  TotalARJB = 0;
+  TotalARJC = 0;
+  TotalARJ = 0;
+  TotalTRAP = 0;
+  TotalTRWJ = 0;
+  TotalTRWhJ = 0;
 
   //search
   searchText
@@ -84,10 +98,16 @@ export class PPCDailyReportComponent {
     else{
     this.busy = this.ppcDailyReportService.getPPCDailyReport(Month,'','','','','','',).subscribe(res => {
         this.ResponseData = JSON.parse(res.JsonData);
-        this.TopHeader = res.Headers;
+        var headers = res.Headers;
+        
+        var i;
+        for(i =0; i< 23; i++)
+        {
+          this.TopHeader.push(headers[i]);
+        }      
         this.ResponseDataCopy = this.ResponseData;
         this.whichfunctioncalled = 'SearchMonthly';
-        //this.TotalData(this.ResponseData);
+        this.TotalData(this.ResponseData);
       });
     }
   }
@@ -115,10 +135,17 @@ export class PPCDailyReportComponent {
 
       this.busy = this.ppcDailyReportService.getPPCDailyReport('',this.FromDate, this.ToDate, itemtype_string, natureofcomp_string, alias_string,customer_string).subscribe(res => {
         this.ResponseData = JSON.parse(res.JsonData);
-        this.TopHeader = res.Headers;
+        var headers = res.Headers;
+        
+        var i;
+        for(i =0; i< 23; i++)
+        {
+          this.TopHeader.push(headers[i]);
+        }  
+
         this.ResponseDataCopy = this.ResponseData;
         this.whichfunctioncalled = 'Search';
-        //this.TotalData(this.ResponseData);
+        this.TotalData(this.ResponseData);
       });
   }
 
@@ -215,22 +242,36 @@ uploadFile(){
   }
 
   ExportToExcel(){
-      ETE(this.ResponseData);
+      ETE();
   }
 
   TotalData(res){
-    /*var i;
-    this.totalRoundReq = 0;
-    this.totalProRound = 0;
-    this.totalScheduleQty = 0;
-    this.totalOkQty = 0;
+    var i;
+    this.TotalPA = 0;
+    this.TotalPB = 0;
+    this.TotalPC = 0;
+    this.TotalTP = 0;
+    this.TotalARJA = 0;
+    this.TotalARJB = 0;
+    this.TotalARJC = 0;
+    this.TotalARJ = 0;
+    this.TotalTRAP = 0;
+    this.TotalTRWJ = 0;
+    this.TotalTRWhJ = 0;
     for(i = 0; i < res.length; i++)
     {
-      this.totalRoundReq += parseInt(res[i].RoundReq);
-      this.totalProRound += parseInt(res[i].RoundNo);
-      this.totalScheduleQty += parseInt(res[i].ScheduleQty);
-      this.totalOkQty += parseInt(res[i].OkQty);
-    }*/
+      this.TotalPA += parseInt(res[i]['Plan A']);
+      this.TotalPB += parseInt(res[i]['Plan B']);
+      this.TotalPC += parseInt(res[i]['Plan C']);
+      this.TotalTP += parseInt(res[i]['Total Plan']);
+      this.TotalARJA += parseInt(res[i]['Actual jigged Shift A']);
+      this.TotalARJB += parseInt(res[i]['Actual jigged Shift B']);
+      this.TotalARJC += parseInt(res[i]['Actual jigged Shift C']);
+      this.TotalARJ += parseInt(res[i]['Actual Round Jigged']);
+      this.TotalTRAP += parseInt(res[i]['Total Rounds agnst Prdn']);
+      this.TotalTRWJ += parseInt(res[i]['Total Rounds agnst Prdn with jigg']);
+      this.TotalTRWhJ += parseInt(res[i]['Total Rounds agnst Prdn without jigg']);
+    }
   }
 
   SearchTextBox(){

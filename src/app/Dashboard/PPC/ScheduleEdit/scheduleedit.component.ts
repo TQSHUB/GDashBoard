@@ -11,6 +11,7 @@ import { host } from '../../../Configurations/application.config';
 import * as $ from 'jquery';
 
 declare var ETE: any;
+declare var ETEJson: any;
 
 @Component({
   selector: 'ppc-schedule-edit',
@@ -62,7 +63,7 @@ export class ScheduleEditComponent {
 
     var d = new Date();
     $("#Month").val(d.getMonth() + 1);
-    this.SearchMonthly();  
+    this.SearchMonthly(); 
   }
 
   TotalData(res){
@@ -82,6 +83,7 @@ export class ScheduleEditComponent {
 
   SearchMonthly(){
     var Month = $("#Month").val();
+    console.log(Month);
     if(Month == 'NULL')
     {
       alert('Please Select Month');
@@ -228,13 +230,13 @@ uploadFile(){
 
   ExportToExcel(){
     if(this.ResponseData.length > 0)
-      ETE(this.ResponseData);
+      ETE();
     else
     {
       var response;
       this.busy = this.scheduleEditService.getAllData().subscribe(res => {
         response = JSON.parse(res);
-        ETE(response);
+        ETEJson(response);
       });     
     }
   }

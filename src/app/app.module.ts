@@ -145,7 +145,7 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
     GenericTableModule,
     ColumnSettingsModule,
     BusyModule,
-    Ng2PaginationModule
+    Ng2PaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
