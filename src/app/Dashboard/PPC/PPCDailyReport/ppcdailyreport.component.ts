@@ -96,7 +96,7 @@ export class PPCDailyReportComponent {
       alert('Please Select Month');
     }
     else{
-    this.busy = this.ppcDailyReportService.getPPCDailyReport(Month,'','','','','','',).subscribe(res => {
+    this.busy = this.ppcDailyReportService.getPPCDailyReport(Month,'','','','','','','').subscribe(res => {
         this.ResponseData = JSON.parse(res.JsonData);
         var headers = res.Headers;
         
@@ -133,7 +133,7 @@ export class PPCDailyReportComponent {
       if(natureofcomp_string == 'NULL')
         natureofcomp_string = '';
 
-      this.busy = this.ppcDailyReportService.getPPCDailyReport('',this.FromDate, this.ToDate, itemtype_string, natureofcomp_string, alias_string,customer_string).subscribe(res => {
+      this.busy = this.ppcDailyReportService.getPPCDailyReport('',this.FromDate, this.ToDate, itemtype_string, natureofcomp_string, alias_string,customer_string,'').subscribe(res => {
         this.ResponseData = JSON.parse(res.JsonData);
         var headers = res.Headers;
         
