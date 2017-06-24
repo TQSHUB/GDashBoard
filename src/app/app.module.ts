@@ -74,6 +74,8 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
   import {SatinDetailComponet} from './Dashboard/Satin/InspReportQtyWise/satindetail.component'; 
   import {SatinLineSummary} from './Dashboard/Satin/InspReportValueWise/satinlinesummary.componet';
   import {SatinRejectionQtyComponet} from './Dashboard/Satin/SatinRejectionQtyWise/satinrejectiondetail.component';
+  import {SatinRejectionValueComponet} from './Dashboard/Satin/SatinRejectionValueWise/satinlinerejection.component';
+
 
 @NgModule({
   declarations: [
@@ -130,7 +132,9 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
       //Satin
       SatinDetailComponet,
       SatinLineSummary,
-      SatinRejectionQtyComponet
+      SatinRejectionQtyComponet,
+      SatinRejectionValueComponet
+      
   ],
   imports: [
     BrowserModule,

@@ -50,7 +50,7 @@ import { DashboardComponent } from './Dashboard/dashboard.component'
      import {SatinDetailComponet} from './Dashboard/Satin/InspReportQtyWise/satindetail.component'; 
      import {SatinLineSummary} from './Dashboard/Satin/InspReportValueWise/satinlinesummary.componet';
      import {SatinRejectionQtyComponet} from './Dashboard/Satin/SatinRejectionQtyWise/satinrejectiondetail.component';
-
+     import {SatinRejectionValueComponet} from './Dashboard/Satin/SatinRejectionValueWise/satinlinerejection.component';
 
 const appRoute: Routes = [
     {
@@ -192,6 +192,10 @@ const appRoute: Routes = [
             {
                 path:'Chrome/ChromeRejectionValueWise',
                 component: ChromeRejectionValueComponet
+            },
+            {
+                path:'Satin/SatinRejectionValueWise',
+                component: SatinRejectionValueComponet
             },
         ]
     }
