@@ -40,7 +40,7 @@
         <div class="modal-footer" [ngClass]="display_message_class" >
              <label class="pull-left" >{{display_message}}</label>
             <button type="button" class="btn btn-primary" (click)="Search()"  >Search</button>
-            <button type="button" class="btn btn-default">Close</button>
+            <button type="button" class="btn btn-default" (click)="close()">Close</button>
          </div>
         </form>
         </div>

@@ -31,11 +31,8 @@ export class LoadingData{
     }
 
     Search(){
-
-        
-
-         var FromDate = $("input[name=FromDate]").val();
-         var ToDate = $("input[name=ToDate]").val();  
+          var FromDate = $("input[name=FromDate]").val();
+          var ToDate = $("input[name=ToDate]").val();  
           if(FromDate == '' && ToDate == '' )
            { 
                this.FromDate = '';
@@ -62,6 +59,8 @@ export class LoadingData{
     else
       this.ResponseData = filterData;
   }
+
+ 
 
 
 }
