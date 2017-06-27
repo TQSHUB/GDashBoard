@@ -339,7 +339,7 @@ search()
  }
    ExportToExcel(){
     // if(this.ResponseData.length > 0)
-      ETE(this.json);
+      ETE();
    }
 
   getBindItems_ByAliasName(){

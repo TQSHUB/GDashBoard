@@ -138,12 +138,8 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
       SatinDetailComponet,
       SatinLineSummary,
       SatinRejectionQtyComponet,
-<<<<<<< HEAD
-      SatinRejectionValueComponet
-      
-=======
+      SatinRejectionValueComponet,
       SatinRejectionReviewComponent
->>>>>>> 55afc658b76fc544d41d661c6ff9d72d1e3770fa
   ],
   imports: [
     BrowserModule,

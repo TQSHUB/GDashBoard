@@ -51,11 +51,8 @@ import { DashboardComponent } from './Dashboard/dashboard.component'
      import {SatinDetailComponet} from './Dashboard/Satin/InspReportQtyWise/satindetail.component'; 
      import {SatinLineSummary} from './Dashboard/Satin/InspReportValueWise/satinlinesummary.componet';
      import {SatinRejectionQtyComponet} from './Dashboard/Satin/SatinRejectionQtyWise/satinrejectiondetail.component';
-<<<<<<< HEAD
      import {SatinRejectionValueComponet} from './Dashboard/Satin/SatinRejectionValueWise/satinlinerejection.component';
-=======
      import {SatinRejectionReviewComponent } from './Dashboard/Satin/SatinRejectionReview/satinrejectionreview.component';
->>>>>>> 55afc658b76fc544d41d661c6ff9d72d1e3770fa
 
 const appRoute: Routes = [
     {
