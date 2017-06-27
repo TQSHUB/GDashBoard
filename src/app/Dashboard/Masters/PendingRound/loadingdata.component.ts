@@ -60,7 +60,4 @@ export class LoadingData{
       this.ResponseData = filterData;
   }
 
- 
-
-
 }
