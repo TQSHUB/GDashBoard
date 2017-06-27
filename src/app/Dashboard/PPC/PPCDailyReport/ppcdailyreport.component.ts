@@ -19,6 +19,7 @@ declare var ETE: any;
   styleUrls: ['./ppcdailyreport.component.css']
 })
 export class PPCDailyReportComponent {
+  p;
   busy: Subscription;
   ResponseData;
   ResponseDataCopy;

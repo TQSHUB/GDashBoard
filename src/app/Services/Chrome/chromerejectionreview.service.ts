@@ -39,9 +39,18 @@ export class ChromeRejectionReviewService{
             .map(res => res.json());
     }
 
-    bindrejectionData()
+    bindrejectionData(loadingdate: string, alias_name: string, rejectiontype: string)
     {
-        return this.http.get(host + 'ChromeRejectionReview/bindrejectionData')
+        var headers = new Headers();
+        headers.append('Content-Type','Application/Json');
+
+        var body = JSON.stringify({
+            LoadingDate: loadingdate,
+            Alias_Names: alias_name,
+            RejectionType: rejectiontype
+        });
+
+        return this.http.post(host + 'ChromeRejectionReview/bindrejectionData',body,{headers:headers})
             .map(res => res.json());
     }
 
@@ -59,18 +68,18 @@ export class ChromeRejectionReviewService{
             .map(res => res.json());
     }
 
-    insertData(todaydate:string, loadingqty:string, okqty:string, holdqty:string, bufferqty:string,
+    insertData(todaydate: string, itemcode: string, formatdate: string, rejtype: string, okqty:string, holdqty:string, bufferqty:string,
      rejqty: string, piting:string, pinhole:string, dent:string, handmourej:string, nklshow:string, 
      ptchmrks:string, scrtchmrks:string, rghns:string, crbrn:string, othr:string, slvrmrk:string, 
      mldrej:string, skpltng:string, coprbrng:string, warpg:string, whtmrk:string, dotplstc:string, 
-     wtrmrk:string, blstr:string, jigdmg:string, rmrk:string, formatdate:string, rejtype:string)
+     wtrmrk:string, blstr:string, jigdmg:string, rmrk:string)
     {
         var headers = new Headers();
         headers.append('Content-Type','Application/Json');
 
         var body = JSON.stringify({
             Modify_Date: todaydate,
-            Loading_Qty: loadingqty,
+            Item_Code: itemcode,
             OK_Qty: okqty,
             Hold_Qty: holdqty,
             Buffering_Qty: bufferqty,
@@ -99,22 +108,22 @@ export class ChromeRejectionReviewService{
             Loading_Date: formatdate,
             Rejection_type: rejtype
         });
-        return this.http.post( host +'ChromeRejecctionReview/InsertData',body,{headers:headers})
+        return this.http.post( host +'ChromeRejectionReview/InsertData',body,{headers:headers})
             .map(res => res.json());
     }
 
-    updateData(todaydate:string, loadingqty:string, okqty:string, holdqty:string, bufferqty:string,
+    updateData(formatdate: string, itemcode: string, okqty:string, holdqty:string, bufferqty:string,
      rejqty: string, piting:string, pinhole:string, dent:string, handmourej:string, nklshow:string, 
      ptchmrks:string, scrtchmrks:string, rghns:string, crbrn:string, othr:string, slvrmrk:string, 
      mldrej:string, skpltng:string, coprbrng:string, warpg:string, whtmrk:string, dotplstc:string, 
-     wtrmrk:string, blstr:string, jigdmg:string, rmrk:string, formatdate:string, rejtype:string)
+     wtrmrk:string, blstr:string, jigdmg:string, rmrk:string)
     {
         var headers = new Headers();
         headers.append('Content-Type','Application/Json');
 
         var body = JSON.stringify({
-            Modify_Date: todaydate,
-            Loading_Qty: loadingqty,
+            Loading_Date: formatdate,
+            Item_Code: itemcode,
             OK_Qty: okqty,
             Hold_Qty: holdqty,
             Buffering_Qty: bufferqty,
@@ -139,11 +148,9 @@ export class ChromeRejectionReviewService{
             Water_Mark: wtrmrk,
             Blister: blstr,
             Jig_Damage: jigdmg,
-            Remark: rmrk,
-            Loading_Date: formatdate,
-            Rejection_type: rejtype
+            Remark: rmrk            
         });
-        return this.http.post( host +'ChromeRejecctionReview/UpdateData',body,{headers:headers})
+        return this.http.post( host +'ChromeRejectionReview/UpdateData',body,{headers:headers})
             .map(res => res.json());
     }
 }

@@ -1,11 +1,10 @@
-import {Pipe,PipeTransform} from '@angular/core';
-
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
     name: "search"
 })
 
-export class SearchPipeJigMaster implements PipeTransform{
+export class SearchPipeSRVal implements PipeTransform{
     transform(value, term){
         if(term == '' || term == null)
             return 'Empty';
@@ -17,9 +16,7 @@ export class SearchPipeJigMaster implements PipeTransform{
             {
                 var row = [];
                 row.push(value[i]);
-                if(row.filter(JiggMst => JiggMst.Jig_Code.toLowerCase().indexOf(term.toLowerCase()) !== -1).length == 1 ||
-                   row.filter(JiggMst => JiggMst.Alias_Name.toLowerCase().indexOf(term.toLowerCase()) !== -1).length == 1
-                )
+                if(row.filter(item => item.Alias_Name.toLowerCase().indexOf(term.toLowerCase()) !== -1).length == 1)
                     filteredArray.push(row[0]);
             }
             return filteredArray;

@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { DatePipe, CurrencyPipe } from '@angular/common';
-import { SearchPipe } from './searchtable.pipe'
+import { SearchPipeCIRVal } from './searchtable.pipe'
 import { JsonDate } from '../../../Pipes/jsondate.pipe';
 import {GenericTableComponent, GtConfig} from '@angular-generic-table/core';
 import * as $ from 'jquery';
@@ -16,7 +16,7 @@ declare var ETE: any;
 @Component({
     selector: 'Chrome-lineSummary',
     templateUrl: 'chromelinesummary.component.html',
-      providers: [ChromeLineSummaryService,DatePipe,SearchPipe, JsonDate]
+      providers: [ChromeLineSummaryService,DatePipe,SearchPipeCIRVal, JsonDate]
 })
 
 export class ChromeLineSummary{
@@ -97,7 +97,7 @@ export class ChromeLineSummary{
  avgHandMouRej = 0;                           
     
     
-    constructor(private chromelinesummaryService: ChromeLineSummaryService, private datepipe: DatePipe, private searchPipe: SearchPipe, private jsondate: JsonDate){}
+    constructor(private chromelinesummaryService: ChromeLineSummaryService, private datepipe: DatePipe, private searchPipe: SearchPipeCIRVal, private jsondate: JsonDate){}
   
     ngOnInit(){
     var script = document.createElement('script');
@@ -302,7 +302,7 @@ search()
 }
    ExportToExcel(){
     // if(this.ResponseData.length > 0)
-      ETE(this.json);
+      ETE();
    }
 
   getBindItems_ByAliasName(){

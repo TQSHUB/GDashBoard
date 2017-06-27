@@ -19,6 +19,7 @@ declare var ETE: any;
   styleUrls: ['./ppcentry.component.css']
 })
 export class PPCEntry {
+  p;
   busy: Subscription;
   ResponseData;
   ResponseDataCopy;
@@ -45,6 +46,19 @@ export class PPCEntry {
   PlanB;
   PlanC;
   PlanedRound;
+
+    //Totals
+  TotalPA = 0;
+  TotalPB = 0;
+  TotalPC = 0;
+  TotalTP = 0;
+  TotalARJA = 0;
+  TotalARJB = 0;
+  TotalARJC = 0;
+  TotalARJ = 0;
+  TotalTRAP = 0;
+  TotalTRWJ = 0;
+  TotalTRWhJ = 0;
 
   //search
   searchText
@@ -88,7 +102,7 @@ export class PPCEntry {
         this.TopHeader = res.Headers;
         this.ResponseDataCopy = this.ResponseData;
         this.whichfunctioncalled = 'SearchMonthly';
-        //this.TotalData(this.ResponseData);
+        this.TotalData(this.ResponseData);
       });
     }
   }
@@ -125,7 +139,7 @@ export class PPCEntry {
         this.TopHeader = res.Headers;
         this.ResponseDataCopy = this.ResponseData;
         this.whichfunctioncalled = 'Search';
-        //this.TotalData(this.ResponseData);
+        this.TotalData(this.ResponseData);
         console.log(this.ResponseData);
       });
   }
@@ -189,57 +203,39 @@ inStringBuilder(a: any){
     return stringBuilder;
   }
 
-uploadFile(){
-    var files = $("#exampleInputFile");
-    var file = files[0].files;
-
-    let formData: FormData = new FormData();  
-    formData.append('uploadFile', file[0], file.name); 
-
-    let headers = new Headers()  
-    headers.append('enctype', 'multipart/form-data');  
-    headers.append('Accept', 'application/json');  
-    let options = new RequestOptions({ headers: headers });  
-    let apiUrl = host + 'PPCController/FileUploadScheduleEdit';  
-
-    this.http.post(apiUrl, formData, options)  
-        .map(res => res.json())  
-        .catch(error => Observable.throw(error))  
-        .subscribe(  
-          res => {
-            if(res.Data.flag)
-            {
-              this.display_message = res.Data.message;
-              this.display_message_class = 'alert alert-success alert-dismissible';
-              this.clearValues();
-            }
-            else
-            {
-              this.display_message = res.Data.message;
-              this.display_message_class = 'alert alert-danger alert-dismissible';
-              this.clearValues();
-            }
-          });  
-  }
-
   ExportToExcel(){
       ETE();
   }
 
   TotalData(res){
-    /*var i;
-    this.totalRoundReq = 0;
-    this.totalProRound = 0;
-    this.totalScheduleQty = 0;
-    this.totalOkQty = 0;
+    var i;
+    this.TotalPA = 0;
+    this.TotalPB = 0;
+    this.TotalPC = 0;
+    this.TotalTP = 0;
+    this.TotalARJA = 0;
+    this.TotalARJB = 0;
+    this.TotalARJC = 0;
+    this.TotalARJ = 0;
+    this.TotalTRAP = 0;
+    this.TotalTRWJ = 0;
+    this.TotalTRWhJ = 0;
     for(i = 0; i < res.length; i++)
     {
-      this.totalRoundReq += parseInt(res[i].RoundReq);
-      this.totalProRound += parseInt(res[i].RoundNo);
-      this.totalScheduleQty += parseInt(res[i].ScheduleQty);
-      this.totalOkQty += parseInt(res[i].OkQty);
-    }*/
+      this.TotalPA += parseInt(res[i]['Plan A']);
+      this.TotalPB += parseInt(res[i]['Plan B']);
+      this.TotalPC += parseInt(res[i]['Plan C']);
+      this.TotalTP += parseInt(res[i]['Total Plan']);
+      this.TotalARJA += parseInt(res[i]['Actual jigged Shift A']);
+      this.TotalARJB += parseInt(res[i]['Actual jigged Shift B']);
+      this.TotalARJC += parseInt(res[i]['Actual jigged Shift C']);
+      this.TotalARJ += parseInt(res[i]['Actual Round Jigged']);
+      this.TotalTRAP += parseInt(res[i]['Total Rounds agnst Prdn']);
+      this.TotalTRWJ += parseInt(res[i]['Total Rounds agnst Prdn with jigg']);
+      this.TotalTRWhJ += parseInt(res[i]['Total Rounds agnst Prdn without jigg']);
+    }
   }
+
 
   SearchTextBox(){
     var filterData = this.searchPipe.transform(this.ResponseDataCopy, this.searchText);

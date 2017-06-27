@@ -37,7 +37,7 @@ export class CSDashboardComponent {
 
   //Satine
   SatinInspectionResponse;
-  TotalInspectionCSatin = 0;
+  TotalInspectionSatin = 0;
   OkValueSatin = 0;
   HoldValueSatin = 0;
   RejectionValueSatin = 0;
@@ -157,15 +157,15 @@ export class CSDashboardComponent {
         d5.push(res[i].Data5);
 
         //Chrome
-        this.TotalInspectionCSatin += res[i].Data1;
+        this.TotalInspectionSatin += res[i].Data1;
         this.OkValueSatin += res[i].Data2;
         this.HoldValueSatin += res[i].Data3;
         this.RejectionValueSatin += res[i].Data4;
 
-        if(this.TotalInspectionCSatin == 0 && this.RejectionValueSatin == 0)
+        if(this.TotalInspectionSatin == 0 && this.RejectionValueSatin == 0)
           this.RejectionValuePerSatin = 0;
         else
-          this.RejectionValuePerSatin = this.RejectionValueSatin / this.TotalInspectionCSatin * 100;
+          this.RejectionValuePerSatin = this.RejectionValueSatin / this.TotalInspectionSatin * 100;
     }
     cvsSatinInspection(lables,d1,d2,d3,d4,d5);
   }

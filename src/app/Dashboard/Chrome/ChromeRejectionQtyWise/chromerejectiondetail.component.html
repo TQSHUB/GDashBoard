@@ -248,7 +248,169 @@
                         <tr *ngFor="let response of json | paginate: { itemsPerPage: 10, currentPage: p }">
                             
                             <td>{{response.LoadingDate | jsondate | date: 'dd/MM/yyyy'}}</td>
-                            <td>{{response.ModifyDate | jsondate | date: 'dd/MM/yyyy'}}</td>
+                            <td>{{response.ModifyDate  | jsondate | date: 'dd/MM/yyyy'}}</td>
+                            <td>{{response.Alias_Name}}</td>
+                            <td>{{response.Component_Name}}</td>
+                            <td>{{response.LoadingQty}}</td>
+                            <td>{{response.TotalInsp}}</td>
+                            <td>{{response.OkQty}}</td>
+                            <td>{{response.HoldQty}}</td>
+                            <td>{{response.RejectedQty}}</td>
+                            <td>{{response.MismatchQty}}</td>
+                            <td>{{response.BufferingQty}}</td>
+                            <td>{{response.Pitting}}</td>
+                            <td>{{response.SkipPlating}}</td>
+                            <td>{{response.NickleShow}}</td>
+                            <td>{{response.ScratchMarks}}</td>
+                            <td>{{response.PatchMarks}}</td>
+                            <td>{{response.Roughness}}</td>
+                            <td>{{response.SilverMark}}</td>
+                            <td>{{response.CrBurn}}</td>
+                            <td>{{response.WarPage}}</td>
+                            <td>{{response.MouldingRej}}</td>
+                            <td>{{response.Dent}}</td>
+                            
+                            <td>{{response.Other}}</td>
+                            <td>{{response.PinHole}}</td>
+                            <td>{{response.DotPlastic}}</td>
+                            <td>{{response.CopperBurning}}</td>
+                            <td>{{response.WhiteMark}}</td>
+                            <td>{{response.WaterMark}}</td>
+                            <td>{{response.Blister}}</td>
+                            <td>{{response.JigDamage}}</td>
+                            <td>{{response.HandMouRej}}</td>
+                            <td>{{response.RejectiontypeText}}</td>
+                            <td>{{response.Remark}}</td>
+                         
+
+                            <!--<td><a (click)="selectedCustomer(response)"><span class="btn glyphicon glyphicon-pencil" data-toggle="modal" data-target=".bs-example-modal-sm-edit"></span></a></td>-->
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="table table-responsive table-striped table-bordered" id="myTableHidden" style="width: 100%; display: none;">
+                    <thead>
+                        <tr style="border: none">
+                               
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>{{totTotalInsp}}</td>
+                                <td>{{totOkQty}}</td>
+                                <td>{{totHoldQty}} </td>
+                                <td>{{totRejectedQty}}</td>
+                                <td>{{totMismatchQty}} </td>
+                                <td>{{totBufferingQty}}</td>
+                                <td>{{totPitting}}</td>
+                                <td>{{totSkipPlating}} </td>
+                                <td>{{totNickleShow}}</td>
+                                <td>{{totScratchMarks}}</td>
+                                <td>{{totPatchMarks}} </td>
+                                <td>{{totRoughness}} </td>
+                                <td>{{totSilverMark}}</td>
+                                <td>{{totCrBurn}} </td>
+                                <td>{{totWarPage}}</td>
+                                <td>{{totMouldingRej}} </td>
+                                <td>{{totDent}} </td>
+                                <td>{{totOther}}</td>
+                                <td>{{totPinHole}}</td>
+                                <td>{{totDotPlastic}}</td>
+                                <td>{{totCopperBurning}}</td>
+                                <td>{{totWhiteMark}}</td>
+                                <td>{{totWaterMark}} </td>
+                                <td>{{totBlister}}</td>
+                                <td>{{totJigDamage}}</td>
+                                <td>{{totHandMouRej}}</td>
+                                <td></td>
+                                <td></td>
+                               
+
+                        </tr>
+                         <tr>
+                         
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                               
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>{{avgOkQty}} %</td>
+                                <td>{{avgHoldQty}} %</td>
+                                <td>{{avgRejectedQty}} %</td>
+                                <td>{{avgMismatchQty}} %</td>
+                                <td>{{avgBufferingQty}} %</td>
+                                <td>{{avgPitting}} %</td>
+                                <td>{{avgSkipPlating}} %</td>
+                                <td>{{avgNickleShow}} %</td>
+                                <td>{{avgScratchMarks}} %</td>
+                                <td>{{avgPatchMarks}} %</td>
+                                <td>{{avgRoughness}} %</td>
+                                <td>{{avgSilverMark}} %</td>
+                                <td>{{avgCrBurn}} %</td>
+                                <td>{{avgWarPage}} %</td>
+                                <td>{{avgMouldingRej}} %</td>
+                                <td>{{avgDent}} %</td>
+                                <td>{{avgOther}} %</td>
+                                <td>{{avgPinHole}} %</td>
+                                <td>{{avgDotPlastic}} %</td>
+                                <td>{{avgCopperBurning}} %</td>
+                                <td>{{avgWhiteMark}} %</td>
+                                <td>{{avgWaterMark}} %</td>
+                                <td>{{avgBlister}} %</td>
+                                <td>{{avgJigDamage}} %</td>
+                                <td>{{avgHandMouRej}} %</td>
+                                <td></td>
+                                <td></td>
+                                
+                        </tr>
+                        <tr>
+                             <td><b>Loading Date</b></td>
+                             <td><b>Entry Date</b></td>
+                             <td><b>Alias Name</b></td>
+                             <td><b>Component Name</b></td>
+                             <td><b>Loading Qty</b></td>
+                             <td><b>Total Insp</b></td>
+                             <td><b>Ok  Qty</b></td>
+                             <td><b>Hold Qty</b></td>
+                             <td><b>Rejected Qty</b></td>
+                             <td><b>Mismatch Qty</b></td>
+                             <td><b>Buffering Qty</b></td>
+                             <td><b>Pitting</b></td>
+                             <td><b>Skip Plating</b></td>
+                             <td><b>NickleShow'g</b></td>
+                             <td><b>Scratch Marks</b></td>
+                             <td><b> Patch Marks</b></td>
+                             <td><b> Roughness</b></td>
+                             <td><b> Silver Mark</b></td>
+                             <td><b> Cr Burn</b></td>
+                             <td><b> War Page</b></td> 
+                             <td><b> Moulding Rej</b></td> 
+                             <td><b> Dent</b></td>
+                             
+                             <td><b> Other</b></td>  
+                             <td><b>Pin Hole</b></td>
+                             <td><b>Dot Plastic</b></td>
+                             <td><b> Copper Burning</b></td>
+                             <td><b> White Mark</b></td>
+                             <td><b> Water Mark</b></td>
+                             <td><b>Blister</b></td>
+                             <td><b>Jig Damage</b></td>
+                             <td><b> Hand Mou Rej</b></td>
+                             <td><b> Rejection Type</b></td>
+                             <td><b> Remark</b></td>
+                            
+                            
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let response of json">
+                            
+                            <td>{{response.LoadingDate | jsondate | date: 'dd/MM/yyyy'}}</td>
+                            <td>{{response.ModifyDate  | jsondate | date: 'dd/MM/yyyy'}}</td>
                             <td>{{response.Alias_Name}}</td>
                             <td>{{response.Component_Name}}</td>
                             <td>{{response.LoadingQty}}</td>

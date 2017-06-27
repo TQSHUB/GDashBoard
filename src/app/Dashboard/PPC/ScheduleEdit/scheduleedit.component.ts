@@ -19,6 +19,7 @@ declare var ETEJson: any;
   providers: [ScheduleEditService, DatePipe, SearchPipePPCScheduleEdit],
 })
 export class ScheduleEditComponent {
+  p;
   busy: Subscription;
   ResponseData;
   ResponseDataCopy;

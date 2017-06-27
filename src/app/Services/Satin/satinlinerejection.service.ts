@@ -7,14 +7,14 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 
-export class ChromeRejectionValueService{
+export class SatinRejectionValueService{
      
       host1: string = 'http://202.71.9.14:4002';
      constructor(private http: Http){
         
     }
 
-     getChromeLineRejectionGrid(fromdate:string, todate:string,alias_names: string,top:string, type: string, orderby: string, orderbya:string){
+     getSatinLineRejectionGrid(fromdate:string, todate:string,alias_names: string,top:string, type: string, orderby: string, orderbya:string){
         var headers = new Headers();
         headers.append('Content-Type','Application/Json');
 
@@ -28,7 +28,7 @@ export class ChromeRejectionValueService{
             Orderby1: orderbya,
         });
 
-        return this.http.post(host + 'ChromeLineRejectionController/getChromelinerejection',body,{headers:headers})
+        return this.http.post(host + 'SatinLineRejectionController/getSatinlinerejection',body,{headers:headers})
             .map(res => res.json());
     }
      getBindItems_ByAliasName(){

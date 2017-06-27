@@ -18,6 +18,7 @@ declare var ETE: any;
   styleUrls: ['./ppcsummary.component.css']
 })
 export class PPCSummaryComponent {
+  p;
   busy: Subscription;
   ResponseData;
   ResponseDataCopy;
