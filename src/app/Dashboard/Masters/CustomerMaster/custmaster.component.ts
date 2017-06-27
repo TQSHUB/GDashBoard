@@ -6,12 +6,12 @@ import { Ng2PaginationModule } from 'ng2-pagination';
 import { Subscription } from 'rxjs';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import { SearchPipe } from './searchtable.pipe';
+import { SearchPipeCustomer } from './searchtable.pipe';
 
 @Component({
     selector: 'customer-master',
     templateUrl: './custmaster.component.html',
-    providers:[CustomerMasterService, SearchPipe]
+    providers:[CustomerMasterService, SearchPipeCustomer]
 })
 export class CustomerMasterComponent{
     busy: Subscription;
@@ -30,7 +30,7 @@ export class CustomerMasterComponent{
     ResponseDataCopy;
     searchText;
 
-    constructor(private router: Router, private customermasterService: CustomerMasterService, private searchPipe: SearchPipe)
+    constructor(private router: Router, private customermasterService: CustomerMasterService, private searchPipeCustomer: SearchPipeCustomer)
     {
     }
     ngOnInit(){
@@ -124,7 +124,7 @@ export class CustomerMasterComponent{
 
     SearchTextBox()
     {
-        var filterdata = this.searchPipe.transform(this.ResponseDataCopy, this.searchText)
+        var filterdata = this.searchPipeCustomer.transform(this.ResponseDataCopy, this.searchText)
         if(filterdata == 'Empty')
             this.allcustmasters = this.ResponseDataCopy;
         else

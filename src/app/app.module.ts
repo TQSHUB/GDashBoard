@@ -11,6 +11,8 @@ import { SearchPipePPCScheduleEdit } from './Dashboard/PPC/ScheduleEdit/searchta
 import { SearchPipePPCDailyReport } from './Dashboard/PPC/PPCDailyReport/searchtable.pipe';
 import { SearchPipePPCEntry } from './Dashboard/PPC/PPCEntry/searchtable.pipe';
 import { SearchPipePPCSummary } from './Dashboard/PPC/PPCSummary/searchtable.pipe';
+import { SearchPipeCustomer } from './Dashboard/Masters/CustomerMaster/searchtable.pipe';
+import { SearchPipeJigMaster } from './Dashboard/JiggManufacture/JigMaster/searchtable.pipe';
 
 import { SearchPipeJiggMfgReport } from './Dashboard/JiggManufacture/JiggMfgReport/searchtable.pipe';
 

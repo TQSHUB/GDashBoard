@@ -6,8 +6,9 @@ $(function () {
     });
 
     $(".select2").select2();
+});
 
-    function sum() {
+function sum() {
             var txtPittingValue = document.getElementById('pitting').value;
             //console.log(txtPittingValue);
             var txtPinHoleValue = document.getElementById('pinhole').value;
@@ -42,4 +43,3 @@ $(function () {
                 document.getElementById('rejqty').value = result;
             };
         }
-});

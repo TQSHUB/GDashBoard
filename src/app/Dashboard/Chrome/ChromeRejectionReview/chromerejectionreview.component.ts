@@ -8,6 +8,8 @@ import { Observable } from 'rxjs/Rx';
 import { host } from '../../../Configurations/application.config';
 import * as $ from 'jquery';
 
+declare var sum: any;
+
 @Component({
     selector: 'chromerejectionreview',
     templateUrl: './chromerejectionreview.component.html',
@@ -331,6 +333,10 @@ export class ChromeRejectionReviewComponent{
         for(var i=0; i<20; i++)
             this.total += this.txtValues[i];
         this.Rejectedqty = this.total.toString();
+    }
+
+    Total(){
+        sum();
     }
 
     /*inStringBuilder(a: any)

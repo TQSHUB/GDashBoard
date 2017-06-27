@@ -6,12 +6,12 @@ import { Subscription } from 'rxjs';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import * as $ from 'jquery';
-import { SearchPipe } from './searchtable.pipe';
+import { SearchPipeJigMaster } from './searchtable.pipe';
 
 @Component({
     selector: 'jig-master',
     templateUrl: './jigmaster.component.html',
-    providers: [ JigMasterService, SearchPipe ]
+    providers: [ JigMasterService, SearchPipeJigMaster ]
 })
 
 export class JigMasterComponent{
@@ -41,7 +41,7 @@ export class JigMasterComponent{
     ResponseDataCopy;
     searchText;
 
-   constructor(private router: Router, private jigmasterService: JigMasterService, private searchPipe: SearchPipe)
+   constructor(private router: Router, private jigmasterService: JigMasterService, private searchPipeJigMaster: SearchPipeJigMaster)
     {        
     }
     ngOnInit(){
@@ -180,7 +180,7 @@ export class JigMasterComponent{
 
     SearchTextBox()
     {
-        var filterdata = this.searchPipe.transform(this.ResponseDataCopy, this.searchText)
+        var filterdata = this.searchPipeJigMaster.transform(this.ResponseDataCopy, this.searchText)
         if(filterdata == 'Empty')
             this.alljiggmstdata_aliasname = this.ResponseDataCopy;
         else
