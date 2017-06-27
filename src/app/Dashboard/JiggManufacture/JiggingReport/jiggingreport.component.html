@@ -123,23 +123,91 @@
                     <table class="table table-responsive table-striped table-bordered" id="myTable" style="width: 100%;">
                         <thead>
                             <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>{{actualrndjigshift_A}}</th>
+                                <th>{{actualrndjigshift_B}}</th>
+                                <th>{{actualrndjigshift_C}}</th>
+                                <th>{{actualrndjigtotal}}</th>
+                                <th>{{totrndagnstprdn}}</th>
+                                <th>{{totrndagnstprdn_wthjig}}</th>
+                                <th>{{totrndagnstprdn_wthoutjig}}</th>
+                            </tr>
+                            <tr>
                                 <th>Customer Name</th>
                                 <th>Alias Name</th>
                                 <th>Component Name</th>
                                 <th>Nature of Comp</th>
                                 <th>Nature of Plating</th>
                                 <th>Round Qty</th>
-                                <th>Total: <br /> {{actualrndjigshift_A}} <br /> Actual Round jigged Shift A</th>
-                                <th>Total: <br /> {{actualrndjigshift_B}} <br /> Actual Round jigged Shift B</th>
-                                <th>Total: <br /> {{actualrndjigshift_C}} <br /> Actual Round jigged Shift C</th>
-                                <th>Total: <br /> {{actualrndjigtotal}} <br /> Actual Round jigged</th>
-                                <th>Total: <br /> {{totrndagnstprdn}} <br /> Total Rounds agnst Prdn</th>
-                                <th>Total: <br /> {{totrndagnstprdn_wthjig}} <br /> Total Rounds agnst Prdn with jigg</th>
-                                <th>Total: <br /> {{totrndagnstprdn_wthoutjig}} <br /> Total Rounds agnst Prdn without jigg</th>
+                                <th>Actual Round jigged Shift A</th>
+                                <th>Actual Round jigged Shift B</th>
+                                <th>Actual Round jigged Shift C</th>
+                                <th>Actual Round jigged</th>
+                                <th>Total Rounds agnst Prdn</th>
+                                <th>Total Rounds agnst Prdn with jigg</th>
+                                <th>Total Rounds agnst Prdn without jigg</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let jiggreport of ResponseData | paginate: { itemsPerPage: 10, currentPage: p }">
+                                <td>{{jiggreport['Customer Name']}}</td>
+                                <td>{{jiggreport['Alias Name']}}</td>
+                                <td>{{jiggreport.ComponentName}}</td>
+                                <td>{{jiggreport['Nature of Comp']}}</td>
+                                <td>{{jiggreport['Nature of Plating']}}</td>
+                                <td>{{jiggreport['Round Qty']}}</td>
+                                <td>{{jiggreport['Actual jigged Shift A']}}</td>
+                                <td>{{jiggreport['Actual jigged Shift B']}}</td>
+                                <td>{{jiggreport['Actual jigged Shift C']}}</td>
+                                <td>{{jiggreport['Actual Round Jigged']}}</td>
+                                <td>{{jiggreport['Total Rounds agnst Prdn']}}</td>
+                                <td>{{jiggreport['Total Rounds agnst Prdn with jigg']}}</td>
+                                <td>{{jiggreport['Total Rounds agnst Prdn without jigg']}}</td>
+                                <!--<td><a (click)="selectedCustomer(jiggreport)"><span class="btn glyphicon glyphicon-pencil" data-toggle="modal" data-target=".bs-example-modal-sm-edit"></span></a></td>-->
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="table table-responsive table-striped table-bordered" id="myTableHidden" style="width: 100%; display: none;">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>{{actualrndjigshift_A}}</th>
+                                <th>{{actualrndjigshift_B}}</th>
+                                <th>{{actualrndjigshift_C}}</th>
+                                <th>{{actualrndjigtotal}}</th>
+                                <th>{{totrndagnstprdn}}</th>
+                                <th>{{totrndagnstprdn_wthjig}}</th>
+                                <th>{{totrndagnstprdn_wthoutjig}}</th>
+                            </tr>
+                            <tr>
+                                <th>Customer Name</th>
+                                <th>Alias Name</th>
+                                <th>Component Name</th>
+                                <th>Nature of Comp</th>
+                                <th>Nature of Plating</th>
+                                <th>Round Qty</th>
+                                <th>Actual Round jigged Shift A</th>
+                                <th>Actual Round jigged Shift B</th>
+                                <th>Actual Round jigged Shift C</th>
+                                <th>Actual Round jigged</th>
+                                <th>Total Rounds agnst Prdn</th>
+                                <th>Total Rounds agnst Prdn with jigg</th>
+                                <th>Total Rounds agnst Prdn without jigg</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let jiggreport of ResponseData ">
                                 <td>{{jiggreport['Customer Name']}}</td>
                                 <td>{{jiggreport['Alias Name']}}</td>
                                 <td>{{jiggreport.ComponentName}}</td>

@@ -10,7 +10,6 @@ $(function () {
 
 function sum() {
             var txtPittingValue = document.getElementById('pitting').value;
-            //console.log(txtPittingValue);
             var txtPinHoleValue = document.getElementById('pinhole').value;
             var txtDentValue = document.getElementById('dent').value;
             var txtHandMouRejValue = document.getElementById('hndmngrej').value;
