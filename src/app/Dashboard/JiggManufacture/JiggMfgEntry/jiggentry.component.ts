@@ -5,13 +5,13 @@ import { JsonDate } from '../../../Pipes/jsondate.pipe';
 import { DatePipe } from '@angular/common';
 import { Subscription } from 'rxjs';
 import * as $ from 'jquery';
-import { SearchPipe } from './searchtable.pipe'
+import { SearchPipeJiggentry } from './searchtable.pipe'
 
 
 @Component({
   selector: 'jiggentrycomponent',
   templateUrl: './jiggentry.component.html',
-  providers : [JiggMfgEntry, JsonDate, DatePipe,SearchPipe]
+  providers : [JiggMfgEntry, JsonDate, DatePipe,SearchPipeJiggentry]
 })
 
 export class JiggEntry{
@@ -58,6 +58,7 @@ nop;
 noc;
 noa;
 dpdoj;
+dpdoa;
 dpdoj1;
 response: Response;
 display_message;
@@ -98,7 +99,7 @@ TotalHandlingDefects;
 flag;
 jiggmst;
 
-  constructor(private router:Router, private jiggentry:JiggMfgEntry, private jsondate: JsonDate, private datepipe: DatePipe,private searchPipe: SearchPipe){
+  constructor(private router:Router, private jiggentry:JiggMfgEntry, private jsondate: JsonDate, private datepipe: DatePipe,private searchPipe: SearchPipeJiggentry){
   }
   ngOnInit(){
         var script = document.createElement('script');
@@ -135,6 +136,13 @@ jiggmst;
     
      this.noa = $("#natureofcomp1").val();
      this.dpdoj = $("input[name=dpdoj]").val();
+     
+     var initial = this.dpdoj.split(/\//);
+     var initial1 = (initial[1] + '/' + initial[0] + '/' + initial[2]);
+    
+    //  this.dpdoa = this.datepipe.transform(this.dpdoj, "MM/dd/yyyy");
+    //  console.log(this.dpdoa);
+     //$("#datepicker").val(this.datepipe.transform(this.jsondate.transform(item['Received Date']),'dd/MM/yyyy'));
      this.UserName = localStorage.getItem('UserName');
      ////console.log(this.UserName);
 
@@ -235,7 +243,7 @@ jiggmst;
      //console.log(this.TotalHandlingDefects);
 
      this.flag =0;
-     this.busy = this.jiggentry.addNewJigg(this.nop,this.noc,this.noa,this.dpdoj,this.coatingpunturebase,this.coatingskip,this.setting,this.pinhole,this.jiggband,this.contactbroken,this.jiggbroken,this.contactabression,this.coatingonpuntureonjigg,this.contactburn,this.coatingburn,this.others,this.ecn,this.TotalTechnicalDefects,this.TotalHandlingDefects,this.flag,this.jiggmst,this.UserName)
+     this.busy = this.jiggentry.addNewJigg(this.nop,this.noc,this.noa,initial1,this.coatingpunturebase,this.coatingskip,this.setting,this.pinhole,this.jiggband,this.contactbroken,this.jiggbroken,this.contactabression,this.coatingonpuntureonjigg,this.contactburn,this.coatingburn,this.others,this.ecn,this.TotalTechnicalDefects,this.TotalHandlingDefects,this.flag,this.jiggmst,this.UserName)
     .subscribe(res=>{
       this.response = res;
       if(this.response.Data)
@@ -264,6 +272,9 @@ jiggmst;
      this.noc = $("#natureofcomp").val();
      this.noa = $("#natureofcomp1").val();
      this.dpdoj = $("input[name=dpdoj1]").val();
+
+     var initial = this.dpdoj.split(/\//);
+     var initial1 = (initial[1] + '/' + initial[0] + '/' + initial[2]);
     
     if($("#CoatingPuntureBase").is(':checked'))
       this.CoatingPuntureBase = 1;
@@ -349,7 +360,7 @@ jiggmst;
      this. TotalHandlingDefects = this.CoatingPuntureBase + this.SETTING + this.JiggBand + this.JiggBroken;
      //console.log(this.TotalHandlingDefects);
       this.flag = 0;
-     this.busy = this.jiggentry.UpdateJigg(this.nop,this.noc,this.noa,this.dpdoj,this.CoatingPuntureBase,this.CPSKIP,this.SETTING,this.PinHole,this.JiggBand,this.ContactBroken,this.JiggBroken,this.Contactabression,this.CoatingonPuntureonJigg,this.ContactBurn,this.CoatingBurn,this.Others,this.ECN,this.TotalTechnicalDefects,this.TotalHandlingDefects,this.flag,this.txtjigg)
+     this.busy = this.jiggentry.UpdateJigg(this.nop,this.noc,this.noa,initial1,this.CoatingPuntureBase,this.CPSKIP,this.SETTING,this.PinHole,this.JiggBand,this.ContactBroken,this.JiggBroken,this.Contactabression,this.CoatingonPuntureonJigg,this.ContactBurn,this.CoatingBurn,this.Others,this.ECN,this.TotalTechnicalDefects,this.TotalHandlingDefects,this.flag,this.txtjigg)
     .subscribe(res=>{
       this.response = res;
       if(this.response.Data)
@@ -358,14 +369,15 @@ jiggmst;
           this.display_message_class = 'alert alert-success alert-dismissible'
           this.display_totalhandlingdefectsrect = this.TotalHandlingDefects;
           this.display_Totaltechnicaldefectsrect = this.TotalTechnicalDefects;
-          //console.log(this.txtjigg)
+          this.Search();
           this.clearValues();
       }
       else
       {
               this.display_message = 'Duplicate Jigg ';
               this.display_message_class = 'alert alert-danger alert-dismissible';
-               this.clearValues();
+              this.Search();
+              this.clearValues();
       }
     })
   }

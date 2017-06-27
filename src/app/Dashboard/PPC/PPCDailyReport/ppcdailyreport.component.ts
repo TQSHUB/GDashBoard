@@ -45,6 +45,7 @@ export class PPCDailyReportComponent {
   PlanA;
   PlanB;
   PlanC;
+  PlanedRound;
 
   //Totals
   TotalPA = 0;
@@ -114,6 +115,12 @@ export class PPCDailyReportComponent {
 
   Search()
   {
+      if($("#PlanedRound").is(':checked'))
+            this.PlanedRound = 1;
+        else
+             this.PlanedRound = 0;
+             console.log(this.PlanedRound);
+      
       //Get For Values
       this.Selected_Alias_Names = $("#Alias_Names").val();
       this.Selected_Customer_Names = $("#Customer_Names").val();
@@ -133,7 +140,7 @@ export class PPCDailyReportComponent {
       if(natureofcomp_string == 'NULL')
         natureofcomp_string = '';
 
-      this.busy = this.ppcDailyReportService.getPPCDailyReport('',this.FromDate, this.ToDate, itemtype_string, natureofcomp_string, alias_string,customer_string,'').subscribe(res => {
+      this.busy = this.ppcDailyReportService.getPPCDailyReport('',this.FromDate, this.ToDate, itemtype_string, natureofcomp_string, alias_string,customer_string,this.PlanedRound).subscribe(res => {
         this.ResponseData = JSON.parse(res.JsonData);
         var headers = res.Headers;
         
