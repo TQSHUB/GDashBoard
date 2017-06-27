@@ -61,13 +61,21 @@ export class WeeklyChromeSatinComponent {
     else
         this.calledComponent = 'Satin';
 
-    this.WeeklyInspection();
-    this.WeeklyRoundNo();
-    this.WeeklyTopRejectionDefect();
-    this.WeeklyDefects();
-    this.WeeklyRejectionDefect();
+    // this.WeeklyInspection();
+    // this.WeeklyRoundNo();
+    // this.WeeklyTopRejectionDefect();
+    // this.WeeklyDefects();
+    // this.WeeklyRejectionDefect();
 
     } 
+
+    ngAfterViewInit(){
+        this.WeeklyInspection();
+        this.WeeklyRoundNo();
+        this.WeeklyTopRejectionDefect();
+        this.WeeklyDefects();
+        this.WeeklyRejectionDefect();
+    }
 
     WeeklyInspection(){
     this.busy = this.weeklyService.GetWeeklyInspection(this.calledComponent).subscribe(res => {

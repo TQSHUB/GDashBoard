@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Http, RequestOptions, Headers, Response } from '@angular/http';
 import { DatePipe } from '@angular/common';
-import { SearchPipe } from './searchtable.pipe'
+import { SearchPipePPCScheduleEdit } from './searchtable.pipe'
 import {GenericTableComponent, GtConfig} from '@angular-generic-table/core';
 import { ScheduleEditService } from '../../../Services/PPC/scheduleedit.service'
 import { Subscription } from 'rxjs';
@@ -16,7 +16,7 @@ declare var ETEJson: any;
 @Component({
   selector: 'ppc-schedule-edit',
   templateUrl: './scheduleedit.component.html',
-  providers: [ScheduleEditService, DatePipe, SearchPipe],
+  providers: [ScheduleEditService, DatePipe, SearchPipePPCScheduleEdit],
 })
 export class ScheduleEditComponent {
   busy: Subscription;
@@ -51,7 +51,7 @@ export class ScheduleEditComponent {
 
 
 
-  constructor(private http: Http, private scheduleEditService: ScheduleEditService, private datepipe: DatePipe, private searchPipe: SearchPipe){}
+  constructor(private http: Http, private scheduleEditService: ScheduleEditService, private datepipe: DatePipe, private searchPipe: SearchPipePPCScheduleEdit){}
 
   ngOnInit(){
     var script = document.createElement('script');

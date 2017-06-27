@@ -31,7 +31,7 @@
                                 </div>
                                 <select id="ItemType"  class="form-control select2"  style="width: 100%;" name="ItemType">
                                     <!--<option selected="selected" value="NULL">Select</option>-->
-                                    <option value="Chrome">Chrome</option>
+                                    <option value="Satin">Satin</option>
                                 </select>
                             </div>
                         </div>
@@ -40,13 +40,15 @@
                         </div>
                         <div class="col-sm-10 col-md-3" style="margin-bottom: 20px">
                             <div class="input-group" >
-                                <!--<label for="lblaliasname">Alias Name</label>-->
-                                <div class="input-group-addon">
-                                    <span class="input-group">Part Name</span>
-                                </div>
-                                <select id="Alias_Names"  class="form-control select2" multiple="multiple" data-placeholder="Select" style="width: 100%;">
-                                    <option *ngFor="let Alias of Alias_Names" [value]="Alias.Code">{{Alias.Alias_Name}}</option>
+                                <span class="input-group-addon">Part Name</span>
+                                <select id="Alias_Names"  class="form-control select2" data-placeholder="Select" style="width: 100%;">
+                                    <option *ngFor="let Alias of ResponseData" [value]="Alias['Item Code']">{{Alias['Alias Name']}}</option>
                                 </select>
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">
+                                        <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true" (click)="bindalldata()"></span>
+                                    </button>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -55,7 +57,7 @@
                             <div class="form-group">
                                 <label for="lblhldqty" class="col-sm-5 control-label">Hold Qty</label>
                                 <div class="col-md-3" >
-                                    <label class="col-sm-4" style="color: green;">None</label>
+                                    <label class="col-sm-4" style="color: green;">{{HoldQty}}</label>
                                 </div>
                             </div>
                         </div>
@@ -63,7 +65,7 @@
                             <div class="form-group">
                                 <label for="lblbfrqty" class="col-sm-5 control-label">Buffer Qty</label>
                                 <div class="col-md-3" >
-                                    <label class="col-sm-4" style="color: green;">None</label>
+                                    <label class="col-sm-4" style="color: green;">{{BufferQty}}</label>
                                 </div>
                             </div>
                         </div>
@@ -71,22 +73,27 @@
                             <div class="form-group">
                                 <label for="lblrejqty" class="col-sm-5 control-label">Rejected Qty</label>
                                 <div class="col-md-3" >
-                                    <label class="col-sm-4" style="color: red;">None</label>
+                                    <label class="col-sm-4" style="color: red;">{{RejQty}}</label>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-10 col-md-3" style="margin-bottom: 20px">
                             <div class="input-group" >
-                                <!--<label for="lblnatureofcomp">Type</label>-->
                                 <span class="input-group-addon">Type</span>
-                                <select id="natureofcomp" class="form-control select2"  style="width: 100%;" name="natureofcomp">
-                                    <option selected="selected" value="NULL">--Select--</option>
-                                    <option value="Hold">Hold</option>
-                                    <option value="Rejction Review">Rejction Review</option>
-                                    <option value="Buffing">Buffing</option>
-                                    <option value="Customer Return Review">Customer Return Review</option>
+                                <select id="RejType" class="form-control select2"  style="width: 100%;" name="RejType">
+                                    <option selected="selected" value="0">--Select--</option>
+                                    <option value="1">Hold</option>
+                                    <option value="2">Rejction Review</option>
+                                    <option value="3">Buffing</option>
+                                    <option value="4">Customer Return Review</option>
                                 </select>
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">
+                                        <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true" (click)="bindrejectionData()"></span>
+                                    </button>
+                                </span>
                             </div>
+                            <label class="pull-left" >{{display_message}}</label>
                         </div>
                     </div>
                 </form>
@@ -104,7 +111,7 @@
                                 <div class="input-group-addon">
                                     <span class="input-group">Hold Qty</span>
                                 </div>
-                                <input type="text" name="hldqty" class="form-control pull-right" id="hldqty" [(ngModel)]="hldqty">
+                                <input type="text" name="hldqty" class="form-control pull-right" id="hldqty" style="color: green;" [(ngModel)]="Hldqty">
                             </div>
                         </div>
                         <div class="col-sm-10 col-md-3"style="margin-bottom: 20px">
@@ -112,7 +119,7 @@
                                 <div class="input-group-addon">
                                     <span class="input-group">Buffer Qty</span>
                                 </div>
-                                <input type="text" name="bfrqty" class="form-control pull-right" id="bfrqty" [(ngModel)]="bfrqty">
+                                <input type="text" name="bfrqty" class="form-control pull-right" style="color: green;" [(ngModel)]="Bfrqty">
                             </div>
                         </div>
                         <div class="col-sm-10 col-md-3"style="margin-bottom: 20px">
@@ -120,7 +127,7 @@
                                 <div class="input-group-addon">
                                     <span class="input-group">Rejected Qty</span>
                                 </div>
-                                <input type="text" name="rejqty" class="form-control pull-right" id="rejqty" [(ngModel)]="rejqty">
+                                <input type="text" name="rejqty" class="form-control pull-right" style="color: red;" [(ngModel)]="Rejectedqty">
                             </div>
                         </div>
                         <div class="col-sm-10 col-md-3"style="margin-bottom: 20px">
@@ -128,7 +135,7 @@
                                 <div class="input-group-addon">
                                     <span class="input-group">OK Qty</span>
                                 </div>
-                                <input type="text" name="okqty" class="form-control pull-right" id="okqty" [(ngModel)]="okqty">
+                                <input type="text" name="okqty" class="form-control pull-right" id="okqty" [(ngModel)]="Okqty">
                             </div>
                         </div>
                     </div>
@@ -146,7 +153,7 @@
                                 <div class="input-group-addon">
                                     <span class="input-group">Pin Hole</span>
                                 </div>
-                                <input type="text" name="pinhole" class="form-control pull-right" id="pinhole" [(ngModel)]="pinhole">
+                                <input type="text" name="pinhole" class="form-control pull-right" id="pinhole" [(ngModel)]="PinHole">
                             </div>
                         </div>
                         <div class="col-sm-10 col-md-3"style="margin-bottom: 20px">
@@ -154,7 +161,7 @@
                                 <div class="input-group-addon">
                                     <span class="input-group">Skip Plating</span>
                                 </div>
-                                <input type="text" name="skpltng" class="form-control pull-right" id="skpltng" [(ngModel)]="skpltng">
+                                <input type="text" name="skpltng" class="form-control pull-right" id="skpltng" [(ngModel)]="SkipPlating">
                             </div>
                         </div>
                         <div class="col-sm-10 col-md-3"style="margin-bottom: 20px">
@@ -162,7 +169,7 @@
                                 <div class="input-group-addon">
                                     <span class="input-group">Process Mould Rej</span>
                                 </div>
-                                <input type="text" name="prcsmourej" class="form-control pull-right" id="prcsmourej" [(ngModel)]="prcsmourej">
+                                <input type="text" name="prcsmourej" class="form-control pull-right" id="prcsmourej" [(ngModel)]="ProMouRej">
                             </div>
                         </div>
                         <div class="col-sm-10 col-md-3"style="margin-bottom: 20px">
@@ -170,7 +177,7 @@
                                 <div class="input-group-addon">
                                     <span class="input-group">Hand. Moulding Rejection</span>
                                 </div>
-                                <input type="text" name="hndmngrej" class="form-control pull-right" id="hndmngrej" [(ngModel)]="hndmngrej">
+                                <input type="text" name="hndmngrej" class="form-control pull-right" id="hndmngrej" [(ngModel)]="HandMouRej">
                             </div>
                         </div>
                     </div>
@@ -180,7 +187,7 @@
                                 <div class="input-group-addon">
                                     <span class="input-group">White Mark</span>
                                 </div>
-                                <input type="text" name="whtmrk" class="form-control pull-right" id="whtmrk" [(ngModel)]="whtmrk">
+                                <input type="text" name="whtmrk" class="form-control pull-right" id="whtmrk" [(ngModel)]="WhtMark">
                             </div>
                         </div>
                         <div class="col-sm-10 col-md-3"style="margin-bottom: 20px">
@@ -188,7 +195,7 @@
                                 <div class="input-group-addon">
                                     <span class="input-group">Pin Marks</span>
                                 </div>
-                                <input type="text" name="pinmrks" class="form-control pull-right" id="pinmrks" [(ngModel)]="pinmrks">
+                                <input type="text" name="pinmrks" class="form-control pull-right" id="pinmrks" [(ngModel)]="PinMark">
                             </div>
                         </div>
                         <div class="col-sm-10 col-md-3"style="margin-bottom: 20px">
@@ -196,7 +203,7 @@
                                 <div class="input-group-addon">
                                     <span class="input-group">War Page</span>
                                 </div>
-                                <input type="text" name="warpg" class="form-control pull-right" id="warpg" [(ngModel)]="warpg">
+                                <input type="text" name="warpg" class="form-control pull-right" id="warpg" [(ngModel)]="WarPage">
                             </div>
                         </div>
                         <div class="col-sm-10 col-md-3"style="margin-bottom: 20px">
@@ -204,7 +211,7 @@
                                 <div class="input-group-addon">
                                     <span class="input-group">Silver Mark</span>
                                 </div>
-                                <input type="text" name="slvrmrk" class="form-control pull-right" id="slvrmrk" [(ngModel)]="slvrmrk">
+                                <input type="text" name="slvrmrk" class="form-control pull-right" id="slvrmrk" [(ngModel)]="SilverMarks">
                             </div>
                         </div>
                     </div>
@@ -214,7 +221,7 @@
                                 <div class="input-group-addon">
                                     <span class="input-group">Dot Plastic</span>
                                 </div>
-                                <input type="text" name="dotplstc" class="form-control pull-right" id="dotplstc" [(ngModel)]="dotplstc">
+                                <input type="text" name="dotplstc" class="form-control pull-right" id="dotplstc" [(ngModel)]="DotPlastc">
                             </div>
                         </div>
                         <div class="col-sm-10 col-md-3"style="margin-bottom: 20px">
@@ -222,7 +229,7 @@
                                 <div class="input-group-addon">
                                     <span class="input-group">Chrom Burning</span>
                                 </div>
-                                <input type="text" name="chrmbrng" class="form-control pull-right" id="chrmbrng" [(ngModel)]="chrmbrng">
+                                <input type="text" name="chrmbrng" class="form-control pull-right" id="chrmbrng" [(ngModel)]="ChormBrng">
                             </div>
                         </div>
                         <div class="col-sm-10 col-md-3"style="margin-bottom: 20px">
@@ -230,7 +237,7 @@
                                 <div class="input-group-addon">
                                     <span class="input-group">Dent Marks</span>
                                 </div>
-                                <input type="text" name="dntmrks" class="form-control pull-right" id="dntmrks" [(ngModel)]="dntmrks">
+                                <input type="text" name="dntmrks" class="form-control pull-right" id="dntmrks" [(ngModel)]="DentMarks">
                             </div>
                         </div>
                         <div class="col-sm-10 col-md-3"style="margin-bottom: 20px">
@@ -238,7 +245,7 @@
                                 <div class="input-group-addon">
                                     <span class="input-group">Scratches</span>
                                 </div>
-                                <input type="text" name="scrtchs" class="form-control pull-right" id="scrtchs" [(ngModel)]="scrtchs">
+                                <input type="text" name="scrtchs" class="form-control pull-right" id="scrtchs" [(ngModel)]="Scratches">
                             </div>
                         </div>
                     </div>
@@ -248,7 +255,7 @@
                                 <div class="input-group-addon">
                                     <span class="input-group">Copper Bruning</span>
                                 </div>
-                                <input type="text" name="cprbrng" class="form-control pull-right" id="cprbrng" [(ngModel)]="cprbrng">
+                                <input type="text" name="cprbrng" class="form-control pull-right" id="cprbrng" [(ngModel)]="CoprBrng">
                             </div>
                         </div>
                         <div class="col-sm-10 col-md-3"style="margin-bottom: 20px">
@@ -256,7 +263,7 @@
                                 <div class="input-group-addon">
                                     <span class="input-group">Jig Damage</span>
                                 </div>
-                                <input type="text" name="jigdmg" class="form-control pull-right" id="jigdmg" [(ngModel)]="jigdmg">
+                                <input type="text" name="jigdmg" class="form-control pull-right" id="jigdmg" [(ngModel)]="JigDmg">
                             </div>
                         </div>
                         <div class="col-sm-10 col-md-3"style="margin-bottom: 20px">
@@ -270,7 +277,7 @@
                                 <div class="input-group-addon">
                                     <span class="input-group">High Gloss</span>
                                 </div>
-                                <input type="text" name="hghgls" class="form-control pull-right" id="hghgls" [(ngModel)]="hghgls">
+                                <input type="text" name="hghgls" class="form-control pull-right" id="hghgls" [(ngModel)]="HighGloss">
                             </div>
                         </div>
                         <div class="col-sm-10 col-md-3"style="margin-bottom: 20px">
@@ -278,7 +285,7 @@
                                 <div class="input-group-addon">
                                     <span class="input-group">Low Gloss</span>
                                 </div>
-                                <input type="text" name="lowgls" class="form-control pull-right" id="lowgls" [(ngModel)]="lowgls">
+                                <input type="text" name="lowgls" class="form-control pull-right" id="lowgls" [(ngModel)]="LowGlass">
                             </div>
                         </div>
                         <div class="col-sm-10 col-md-3"style="margin-bottom: 20px">
@@ -292,7 +299,7 @@
                                 <div class="input-group-addon">
                                     <span class="input-group">Shade Variation</span>
                                 </div>
-                                <input type="text" name="shdvrtn" class="form-control pull-right" id="shdvrtn" [(ngModel)]="shdvrtn">
+                                <input type="text" name="shdvrtn" class="form-control pull-right" id="shdvrtn" [(ngModel)]="ShadVarton">
                             </div>
                         </div>
                         <div class="col-sm-10 col-md-3"style="margin-bottom: 20px">
@@ -300,13 +307,13 @@
                                 <div class="input-group-addon">
                                     <span class="input-group">Patch Mark</span>
                                 </div>
-                                <input type="text" name="ptchmrk" class="form-control pull-right" id="ptchmrk" [(ngModel)]="ptchmrk">
+                                <input type="text" name="ptchmrk" class="form-control pull-right" id="ptchmrk" [(ngModel)]="PatchMarks">
                             </div>
                         </div>
                         <div class="col-sm-10 col-md-3"style="margin-bottom: 20px">
                         </div>
                         <div class="col-sm-10 col-md-3"style="margin-bottom: 20px">
-                            <button  style="margin-left: 140px;" type="button" class="btn btn-primary pull-right" (click)="Search()">Save</button>
+                            <button  style="margin-left: 140px;" type="button" class="btn btn-primary pull-right" (click)="FunctionOnCaption()">{{flag}}</button>
                         </div>
                     </div>
                     <div class="row">
@@ -315,7 +322,7 @@
                                 <div class="input-group-addon">
                                     <span class="input-group">Nickel</span>
                                 </div>
-                                <input type="text" name="nickl" class="form-control pull-right" id="nickl" [(ngModel)]="nickl">
+                                <input type="text" name="nickl" class="form-control pull-right" id="nickl" [(ngModel)]="Nickel">
                             </div>
                         </div>
                         <div class="col-sm-10 col-md-3"style="margin-bottom: 20px">
@@ -323,7 +330,7 @@
                                 <div class="input-group-addon">
                                     <span class="input-group">Roughness</span>
                                 </div>
-                                <input type="text" name="rghns" class="form-control pull-right" id="rghns" [(ngModel)]="rghns">
+                                <input type="text" name="rghns" class="form-control pull-right" id="rghns" [(ngModel)]="Roughness">
                             </div>
                         </div>
                     </div>
@@ -333,7 +340,7 @@
                                 <div class="input-group-addon">
                                     <span class="input-group">Blister</span>
                                 </div>
-                                <input type="text" name="blstr" class="form-control pull-right" id="blstr" [(ngModel)]="blstr">
+                                <input type="text" name="blstr" class="form-control pull-right" id="blstr" [(ngModel)]="Blister">
                             </div>
                         </div>
                         <div class="col-sm-10 col-md-3"style="margin-bottom: 20px">
@@ -341,7 +348,7 @@
                                 <div class="input-group-addon">
                                     <span class="input-group">Black Spot</span>
                                 </div>
-                                <input type="text" name="blckspot" class="form-control pull-right" id="blckspot" [(ngModel)]="blckspot">
+                                <input type="text" name="blckspot" class="form-control pull-right" id="blckspot" [(ngModel)]="BlackSpot">
                             </div>
                         </div>
                     </div>
@@ -351,7 +358,7 @@
                                 <div class="input-group-addon">
                                     <span class="input-group">Satin Mark</span>
                                 </div>
-                                <input type="text" name="satnmrk" class="form-control pull-right" id="satnmrk" [(ngModel)]="satnmrk">
+                                <input type="text" name="satnmrk" class="form-control pull-right" id="satnmrk" [(ngModel)]="SatinMark">
                             </div>
                         </div>
                         <div class="col-sm-10 col-md-3"style="margin-bottom: 20px">
@@ -359,7 +366,7 @@
                                 <div class="input-group-addon">
                                     <span class="input-group">Chemical Mark</span>
                                 </div>
-                                <input type="text" name="chmclmrk" class="form-control pull-right" id="chmclmrk" [(ngModel)]="chmclmrk">
+                                <input type="text" name="chmclmrk" class="form-control pull-right" id="chmclmrk" [(ngModel)]="ChemclMark">
                             </div>
                         </div>
                     </div>
@@ -367,9 +374,9 @@
                         <div class="col-sm-10 col-md-3"style="margin-bottom: 20px">
                             <div class="input-group">
                                 <div class="input-group-addon">
-                                    <span class="input-group">Touch burnind</span>
+                                    <span class="input-group">Touch burning</span>
                                 </div>
-                                <input type="text" name="tchbrng" class="form-control pull-right" id="tchbrng" [(ngModel)]="tchbrng">
+                                <input type="text" name="tchbrng" class="form-control pull-right" id="tchbrng" [(ngModel)]="TouchBrng">
                             </div>
                         </div>
                         <div class="col-sm-10 col-md-3"style="margin-bottom: 20px">
@@ -377,7 +384,7 @@
                                 <div class="input-group-addon">
                                     <span class="input-group">Other</span>
                                 </div>
-                                <input type="text" name="othr" class="form-control pull-right" id="othr" [(ngModel)]="othr">
+                                <input type="text" name="othr" class="form-control pull-right" id="othr" [(ngModel)]="Other">
                             </div>
                         </div>
                     </div>
@@ -387,7 +394,7 @@
                                 <div class="input-group-addon">
                                     <span class="input-group">Water Mark</span>
                                 </div>
-                                <input type="text" name="wtrmrk" class="form-control pull-right" id="wtrmrk" [(ngModel)]="wtrmrk">
+                                <input type="text" name="wtrmrk" class="form-control pull-right" id="wtrmrk" [(ngModel)]="WaterMark">
                             </div>
                         </div>
                         <div class="col-sm-10 col-md-3"style="margin-bottom: 20px">
@@ -395,7 +402,7 @@
                                 <div class="input-group-addon">
                                     <span class="input-group">Remark</span>
                                 </div>
-                                <input type="text" name="rmrk" class="form-control pull-right" id="rmrk" [(ngModel)]="rmrk">
+                                <input type="text" name="rmrk" class="form-control pull-right" id="rmrk" [(ngModel)]="Remark">
                             </div>
                         </div>
                     </div>

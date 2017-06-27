@@ -25,6 +25,10 @@
     <link rel="stylesheet" type="text/css" href="assets/fonts/icomoon.css">
     <link rel="stylesheet" type="text/css" href="assets/css/colors.css">
 
+    <!--LOader Css-->
+    <link rel="stylesheet" type="text/css" href="assets/css/loaders/loaders.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/loaders/palette-loader.min.css">
+
   <style>
     html, body {
       height: 100%;
@@ -84,18 +88,48 @@
         }
     </style>
 
+    <style>
+      #loaderContainer{
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        background-color: rgba(0, 0, 0, 0.6);
+        height: 100%;
+        width: 100%;
+        z-index: 10000;
+      }
+    </style>
+    <!-- jQuery 2.2.3 -->
+    <script src="assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script>
+      $(window).load(function(){
+        // PAGE IS FULLY LOADED  
+        // FADE OUT YOUR OVERLAYING DIV
+        $('#loaderContainer').fadeOut();
+      });
+    </script>
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
+  <div id="loaderContainer">
+    <div class="folding-cube loader-info" style="position: absolute; top:49%; left: 49%;">
+        <div class="cube1 cube"></div>
+        <div class="cube2 cube"></div>
+        <div class="cube4 cube"></div>
+        <div class="cube3 cube"></div>
+      </div>
+  </div>
   <div class="wrapper">
     <app-root></app-root>
   </div>
 
-<!-- jQuery 2.2.3 -->
-<script src="assets/plugins/jQuery/jquery-2.2.3.min.js"></script>
+
 <!--Date picker js-->
 <script src="assets/plugins/datepicker/bootstrap-datepicker.js"></script>
 <!--Select js-->
 <script src="assets/plugins/select2/select2.full.min.js"></script>
+<!--Shared js-->
+<script src="assets/ComponentJs/Shared.js"></script>
 <!--Chart Js-->
 <!--<script src="assets/plugins/Chart_new.js/Chart.bundle.js"></script>-->
 <!--Chart Js-->

@@ -7,6 +7,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //Pipes
 import { JsonDate } from './Pipes/jsondate.pipe';
+import { SearchPipePPCScheduleEdit } from './Dashboard/PPC/ScheduleEdit/searchtable.pipe';
+import { SearchPipePPCDailyReport } from './Dashboard/PPC/PPCDailyReport/searchtable.pipe';
+import { SearchPipePPCEntry } from './Dashboard/PPC/PPCEntry/searchtable.pipe';
+import { SearchPipePPCSummary } from './Dashboard/PPC/PPCSummary/searchtable.pipe';
+import { SearchPipeCustomer } from './Dashboard/Masters/CustomerMaster/searchtable.pipe';
+import { SearchPipeJigMaster } from './Dashboard/JiggManufacture/JigMaster/searchtable.pipe';
+
+import { SearchPipeJiggMfgReport } from './Dashboard/JiggManufacture/JiggMfgReport/searchtable.pipe';
+import { SearchPipeJiggentry } from './Dashboard/JiggManufacture/JiggMfgEntry/searchtable.pipe';
+import { SearchPipePendingRound } from  './Dashboard/Masters/PendingRound/searchtable.pipe';
+import { SearchPipeComponentMaster } from './Dashboard/Masters/ComponentMaster/searchtable.pipe';
 
 //Pagination
 import {Ng2PaginationModule} from 'ng2-pagination';
@@ -40,8 +51,8 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
  import { ItemComponent } from './Dashboard/Masters/ComponentMaster/item.component';
  import { LoadingData } from './Dashboard/Masters/PendingRound/loadingdata.component';
  import { FrmLoading } from './Dashboard/Masters/EditPendingRound/frmloading.component';
- import { CustomerItemMasterComponent } from './Dashboard/Masters/CustomerItemMaster/custitemmaster.component'
- import { CustomerMasterComponent } from './Dashboard/Masters/CustomerMaster/custmaster.component'
+ import { CustomerItemMasterComponent } from './Dashboard/Masters/CustomerItemMaster/custitemmaster.component';
+ import { CustomerMasterComponent } from './Dashboard/Masters/CustomerMaster/custmaster.component';
 
  //Jigg 
   import { JiggReportComponent } from './Dashboard/JiggManufacture/JiggMfgReport/jiggreport.component';

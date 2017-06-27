@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../../Services/login.service';
-
 import { Subscription } from 'rxjs';
 import 'rxjs/add/operator/map';
+import * as $ from 'jquery';
+
+declare var setCookie: any;
 
 
 @Component({
@@ -33,6 +35,7 @@ export class LoginComponent {
       else
       {
         localStorage.setItem('UserName',this.username);
+        setCookie('UserName', this.username);
         this.router.navigate(['/Dashboard']);
       }
     });     
