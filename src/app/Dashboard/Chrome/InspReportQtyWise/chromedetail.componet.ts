@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { DatePipe, CurrencyPipe } from '@angular/common';
-import { SearchPipe } from './searchtable.pipe'
+import { SearchPipeCIRQty } from './searchtable.pipe'
 import { JsonDate } from '../../../Pipes/jsondate.pipe';
 import {GenericTableComponent, GtConfig} from '@angular-generic-table/core';
 import * as $ from 'jquery';
@@ -16,7 +16,7 @@ declare var ETE: any;
 @Component({
     selector: 'Chrome-Detail',
     templateUrl: 'chromedetail.component.html',
-    providers: [ChromeDetailService,DatePipe,SearchPipe, JsonDate]
+    providers: [ChromeDetailService,DatePipe,SearchPipeCIRQty, JsonDate]
 })
 
 export class ChromeDetailComponet{
@@ -96,7 +96,7 @@ export class ChromeDetailComponet{
 
 
 
-  constructor(private chromeDetailService: ChromeDetailService, private datepipe: DatePipe, private searchPipe: SearchPipe, private jsondate: JsonDate){}
+  constructor(private chromeDetailService: ChromeDetailService, private datepipe: DatePipe, private searchPipe: SearchPipeCIRQty, private jsondate: JsonDate){}
 
   ngOnInit(){
     var script = document.createElement('script');

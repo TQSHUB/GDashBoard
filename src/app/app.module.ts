@@ -19,6 +19,14 @@ import { SearchPipeJiggentry } from './Dashboard/JiggManufacture/JiggMfgEntry/se
 import { SearchPipePendingRound } from  './Dashboard/Masters/PendingRound/searchtable.pipe';
 import { SearchPipeComponentMaster } from './Dashboard/Masters/ComponentMaster/searchtable.pipe';
 
+import { SearchPipeCRQty } from './Dashboard/Chrome/ChromeRejectionQtyWise/searchtable.pipe';
+import { SearchPipeCRVal } from './Dashboard/Chrome/ChromeRejectionValueWise/searchtable.pipe';
+import { SearchPipeCIRQty } from './Dashboard/Chrome/InspReportQtyWise/searchtable.pipe';
+import { SearchPipeCIRVal } from './Dashboard/Chrome/InspReportValueWise/searchtable.pipe';
+import { SearchPipeSIRQty } from './Dashboard/Satin/InspReportQtyWise/searchtable.pipe';
+import { SearchPipeSIRVal } from './Dashboard/Satin/InspReportValueWise/searchtable.pipe';
+import { SearchPipeSRQty } from './Dashboard/Satin/SatinRejectionQtyWise/searchtable.pipe';
+
 //Pagination
 import {Ng2PaginationModule} from 'ng2-pagination';
 
@@ -95,6 +103,23 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
     AppComponent,
     //Pipes
     JsonDate,
+    SearchPipeComponentMaster,
+    SearchPipeCustomer,
+    SearchPipeJiggentry,
+    SearchPipeJiggMfgReport,
+    SearchPipeJigMaster,
+    SearchPipePendingRound,
+    SearchPipePPCDailyReport,
+    SearchPipePPCEntry,
+    SearchPipePPCScheduleEdit,
+    SearchPipePPCSummary,
+    SearchPipeCIRQty,
+    SearchPipeCIRVal,
+    SearchPipeCRQty,
+    SearchPipeCRVal,
+    SearchPipeSIRQty,
+    SearchPipeSIRVal,
+    SearchPipeSRQty,
     
     //Template Components
     TopNavigationComponent,
