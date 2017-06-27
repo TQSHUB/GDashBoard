@@ -140,11 +140,7 @@ export class PPCDailyReportComponent {
       if(natureofcomp_string == 'NULL')
         natureofcomp_string = '';
 
-<<<<<<< HEAD
       this.busy = this.ppcDailyReportService.getPPCDailyReport('',this.FromDate, this.ToDate, itemtype_string, natureofcomp_string, alias_string,customer_string,this.PlanedRound).subscribe(res => {
-=======
-      this.busy = this.ppcDailyReportService.getPPCDailyReport('',this.FromDate, this.ToDate, itemtype_string, natureofcomp_string, alias_string,customer_string,'').subscribe(res => {
->>>>>>> f5d859276e486a4195294868c326399e16280021
         this.ResponseData = JSON.parse(res.JsonData);
         var headers = res.Headers;
         
