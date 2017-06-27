@@ -61,13 +61,21 @@ export class yearlyChromeSatinComponent {
     else
         this.calledComponent = 'Satin';
 
-    this.YearlyInspection();
-    this.YearlyRoundNo();
-    this.YearlyTopRejectionDefect();
-    this.YearlyDefects();
-    this.YearlyRejectionDefet();
+    // this.YearlyInspection();
+    // this.YearlyRoundNo();
+    // this.YearlyTopRejectionDefect();
+    // this.YearlyDefects();
+    // this.YearlyRejectionDefet();
 
     } 
+
+    ngAfterViewInit(){
+        this.YearlyInspection();
+        this.YearlyRoundNo();
+        this.YearlyTopRejectionDefect();
+        this.YearlyDefects();
+        this.YearlyRejectionDefet();
+    }
 
     YearlyInspection(){
     this.busy = this.yearlyService.GetYearlyInspection(this.calledComponent).subscribe(res => {

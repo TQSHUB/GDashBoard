@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
     name: "search"
 })
 
-export class SearchPipeJiggMfgReport implements PipeTransform{
+export class SearchPipePPCEntry implements PipeTransform{
     transform(value, term){
         if(term == '' || term == null)
             return 'Empty';
@@ -16,9 +16,8 @@ export class SearchPipeJiggMfgReport implements PipeTransform{
             {
                 var row = [];
                 row.push(value[i]);
-                if(row.filter(item => item['Old Jigg No'].toLowerCase().indexOf(term.toLowerCase()) !== -1).length == 1 ||
-                   row.filter(item => item['Alias Name'].toLowerCase().indexOf(term.toLowerCase()) !== -1).length == 1 ||
-                   row.filter(item => item['Jigg'].toLowerCase().indexOf(term.toLowerCase()) !== -1).length == 1
+                if(row.filter(item => item.Name.toLowerCase().indexOf(term.toLowerCase()) !== -1).length == 1 ||
+                   row.filter(item => item.AliasName.toLowerCase().indexOf(term.toLowerCase()) !== -1).length == 1
                 )
                     filteredArray.push(row[0]);
             }

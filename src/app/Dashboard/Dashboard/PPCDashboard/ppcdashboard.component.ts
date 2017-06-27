@@ -40,6 +40,11 @@ export class PPCDashboardComponent {
         document.body.appendChild(script);
         script.src = '../assets/ComponentJs/Dashboard/ppcdashboard.component.js';
 
+        // this.getMonthlyInspectionChrome();
+        // this.getMonthlyInspectionSatin();
+    }
+
+    ngAfterViewInit(){
         this.getMonthlyInspectionChrome();
         this.getMonthlyInspectionSatin();
     }
