@@ -19,6 +19,15 @@ import { SearchPipeJiggentry } from './Dashboard/JiggManufacture/JiggMfgEntry/se
 import { SearchPipePendingRound } from  './Dashboard/Masters/PendingRound/searchtable.pipe';
 import { SearchPipeComponentMaster } from './Dashboard/Masters/ComponentMaster/searchtable.pipe';
 
+import { SearchPipeCRQty } from './Dashboard/Chrome/ChromeRejectionQtyWise/searchtable.pipe';
+import { SearchPipeCRVal } from './Dashboard/Chrome/ChromeRejectionValueWise/searchtable.pipe';
+import { SearchPipeCIRQty } from './Dashboard/Chrome/InspReportQtyWise/searchtable.pipe';
+import { SearchPipeCIRVal } from './Dashboard/Chrome/InspReportValueWise/searchtable.pipe';
+import { SearchPipeSIRQty } from './Dashboard/Satin/InspReportQtyWise/searchtable.pipe';
+import { SearchPipeSIRVal } from './Dashboard/Satin/InspReportValueWise/searchtable.pipe';
+import { SearchPipeSRQty } from './Dashboard/Satin/SatinRejectionQtyWise/searchtable.pipe';
+import { SearchPipeSRVal } from './Dashboard/Satin/SatinRejectionValueWise/searchtable.pipe';
+
 //Pagination
 import {Ng2PaginationModule} from 'ng2-pagination';
 
@@ -86,6 +95,8 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
   import {SatinDetailComponet} from './Dashboard/Satin/InspReportQtyWise/satindetail.component'; 
   import {SatinLineSummary} from './Dashboard/Satin/InspReportValueWise/satinlinesummary.componet';
   import {SatinRejectionQtyComponet} from './Dashboard/Satin/SatinRejectionQtyWise/satinrejectiondetail.component';
+  import {SatinRejectionValueComponet} from './Dashboard/Satin/SatinRejectionValueWise/satinlinerejection.component';
+
 
   //Satin
   import { SatinRejectionReviewComponent } from './Dashboard/Satin/SatinRejectionReview/satinrejectionreview.component';
@@ -95,6 +106,24 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
     AppComponent,
     //Pipes
     JsonDate,
+    SearchPipeComponentMaster,
+    SearchPipeCustomer,
+    SearchPipeJiggentry,
+    SearchPipeJiggMfgReport,
+    SearchPipeJigMaster,
+    SearchPipePendingRound,
+    SearchPipePPCDailyReport,
+    SearchPipePPCEntry,
+    SearchPipePPCScheduleEdit,
+    SearchPipePPCSummary,
+    SearchPipeCIRQty,
+    SearchPipeCIRVal,
+    SearchPipeCRQty,
+    SearchPipeCRVal,
+    SearchPipeSIRQty,
+    SearchPipeSIRVal,
+    SearchPipeSRQty,
+    SearchPipeSRVal,
     
     //Template Components
     TopNavigationComponent,
@@ -147,6 +176,7 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
       SatinDetailComponet,
       SatinLineSummary,
       SatinRejectionQtyComponet,
+      SatinRejectionValueComponet,
       SatinRejectionReviewComponent
   ],
   imports: [

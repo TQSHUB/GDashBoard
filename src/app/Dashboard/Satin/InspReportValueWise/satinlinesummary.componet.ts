@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { DatePipe, CurrencyPipe } from '@angular/common';
-import { SearchPipe } from './searchtable.pipe'
+import { SearchPipeSIRVal } from './searchtable.pipe'
 import { JsonDate } from '../../../Pipes/jsondate.pipe';
 import {GenericTableComponent, GtConfig} from '@angular-generic-table/core';
 import * as $ from 'jquery';
@@ -16,7 +16,7 @@ declare var ETE: any;
 @Component({
     selector: 'Satin-lineSummary',
     templateUrl: 'satinlinesummary.component.html',
-      providers: [SatinLineSummaryService,DatePipe,SearchPipe, JsonDate]
+      providers: [SatinLineSummaryService,DatePipe,SearchPipeSIRVal, JsonDate]
 })
 
 export class SatinLineSummary{
@@ -109,7 +109,7 @@ export class SatinLineSummary{
   avgSilverMarkValue = 0;
   avgWarPageValue = 0;
 
-   constructor(private satinlinesummaryService: SatinLineSummaryService, private datepipe: DatePipe, private searchPipe: SearchPipe, private jsondate: JsonDate){}
+   constructor(private satinlinesummaryService: SatinLineSummaryService, private datepipe: DatePipe, private searchPipe: SearchPipeSIRVal, private jsondate: JsonDate){}
 
 
 ngOnInit(){
@@ -346,6 +346,6 @@ ngOnInit(){
   }
    ExportToExcel(){
     // if(this.ResponseData.length > 0)
-      ETE(this.json);
+      ETE();
    }
 }

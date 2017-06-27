@@ -63,6 +63,7 @@ export class ChromeRejectionReviewComponent{
     updatedata;
     display_message;
     display_message_class;
+    date;
     //todaydate; itemcode; loadingqty; okqty; holdqty; bufferqty; rejqty; piting; pinhole;
     //dent; handmourej; nklshow; patchmarks; scratchmarks; rghness; crbrn; othr; slvrmrk;
     //mldrej; skpltng; coprbrng; warpg; whtmrk; dotplstc; wtrmrk; blstr; jigdmg; rmrk;

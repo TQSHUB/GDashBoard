@@ -37,10 +37,10 @@
                  </div>
             </div>
         </div>
-        <div class="modal-footer" [ngClass]="display_message_class" >
-             <label class="pull-left" >{{display_message}}</label>
+        <div class="modal-footer">
+             <label class="pull-left" ></label>
             <button type="button" class="btn btn-primary" (click)="Search()"  >Search</button>
-            <button type="button" class="btn btn-default" (click)="close()">Close</button>
+            <button type="button" class="btn btn-default">Close</button>
          </div>
         </form>
         </div>
@@ -91,7 +91,9 @@
                 </tbody>
               </table>
             </div>
+            <div class="col-md-7 col-md-offset-1 col-sm-12" *ngIf="ResponseData">
               <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
             </div>
             </div>
             <!-- /.box-body -->

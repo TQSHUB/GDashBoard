@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { DatePipe, CurrencyPipe } from '@angular/common';
-import { SearchPipe } from './searchtable.pipe'
+import { SearchPipeSRQty } from './searchtable.pipe'
 import { JsonDate } from '../../../Pipes/jsondate.pipe';
 import {GenericTableComponent, GtConfig} from '@angular-generic-table/core';
 import * as $ from 'jquery';
@@ -17,7 +17,7 @@ declare var ETE: any;
 @Component({
     selector: 'Satin-Rejection',
     templateUrl: 'satinrejectiondetail.component.html',
-    providers: [SatinRejectionQtyService,DatePipe,SearchPipe, JsonDate]
+    providers: [SatinRejectionQtyService,DatePipe,SearchPipeSRQty, JsonDate]
 })
 
 export class SatinRejectionQtyComponet{
@@ -40,6 +40,9 @@ export class SatinRejectionQtyComponet{
    //search
   searchText
   json;
+
+  LowGlass;
+  date;
   //Total
   totTotalInsp = 0;
   totOkQty = 0;
@@ -110,7 +113,7 @@ export class SatinRejectionQtyComponet{
   avgSilverMark = 0;
   avgWarPage = 0;
 
-    constructor(private satinrejectiondetailService: SatinRejectionQtyService, private datepipe: DatePipe, private searchPipe: SearchPipe, private jsondate: JsonDate){}
+    constructor(private satinrejectiondetailService: SatinRejectionQtyService, private datepipe: DatePipe, private searchPipe: SearchPipeSRQty, private jsondate: JsonDate){}
     ngOnInit(){
     var script = document.createElement('script');
     document.body.appendChild(script);
@@ -339,7 +342,7 @@ search()
  }
    ExportToExcel(){
     // if(this.ResponseData.length > 0)
-      ETE(this.json);
+      ETE();
    }
 
   getBindItems_ByAliasName(){

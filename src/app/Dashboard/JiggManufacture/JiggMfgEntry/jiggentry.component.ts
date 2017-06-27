@@ -15,7 +15,7 @@ import { SearchPipeJiggentry } from './searchtable.pipe'
 })
 
 export class JiggEntry{
-
+p;
 busy: Subscription;
 allitems;
 item = [];

@@ -124,7 +124,9 @@
                 </tbody>
               </table>
             </div>
+            <div class="col-md-7 col-md-offset-1 col-sm-12" *ngIf="allitems">
               <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
             </div>
             </div>
             <!-- /.box-body -->

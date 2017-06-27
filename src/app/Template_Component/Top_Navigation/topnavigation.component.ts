@@ -16,7 +16,6 @@ export class TopNavigationComponent {
     NavigationPagesArray;
     UserName;
 
-
     constructor(private router: Router ,private topNavigationService: TopNavigationService){
         this.getNavigationPages();
     }

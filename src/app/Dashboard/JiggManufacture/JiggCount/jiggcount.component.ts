@@ -13,7 +13,8 @@ import {DatePipe} from '@angular/common'
 })
 
 export class JiggCount{  
-  
+  p;
+  page;
   busy: Subscription;
   Alias_Names;
   JigCode;

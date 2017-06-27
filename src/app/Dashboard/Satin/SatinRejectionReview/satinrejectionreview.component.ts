@@ -74,6 +74,9 @@ export class SatinRejectionReviewComponent{
     display_message;
     display_message_class;
 
+    date;
+    LowGlass;
+
     constructor(private router: Router, private http: Http, private satinrejectionreviewservice: SatinRejectionReviewService, private datepipe: DatePipe){}
 
     ngOnInit(){
