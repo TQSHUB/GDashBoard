@@ -15,6 +15,9 @@ import { SearchPipeCustomer } from './Dashboard/Masters/CustomerMaster/searchtab
 import { SearchPipeJigMaster } from './Dashboard/JiggManufacture/JigMaster/searchtable.pipe';
 
 import { SearchPipeJiggMfgReport } from './Dashboard/JiggManufacture/JiggMfgReport/searchtable.pipe';
+import { SearchPipeJiggentry } from './Dashboard/JiggManufacture/JiggMfgEntry/searchtable.pipe';
+import { SearchPipePendingRound } from  './Dashboard/Masters/PendingRound/searchtable.pipe';
+import { SearchPipeComponentMaster } from './Dashboard/Masters/ComponentMaster/searchtable.pipe';
 
 //Pagination
 import {Ng2PaginationModule} from 'ng2-pagination';
