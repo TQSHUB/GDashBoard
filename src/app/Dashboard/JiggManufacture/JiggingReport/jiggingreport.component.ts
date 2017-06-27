@@ -9,6 +9,7 @@ import { host } from '../../../Configurations/application.config';
 import * as $ from 'jquery';
 
 declare var ETE: any;
+declare var ETEJson: any;
 
 @Component({
     selector: 'jiggingreport',
@@ -17,6 +18,7 @@ declare var ETE: any;
 })
 
 export class JiggingReportComponent{
+    p;
     busy: Subscription;
     ResponseData;
 
@@ -153,13 +155,13 @@ export class JiggingReportComponent{
         var alias_string, customer_string, natureofcomp_string, itemtype_string, loadingshift_string;
         
         if(this.ResponseData.length > 0)
-            ETE(this.ResponseData);
+            ETE();
         else
         {
             var response;
             this.busy = this.jiggingreportservice.getJiggingDetailData(this.FromDate, this.ToDate, alias_string, customer_string, natureofcomp_string, itemtype_string, loadingshift_string).subscribe(res => {
                 response = JSON.parse(res);
-                ETE(response);
+             ETEJson(response);
             });
         }
     }
