@@ -26,6 +26,7 @@ import { SearchPipeCIRVal } from './Dashboard/Chrome/InspReportValueWise/searcht
 import { SearchPipeSIRQty } from './Dashboard/Satin/InspReportQtyWise/searchtable.pipe';
 import { SearchPipeSIRVal } from './Dashboard/Satin/InspReportValueWise/searchtable.pipe';
 import { SearchPipeSRQty } from './Dashboard/Satin/SatinRejectionQtyWise/searchtable.pipe';
+import { SearchPipeSRVal } from './Dashboard/Satin/SatinRejectionValueWise/searchtable.pipe';
 
 //Pagination
 import {Ng2PaginationModule} from 'ng2-pagination';
@@ -122,6 +123,7 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
     SearchPipeSIRQty,
     SearchPipeSIRVal,
     SearchPipeSRQty,
+    SearchPipeSRVal,
     
     //Template Components
     TopNavigationComponent,

@@ -37,7 +37,7 @@ export class JiggDashboardComponent {
     TotalJiggNew = 0;
     TotalJiggDesign = 0;
     TotalJiggScrap = 0;
-    TotalJiggRepairs = 0;
+    TotalJiggRepair = 0;
     TotalJiggRectify = 0;
     TotalJiggRound = 0;
     TotalSatinRound = 0;
@@ -98,7 +98,7 @@ export class JiggDashboardComponent {
 
         this.TotalJiggNew += res[i].Data;
         this.TotalJiggDesign += MDesres[i].Data;
-        this.TotalJiggRepairs += MRepres[i].Data;
+        this.TotalJiggRepair += MRepres[i].Data;
         this.TotalJiggScrap += MScrRes[i].Data;
     }
     Canvasjigg(lables, d1, d2, d3, d4);

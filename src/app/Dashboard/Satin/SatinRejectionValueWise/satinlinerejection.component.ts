@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { DatePipe, CurrencyPipe } from '@angular/common';
-import { SearchPipe } from './searchtable.pipe'
+import { SearchPipeSRVal } from './searchtable.pipe'
 import { JsonDate } from '../../../Pipes/jsondate.pipe';
 import {GenericTableComponent, GtConfig} from '@angular-generic-table/core';
 import * as $ from 'jquery';
@@ -16,7 +16,7 @@ declare var ETE: any;
 @Component({
     selector: 'Satin-Rejection',
     templateUrl: 'satinlinerejection.component.html',
-     providers: [SatinRejectionValueService,DatePipe,SearchPipe, JsonDate]
+     providers: [SatinRejectionValueService,DatePipe,SearchPipeSRVal, JsonDate]
 })
 
 export class SatinRejectionValueComponet{
@@ -108,7 +108,7 @@ export class SatinRejectionValueComponet{
   
 
 
-   constructor(private satinlinerejectionService: SatinRejectionValueService, private datepipe: DatePipe, private searchPipe: SearchPipe, private jsondate: JsonDate){}
+   constructor(private satinlinerejectionService: SatinRejectionValueService, private datepipe: DatePipe, private searchPipe: SearchPipeSRVal, private jsondate: JsonDate){}
     ngOnInit(){
     var script = document.createElement('script');
     document.body.appendChild(script);
