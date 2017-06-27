@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ItemService } from '../../../Services/Masters/item.service';
 import { GenericTableComponent ,GtConfig } from '@angular-generic-table/core';
-import { SearchPipe } from './searchtable.pipe'
+import { SearchPipeComponentMaster } from './searchtable.pipe'
 import * as $ from 'jquery';
 import { Subscription } from 'rxjs';
 
@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'itemcomponent',
   templateUrl: './item.component.html',
-  providers : [ItemService,SearchPipe ]
+  providers : [ItemService,SearchPipeComponentMaster ]
 })
 export class ItemComponent {
 
@@ -39,7 +39,7 @@ export class ItemComponent {
   response: Response;
   display_message_class;
 
-  constructor(private router:Router, private itemservice:ItemService,private searchPipe: SearchPipe){
+  constructor(private router:Router, private itemservice:ItemService,private searchPipe: SearchPipeComponentMaster){
    
   }
 

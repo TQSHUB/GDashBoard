@@ -13,6 +13,9 @@ import { SearchPipePPCEntry } from './Dashboard/PPC/PPCEntry/searchtable.pipe';
 import { SearchPipePPCSummary } from './Dashboard/PPC/PPCSummary/searchtable.pipe';
 
 import { SearchPipeJiggMfgReport } from './Dashboard/JiggManufacture/JiggMfgReport/searchtable.pipe';
+import { SearchPipeJiggentry } from './Dashboard/JiggManufacture/JiggMfgEntry/searchtable.pipe';
+import { SearchPipePendingRound } from  './Dashboard/Masters/PendingRound/searchtable.pipe';
+import { SearchPipeComponentMaster } from './Dashboard/Masters/ComponentMaster/searchtable.pipe';
 
 //Pagination
 import {Ng2PaginationModule} from 'ng2-pagination';

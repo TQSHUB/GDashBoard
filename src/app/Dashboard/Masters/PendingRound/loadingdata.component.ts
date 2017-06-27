@@ -4,12 +4,12 @@ import {DatePipe} from '@angular/common'
 import { Loading } from '../../../Services/Masters/loadingdata.service';
 import * as $ from 'jquery';
 import { Subscription } from 'rxjs';
-import { SearchPipe } from './searchtable.pipe'
+import { SearchPipePendingRound } from './searchtable.pipe'
 
 @Component({
   selector: 'loadingdatacomponent',
   templateUrl: './loadingdata.component.html',
-  providers : [Loading,DatePipe,SearchPipe]
+  providers : [Loading,DatePipe,SearchPipePendingRound]
 })
 
 export class LoadingData{
@@ -20,7 +20,7 @@ export class LoadingData{
     ToDate;
     ResponseDataCopy;
     searchText;
-    constructor(private datepipe: DatePipe,private loadingdataservice: Loading,private searchPipe: SearchPipe){}
+    constructor(private datepipe: DatePipe,private loadingdataservice: Loading,private searchPipe: SearchPipePendingRound){}
 
     ngOnInit(){
         var script = document.createElement('script');
