@@ -13,7 +13,7 @@ import { Subscription } from 'rxjs';
   providers : [ItemService,SearchPipeComponentMaster ]
 })
 export class ItemComponent {
-
+  p;
   allitems ;
   busy: Subscription;
   ResponseDataCopy;

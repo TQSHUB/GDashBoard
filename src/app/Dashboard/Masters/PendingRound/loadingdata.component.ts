@@ -13,7 +13,7 @@ import { SearchPipePendingRound } from './searchtable.pipe'
 })
 
 export class LoadingData{
-
+    p;
     busy: Subscription;
     ResponseData;
     FromDate;

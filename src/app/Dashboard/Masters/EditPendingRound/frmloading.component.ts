@@ -13,7 +13,7 @@ import { Subscription } from 'rxjs';
 })
 
 export class FrmLoading{
-    
+    p;
     busy: Subscription;
     allitem;
     FromDate;
