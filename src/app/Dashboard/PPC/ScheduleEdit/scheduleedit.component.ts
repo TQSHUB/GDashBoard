@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Http, RequestOptions, Headers, Response } from '@angular/http';
 import { DatePipe } from '@angular/common';
-import { SearchPipe } from './searchtable.pipe'
+import { SearchPipePPCScheduleEdit } from './searchtable.pipe'
 import {GenericTableComponent, GtConfig} from '@angular-generic-table/core';
 import { ScheduleEditService } from '../../../Services/PPC/scheduleedit.service'
 import { Subscription } from 'rxjs';
@@ -11,11 +11,12 @@ import { host } from '../../../Configurations/application.config';
 import * as $ from 'jquery';
 
 declare var ETE: any;
+declare var ETEJson: any;
 
 @Component({
   selector: 'ppc-schedule-edit',
   templateUrl: './scheduleedit.component.html',
-  providers: [ScheduleEditService, DatePipe, SearchPipe],
+  providers: [ScheduleEditService, DatePipe, SearchPipePPCScheduleEdit],
 })
 export class ScheduleEditComponent {
   busy: Subscription;
@@ -50,7 +51,7 @@ export class ScheduleEditComponent {
 
 
 
-  constructor(private http: Http, private scheduleEditService: ScheduleEditService, private datepipe: DatePipe, private searchPipe: SearchPipe){}
+  constructor(private http: Http, private scheduleEditService: ScheduleEditService, private datepipe: DatePipe, private searchPipe: SearchPipePPCScheduleEdit){}
 
   ngOnInit(){
     var script = document.createElement('script');
@@ -62,7 +63,7 @@ export class ScheduleEditComponent {
 
     var d = new Date();
     $("#Month").val(d.getMonth() + 1);
-    this.SearchMonthly();  
+    this.SearchMonthly(); 
   }
 
   TotalData(res){
@@ -82,6 +83,7 @@ export class ScheduleEditComponent {
 
   SearchMonthly(){
     var Month = $("#Month").val();
+    console.log(Month);
     if(Month == 'NULL')
     {
       alert('Please Select Month');
@@ -228,13 +230,13 @@ uploadFile(){
 
   ExportToExcel(){
     if(this.ResponseData.length > 0)
-      ETE(this.ResponseData);
+      ETE();
     else
     {
       var response;
       this.busy = this.scheduleEditService.getAllData().subscribe(res => {
         response = JSON.parse(res);
-        ETE(response);
+        ETEJson(response);
       });     
     }
   }

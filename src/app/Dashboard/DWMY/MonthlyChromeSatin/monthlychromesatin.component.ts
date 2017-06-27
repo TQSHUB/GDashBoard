@@ -60,20 +60,28 @@ export class MonthlyChromeSatinComponent {
     else
         this.calledComponent = 'Satin';
 
-    this.MonthlyInspection();
-    this.MonthlyRoundNo();
-    this.MonthlyTopRejectionDefect();
-    this.MonthlyDefects();
-    this.MonthlyRejectionDefect();
+    // this.MonthlyInspection();
+    // this.MonthlyRoundNo();
+    // this.MonthlyTopRejectionDefect();
+    // this.MonthlyDefects();
+    // this.MonthlyRejectionDefect();
 
     } 
+
+    ngAfterViewInit(){
+        this.MonthlyInspection();
+        this.MonthlyRoundNo();
+        this.MonthlyTopRejectionDefect();
+        this.MonthlyDefects();
+        this.MonthlyRejectionDefect();
+    }
 
     MonthlyInspection(){
     this.busy = this.monthlyService.GetMonthlyInspection(this.calledComponent).subscribe(res => {
         this.monthlyInspectionResponse = JSON.parse(res);
         this.ChartBindMonthlyInspection(this.monthlyInspectionResponse);
     });
-  }
+    }
 
   ChartBindMonthlyInspection(res){
     var lables = [];var d1 = [];var d2 =[];var d3=[];var d4=[];var d5=[];var i;

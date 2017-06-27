@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import * as $ from 'jquery';
+
+declare var checkCookie: any;
 
 @Component({
   selector: 'app-root',
@@ -9,6 +12,12 @@ import { Router } from '@angular/router';
 export class AppComponent {
   constructor(private router: Router){}
   ngOnInit(){
-    this.router.navigate(['/Login'])
+    if(!checkCookie('UserName'))
+    {
+      this.router.navigate(['/Login'])      
+    }
+    else{
+      this.router.navigate(['/Dashboard'])
+    }
   }
 }

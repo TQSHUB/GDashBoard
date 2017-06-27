@@ -4,7 +4,7 @@ import { Http, RequestOptions, Headers, Response } from '@angular/http';
 import { DatePipe } from '@angular/common';
 import {GenericTableComponent, GtConfig} from '@angular-generic-table/core';
 import { PPCDailyReportService } from '../../../Services/PPC/ppcdailyreport.service'
-import { SearchPipe } from './searchtable.pipe';
+import { SearchPipePPCEntry } from './searchtable.pipe';
 import { Subscription } from 'rxjs';
 import { Observable } from 'rxjs/Rx';
 import { host } from '../../../Configurations/application.config';
@@ -15,7 +15,7 @@ declare var ETE: any;
 @Component({
   selector: 'ppc-daily-report',
   templateUrl: './ppcentry.component.html',
-  providers: [PPCDailyReportService, DatePipe, SearchPipe],
+  providers: [PPCDailyReportService, DatePipe, SearchPipePPCEntry],
   styleUrls: ['./ppcentry.component.css']
 })
 export class PPCEntry {
@@ -54,7 +54,7 @@ export class PPCEntry {
   
 
     
-  constructor(private http: Http, private ppcDailyReportService: PPCDailyReportService, private datepipe: DatePipe, private searchPipe: SearchPipe){}
+  constructor(private http: Http, private ppcDailyReportService: PPCDailyReportService, private datepipe: DatePipe, private searchPipe: SearchPipePPCEntry){}
 
   ngOnInit(){
     var script = document.createElement('script');
@@ -223,7 +223,7 @@ uploadFile(){
   }
 
   ExportToExcel(){
-      ETE(this.ResponseData);
+      ETE();
   }
 
   TotalData(res){

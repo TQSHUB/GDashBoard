@@ -7,6 +7,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //Pipes
 import { JsonDate } from './Pipes/jsondate.pipe';
+import { SearchPipePPCScheduleEdit } from './Dashboard/PPC/ScheduleEdit/searchtable.pipe';
+import { SearchPipePPCDailyReport } from './Dashboard/PPC/PPCDailyReport/searchtable.pipe';
+import { SearchPipePPCEntry } from './Dashboard/PPC/PPCEntry/searchtable.pipe';
+import { SearchPipePPCSummary } from './Dashboard/PPC/PPCSummary/searchtable.pipe';
+
+import { SearchPipeJiggMfgReport } from './Dashboard/JiggManufacture/JiggMfgReport/searchtable.pipe';
 
 //Pagination
 import {Ng2PaginationModule} from 'ng2-pagination';
@@ -147,7 +153,7 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
     GenericTableModule,
     ColumnSettingsModule,
     BusyModule,
-    Ng2PaginationModule
+    Ng2PaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

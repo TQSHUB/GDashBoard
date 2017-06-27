@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Http, RequestOptions, Headers, Response } from '@angular/http';
 import { DatePipe } from '@angular/common';
-import { SearchPipe } from './searchtable.pipe';
+import { SearchPipePPCSummary } from './searchtable.pipe';
 import { PPCSummaryService } from '../../../Services/PPC/ppcsummary.service';
 import { Subscription } from 'rxjs';
 import { Observable } from 'rxjs/Rx';
@@ -13,7 +14,7 @@ declare var ETE: any;
 @Component({
   selector: 'ppc-summary',
   templateUrl: './ppcsummary.component.html',
-  providers: [PPCSummaryService, DatePipe, SearchPipe],
+  providers: [PPCSummaryService, DatePipe, SearchPipePPCSummary],
   styleUrls: ['./ppcsummary.component.css']
 })
 export class PPCSummaryComponent {
@@ -26,7 +27,7 @@ export class PPCSummaryComponent {
   Alias_Name;
   searchText;
 
-  constructor(private http: Http, private ppcSummaryService: PPCSummaryService, private datepipe: DatePipe, private searchPipe: SearchPipe){}
+  constructor(private http: Http, private router: Router,private ppcSummaryService: PPCSummaryService, private datepipe: DatePipe, private searchPipe: SearchPipePPCSummary){}
 
   ngOnInit(){
     var script = document.createElement('script');
@@ -57,6 +58,6 @@ SearchTextBox(){
   }
 
   ExportToExcel(){
-    ETE(this.ResponseData);
+    ETE();
   }
 }

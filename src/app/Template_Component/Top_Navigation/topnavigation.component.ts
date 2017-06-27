@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { TopNavigationService } from '../../Services/topnavigation.service';
 import * as $ from 'jquery';
 
+declare var deleteCcookie: any;
+
 @Component({
   selector: 'top-navigation',
   templateUrl: './topnavigation.component.html',
@@ -49,6 +51,10 @@ export class TopNavigationComponent {
         });
     }
     SignOut(){
+        localStorage.removeItem('Month');
+        localStorage.removeItem('Year');
+        localStorage.removeItem('UserName');
+        deleteCcookie('UserName');
         this.router.navigate(['/Login']);
     }
 }
