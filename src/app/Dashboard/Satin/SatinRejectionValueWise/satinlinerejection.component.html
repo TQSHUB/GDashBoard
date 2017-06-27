@@ -3,7 +3,7 @@
       <!-- Content Header (Page header) -->
       <section class="content-header">
         <h1>
-          SatinLine Summary  
+          Satin Rejection
           <small>Report</small>
         </h1>
       </section>
@@ -39,21 +39,15 @@
              </div>
         <div class="col-sm-12 col-md-3">
             <label for="lblaliasname">Alias Name</label>
-                <select id="Alias_Names"  class="form-control select2" multiple="multiple" data-placeholder="--Select--" style="width: 100%;">
+               <select id="Alias_Names"  class="form-control select2" multiple="multiple" data-placeholder="--Select--" style="width: 100%;">
                 <option *ngFor="let Alias of Alias_Names" [value]="Alias.Alias_Name">{{Alias.Alias_Name}}</option>
             </select>
-                <!--<input  type="text" class="form-control"  name="txtaliasname" [(ngModel)]="txtaliasname" id="txtaliasname" placeholder="" required>-->
         </div>
-           
-        
- </div>
-
-         <div class="row">
-            <div class="col-sm-12 col-md-3" style="margin-bottom: 20px">
-             <div class="input-group" >
+            <div class="col-sm-12 col-md-3">
+              <div class="input-group" >
                   <label for="lbltop">Top</label>
                      <select id="top" class="form-control select2"  style="width: 100%;"   name="txttop">
-                           <option selected="Select"  value="NULL">--Select--</option>
+                           <option selected="selected"  value="NULL">--Select--</option>
                             <option value="5">5</option>
                             <option value="10">10</option>
                             <option value="15">15</option>
@@ -63,12 +57,17 @@
                     </select>
                </div>
             </div>
+        
+ </div>
+
+         <div class="row">
+           
 
             <div class="col-sm-12 col-md-3">
                 <div class="input-group" >
                        <label for="lblorderby">Order by</label>
-                         <select id="orderby" class="form-control select2"  style="width: 100%;"   name="txtorderby" >
-                             <option selected="Select"  value="NULL">--Select--</option>
+                         <select id="orderby" class="form-control select2"  style="width: 100%;"   name="txtorderby">
+                             <option selected="selected"  value="NULL">--Select--</option>
                              <option value="[RejectedValue]">Rejected Value</option>
                         </select>
                     </div>
@@ -78,12 +77,24 @@
                <div class="input-group" >
                        <label for="lblorderby">Order by</label>
                          <select id="orderbyA" class="form-control select2"  style="width: 100%;"   name="txtorderbyA">
-                             <option selected="Select"  value="NULL">--Select--</option>
+                             <option selected="selected"  value="NULL">--Select--</option>
                              <option value="asc">Ascending</option>
                              <option value="desc">Descendig</option>
                         </select>
                     </div>
            </div>
+            <div class="col-sm-12 col-md-3" style="margin-bottom: 20px">
+                <div class="input-group" >
+                       <label for="lbltype">type</label>
+                         <select id="type" class="form-control select2"  style="width: 100%;"   name="txttype" >
+                             <option selected="0" value="NULL">--Select--</option>
+                            <option value="1">Hold</option>
+                            <option value="2">Rejection Review</option>
+                            <option value="3">Buffing</option>
+                            <option value="4">Customer Return Review</option>
+                        </select>
+                    </div>
+            </div>
          <div class="col-sm-12 col-md-3">
               
               <button type="button" class="btn btn-primary" (click)="search()" style="margin-top: 7%">Submit</button>
@@ -118,18 +129,19 @@
                 <table class="table table-responsive table-striped table-bordered" style="width: 100%;">
                     <thead>
                         <tr style="border: none">
-                              
+                               
+                               
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td>{{totProductionvalue}} </td>
+                                <td></td>
                                 <td>{{totTotalInspectionValue}}</td>
                                 <td>{{totOkValue}}</td>
                                 <td>{{totHoldValue}} </td>
                                 <td>{{totRejectedValue}}</td>
-                                <td>{{totBufferingQtyValue}}</td>
+                                <td>{{totBufferingQtyValue}} </td>
                                 <td>{{totPinHoleValue}}</td>
-                                <td>{{totPitmarksValue}} </td>
+                                <td>{{totPitmarksValue}}</td>
                                 <td>{{totSkipPlatingValue}} </td>
                                 <td>{{totDotPlasticValue}}</td>
                                 <td>{{totWhitemarkValue}}</td>
@@ -140,15 +152,14 @@
                                 <td>{{totLowGlossValue}}</td>
                                 <td>{{totShadeVariationValue}} </td>
                                 <td>{{totNickelValue}} </td>
-                                <td>{{totScratchesValue}} </td>
+                                <td>{{totScratchesValue}}</td>
                                 <td>{{totRoughnessValue}}</td>
                                 <td>{{totBlisterValue}}</td>
                                 <td>{{totBlackSpotValue}}</td>
                                 <td>{{totSatinMarkValue}}</td>
-                                <td>{{totTouchBurningValue}}</td>
-                                <td>{{totChemicalMarkValue}} </td>
+                                <td>{{totTouchBurningValue}} </td>
+                                <td>{{totChemicalMarkValue}}</td>
                                 <td>{{totWaterMarkValue}}</td>
-                                <td>{{totMismatchQtyValue}}</td>
                                 <td>{{totOtherValue}}</td>
                                 <td>{{totPatchMarkValue}}</td>
                                 <td>{{totCopperBurningValue}}</td>
@@ -156,13 +167,16 @@
                                 <td>{{totHandMouRejValue}}</td>
                                 <td>{{totSilverMarkValue}}</td>
                                 <td>{{totWarPageValue}}</td>
-                                
-                                
+                                <td></td>
+                                <td></td>
+                               
+
                         </tr>
-                        <tr>
-                             
+                         <tr>
+                         
                                 <td></td>
                                 <td></td>
+                               
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -190,7 +204,6 @@
                                 <td>{{avgTouchBurningValue}} %</td>
                                 <td>{{avgChemicalMarkValue}} %</td>
                                 <td>{{avgWaterMarkValue}} %</td>
-                                <td>{{avgMismatchQtyValue}} %</td>
                                 <td>{{avgOtherValue}} %</td>
                                 <td>{{avgPatchMarkValue}} %</td>
                                 <td>{{avgCopperBurningValue}} %</td>
@@ -198,58 +211,64 @@
                                 <td>{{avgHandMouRejValue}} %</td>
                                 <td>{{avgSilverMarkValue}} %</td>
                                 <td>{{avgWarPageValue}} %</td>
-                                
+                                <td></td>
+                                <td></td>
                                 
                         </tr>
                         <tr>
-                              
+                             <td><b>Loading Date</b></td>
+                             <td><b>Entry Date</b></td>
                              <td><b>Alias Name</b></td>
                              <td><b>Component Name</b></td>
-                             <td><b>Insp Round</b></td>
-                             <td><b>Production Value</b></td>
-                             <td><b>Total Insp Value</b></td>
-                             <td><b>Ok Value</b></td>
+                             <td><b>Total Inspection Value</b></td>
+                             <td><b>Ok  Value</b></td>
                              <td><b>Hold Value</b></td>
                              <td><b>Rejected Value</b></td>
                              <td><b>Buffering Qty Value</b></td>
-                             <td><b>PinHole Value</b></td>
-                             <td><b>Pitmarks Value</b></td>
+                             <td><b>Pin Hole Value</b></td>
+                             <td><b>Pitting Value</b></td>
                              <td><b>Skip Plating Value</b></td>
-                             <td><b> Dot Plastic Value</b></td>
-                             <td><b> White Mark Value</b></td>
-                             <td><b> ChormBurning Value</b></td>
-                             <td><b> DentMarck Value</b></td>
-                             <td><b> Jig Damage Value</b></td> 
-                             <td><b> HighGloss Value</b></td> 
-                             <td><b> LowGloss Value</b></td>
-                             <td><b> ShadeVariation Value</b></td>  
+                             <td><b>DotPlastic Value</b></td>
+                             <td><b>Whitemark Value</b></td>
+                             <td><b>ChormBurning Value</b></td>
+                             <td><b>DentMarks Value</b></td>
+                             <td><b>JigDamage Value</b></td>
+                             <td><b>HighGloss Value</b></td>
+                             <td><b>LowGloss Value</b></td> 
+                             <td><b>ShadeVariation Value</b></td> 
                              <td><b>Nickel Value</b></td>
                              <td><b>Scratches Value</b></td>
-                             <td><b>Roughness Value</b></td>
-                             <td><b> Blister Value</b></td>
-                             <td><b> BlackSpot Value</b></td>
-                             <td><b> SatinMark Value</b></td>
+                             <td><b>Roughness Value</b></td>  
+                             <td><b>Blister Value</b></td>
+                             <td><b>BlackSpot Value</b></td>
+                             <td><b>SatinMark Value</b></td>
                              <td><b>TouchBurning Value</b></td>
                              <td><b>ChemicalMark Value</b></td>
-                             <td><b> Water Mark Value</b></td>
-                             <td><b>Mismatch Qty Value</b></td>
-                             <td><b> Other Value</b></td>
-                             <td><b>Patch  Mark Value</b></td>
-                             <td><b> Copper Burning Value</b></td>
+                             <td><b>WaterMark Value</b></td>
+                             <td><b>Other Value</b></td>
+                             <td><b>Patch Mark Value</b></td>
+                             <td><b>Copper Burning Value</b></td>
                              <td><b>Pro Mou Rej Value</b></td>
-                             <td><b> Hand Mou Rej Value</b></td>
+                             <td><b>Hand Mou Rej Value</b></td>
                              <td><b>Silver Mark Value</b></td>
-                             <td><b> War Page Value</b></td>
-                           
+                             <td><b>War Page Value</b></td>
+                             <td><b>Rejection Type</b></td>
+                             <td><b>Remark</b></td>
+                             
+                            
+                             
+                            
+                            
+                            
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let response of json | paginate: { itemsPerPage: 10, currentPage: p }">
-                             
+                            
+                            <td>{{response.LoadingDate | jsondate | date: 'dd/MM/yyyy'}}</td>
+                            <td>{{response.ModifyDate | jsondate | date: 'dd/MM/yyyy'}}</td>
                             <td>{{response.Alias_Name}}</td>
                             <td>{{response.Component_Name}}</td>
-                            <td>{{response.Inspectionround}}</td>
-                            <td>{{response.Productionvalue}}</td>
                             <td>{{response.TotalInspectionValue}}</td>
                             <td>{{response.OkValue}}</td>
                             <td>{{response.HoldValue}}</td>
@@ -267,6 +286,7 @@
                             <td>{{response.LowGlossValue}}</td>
                             <td>{{response.ShadeVariationValue}}</td>
                             <td>{{response.NickelValue}}</td>
+                            
                             <td>{{response.ScratchesValue}}</td>
                             <td>{{response.RoughnessValue}}</td>
                             <td>{{response.BlisterValue}}</td>
@@ -275,7 +295,6 @@
                             <td>{{response.TouchBurningValue}}</td>
                             <td>{{response.ChemicalMarkValue}}</td>
                             <td>{{response.WaterMarkValue}}</td>
-                            <td>{{response.MismatchQtyValue}}</td>
                             <td>{{response.OtherValue}}</td>
                             <td>{{response.PatchMarkValue}}</td>
                             <td>{{response.CopperBurningValue}}</td>
@@ -283,27 +302,31 @@
                             <td>{{response.HandMouRejValue}}</td>
                             <td>{{response.SilverMarkValue}}</td>
                             <td>{{response.WarPageValue}}</td>
-                           
+                            <td>{{response.RejectiontypeText}}</td>
+                            <td>{{response.Remark}}</td>
+                         
+
                             <!--<td><a (click)="selectedCustomer(response)"><span class="btn glyphicon glyphicon-pencil" data-toggle="modal" data-target=".bs-example-modal-sm-edit"></span></a></td>-->
                         </tr>
                     </tbody>
                 </table>
 
-                 <table class="table table-responsive table-striped table-bordered" id="myTableHidden" style="width: 100%; display: none;">
+                <table class="table table-responsive table-striped table-bordered" id="myTableHidden" style="width: 100%; display: none;">
                     <thead>
                         <tr style="border: none">
-                              
+                               
+                               
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td>{{totProductionvalue}} </td>
+                                <td></td>
                                 <td>{{totTotalInspectionValue}}</td>
                                 <td>{{totOkValue}}</td>
                                 <td>{{totHoldValue}} </td>
                                 <td>{{totRejectedValue}}</td>
-                                <td>{{totBufferingQtyValue}}</td>
+                                <td>{{totBufferingQtyValue}} </td>
                                 <td>{{totPinHoleValue}}</td>
-                                <td>{{totPitmarksValue}} </td>
+                                <td>{{totPitmarksValue}}</td>
                                 <td>{{totSkipPlatingValue}} </td>
                                 <td>{{totDotPlasticValue}}</td>
                                 <td>{{totWhitemarkValue}}</td>
@@ -314,15 +337,14 @@
                                 <td>{{totLowGlossValue}}</td>
                                 <td>{{totShadeVariationValue}} </td>
                                 <td>{{totNickelValue}} </td>
-                                <td>{{totScratchesValue}} </td>
+                                <td>{{totScratchesValue}}</td>
                                 <td>{{totRoughnessValue}}</td>
                                 <td>{{totBlisterValue}}</td>
                                 <td>{{totBlackSpotValue}}</td>
                                 <td>{{totSatinMarkValue}}</td>
-                                <td>{{totTouchBurningValue}}</td>
-                                <td>{{totChemicalMarkValue}} </td>
+                                <td>{{totTouchBurningValue}} </td>
+                                <td>{{totChemicalMarkValue}}</td>
                                 <td>{{totWaterMarkValue}}</td>
-                                <td>{{totMismatchQtyValue}}</td>
                                 <td>{{totOtherValue}}</td>
                                 <td>{{totPatchMarkValue}}</td>
                                 <td>{{totCopperBurningValue}}</td>
@@ -330,13 +352,16 @@
                                 <td>{{totHandMouRejValue}}</td>
                                 <td>{{totSilverMarkValue}}</td>
                                 <td>{{totWarPageValue}}</td>
-                                
-                                
+                                <td></td>
+                                <td></td>
+                               
+
                         </tr>
-                        <tr>
-                             
+                         <tr>
+                         
                                 <td></td>
                                 <td></td>
+                               
                                 <td></td>
                                 <td></td>
                                 <td></td>
@@ -364,7 +389,6 @@
                                 <td>{{avgTouchBurningValue}} %</td>
                                 <td>{{avgChemicalMarkValue}} %</td>
                                 <td>{{avgWaterMarkValue}} %</td>
-                                <td>{{avgMismatchQtyValue}} %</td>
                                 <td>{{avgOtherValue}} %</td>
                                 <td>{{avgPatchMarkValue}} %</td>
                                 <td>{{avgCopperBurningValue}} %</td>
@@ -372,58 +396,64 @@
                                 <td>{{avgHandMouRejValue}} %</td>
                                 <td>{{avgSilverMarkValue}} %</td>
                                 <td>{{avgWarPageValue}} %</td>
-                                
+                                <td></td>
+                                <td></td>
                                 
                         </tr>
                         <tr>
-                              
+                             <td><b>Loading Date</b></td>
+                             <td><b>Entry Date</b></td>
                              <td><b>Alias Name</b></td>
                              <td><b>Component Name</b></td>
-                             <td><b>Insp Round</b></td>
-                             <td><b>Production Value</b></td>
-                             <td><b>Total Insp Value</b></td>
-                             <td><b>Ok Value</b></td>
+                             <td><b>Total Inspection Value</b></td>
+                             <td><b>Ok  Value</b></td>
                              <td><b>Hold Value</b></td>
                              <td><b>Rejected Value</b></td>
                              <td><b>Buffering Qty Value</b></td>
-                             <td><b>PinHole Value</b></td>
-                             <td><b>Pitmarks Value</b></td>
+                             <td><b>Pin Hole Value</b></td>
+                             <td><b>Pitting Value</b></td>
                              <td><b>Skip Plating Value</b></td>
-                             <td><b> Dot Plastic Value</b></td>
-                             <td><b> White Mark Value</b></td>
-                             <td><b> ChormBurning Value</b></td>
-                             <td><b> DentMarck Value</b></td>
-                             <td><b> Jig Damage Value</b></td> 
-                             <td><b> HighGloss Value</b></td> 
-                             <td><b> LowGloss Value</b></td>
-                             <td><b> ShadeVariation Value</b></td>  
+                             <td><b>DotPlastic Value</b></td>
+                             <td><b>Whitemark Value</b></td>
+                             <td><b>ChormBurning Value</b></td>
+                             <td><b>DentMarks Value</b></td>
+                             <td><b>JigDamage Value</b></td>
+                             <td><b>HighGloss Value</b></td>
+                             <td><b>LowGloss Value</b></td> 
+                             <td><b>ShadeVariation Value</b></td> 
                              <td><b>Nickel Value</b></td>
                              <td><b>Scratches Value</b></td>
-                             <td><b>Roughness Value</b></td>
-                             <td><b> Blister Value</b></td>
-                             <td><b> BlackSpot Value</b></td>
-                             <td><b> SatinMark Value</b></td>
+                             <td><b>Roughness Value</b></td>  
+                             <td><b>Blister Value</b></td>
+                             <td><b>BlackSpot Value</b></td>
+                             <td><b>SatinMark Value</b></td>
                              <td><b>TouchBurning Value</b></td>
                              <td><b>ChemicalMark Value</b></td>
-                             <td><b> Water Mark Value</b></td>
-                             <td><b>Mismatch Qty Value</b></td>
-                             <td><b> Other Value</b></td>
-                             <td><b>Patch  Mark Value</b></td>
-                             <td><b> Copper Burning Value</b></td>
+                             <td><b>WaterMark Value</b></td>
+                             <td><b>Other Value</b></td>
+                             <td><b>Patch Mark Value</b></td>
+                             <td><b>Copper Burning Value</b></td>
                              <td><b>Pro Mou Rej Value</b></td>
-                             <td><b> Hand Mou Rej Value</b></td>
+                             <td><b>Hand Mou Rej Value</b></td>
                              <td><b>Silver Mark Value</b></td>
-                             <td><b> War Page Value</b></td>
-                           
+                             <td><b>War Page Value</b></td>
+                             <td><b>Rejection Type</b></td>
+                             <td><b>Remark</b></td>
+                             
+                            
+                             
+                            
+                            
+                            
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let response of json ">
-                             
+                            
+                            <td>{{response.LoadingDate | jsondate | date: 'dd/MM/yyyy'}}</td>
+                            <td>{{response.ModifyDate | jsondate | date: 'dd/MM/yyyy'}}</td>
                             <td>{{response.Alias_Name}}</td>
                             <td>{{response.Component_Name}}</td>
-                            <td>{{response.Inspectionround}}</td>
-                            <td>{{response.Productionvalue}}</td>
                             <td>{{response.TotalInspectionValue}}</td>
                             <td>{{response.OkValue}}</td>
                             <td>{{response.HoldValue}}</td>
@@ -441,6 +471,7 @@
                             <td>{{response.LowGlossValue}}</td>
                             <td>{{response.ShadeVariationValue}}</td>
                             <td>{{response.NickelValue}}</td>
+                            
                             <td>{{response.ScratchesValue}}</td>
                             <td>{{response.RoughnessValue}}</td>
                             <td>{{response.BlisterValue}}</td>
@@ -449,7 +480,6 @@
                             <td>{{response.TouchBurningValue}}</td>
                             <td>{{response.ChemicalMarkValue}}</td>
                             <td>{{response.WaterMarkValue}}</td>
-                            <td>{{response.MismatchQtyValue}}</td>
                             <td>{{response.OtherValue}}</td>
                             <td>{{response.PatchMarkValue}}</td>
                             <td>{{response.CopperBurningValue}}</td>
@@ -457,7 +487,10 @@
                             <td>{{response.HandMouRejValue}}</td>
                             <td>{{response.SilverMarkValue}}</td>
                             <td>{{response.WarPageValue}}</td>
-                           
+                            <td>{{response.RejectiontypeText}}</td>
+                            <td>{{response.Remark}}</td>
+                         
+
                             <!--<td><a (click)="selectedCustomer(response)"><span class="btn glyphicon glyphicon-pencil" data-toggle="modal" data-target=".bs-example-modal-sm-edit"></span></a></td>-->
                         </tr>
                     </tbody>

@@ -94,6 +94,8 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
   import {SatinDetailComponet} from './Dashboard/Satin/InspReportQtyWise/satindetail.component'; 
   import {SatinLineSummary} from './Dashboard/Satin/InspReportValueWise/satinlinesummary.componet';
   import {SatinRejectionQtyComponet} from './Dashboard/Satin/SatinRejectionQtyWise/satinrejectiondetail.component';
+  import {SatinRejectionValueComponet} from './Dashboard/Satin/SatinRejectionValueWise/satinlinerejection.component';
+
 
   //Satin
   import { SatinRejectionReviewComponent } from './Dashboard/Satin/SatinRejectionReview/satinrejectionreview.component';
@@ -172,6 +174,7 @@ import { DashboardComponent } from './Dashboard/dashboard.component';
       SatinDetailComponet,
       SatinLineSummary,
       SatinRejectionQtyComponet,
+      SatinRejectionValueComponet,
       SatinRejectionReviewComponent
   ],
   imports: [

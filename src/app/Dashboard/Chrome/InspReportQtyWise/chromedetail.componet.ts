@@ -314,7 +314,7 @@ export class ChromeDetailComponet{
   }
    ExportToExcel(){
     // if(this.ResponseData.length > 0)
-      ETE(this.json);
+      ETE();
    }
    SearchTextBox(){
     var filterData = this.searchPipe.transform(this.ResponseDataCopy, this.searchText);
