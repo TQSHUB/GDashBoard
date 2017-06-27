@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { JiggMfgReportService } from '../../../Services/JiggManufacture/jiggmfgreport.service';
 import { DatePipe } from '@angular/common';
 import { JsonDate } from '../../../Pipes/jsondate.pipe';
-import { SearchPipe } from './searchtable.pipe';
+import { SearchPipeJiggMfgReport } from './searchtable.pipe';
 import * as $ from 'jquery';
 
 declare var ETE: any;
@@ -12,7 +12,7 @@ declare var ETE: any;
 @Component({
   selector: 'jiggreportcomponent',
   templateUrl: './jiggreport.component.html',
-  providers: [JiggMfgReportService, DatePipe, JsonDate, SearchPipe]
+  providers: [JiggMfgReportService, DatePipe, JsonDate, SearchPipeJiggMfgReport]
 })
 
 export class JiggReportComponent{
@@ -27,7 +27,7 @@ export class JiggReportComponent{
     ToDate;
     Purpose;
 
-    constructor(private router:Router, private jiggMfgReportService: JiggMfgReportService, private datepipe: DatePipe, private jsondate: JsonDate, private searchPipe: SearchPipe){}
+    constructor(private router:Router, private jiggMfgReportService: JiggMfgReportService, private datepipe: DatePipe, private jsondate: JsonDate, private searchPipe: SearchPipeJiggMfgReport){}
 
     ngOnInit(){
         var script = document.createElement('script');

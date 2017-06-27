@@ -4,7 +4,7 @@ import { Http, RequestOptions, Headers, Response } from '@angular/http';
 import { DatePipe } from '@angular/common';
 import {GenericTableComponent, GtConfig} from '@angular-generic-table/core';
 import { PPCDailyReportService } from '../../../Services/PPC/ppcdailyreport.service'
-import { SearchPipe } from './searchtable.pipe';
+import { SearchPipePPCDailyReport } from './searchtable.pipe';
 import { Subscription } from 'rxjs';
 import { Observable } from 'rxjs/Rx';
 import { host } from '../../../Configurations/application.config';
@@ -15,7 +15,7 @@ declare var ETE: any;
 @Component({
   selector: 'ppc-daily-report',
   templateUrl: './ppcdailyreport.component.html',
-  providers: [PPCDailyReportService, DatePipe, SearchPipe],
+  providers: [PPCDailyReportService, DatePipe, SearchPipePPCDailyReport],
   styleUrls: ['./ppcdailyreport.component.css']
 })
 export class PPCDailyReportComponent {
@@ -67,7 +67,7 @@ export class PPCDailyReportComponent {
   
 
     
-  constructor(private http: Http, private ppcDailyReportService: PPCDailyReportService, private datepipe: DatePipe, private searchPipe: SearchPipe){}
+  constructor(private http: Http, private ppcDailyReportService: PPCDailyReportService, private datepipe: DatePipe, private searchPipe: SearchPipePPCDailyReport){}
 
   ngOnInit(){
     var script = document.createElement('script');

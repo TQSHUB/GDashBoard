@@ -179,6 +179,51 @@
                         </tr>
                     </tbody>
                 </table>
+
+                <table class="table table-responsive table-striped table-bordered table-condensed" id="myTableHidden" style="width: 100%; display: none;">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th>{{TotalPA}}</th>                    
+                            <th>{{TotalARJA}}</th>
+                            <th>{{TotalPB}}</th>
+                            <th>{{TotalARJB}}</th>
+                            <th>{{TotalPC}}</th>
+                            <th>{{TotalARJC}}</th>
+                            <th>{{TotalTP}}</th>
+                            <th>{{TotalARJ}}</th>
+                            <th>{{TotalTRAP}}</th>
+                            <th>{{TotalTRWJ}}</th>
+                            <th>{{TotalTRWhJ}}</th>
+                        </tr>
+                        <tr>
+                            <th id="Second">Name</th>
+                            <th id="Third">Alias Name</th>
+                            <td *ngFor="let t_header of TopHeader"><b>{{t_header}}</b></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let response of ResponseData">
+                            <th id="Second">{{response.Name}}</th>
+                            <th id="Third">{{response.AliasName}}</th>
+                            <td *ngFor="let column of TopHeader">{{response[column]}}</td>
+                        </tr>
+                    </tbody>
+                </table>
                 </div>
                 </div>
                 </div>

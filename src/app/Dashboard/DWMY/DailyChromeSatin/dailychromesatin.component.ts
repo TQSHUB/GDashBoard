@@ -16,7 +16,7 @@ declare var pieChartDaily: any;
   providers: [DailyService]
 })
 export class DailyChromeSatinComponent {
-  
+
     busy: Subscription;
     calledComponent;
     //Responses
@@ -46,7 +46,7 @@ export class DailyChromeSatinComponent {
 
   constructor(private router: Router, private dailyService: DailyService){}
 
-  ngOnInit(){ 
+  ngOnInit(){
     var script = document.createElement('script');
     document.body.appendChild(script);
     script.src = '../../assets/plugins/chartjs/Chart.min.js';
@@ -61,12 +61,20 @@ export class DailyChromeSatinComponent {
     else
         this.calledComponent = 'Satin';
 
+    // this.dailyInspection();
+    // this.dailyRoundNo();
+    // this.dailyRejectionDefect();
+    // this.dailyTopRejectionDefect();
+    // this.dailyDefects();
+}
+
+ngAfterViewInit(){
     this.dailyInspection();
     this.dailyRoundNo();
     this.dailyRejectionDefect();
     this.dailyTopRejectionDefect();
     this.dailyDefects();
-} 
+}
 
   dailyInspection(){
     this.busy = this.dailyService.GetDailyInspection(this.calledComponent).subscribe(res => {
@@ -142,7 +150,7 @@ dailyTopRejectionDefect(){
         this.dailyService.GetLegents(this.calledComponent, 'Daily').subscribe(response => {
             this.dailyLegentsResponse = JSON.parse(response);
             this.ChartBindDailyTopRejectionDefect(this.dailyTopRejectionDefeteResponse, this.dailyLegentsResponse);
-        });    
+        });
     })
   }
 
@@ -163,7 +171,7 @@ dailyTopRejectionDefect(){
     l3.push(legents[0].Legents3);
     l4.push(legents[0].Legents4);
     l5.push(legents[0].Legents5);
-    
+
   cvsTopDefectDaily(lables, d1, d2, d3, d4, d5, l1, l2, l3, l4, l5);
 }
 

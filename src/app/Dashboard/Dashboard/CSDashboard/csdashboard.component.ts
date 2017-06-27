@@ -62,6 +62,13 @@ export class CSDashboardComponent {
     document.body.appendChild(script);
     script.src = '../assets/ComponentJs/Dashboard/csdashboard.component.js';
 
+      // this.getMonthlyInspectionChrome();
+      // this.getMonthlyRoundNoChrome();
+      // this.getMonthlyInspectionSatine();
+      // this.getMonthlyRoundNoSatine();
+  }
+
+  ngAfterViewInit(){
       this.getMonthlyInspectionChrome();
       this.getMonthlyRoundNoChrome();
       this.getMonthlyInspectionSatine();

@@ -54,6 +54,14 @@ export class JiggDashboardComponent {
         document.body.appendChild(script);
         script.src = '../assets/ComponentJs/Dashboard/jiggdashboard.component.js';
 
+        // this.getJiggMfgChart();
+        // this.getJiggMfgRRChart();
+        // this.getMonthlyRoundJiggVsChrome();
+        // this.getMonthlyRoundJiggVsSatin();
+        // this.getTop20Jigg();
+    }
+
+    ngAfterViewInit(){
         this.getJiggMfgChart();
         this.getJiggMfgRRChart();
         this.getMonthlyRoundJiggVsChrome();
