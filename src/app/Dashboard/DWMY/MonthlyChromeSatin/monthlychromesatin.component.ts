@@ -78,9 +78,22 @@ export class MonthlyChromeSatinComponent {
 
     refreshChart(){
         this.MonthlyInspection();
+        //this.MonthlyRoundNo();
+        //this.MonthlyTopRejectionDefect();
+        //this.MonthlyDefects();
+        //this.MonthlyRejectionDefect();
+    }
+    refreshChartMonthlyRoundNo(){
         this.MonthlyRoundNo();
-        this.MonthlyTopRejectionDefect();
-        this.MonthlyDefects();
+    }
+    refreshChartMonthlyTopRejectionDefect(){
+        
+          this.MonthlyTopRejectionDefect();
+    }
+    refreshChartMonthlyDefects(){
+          this.MonthlyDefects();
+    }
+    refreshChartMonthlyRejectionDefect(){
         this.MonthlyRejectionDefect();
     }
 
@@ -93,6 +106,10 @@ export class MonthlyChromeSatinComponent {
 
   ChartBindMonthlyInspection(res){
     var lables = [];var d1 = [];var d2 =[];var d3=[];var d4=[];var d5=[];var i;
+        this.Idata1 = 0;
+        this.Idata2 = 0;
+        this.Idata3 = 0;
+        this.Idata4 = 0;
     for(i =0; i< res.length; i++){
         lables.push(res[i].Labels);
         d1.push(res[i].Data1);
@@ -125,6 +142,7 @@ export class MonthlyChromeSatinComponent {
 
   ChartBindMonthlyRoundNo(res, pdata, edata){
     var lables = [];var d1 = [];var d2 =[];var d3=[];var i;
+    this.Rdata1 = 0;
     for(i =0; i< res.length; i++){
         lables.push(res[i].Labels);
         d1.push(res[i].Data);
@@ -191,6 +209,11 @@ MonthlyDefects(){
 
   ChartBindMonthlyDefets(res){
     var lables = [];var d1 = [];var i;
+    this.Ddata1 = 0;
+    this.Ddata2 = 0; 
+    this.Ddata3 = 0;
+    this.Ddata4 = 0;
+    this.Ddata5 = 0;
     for(i =0; i< res.length; i++){
         lables.push(res[i].Labels);
         d1.push(res[i].Data);

@@ -131,6 +131,8 @@ export class ChromeDetailComponet{
        this.FromDate = $("input[name=FromDate]").val();
      }
 
+     
+
 
      if($("input[name=ToDate]").val() == ''){
         this.ToDate = date;
@@ -138,6 +140,9 @@ export class ChromeDetailComponet{
      else{
        this.ToDate = $("input[name=ToDate]").val();
      }
+
+     console.log(this.FromDate)
+     console.log(this.ToDate)
 
     //  this.FromDate = this.datepipe.transform(FromDate,"MM/dd/yyyy");
     //  this.ToDate = this.datepipe.transform(ToDate,"MM/dd/yyyy"); 
@@ -171,6 +176,8 @@ export class ChromeDetailComponet{
         // this.TotalAvgData(this.ResponseData);
         // this.Avgdata(this.ResponseData);
          this.json = JSON.parse(res);
+         console.log(this.json);
+        //  console.log(res);
          this.ResponseDataCopy = this.json;
          this.TotalAvgData(this.json);
      });
@@ -222,7 +229,7 @@ export class ChromeDetailComponet{
     this.totblister = 0;
     this.totjigdamage = 0;
     this.tothandmou = 0;
-
+  
     this.avgokqty = 0; 
     this.avgholdqty = 0;
     this.avgrejection = 0;
@@ -305,7 +312,6 @@ export class ChromeDetailComponet{
       this.avgjigdamage =  Math.round((this.totjigdamage)/( this.totInsp ) * 100);
       this.avghandmou =  Math.round((this.tothandmou)/( this.totInsp ) * 100);
     }
-      
   }
    ExportToExcel(){
     // if(this.ResponseData.length > 0)

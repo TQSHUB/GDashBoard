@@ -1,10 +1,12 @@
 $(function () {
     //Date picker
     $('#datepicker').datepicker({
+        format: 'dd/mm/yyyy',
         autoclose :true
     });
 
     $('#datepicker1').datepicker({
+        format: 'dd/mm/yyyy',
         autoclose :true
     });
     //Initialize Select2 Elements

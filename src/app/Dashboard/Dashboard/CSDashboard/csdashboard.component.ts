@@ -75,6 +75,20 @@ export class CSDashboardComponent {
       this.getMonthlyRoundNoSatine();
   }
 
+  refreshgetMonthlyInspectionChrome(){
+    this.getMonthlyInspectionChrome();
+  }
+  refreshgetMonthlyRoundNoChrome(){
+    this.getMonthlyRoundNoChrome();
+  }
+  refreshgetMonthlyInspectionSatine(){
+    this.getMonthlyInspectionSatine();
+  }
+  refreshgetMonthlyRoundNoSatine(){
+    this.getMonthlyRoundNoSatine();
+  }
+
+
   //Chrome Inspection
   getMonthlyInspectionChrome(){
       this.busy = this.csDashboardService.getMonthlyInspection('Chrome').subscribe(res => {
@@ -85,6 +99,10 @@ export class CSDashboardComponent {
 
   ChartBindCMI(res){
     var lables = [];var d1 = [];var d2 =[];var d3=[];var d4=[];var d5=[];var i;
+        this.TotalInspectionChrome = 0;
+        this.OkValueChrome = 0;
+        this.HoldValueChrome = 0;
+        this.RejectionValueChrome = 0;
     for(i =0; i< res.length; i++){
         lables.push(res[i].Labels);
         d1.push(res[i].Data1);
@@ -123,6 +141,9 @@ export class CSDashboardComponent {
 
   ChartBindCMR(res, pendingres, emptyres){
     var lables = [];var d1 = [];var d2 = [];var d3 = [];var i;
+      this.ProducedRoundChrome = 0;
+        this.EmptyRoundChrome = 0;
+        this.AggregateRoundChrome = 0;
     for(i =0; i< res.length; i++){
         lables.push(res[i].Labels);
         d1.push(res[i].Data);
@@ -148,6 +169,10 @@ export class CSDashboardComponent {
 
   ChartBindSMI(res){
     var lables = [];var d1 = [];var d2 =[];var d3=[];var d4=[];var d5=[];var i;
+    this.TotalInspectionSatin = 0;
+        this.OkValueSatin = 0;
+        this.HoldValueSatin = 0;
+        this.RejectionValueSatin = 0;
     for(i =0; i< res.length; i++){
         lables.push(res[i].Labels);
         d1.push(res[i].Data1);
@@ -186,6 +211,9 @@ export class CSDashboardComponent {
 
   ChartBindSMR(res, pendingres, emptyres){
     var lables = [];var d1 = [];var d2 = [];var d3 = [];var i;
+      this.ProducedRoundSatin = 0;
+        this.EmptyRoundSatin = 0;
+        this.AggregateRoundSatin = 0;
     for(i =0; i< res.length; i++){
         lables.push(res[i].Labels);
         d1.push(res[i].Data);

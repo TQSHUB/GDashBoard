@@ -158,7 +158,7 @@
                               <tr *ngFor="let item of ResponseData1 | paginate: { itemsPerPage: 5, currentPage: page }">
                                 <td>{{item.Alias_Name}}</td>
                                 <td>{{item.Jigg_No}}</td>
-                                <td>{{item.Jigg_Date | date : 'dd/MM/yyyy'}}</td>
+                                <td>{{item.Jigg_Date | date : 'dd/MM/yyyy' }}</td>
                                 <td>{{item.Load_Round_No}}</td>
                                 <td>{{item.Item_Type}}</td>
                               </tr>
