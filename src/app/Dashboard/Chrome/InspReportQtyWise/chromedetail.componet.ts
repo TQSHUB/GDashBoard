@@ -128,6 +128,8 @@ export class ChromeDetailComponet{
        this.FromDate = $("input[name=FromDate]").val();
      }
 
+     
+
 
      if($("input[name=ToDate]").val() == ''){
         this.ToDate = date;
@@ -135,6 +137,9 @@ export class ChromeDetailComponet{
      else{
        this.ToDate = $("input[name=ToDate]").val();
      }
+
+     console.log(this.FromDate)
+     console.log(this.ToDate)
 
     //  this.FromDate = this.datepipe.transform(FromDate,"MM/dd/yyyy");
     //  this.ToDate = this.datepipe.transform(ToDate,"MM/dd/yyyy"); 
@@ -168,6 +173,8 @@ export class ChromeDetailComponet{
         // this.TotalData(this.ResponseData);
         // this.Avgdata(this.ResponseData);
          this.json = JSON.parse(res);
+         console.log(this.json);
+        //  console.log(res);
          this.ResponseDataCopy = this.json;
          this.TotalData(this.json);
          this.Avgdata(this.json);
@@ -223,10 +230,11 @@ export class ChromeDetailComponet{
   
     for(i = 0; i < res.length; i++)
     {
-      this.totInsp += parseInt(res[i].TotalInsp);
-      this.totokqty += parseInt(res[i].OkQty);
-      this.totholdqty += parseInt(res[i].HoldQty);
-      this.totrejection += parseInt(res[i].RejectedQty);
+      //this.totInsp += parseInt(res[i].TotalInsp);
+        this.totInsp += parseInt(res[i].OkQty) + parseInt(res[i].HoldQty) + parseInt(res[i].RejectedQty) + parseInt(res[i].BufferingQty);
+        this.totokqty += parseInt(res[i].OkQty);
+        this.totholdqty += parseInt(res[i].HoldQty);
+        this.totrejection += parseInt(res[i].RejectedQty);
         this.totmismatch += parseInt(res[i].MismatchQty);
         this.totbuffring += parseInt(res[i].BufferingQty);
         this.totpitting += parseInt(res[i].Pitting);

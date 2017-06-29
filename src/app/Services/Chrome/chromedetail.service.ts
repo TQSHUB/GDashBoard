@@ -10,6 +10,7 @@ import 'rxjs/add/operator/catch';
 export class ChromeDetailService{
      
       host: string = 'http://202.71.9.14:4002';
+      host1: string = 'http://localhost'; 
      constructor(private http: Http){
             
     }
@@ -28,7 +29,7 @@ export class ChromeDetailService{
             Orderby1: orderbya,
         });
 
-        return this.http.post(host + 'ChromedetailController/getChromedetail',body,{headers:headers})
+        return this.http.post(this.host1 + '/GdashboardApi/api/ChromedetailController/getChromedetail',body,{headers:headers})
             .map(res => res.json());
     }
      getBindItems_ByAliasName(){
