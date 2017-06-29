@@ -76,6 +76,14 @@ export class MonthlyChromeSatinComponent {
         this.MonthlyRejectionDefect();
     }
 
+    refreshChart(){
+        this.MonthlyInspection();
+        this.MonthlyRoundNo();
+        this.MonthlyTopRejectionDefect();
+        this.MonthlyDefects();
+        this.MonthlyRejectionDefect();
+    }
+
     MonthlyInspection(){
     this.busy = this.monthlyService.GetMonthlyInspection(this.calledComponent).subscribe(res => {
         this.monthlyInspectionResponse = JSON.parse(res);
