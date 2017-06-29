@@ -39,7 +39,8 @@ export class JiggDashboardComponent {
     TotalJiggScrap = 0;
     TotalJiggRepair = 0;
     TotalJiggRectify = 0;
-    TotalJiggRound = 0;
+    TotalJiggRoundChrome = 0;
+    TotalJiggRoundSatin = 0;
     TotalSatinRound = 0;
     TotalChromeRound = 0;
 
@@ -165,14 +166,14 @@ export class JiggDashboardComponent {
 
   MJiggVsChrome(res, MRJiggres){
     var lables = [];var d1 = [];var d2 =[];var d3=[];var d4=[];var i;
-        this.TotalJiggRound = 0;
+        this.TotalJiggRoundChrome = 0;
         this.TotalChromeRound = 0;
     for(i =0; i< res.length; i++){
         lables.push(res[i].Labels);
         d1.push(res[i].Data);
         d2.push(MRJiggres[i].Data);
 
-        this.TotalJiggRound += res[i].Data;
+        this.TotalJiggRoundChrome += res[i].Data;
         this.TotalChromeRound += MRJiggres[i].Data;
     }
     cvsRJigg(lables, d1, d2);
@@ -186,19 +187,21 @@ export class JiggDashboardComponent {
       this.JiggVsSatinRes = JSON.parse(res);
       this.jiggDashboardService.getMonthlyRoundNoJigg('Satin').subscribe(res => {
           MonthlyRoundNoJigg = JSON.parse(res);
-          this.MJiggVsSatin(this.JiggVsChromeRes, MonthlyRoundNoJigg);
+          this.MJiggVsSatin(this.JiggVsSatinRes, MonthlyRoundNoJigg);
       });
     });
   }
 
   MJiggVsSatin(res, MRJiggres){
     var lables = [];var d1 = [];var d2 =[];var d3=[];var d4=[];var i;
+    this.TotalJiggRoundSatin = 0;
      this.TotalSatinRound = 0;
     for(i =0; i< res.length; i++){
         lables.push(res[i].Labels);
         d1.push(res[i].Data);
         d2.push(MRJiggres[i].Data);
 
+        this.TotalJiggRoundSatin += res[i].Data;
         this.TotalSatinRound += MRJiggres[i].Data;
     }
     cvsRJigg2(lables, d1, d2);
