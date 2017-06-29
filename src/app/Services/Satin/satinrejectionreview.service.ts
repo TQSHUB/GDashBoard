@@ -72,7 +72,7 @@ export class SatinRejectionReviewService{
     bufferqty:string, rejqty: string, okqty:string, pinhole:string, skpltng:string, handmourej:string, prcssmourej: string,  
     whtmrk:string, pinmrk:string, warpg:string,  slvrmrk:string,   dotplstc:string,  chormbrng:string, 
     dentmrks: string, scrtchs:string, coprbrng:string,  jigdmg:string, hghgloss:string, lowgloss:string, 
-    shdvrtn:string, nckl:string, rghnss:string, blstr:string, blckspt:string, satinmrk:string, 
+    shdvrtn:string, ptchmrks:string, nckl:string, rghnss:string, blstr:string, blckspt:string, satinmrk:string, 
     chmclmrk:string, tchbrng:string, othr: string, wtrmrk: string, rmrk: string)
     {
         var headers = new Headers();
@@ -104,6 +104,7 @@ export class SatinRejectionReviewService{
             High_Gloss: hghgloss,
             Low_Gloss: lowgloss,
             Shade_Variation: shdvrtn,
+            Patch_Mark: ptchmrks,
             Nickel: nckl,
             Roughness: rghnss,
             Blister: blstr,
@@ -123,7 +124,7 @@ export class SatinRejectionReviewService{
     okqty:string, pinhole:string, skpltng:string, handmourej:string, prcssmourej: string,  
     whtmrk:string, pinmrk:string, warpg:string,  slvrmrk:string,   dotplstc:string,  chormbrng:string, 
     dentmrks: string, scrtchs:string, coprbrng:string,  jigdmg:string, hghgloss:string, lowgloss:string, 
-    shdvrtn:string, nckl:string, rghnss:string, blstr:string, blckspt:string, satinmrk:string, 
+    shdvrtn:string, ptchmrks:string, nckl:string, rghnss:string, blstr:string, blckspt:string, satinmrk:string, 
     chmclmrk:string, tchbrng:string, othr: string, wtrmrk: string, rmrk: string)
     {
         var headers = new Headers();
@@ -153,6 +154,7 @@ export class SatinRejectionReviewService{
             High_Gloss: hghgloss,
             Low_Gloss: lowgloss,
             Shade_Variation: shdvrtn,
+            Patch_Mark: ptchmrks,
             Nickel: nckl,
             Roughness: rghnss,
             Blister: blstr,

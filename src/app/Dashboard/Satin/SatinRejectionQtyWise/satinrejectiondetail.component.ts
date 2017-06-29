@@ -21,7 +21,8 @@ declare var ETE: any;
 })
 
 export class SatinRejectionQtyComponet{
-     busy: Subscription;
+  p;
+  busy: Subscription;
   ResponseData;
   ResponseDataCopy;
   //css class

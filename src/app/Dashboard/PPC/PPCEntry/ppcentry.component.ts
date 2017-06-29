@@ -65,6 +65,7 @@ export class PPCEntry {
   //file upload
   files;
 
+pageload = 'first';
   
 
     
@@ -79,6 +80,16 @@ export class PPCEntry {
     this.getBindItems_ByAliasName();
   }
 
+  ngAfterViewInit(){
+    var monthenddate = Date.now();
+    this.FromDate = this.datepipe.transform(monthenddate,'dd/MM/yyyy');
+    this.ToDate = this.datepipe.transform(monthenddate,'dd/MM/yyyy');
+
+    var d = new Date();
+    $("#selectedMonth").val(d.getMonth() + 1);
+    this.Search();
+  }
+
   getBindItems_ByAliasName(){
     this.ppcDailyReportService.getBindItems_ByAliasName().subscribe(res => {
       this.Alias_Names = res.Data;
@@ -90,25 +101,15 @@ export class PPCEntry {
     });
   }
 
-  SearchMonthly(){
-    var Month = $("#Month").val();
-    if(Month == 'NULL')
-    {
-      alert('Please Select Month');
-    }
-    else{
-    this.busy = this.ppcDailyReportService.getPPCDailyReport(Month,'','','','','','','').subscribe(res => {
-        this.ResponseData = JSON.parse(res.JsonData);
-        this.TopHeader = res.Headers;
-        this.ResponseDataCopy = this.ResponseData;
-        this.whichfunctioncalled = 'SearchMonthly';
-        this.TotalData(this.ResponseData);
-      });
-    }
-  }
 
   Search()
   {
+
+    var Month = $("#selectedMonth").val();
+    if(Month == 'NULL')
+    {
+      Month = '';
+    }
         if($("#PlanedRound").is(':checked'))
             this.PlanedRound = 1;
         else
@@ -124,8 +125,12 @@ export class PPCEntry {
       var itemtype_string = $("#ItemType").val();
       var natureofcomp_string = $("#NatureOfComp").val();
 
-      this.FromDate = $("input[name=FromDate]").val();
-      this.ToDate = $("input[name=ToDate]").val();
+      if(this.pageload != 'first')
+      {
+        this.FromDate = $("input[name=FromDate]").val();
+        this.ToDate = $("input[name=ToDate]").val();
+      }
+      this.pageload = '';
 
       //console.log(fromdate);  
 
@@ -134,7 +139,7 @@ export class PPCEntry {
       if(natureofcomp_string == 'NULL')
         natureofcomp_string = '';
 
-      this.busy = this.ppcDailyReportService.getPPCDailyReport('',this.FromDate, this.ToDate, itemtype_string, natureofcomp_string, alias_string,customer_string,this.PlanedRound).subscribe(res => {
+      this.busy = this.ppcDailyReportService.getPPCDailyReport(Month,this.FromDate, this.ToDate, itemtype_string, natureofcomp_string, alias_string,customer_string,this.PlanedRound).subscribe(res => {
         this.ResponseData = JSON.parse(res.JsonData);
         this.TopHeader = res.Headers;
         this.ResponseDataCopy = this.ResponseData;
@@ -160,10 +165,7 @@ updatePPCReport(){
   this.busy = this.ppcDailyReportService.updatePPCReport(this.CustomerID,this.ItemID, $("#MStatus").val(), this.MQty,this.PlanA,this.PlanB, this.PlanC).subscribe(res => {
     if(res == true)
     {
-      if(this.whichfunctioncalled == 'Search')
-        this.Search();
-      else
-        this.SearchMonthly();
+      this.Search();
     }
     else
     {

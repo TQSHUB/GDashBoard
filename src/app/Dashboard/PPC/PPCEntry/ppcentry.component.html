@@ -18,8 +18,8 @@
                 <div class="col-md-3 col-sm-12">
                     <div class="form-group">
                         <div class="input-group">
-                            <select id="Month" class="form-control select2">
-                                <option selected="selected" value="NULL">--Select Month--</option>
+                            <select id="selectedMonth" class="form-control select2">
+                                <option value="NULL">--Select Month--</option>
                                 <option value="1">January</option>
                                 <option value="2">February</option>
                                 <option value="3">March</option>
@@ -35,7 +35,7 @@
                             </select>
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="button">
-                                    <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true" (click)="SearchMonthly()"></span>
+                                    <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true" (click)="Search()"></span>
                                 </button>
                             </span>
                         </div>

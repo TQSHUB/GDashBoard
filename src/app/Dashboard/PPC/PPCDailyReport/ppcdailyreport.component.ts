@@ -66,6 +66,8 @@ export class PPCDailyReportComponent {
   //file upload
   files;
 
+  pageload = 'first';
+
   
 
     
@@ -80,6 +82,15 @@ export class PPCDailyReportComponent {
     this.getBindItems_ByAliasName();
   }
 
+  ngAfterViewInit(){
+    var monthenddate = new Date();
+    this.FromDate = this.datepipe.transform(monthenddate,'dd/MM/yyyy');
+    this.ToDate = this.datepipe.transform(monthenddate,'dd/MM/yyyy');
+
+    $("#selectedMonth").val(monthenddate.getMonth() + 1);
+    this.Search();
+  }
+
   getBindItems_ByAliasName(){
     this.ppcDailyReportService.getBindItems_ByAliasName().subscribe(res => {
       this.Alias_Names = res.Data;
@@ -91,36 +102,18 @@ export class PPCDailyReportComponent {
     });
   }
 
-  SearchMonthly(){
-    var Month = $("#Month").val();
-    if(Month == 'NULL')
-    {
-      alert('Please Select Month');
-    }
-    else{
-    this.busy = this.ppcDailyReportService.getPPCDailyReport(Month,'','','','','','','').subscribe(res => {
-        this.ResponseData = JSON.parse(res.JsonData);
-        var headers = res.Headers;
-        
-        var i;
-        for(i =0; i< 23; i++)
-        {
-          this.TopHeader.push(headers[i]);
-        }      
-        this.ResponseDataCopy = this.ResponseData;
-        this.whichfunctioncalled = 'SearchMonthly';
-        this.TotalData(this.ResponseData);
-      });
-    }
-  }
-
   Search()
   {
+    var Month = $("#selectedMonth").val();
+    if(Month == 'NULL')
+    {
+      Month = '';
+    }
+
       if($("#PlanedRound").is(':checked'))
             this.PlanedRound = 1;
-        else
-             this.PlanedRound = 0;
-             console.log(this.PlanedRound);
+      else
+            this.PlanedRound = 0;
       
       //Get For Values
       this.Selected_Alias_Names = $("#Alias_Names").val();
@@ -131,9 +124,12 @@ export class PPCDailyReportComponent {
       var itemtype_string = $("#ItemType").val();
       var natureofcomp_string = $("#NatureOfComp").val();
 
-      this.FromDate = $("input[name=FromDate]").val();
-      this.ToDate = $("input[name=ToDate]").val();
-
+      if(this.pageload != 'first')
+      {
+        this.FromDate = $("input[name=FromDate]").val();
+        this.ToDate = $("input[name=ToDate]").val();
+      }
+      this.pageload = '';
       //console.log(fromdate);  
 
       if(itemtype_string == 'NULL')
@@ -141,7 +137,7 @@ export class PPCDailyReportComponent {
       if(natureofcomp_string == 'NULL')
         natureofcomp_string = '';
 
-      this.busy = this.ppcDailyReportService.getPPCDailyReport('',this.FromDate, this.ToDate, itemtype_string, natureofcomp_string, alias_string,customer_string,this.PlanedRound).subscribe(res => {
+      this.busy = this.ppcDailyReportService.getPPCDailyReport(Month,this.FromDate, this.ToDate, itemtype_string, natureofcomp_string, alias_string,customer_string,this.PlanedRound).subscribe(res => {
         this.ResponseData = JSON.parse(res.JsonData);
         var headers = res.Headers;
         
@@ -173,10 +169,7 @@ updatePPCReport(){
   this.busy = this.ppcDailyReportService.updatePPCReport(this.CustomerID,this.ItemID, $("#MStatus").val(), this.MQty,this.PlanA,this.PlanB, this.PlanC).subscribe(res => {
     if(res == true)
     {
-      if(this.whichfunctioncalled == 'Search')
-        this.Search();
-      else
-        this.SearchMonthly();
+      this.Search();
     }
     else
     {

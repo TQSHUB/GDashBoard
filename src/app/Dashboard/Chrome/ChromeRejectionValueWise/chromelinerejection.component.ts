@@ -20,7 +20,8 @@ declare var ETE: any;
 })
 
 export class ChromeRejectionValueComponet{
-        busy: Subscription;
+  p;
+  busy: Subscription;
   ResponseData;
   ResponseDataCopy;
   //css class

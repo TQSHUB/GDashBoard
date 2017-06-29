@@ -13,6 +13,7 @@ import * as $ from 'jquery';
     providers: [ CustomerItemMasterService]
 })
 export class CustomerItemMasterComponent{
+    p;
     busy: Subscription;
 
     allcustitemmasters;

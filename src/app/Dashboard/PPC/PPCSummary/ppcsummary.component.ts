@@ -37,7 +37,7 @@ export class PPCSummaryComponent {
   }
 
   Search(){
-      var Month = $("#Month").val();
+      var Month = $("#selectedMonth").val();
       var NatureOfComp = $("#NatureOfComp").val();
 
       this.busy = this.ppcSummaryService.getMonthlySummary(Month,NatureOfComp).subscribe(res => {
