@@ -157,6 +157,7 @@ export class CSDashboardComponent {
     }
     this.csDashboardService.LoadingChromeData().subscribe(res => this.InspPendingRoundChrome = res);
     cvsChromeMonthly(lables,d1,d2,d3);
+    
   }
 
   //Satine Inspection
