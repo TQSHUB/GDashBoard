@@ -162,7 +162,7 @@ export class JiggDashboardComponent {
       this.JiggVsSatinRes = JSON.parse(res);
       this.jiggDashboardService.getMonthlyRoundNoJigg('Satin').subscribe(res => {
           MonthlyRoundNoJigg = JSON.parse(res);
-          this.MJiggVsSatin(this.JiggVsChromeRes, MonthlyRoundNoJigg);
+          this.MJiggVsSatin(this.JiggVsSatinRes, MonthlyRoundNoJigg);
       });
     });
   }
