@@ -49,6 +49,13 @@ export class PPCDashboardComponent {
         this.getMonthlyInspectionSatin();
     }
 
+    refreshgetMonthlyInspectionChrome(){
+        this.getMonthlyInspectionChrome();
+    }
+    refreshgetMonthlyInspectionSatin(){
+        this.getMonthlyInspectionSatin();
+    }
+
 
     //PPC Chrome
   getMonthlyInspectionChrome(){
@@ -60,6 +67,9 @@ export class PPCDashboardComponent {
 
   ChartBindChrome(res){
     var lables = [];var d1 = [];var d2 =[];var d3=[];var d4=[];var i;
+        this.TotalShiftRoundChrome = 0;
+        this.TotalRoundChrome = 0;
+        this.TotalRoundJiggChrome = 0;
     for(i =0; i< res.length; i++){
         lables.push(res[i].Labels);
         d1.push(res[i].Total_Round);
@@ -86,6 +96,9 @@ export class PPCDashboardComponent {
 
   ChartBindSatin(res){
     var lables = [];var d1 = [];var d2 =[];var d3=[];var d4=[];var i;
+    this.TotalShiftRoundSatin = 0;
+        this.TotalRoundSatin = 0;
+        this.TotalRoundJiggSatin = 0;
     for(i =0; i< res.length; i++){
         lables.push(res[i].Labels);
         d1.push(res[i].Total_Round);
