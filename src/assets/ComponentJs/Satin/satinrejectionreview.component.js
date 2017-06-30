@@ -8,7 +8,7 @@ $(function () {
     $(".select2").select2();
 });
 
-function sum() {
+function sumsatin() {
             var txtPinHoleValue = document.getElementById('pinhole').value;
             var txtSkipPlatingValue = document.getElementById('skpltng').value;
             var txtPrcsMouRejValue = document.getElementById('prcsmourej').value;
@@ -16,7 +16,7 @@ function sum() {
             var txtWhtMarkValue = document.getElementById('whtmrk').value;
             var txtPinMarksValue = document.getElementById('pinmrks').value;
             var txtWarPageValue = document.getElementById('warpg').value;
-            var txtSilverMarksValue = document.getElementById('slvrmrks').value;
+            var txtSilverMarksValue = document.getElementById('slvrmrk').value;
             var txtDotPlastcValue = document.getElementById('dotplstc').value;
             var txtChromBurningValue = document.getElementById('chrmbrng').value;
             var txtDentMarksValue = document.getElementById('dntmrks').value;

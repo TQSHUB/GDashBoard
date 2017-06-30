@@ -42,6 +42,7 @@
                             <div class="input-group" >
                                 <span class="input-group-addon">Part Name</span>                                
                                 <select id="Alias_Names"  class="form-control select2" data-placeholder="Select" style="width: 100%;">
+                                    <option value="NULL"></option>
                                     <option *ngFor="let Alias of ResponseData" [value]="Alias['Item Code']">{{Alias['Alias Name']}}</option>
                                 </select>
                                 <span class="input-group-btn">
@@ -94,7 +95,7 @@
                                     </button>
                                 </span>
                             </div>
-                            <label class="pull-left" >{{display_message}}</label>
+                            <label class="pull-left" style="color: red;">{{display_message_entry}}</label>
                         </div>
                     </div>
                 </form>
