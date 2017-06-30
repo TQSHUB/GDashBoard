@@ -8,7 +8,8 @@ import { Observable } from 'rxjs/Rx';
 import { host } from '../../../Configurations/application.config';
 import * as $ from 'jquery';
 
-declare var sum: any;
+//declare var sumsatin: any;
+declare var Total: any;
 
 @Component({
     selector: 'satinrejectionreview',
@@ -73,6 +74,7 @@ export class SatinRejectionReviewComponent{
     updatedata;
     display_message;
     display_message_class;
+    display_message_entry;
 
     date;
     LowGlass;
@@ -118,7 +120,7 @@ export class SatinRejectionReviewComponent{
                 console.log(this.Alldata);
                 this.HoldQty = this.Alldata[0]['Hold Qty'];
                 this.BufferQty = this.Alldata[0]['Buffering Qty'];
-                this.RejQty = this.Alldata[0]['Rejected Qty'];                //console.log(this.Alldata[0]['Buffering Qty']);
+                this.RejQty = this.Alldata[0]['Rejected Qty'];
             });
     }
 
@@ -167,6 +169,8 @@ export class SatinRejectionReviewComponent{
                     this.Other = '0';
                     this.WaterMark = '0';
                     this.Remark = '0';
+
+                    this.display_message_entry = '';
                 }
                 else
                 {
@@ -181,7 +185,7 @@ export class SatinRejectionReviewComponent{
                     this.SkipPlating = this.Rejectiondata[0]['Skip Plating'];
                     this.ProMouRej = this.Rejectiondata[0]['Pro Mou Rej'];
                     this.HandMouRej = this.Rejectiondata[0]['Hand Mou Rej'];
-                    this.WhtMark = this.Rejectiondata[0]['White Mark'];
+                    this.WhtMark = this.Rejectiondata[0]['White mark'];
                     this.PinMark = this.Rejectiondata[0]['Pitmarks'];
                     this.WarPage = this.Rejectiondata[0]['War Page'];
                     this.SilverMarks = this.Rejectiondata[0]['Silver Mark'];
@@ -194,7 +198,7 @@ export class SatinRejectionReviewComponent{
                     this.HighGloss = this.Rejectiondata[0]['High Gloss'];
                     this.LowGloss = this.Rejectiondata[0]['Low Gloss'];
                     this.ShadVarton = this.Rejectiondata[0]['Shade Variation'];
-                    this.PatchMarks = this.Rejectiondata[0]['Patch Marks'];
+                    this.PatchMarks = this.Rejectiondata[0]['Patch Mark'];
                     this.Nickel = this.Rejectiondata[0]['Nickel'];
                     this.Roughness = this.Rejectiondata[0]['Roughness'];
                     this.Blister = this.Rejectiondata[0]['Blister'];
@@ -207,7 +211,11 @@ export class SatinRejectionReviewComponent{
                     this.Remark = this.Rejectiondata[0]['remark'];
 
                     //this.display_message = 'Entry already exist';
-                }                
+                    setTimeout(()=> {
+                        this.display_message_entry = 'Entry already exist';
+                        }, 2000);
+                }
+                this.Total();
             });
     }
 
@@ -226,7 +234,9 @@ export class SatinRejectionReviewComponent{
                 this.ResponseData = JSON.parse(res.Data);
                 //console.log(this.ResponseData);
             });
-
+        
+        this.bindalldata();
+        $('#RejType').val(0);
         this.clearValues();
     }
 
@@ -251,6 +261,7 @@ export class SatinRejectionReviewComponent{
                     this.display_message_class = 'alert alert-success alert-dismissible';
                     this.bindrejectionData();
                     this.clearValues();
+                    this.DisplayBlank();
                     this.flag = 'INSERT';
                 }
                 else
@@ -258,6 +269,7 @@ export class SatinRejectionReviewComponent{
                     this.display_message = 'Data not Saved successfully';
                     this.display_message_class = 'alert alert-danger alert-dismissible';
                     this.clearValues();
+                    this.DisplayBlank();
                     this.flag = 'INSERT';
                 }
             });
@@ -296,6 +308,7 @@ export class SatinRejectionReviewComponent{
                     this.display_message_class = 'alert alert-success alert-dismissible';
                     this.bindrejectionData();
                     this.clearValues();
+                    this.DisplayBlank();
                     this.flag = 'UPDATE';
                 }
                 else
@@ -303,6 +316,7 @@ export class SatinRejectionReviewComponent{
                     this.display_message = 'Data not Updated successfully';
                     this.display_message_class = 'alert alert-danger alert-dismissible';
                     this.clearValues();
+                    this.DisplayBlank();
                     this.flag = 'UPDATE';
                 }
             });
@@ -354,10 +368,70 @@ export class SatinRejectionReviewComponent{
         setTimeout(()=> {
         this.display_message_class = '';
         this.display_message = '';
+        this.display_message_entry = '';
+        }, 2000);
+    }
+
+    DisplayBlank()
+    {
+        this.HoldQty = 'None';
+        this.BufferQty = 'None';
+        this.RejQty = 'None';
+        
+        this.Hldqty = '';
+        this.Bfrqty = '';
+        this.Rejectedqty = '';
+        this.Okqty = '';
+        this.PinHole = '';
+        this.SkipPlating = '';
+        this.ProMouRej = '';    
+        this.HandMouRej = '';
+        this.WhtMark = '';
+        this.PinMark = '';
+        this.WarPage = '';
+        this.SilverMarks = '';
+        this.DotPlastc = '';
+        this.ChormBrng = '';
+        this.DentMarks = '';
+        this.Scratches = '';
+        this.CoprBrng = '';
+        this.JigDmg = '';
+        this.HighGloss = '';
+        this.LowGloss = '';    
+        this.ShadVarton = '';
+        this.PatchMarks = '';
+        this.Nickel = '';
+        this.Roughness = '';
+        this.Blister = '';
+        this.BlackSpot = '';
+        this.SatinMark = '';
+        this.ChemclMark = '';
+        this.TouchBrng = '';
+        this.Other = '';
+        this.WaterMark = '';
+        this.Remark = '';
+
+        setTimeout(()=> {
+        this.display_message_class = '';
+        this.display_message = '';
+        this.display_message_entry = '';
         }, 2000);
     }
 
     Total(){
-        sum();
+        //sumsatin();
+
+        var result = parseInt(this.PinHole) + parseInt(this.SkipPlating) + parseInt(this.ProMouRej)
+                        + parseInt(this.HandMouRej) + parseInt(this.WhtMark) + parseInt(this.PinMark)
+                        + parseInt(this.WarPage) + parseInt(this.SilverMarks) + parseInt(this.DotPlastc)
+                        + parseInt(this.ChormBrng) + parseInt(this.DentMarks) + parseInt(this.Scratches)
+                        + parseInt(this.CoprBrng) + parseInt(this.JigDmg) + parseInt(this.HighGloss)
+                        + parseInt(this.LowGloss) + parseInt(this.ShadVarton) + parseInt(this.PatchMarks)
+                        + parseInt(this.Nickel) + parseInt(this.Roughness) + parseInt(this.Blister)
+                        + parseInt(this.BlackSpot) + parseInt(this.SatinMark) + parseInt(this.ChemclMark)
+                        + parseInt(this.TouchBrng) + parseInt(this.Other) + parseInt(this.WaterMark);
+            if (!isNaN(result)) {
+                this.Rejectedqty = result.toString();
+            };
     }
 }

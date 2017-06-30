@@ -150,7 +150,7 @@ export class ChromeRejectionReviewService{
             Jig_Damage: jigdmg,
             Remark: rmrk            
         });
-        return this.http.post( host +'ChromeRejectionReview/UpdateData',body,{headers:headers})
+        return this.http.put( host +'ChromeRejectionReview/UpdateData',body,{headers:headers})
             .map(res => res.json());
     }
 }

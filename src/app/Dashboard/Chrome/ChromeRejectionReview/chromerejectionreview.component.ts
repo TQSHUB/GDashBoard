@@ -8,7 +8,8 @@ import { Observable } from 'rxjs/Rx';
 import { host } from '../../../Configurations/application.config';
 import * as $ from 'jquery';
 
-declare var sum: any;
+//declare var sum: any;
+declare var Total: any;
 
 @Component({
     selector: 'chromerejectionreview',
@@ -17,6 +18,7 @@ declare var sum: any;
 })
 
 export class ChromeRejectionReviewComponent{
+    valueS: string;
     busy: Subscription;
     ResponseData;
 
@@ -63,11 +65,8 @@ export class ChromeRejectionReviewComponent{
     updatedata;
     display_message;
     display_message_class;
+    display_message_entry;
     date;
-    //todaydate; itemcode; loadingqty; okqty; holdqty; bufferqty; rejqty; piting; pinhole;
-    //dent; handmourej; nklshow; patchmarks; scratchmarks; rghness; crbrn; othr; slvrmrk;
-    //mldrej; skpltng; coprbrng; warpg; whtmrk; dotplstc; wtrmrk; blstr; jigdmg; rmrk;
-    //formtdt; rejtype;
 
     flag = '';
     ddRejType;
@@ -83,10 +82,13 @@ export class ChromeRejectionReviewComponent{
         script.src = '../../assets/ComponentJs/Chrome/chromerejectionreview.component.js';
 
         this.getBindItems_ByAliasName();
-        this.Search();
-        this.bindalldata();
         this.bindrejectionData();
     }
+
+    // ngAfterViewInit()
+    // {
+    //     this.Total();
+    // }
 
     getBindItems_ByAliasName()
     {
@@ -113,10 +115,10 @@ export class ChromeRejectionReviewComponent{
         this.chromerejectionreviewservice.bindalldata(DisplayDate, alias_string)
             .subscribe(res => {
                 this.Alldata = JSON.parse(res.Data);
-                console.log(this.Alldata);
+                //console.log(this.Alldata);
                 this.HoldQty = this.Alldata[0]['Hold Qty'];
                 this.BufferQty = this.Alldata[0]['Buffering Qty'];
-                this.RejQty = this.Alldata[0]['Rejected Qty'];                //console.log(this.Alldata[0]['Buffering Qty']);
+                this.RejQty = this.Alldata[0]['Rejected Qty'];
             });
     }
 
@@ -157,6 +159,9 @@ export class ChromeRejectionReviewComponent{
                     this.WaterMark = '0';
                     this.Blister = '0';
                     this.JigDmg = '0';
+                    this.Remark = '0';
+
+                    this.display_message_entry = '';
                 }
                 else
                 {
@@ -187,10 +192,14 @@ export class ChromeRejectionReviewComponent{
                     this.WaterMark = this.Rejectiondata[0]['Water Mark'];
                     this.Blister = this.Rejectiondata[0]['Blister'];
                     this.JigDmg = this.Rejectiondata[0]['Jig Damage'];
-                    //this.Remark = this.Rejectiondata[0]['remark'];
+                    this.Remark = this.Rejectiondata[0]['remark'];
 
                     //this.display_message = 'Entry already exist';
-                }                
+                    setTimeout(()=> {
+                        this.display_message_entry = 'Entry already exist';
+                    }, 2000);                    
+                }
+                this.Total();
             });
     }
 
@@ -209,7 +218,10 @@ export class ChromeRejectionReviewComponent{
                 this.ResponseData = JSON.parse(res.Data);
                 //console.log(this.ResponseData);
             });
-
+            
+        this.bindalldata();
+        //$('#RejType').val(0);
+        this.valueS = null;
         this.clearValues();
     }
 
@@ -217,7 +229,8 @@ export class ChromeRejectionReviewComponent{
     {
         this.ddRejType = $("#RejType").val();
         
-        this.chromerejectionreviewservice.insertData(this.datepipe.transform(Date.now(),'dd/MM/yyyy'),this.Selected_Alias_Names,this.DisplayDate,this.ddRejType,this.Okqty, this.HoldQty, this.Bfrqty, this.Rejectedqty, 
+        this.chromerejectionreviewservice.insertData(this.datepipe.transform(Date.now(),'dd/MM/yyyy'),
+        this.Selected_Alias_Names,this.DisplayDate,this.ddRejType,this.Okqty, this.HoldQty, this.Bfrqty, this.Rejectedqty, 
         this.Pitting, this.PinHole, this.Dent, this.HandMouRej, this.NicklShow, this.PatchMarks, this.ScratchMarks, 
         this.Roughness, this.CrBurn, this.Other, this.SilverMarks, this.MouldngRej, this.SkipPlating, this.CoprBrng, 
         this.WarPage, this.WhtMark, this.DotPlastc, this.WaterMark, this.Blister, this.JigDmg, this.Remark)
@@ -231,6 +244,7 @@ export class ChromeRejectionReviewComponent{
                     this.display_message_class = 'alert alert-success alert-dismissible';
                     this.bindrejectionData();
                     this.clearValues();
+                    this.DisplayBlank();
                     this.flag = 'INSERT';
                 }
                 else
@@ -238,6 +252,7 @@ export class ChromeRejectionReviewComponent{
                     this.display_message = 'Data not Saved successfully';
                     this.display_message_class = 'alert alert-danger alert-dismissible';
                     this.clearValues();
+                    this.DisplayBlank();
                     this.flag = 'INSERT';
                 }
             });
@@ -258,12 +273,12 @@ export class ChromeRejectionReviewComponent{
         this.Selected_Alias_Names = $("#Alias_Names").val();
         var alias_string = this.Selected_Alias_Names;
         //this.ddRejType = $("#RejType").val();
-        //console.log(this.Okqty, this.HoldQty, this.Bfrqty, this.Rejectedqty);
         
-        this.chromerejectionreviewservice.updateData(DisplayDate, alias_string, this.Okqty, this.HoldQty, this.Bfrqty, this.Rejectedqty, 
-        this.Pitting, this.PinHole, this.Dent, this.HandMouRej, this.NicklShow, this.PatchMarks, this.ScratchMarks, 
-        this.Roughness, this.CrBurn, this.Other, this.SilverMarks, this.MouldngRej, this.SkipPlating, this.CoprBrng, 
-        this.WarPage, this.WhtMark, this.DotPlastc, this.WaterMark, this.Blister, this.JigDmg, this.Remark)
+        this.chromerejectionreviewservice.updateData(DisplayDate, alias_string, this.Okqty, this.HoldQty, this.Bfrqty, 
+        this.Rejectedqty, this.Pitting, this.PinHole, this.Dent, this.HandMouRej, this.NicklShow, this.PatchMarks, 
+        this.ScratchMarks, this.Roughness, this.CrBurn, this.Other, this.SilverMarks, this.MouldngRej, this.SkipPlating, 
+        this.CoprBrng, this.WarPage, this.WhtMark, this.DotPlastc, this.WaterMark, this.Blister, this.JigDmg, 
+        this.Remark)
             .subscribe(res => {
                 this.updatedata = JSON.parse(res.Data);
                 console.log(this.updatedata);
@@ -274,6 +289,7 @@ export class ChromeRejectionReviewComponent{
                     this.display_message_class = 'alert alert-success alert-dismissible';
                     this.bindrejectionData();
                     this.clearValues();
+                    this.DisplayBlank();
                     this.flag = 'UPDATE';
                 }
                 else
@@ -281,6 +297,7 @@ export class ChromeRejectionReviewComponent{
                     this.display_message = 'Data not Updated successfully';
                     this.display_message_class = 'alert alert-danger alert-dismissible';
                     this.clearValues();
+                    this.DisplayBlank();
                     this.flag = 'UPDATE';
                 }
             });
@@ -288,10 +305,6 @@ export class ChromeRejectionReviewComponent{
 
     clearValues()
     {
-        //this.caption = 'ADD';        
-        this.Selected_Alias_Names = '';
-        this.ddRejType = '';
-
         this.HoldQty = 'None';
         this.BufferQty = 'None';
         this.RejQty = 'None';
@@ -324,33 +337,59 @@ export class ChromeRejectionReviewComponent{
         setTimeout(()=> {
         this.display_message_class = '';
         this.display_message = '';
+        this.display_message_entry = '';
         }, 2000);
     }
 
-    addition()
-    {
-        this.total = '0';
-
-        for(var i=0; i<20; i++)
-            this.total += this.txtValues[i];
-        this.Rejectedqty = this.total.toString();
-    }
-
     Total(){
-        sum();
+        //sum();
+        var result = parseInt(this.Pitting) + parseInt(this.PinHole) + parseInt(this.Dent)
+                    + parseInt(this.HandMouRej) + parseInt(this.NicklShow) + parseInt(this.PatchMarks)
+                    + parseInt(this.ScratchMarks) + parseInt(this.Roughness) + parseInt(this.CrBurn)
+                    + parseInt(this.Other) + parseInt(this.SilverMarks) + parseInt(this.MouldngRej)
+                    + parseInt(this.SkipPlating) + parseInt(this.CoprBrng) + parseInt(this.WarPage)
+                    + parseInt(this.WhtMark) + parseInt(this.DotPlastc) + parseInt(this.WaterMark)
+                    + parseInt(this.Blister) + parseInt(this.JigDmg);
+            if (!isNaN(result)) {
+                this.Rejectedqty = result.toString();
+            };
     }
 
-    /*inStringBuilder(a: any)
+    DisplayBlank()
     {
-        var i;
-        var stringBuilder = '';
-        for(i=0; i < a.length; i++)
-        {
-        if(i == a.length -1)
-            stringBuilder = stringBuilder + '\'' + a[i] + '\'';
-        else
-            stringBuilder = stringBuilder + '\'' + a[i] + '\',';
-        }
-        return stringBuilder;
-    }*/
+        this.HoldQty = 'None';
+        this.BufferQty = 'None';
+        this.RejQty = 'None';
+
+        this.Hldqty = '';
+        this.Bfrqty = '';
+        this.Rejectedqty = '';
+        this.Okqty = '';
+        this.Pitting = '';
+        this.PinHole = '';
+        this.Dent = '';
+        this.HandMouRej = '';
+        this.NicklShow = '';
+        this.PatchMarks = '';
+        this.ScratchMarks = '';
+        this.Roughness = '';
+        this.CrBurn = '';
+        this.Other = '';
+        this.SilverMarks = '';
+        this.MouldngRej = '';
+        this.SkipPlating = '';
+        this.CoprBrng = '';
+        this.WarPage = '';
+        this.WhtMark = '';
+        this.DotPlastc = '';
+        this.WaterMark = '';
+        this.Blister = '';
+        this.JigDmg = '';
+
+        setTimeout(()=> {
+        this.display_message_class = '';
+        this.display_message = '';
+        this.display_message_entry = '';
+        }, 2000);
+    }
 }

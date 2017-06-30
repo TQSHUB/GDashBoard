@@ -76,7 +76,9 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <pagination-controls class="text-right" (pageChange)="p = $event"></pagination-controls>
+                                <div class="col-md-7 col-md-offset-1 col-sm-12" *ngIf="alljiggmstdata_aliasname">
+                                    <pagination-controls class="text-right" (pageChange)="p = $event"></pagination-controls>                   
+                                </div>
                             </div>
                         </div>
                     </form>                
