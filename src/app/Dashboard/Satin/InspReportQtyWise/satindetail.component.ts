@@ -36,6 +36,7 @@ export class SatinDetailComponet{
   Top_string;
   FromDate;
   ToDate;
+  date;
   whichfunctioncalled;
    //search
   searchText
@@ -168,11 +169,7 @@ export class SatinDetailComponet{
             orderbyA_string = '';
 
         this.busy = this.satinDetailService.getSatinGrid(this.FromDate, this.ToDate, alias_string, Top_string, loadingshift_string, orderby_string,orderbyA_string).subscribe(res => {
-       //  this.ResponseData = res.Data;
-        // this.ResponseDataCopy = res.Data;
-     
-        // this.TotalData(this.ResponseData);
-        // this.Avgdata(this.ResponseData);
+      
          this.json = JSON.parse(res);
          this.ResponseDataCopy = this.json;
          this.TotalData(this.json);
@@ -353,8 +350,9 @@ export class SatinDetailComponet{
   }
 
   ExportToExcel(){
-    // if(this.ResponseData.length > 0)
-      ETE();
+    
+      ETE('Satindetail_' + this.date.transform('dd/MM/yyyy'));
+    //  ETE();
    }
 
 }
