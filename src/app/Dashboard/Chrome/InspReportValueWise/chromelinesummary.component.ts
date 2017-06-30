@@ -298,8 +298,8 @@ search()
 
     
    ExportToExcel(){
-    // if(this.ResponseData.length > 0)
-      ETE();
+    var date= new Date();
+      ETE('ChromeLineSummary_'+ this.datepipe.transform(date,'dd/MM/yyyy') +'.xls');
    }
 
   getBindItems_ByAliasName(){

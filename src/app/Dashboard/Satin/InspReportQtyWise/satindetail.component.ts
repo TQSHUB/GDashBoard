@@ -36,7 +36,7 @@ export class SatinDetailComponet{
   Top_string;
   FromDate;
   ToDate;
-  date;
+  
   whichfunctioncalled;
    //search
   searchText
@@ -350,8 +350,8 @@ export class SatinDetailComponet{
   }
 
   ExportToExcel(){
-    
-      ETE('Satindetail_' + this.date.transform('dd/MM/yyyy'));
+      var date= new Date();
+      ETE('SatinDetail_'+ this.datepipe.transform(date,'dd/MM/yyyy') +'.xls');
     //  ETE();
    }
 

@@ -341,7 +341,7 @@ ngOnInit(){
       this.json = filterData;
   }
    ExportToExcel(){
-    // if(this.ResponseData.length > 0)
-      ETE();
+      var date= new Date();
+      ETE('SatinLineSummary_'+ this.datepipe.transform(date,'dd/MM/yyyy') +'.xls');
    }
 }
