@@ -68,7 +68,7 @@ export class ChromeRejectionReviewComponent{
     display_message_entry;
     date;
 
-    flag = '';
+    flag = 'INSERT';
     ddRejType;
 
     txtValues;
@@ -219,7 +219,7 @@ export class ChromeRejectionReviewComponent{
                 //console.log(this.ResponseData);
             });
             
-        this.bindalldata();
+        //this.bindalldata();
         $('#RejType').val(0);
         //this.valueS = null;
         this.clearValues();
@@ -357,9 +357,9 @@ export class ChromeRejectionReviewComponent{
 
     DisplayBlank()
     {
-        this.HoldQty = 'None';
-        this.BufferQty = 'None';
-        this.RejQty = 'None';
+        // this.HoldQty = 'None';
+        // this.BufferQty = 'None';
+        // this.RejQty = 'None';
 
         this.Hldqty = '';
         this.Bfrqty = '';
