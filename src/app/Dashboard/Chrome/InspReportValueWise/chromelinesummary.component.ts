@@ -16,7 +16,8 @@ declare var ETE: any;
 @Component({
     selector: 'Chrome-lineSummary',
     templateUrl: 'chromelinesummary.component.html',
-      providers: [ChromeLineSummaryService,DatePipe,SearchPipeCIRVal, JsonDate]
+      providers: [ChromeLineSummaryService,DatePipe,SearchPipeCIRVal, JsonDate],
+      styleUrls: ['./chromelinesummary.component.css']
 })
 
 export class ChromeLineSummary{
@@ -298,8 +299,8 @@ search()
 
     
    ExportToExcel(){
-    // if(this.ResponseData.length > 0)
-      ETE();
+    var date= new Date();
+      ETE('ChromeLineSummary_'+ this.datepipe.transform(date,'dd/MM/yyyy') +'.xls');
    }
 
   getBindItems_ByAliasName(){

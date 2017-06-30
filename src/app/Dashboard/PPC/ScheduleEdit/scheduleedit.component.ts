@@ -222,7 +222,7 @@ uploadFile(){
     headers.append('enctype', 'multipart/form-data');  
     headers.append('Accept', 'application/json');  
     let options = new RequestOptions({ headers: headers });  
-    let apiUrl = host + 'PPCController/FileUploadPPCDailyReport';  
+    let apiUrl = host + 'PPCController/FileUploadScheduleEdit';  
 
     this.http.post(apiUrl, formData, options)  
         .map(res => res.json())  

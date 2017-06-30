@@ -16,7 +16,8 @@ declare var ETE: any;
 @Component({
     selector: 'Satin-lineSummary',
     templateUrl: 'satinlinesummary.component.html',
-      providers: [SatinLineSummaryService,DatePipe,SearchPipeSIRVal, JsonDate]
+      providers: [SatinLineSummaryService,DatePipe,SearchPipeSIRVal, JsonDate],
+      styleUrls: ['./satinlinesummary.component.css']
 })
 
 export class SatinLineSummary{
@@ -341,7 +342,7 @@ ngOnInit(){
       this.json = filterData;
   }
    ExportToExcel(){
-    // if(this.ResponseData.length > 0)
-      ETE();
+      var date= new Date();
+      ETE('SatinLineSummary_'+ this.datepipe.transform(date,'dd/MM/yyyy') +'.xls');
    }
 }

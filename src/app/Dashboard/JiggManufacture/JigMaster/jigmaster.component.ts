@@ -24,6 +24,8 @@ export class JigMasterComponent{
     aliasname;
     jiggid;
 
+    item = [];
+
     txtjiggname;
     ddaliasname;
 
@@ -64,12 +66,14 @@ export class JigMasterComponent{
     }
 
     getAllJiggMstDataAliasnames()
-    {
-        this.jigmasterService.getAllJiggMstDataAliasnames().subscribe(res => {
+    { 
+          this.jigmasterService.getAllJiggMstDataAliasnames().subscribe(res => {
             this.alljiggmstdata_aliasname = res;
             //console.log(this.alljiggmstdata_aliasname);
             this.ResponseDataCopy = res;
         });
+       
+       
     }
 
     selectedJiggandAliasName(JiggandAliasName)
@@ -187,4 +191,23 @@ export class JigMasterComponent{
         else
             this.alljiggmstdata_aliasname = filterdata;
     }
+
+    GetAliasName()
+    {
+        
+         var check = $("#Item_Names").val();
+        
+        if(check == "empty")
+          this.jigmasterService.getAllJiggMstDataAliasnames().subscribe(res => {
+            this.alljiggmstdata_aliasname = res;
+            //console.log(this.alljiggmstdata_aliasname);
+            this.ResponseDataCopy = res;
+        });
+        else
+         this.jigmasterService.getAllJiggMstDataAliasnameById(check).subscribe(res =>{
+          this.alljiggmstdata_aliasname = res;  
+          this.ResponseDataCopy = res; 
+        });
+    }
+    
 }

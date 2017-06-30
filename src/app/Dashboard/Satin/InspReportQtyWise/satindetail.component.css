@@ -1,0 +1,104 @@
+.scrolling table {
+table-layout: inherit;
+ *margin-left: -100px;/*ie7*/
+}
+.scrolling td, th {
+    vertical-align: top;
+	padding: 10px;
+	/*min-width: 100px;*/
+    white-space: nowrap;
+}
+.scrolling th#First {
+	position: absolute;
+ *position: relative; /*ie7*/
+	left: 0px;
+	width: 90px;
+    border-bottom-width: 0px !important;
+    border-left-width: 0px !important;
+    border-right-width: 0px !important;
+}
+.scrolling th#Second {
+	position: absolute;
+ *position: relative; /*ie7*/
+	left: 90px;
+	width: 145px;
+    border-bottom-width: 0px !important;
+    border-left-width: 0px !important;
+    border-right-width: 0px !important;
+}
+.scrolling th#Third {
+	position: absolute;
+ *position: relative; /*ie7*/
+	left: 203px;
+	width: 93px;
+	white-space: normal !important;
+    border-bottom-width: 0px !important;
+    border-left-width: 0px !important;
+    border-right-width: 0px !important;
+}
+.scrolling th#Four {
+	position: absolute;
+ *position: relative; /*ie7*/
+	left: 200px;
+	width: 210px;
+	white-space: normal !important;
+    border-bottom-width: 0px !important;
+    border-left-width: 0px !important;
+    border-right-width: 0px !important;
+}
+.scrolling th#Five {
+	position: absolute;
+ *position: relative; /*ie7*/
+	left: 396px;
+	width: 155px;
+	white-space: normal !important;
+    border-bottom-width: 0px !important;
+    border-left-width: 0px !important;
+    border-right-width: 0px !important;
+}
+.scrolling td#First {
+	position: absolute;
+ *position: relative; /*ie7*/
+	left: 0px;
+	width: 90px;
+    border-bottom-width: 0px !important;
+    border-left-width: 0px !important;
+    border-right-width: 0px !important;
+}
+.scrolling td#Second {
+	position: absolute;
+ *position: relative; /*ie7*/
+	left: 90px;
+	width: 145px;
+    border-bottom-width: 0px !important;
+    border-left-width: 0px !important;
+    border-right-width: 0px !important;
+}
+
+.scrolling td#Four {
+	position: absolute;
+ *position: relative; /*ie7*/
+	left: 200px;
+	width: 200px;
+	white-space: normal !important;
+    border-bottom-width: 0px !important;
+    border-left-width: 0px !important;
+    border-right-width: 0px !important;
+}
+.scrolling td#Five {
+	position: absolute;
+ *position: relative; /*ie7*/
+	left: 390px;
+	width: 155px;
+	white-space: normal !important;
+    border-bottom-width: 0px !important;
+    border-left-width: 0px !important;
+    border-right-width: 0px !important;
+}
+.outer {
+	position: relative
+}
+.inner {
+	overflow-x: auto;
+	margin-left: 545px;
+}

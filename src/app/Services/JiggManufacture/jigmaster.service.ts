@@ -10,7 +10,7 @@ import 'rxjs/add/operator/catch';
 export class JigMasterService{
     //host1: string = 'http://202.71.9.14:4002';
     constructor(private http: Http){
-        console.log('Jig Master service started');        
+       // console.log('Jig Master service started');        
     }
 
     getAllItems()
@@ -30,7 +30,11 @@ export class JigMasterService{
         return this.http.get(host + 'JiggMst/getalljiggmstDataAliasnames/')
             .map(res => res.json());
     }
-
+    getAllJiggMstDataAliasnameById(id : string)
+    {
+         return this.http.get(host + 'JiggMst/getAllJiggMstDataAliasNameById/'+ id)
+            .map(res => res.json());
+    }
     addNewJiggandItemNames(jiggname: string, itemid: string)
     {
         var headers = new Headers();
@@ -76,4 +80,6 @@ export class JigMasterService{
         return this.http.delete(host + 'JiggMst/DeleteJiggItemNames/' + id)
             .map(res => res.json());
     }
+   
+    
 }

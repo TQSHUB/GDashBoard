@@ -16,7 +16,9 @@ declare var ETE: any;
 @Component({
     selector: 'Satin-Detail',
     templateUrl: 'satindetail.component.html',
+    styleUrls: ['./satindetail.component.css'],
      providers: [SatinDetailService,DatePipe,SearchPipeSIRQty, JsonDate]
+     
 })
 
 export class SatinDetailComponet{
@@ -36,6 +38,7 @@ export class SatinDetailComponet{
   Top_string;
   FromDate;
   ToDate;
+  
   whichfunctioncalled;
    //search
   searchText
@@ -168,11 +171,7 @@ export class SatinDetailComponet{
             orderbyA_string = '';
 
         this.busy = this.satinDetailService.getSatinGrid(this.FromDate, this.ToDate, alias_string, Top_string, loadingshift_string, orderby_string,orderbyA_string).subscribe(res => {
-       //  this.ResponseData = res.Data;
-        // this.ResponseDataCopy = res.Data;
-     
-        // this.TotalData(this.ResponseData);
-        // this.Avgdata(this.ResponseData);
+      
          this.json = JSON.parse(res);
          this.ResponseDataCopy = this.json;
          this.TotalData(this.json);
@@ -343,11 +342,7 @@ export class SatinDetailComponet{
               this.avgWarPage = Math.round((this.totWarPage)/( this.totInsp ) * 100);
     } 
  }
- ExportToExcel(){
-    // if(this.ResponseData.length > 0)
-      ETE();
-   }
-
+   
     SearchTextBox(){
     var filterData = this.searchPipe.transform(this.ResponseDataCopy, this.searchText);
     if(filterData == 'Empty')
@@ -355,4 +350,11 @@ export class SatinDetailComponet{
     else
       this.json = filterData;
   }
+
+  ExportToExcel(){
+      var date= new Date();
+      ETE('SatinDetail_'+ this.datepipe.transform(date,'dd/MM/yyyy') +'.xls');
+    //  ETE();
+   }
+
 }
