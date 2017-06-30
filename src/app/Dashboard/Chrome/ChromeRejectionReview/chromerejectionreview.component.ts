@@ -220,8 +220,8 @@ export class ChromeRejectionReviewComponent{
             });
             
         this.bindalldata();
-        //$('#RejType').val(0);
-        this.valueS = null;
+        $('#RejType').val(0);
+        //this.valueS = null;
         this.clearValues();
     }
 
