@@ -14,12 +14,15 @@
                 <div class="box box-default">
                 <div class="box-header with-border">
                     <h3 class="box-title"><i class="fa fa-bar-chart-o"></i>&nbsp;PPC Compliance for Chrome</h3>
-                    <div style="float: right; margin-right: 30px;">
+                    <div style="float: right; margin-right: 90px;">
                         <label Style="margin-right: 4px;font-weight: bold;">Total Round Planned : </label><label Style="padding-left: 5px;padding-right: 5px;background-color: #00a65a; margin-right: 5px; color: white;text-align: center;font-weight: bolder;">{{TotalShiftRoundChrome | number : '1.2-2'}}</label>
                         <label Style="margin-right: 4px;font-weight: bold;">Actual Round Jigged Agnst Plan : </label><label Style="padding-left: 5px;padding-right: 5px;background-color: #3c8dbc; margin-right: 5px; color: white;text-align: center;font-weight: bolder;">{{TotalRoundChrome | number : '1.2-2'}}</label>
                         <label Style="margin-right: 4px;font-weight: bold;">Actual Round Jigged : </label><label Style="padding-left: 5px;padding-right: 5px;background-color: #f39c12; margin-right: 5px; color: white;text-align: center;font-weight: bolder;">{{TotalRoundJiggChrome | number : '1.2-2'}}</label>
                     </div>
                     <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" (click)="refreshgetMonthlyInspectionChrome()">
+                            <i class="fa fa-refresh"></i>
+                        </button>
                         <button type="button" class="btn btn-box-tool" data-widget="collapse">
                             <i class="fa fa-minus"></i>
                         </button>
@@ -43,12 +46,15 @@
                 <div class="box box-default">
                 <div class="box-header with-border">
                     <h3 class="box-title"><i class="fa fa-bar-chart-o"></i>&nbsp;PPC Compliance for Satin</h3>
-                    <div style="float: right; margin-right: 30px;">
+                    <div style="float: right; margin-right: 90px;">
                         <label Style="margin-right: 4px;font-weight: bold;">Total Round Planned : </label><label Style="padding-left: 5px;padding-right: 5px;background-color: #f39c12; margin-right: 5px; color: white;text-align: center;font-weight: bolder;">{{TotalShiftRoundSatin | number : '1.2-2'}}</label>
                         <label Style="margin-right: 4px;font-weight: bold;">Actual Round Jigged Agnst Plan : </label><label Style="padding-left: 5px;padding-right: 5px;background-color: #3c8dbc; margin-right: 5px; color: white;text-align: center;font-weight: bolder;">{{TotalRoundSatin | number : '1.2-2'}}</label>
                         <label Style="margin-right: 4px;font-weight: bold;">Actual Round Jigged : </label><label Style="padding-left: 5px;padding-right: 5px;background-color: #00a65a; margin-right: 5px; color: white;text-align: center;font-weight: bolder;">{{TotalRoundJiggSatin | number : '1.2-2'}}</label>
                     </div>
                     <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" (click)="refreshgetMonthlyInspectionSatin()">
+                            <i class="fa fa-refresh"></i>
+                        </button>
                         <button type="button" class="btn btn-box-tool" data-widget="collapse">
                             <i class="fa fa-minus"></i>
                         </button>

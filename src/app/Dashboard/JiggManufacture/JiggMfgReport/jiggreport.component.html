@@ -103,6 +103,19 @@
                         </tr>
                     </tbody>
                 </table>
+
+                <table class="table table-responsive table-striped table-bordered" id="myTableHidden" style="width: 100%; display: none;">
+                    <thead>
+                        <tr>
+                            <th *ngFor="let header of Headers">{{header}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let response of JiggMfgReportRes">
+                            <td *ngFor="let header of Headers">{{response[header]}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
         <div class="box-footer">

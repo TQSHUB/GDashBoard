@@ -20,7 +20,8 @@ declare var ETE: any;
 })
 
 export class ChromeDetailComponet{
-     busy: Subscription;
+  p;
+  busy: Subscription;
   ResponseData;
   ResponseDataCopy;
   //css class
@@ -96,6 +97,7 @@ export class ChromeDetailComponet{
 
 
 
+
   constructor(private chromeDetailService: ChromeDetailService, private datepipe: DatePipe, private searchPipe: SearchPipeCIRQty, private jsondate: JsonDate){}
 
   ngOnInit(){
@@ -128,6 +130,8 @@ export class ChromeDetailComponet{
        this.FromDate = $("input[name=FromDate]").val();
      }
 
+     
+
 
      if($("input[name=ToDate]").val() == ''){
         this.ToDate = date;
@@ -135,6 +139,9 @@ export class ChromeDetailComponet{
      else{
        this.ToDate = $("input[name=ToDate]").val();
      }
+
+     console.log(this.FromDate)
+     console.log(this.ToDate)
 
     //  this.FromDate = this.datepipe.transform(FromDate,"MM/dd/yyyy");
     //  this.ToDate = this.datepipe.transform(ToDate,"MM/dd/yyyy"); 
@@ -165,13 +172,13 @@ export class ChromeDetailComponet{
         // this.ResponseData = res.Data;
         // this.ResponseDataCopy = res.Data;
      
-        // this.TotalData(this.ResponseData);
+        // this.TotalAvgData(this.ResponseData);
         // this.Avgdata(this.ResponseData);
          this.json = JSON.parse(res);
+         console.log(this.json);
+        //  console.log(res);
          this.ResponseDataCopy = this.json;
-         this.TotalData(this.json);
-         this.Avgdata(this.json);
-
+         this.TotalAvgData(this.json);
      });
 
   }
@@ -192,68 +199,36 @@ export class ChromeDetailComponet{
       this.Alias_Names = res.Data;
     });
   }
-   TotalData(res){
+   TotalAvgData(res){
+
     var i;
     this.totInsp = 0;
     this.totokqty = 0;
     this.totholdqty = 0;
     this.totrejection = 0;
-  this.totmismatch = 0;
-  this.totbuffring = 0;
-  this.totpitting = 0;
-  this.totskipplating = 0 ;
-  this.totnickle = 0;
-  this.totscratchmrk =0;
-  this.totpatchmrk = 0;
-  this.totrough = 0;
-  this.totsilvermrk = 0;
-  this.totcrburn = 0;
-  this.totwarpage = 0;
-  this.totmoulding = 0;
-  this.totdent = 0;
-  this.totother = 0;
-  this.totpinhole = 0;
-  this.totdotplct = 0;
-  this.totcopperbr = 0;
-  this.totwhitemrk = 0;
-  this.totwatermrk = 0;
-  this.totblister = 0;
-  this.totjigdamage = 0;
-  this.tothandmou = 0;
+    this.totmismatch = 0;
+    this.totbuffring = 0;
+    this.totpitting = 0;
+    this.totskipplating = 0 ;
+    this.totnickle = 0;
+    this.totscratchmrk =0;
+    this.totpatchmrk = 0;
+    this.totrough = 0;
+    this.totsilvermrk = 0;
+    this.totcrburn = 0;
+    this.totwarpage = 0;
+    this.totmoulding = 0;
+    this.totdent = 0;
+    this.totother = 0;
+    this.totpinhole = 0;
+    this.totdotplct = 0;
+    this.totcopperbr = 0;
+    this.totwhitemrk = 0;
+    this.totwatermrk = 0;
+    this.totblister = 0;
+    this.totjigdamage = 0;
+    this.tothandmou = 0;
   
-    for(i = 0; i < res.length; i++)
-    {
-      this.totInsp += parseInt(res[i].TotalInsp);
-      this.totokqty += parseInt(res[i].OkQty);
-      this.totholdqty += parseInt(res[i].HoldQty);
-      this.totrejection += parseInt(res[i].RejectedQty);
-        this.totmismatch += parseInt(res[i].MismatchQty);
-        this.totbuffring += parseInt(res[i].BufferingQty);
-        this.totpitting += parseInt(res[i].Pitting);
-        this.totskipplating += parseInt(res[i].SkipPlating);
-        this.totnickle += parseInt(res[i].NickleShow);
-        this.totscratchmrk += parseInt(res[i].ScratchMarks);
-        this.totpatchmrk += parseInt(res[i].PatchMark);
-        this.totrough += parseInt(res[i].Roughness);
-        this.totsilvermrk += parseInt(res[i].SilverMark);
-        this.totcrburn += parseInt(res[i].CrBurn);
-        this.totwarpage += parseInt(res[i].WarPage);
-        this.totmoulding += parseInt(res[i].MouldingRej);
-        this.totdent += parseInt(res[i].Dent);
-        this.totother += parseInt(res[i].Other);
-        this.totpinhole += parseInt(res[i].PinHole);
-        this.totdotplct += parseInt(res[i].DotPlastic);
-        this.totcopperbr += parseInt(res[i].CopperBurning);
-        this.totwhitemrk += parseInt(res[i].WhiteMark);
-        this.totwatermrk += parseInt(res[i].WaterMark);
-        this.totblister += parseInt(res[i].Blister);
-        this.totjigdamage += parseInt(res[i].JigDamage);
-        this.tothandmou += parseInt(res[i].HandMouRej);
-    }
-  }
-  Avgdata(res){
-    var i;
-   
     this.avgokqty = 0; 
     this.avgholdqty = 0;
     this.avgrejection = 0;
@@ -279,49 +254,80 @@ export class ChromeDetailComponet{
     this.avgblister = 0;
     this.avgjigdamage = 0;
     this.avghandmou = 0;   
-   
-     for(i = 0; i < res.length; i++)
+
+  
+    for(i = 0; i < res.length; i++)
     {
+      this.totInsp += parseInt(res[i].OkQty) + parseInt(res[i].HoldQty) + parseInt(res[i].RejectedQty) + parseInt(res[i].BufferingQty);
+      this.totokqty += parseInt(res[i].OkQty);
+      this.totholdqty += parseInt(res[i].HoldQty);
+      this.totrejection += parseInt(res[i].RejectedQty);
+      this.totmismatch += parseInt(res[i].MismatchQty);
+      this.totbuffring += parseInt(res[i].BufferingQty);
+      this.totpitting += parseInt(res[i].Pitting);
+      this.totskipplating += parseInt(res[i].SkipPlating);
+      this.totnickle += parseInt(res[i].NickleShow);
+      this.totscratchmrk += parseInt(res[i].ScratchMarks);
+      this.totpatchmrk += parseInt(res[i].PatchMark);
+      this.totrough += parseInt(res[i].Roughness);
+      this.totsilvermrk += parseInt(res[i].SilverMark);
+      this.totcrburn += parseInt(res[i].CrBurn);
+      this.totwarpage += parseInt(res[i].WarPage);
+      this.totmoulding += parseInt(res[i].MouldingRej);
+      this.totdent += parseInt(res[i].Dent);
+      this.totother += parseInt(res[i].Other);
+      this.totpinhole += parseInt(res[i].PinHole);
+      this.totdotplct += parseInt(res[i].DotPlastic);
+      this.totcopperbr += parseInt(res[i].CopperBurning);
+      this.totwhitemrk += parseInt(res[i].WhiteMark);
+      this.totwatermrk += parseInt(res[i].WaterMark);
+      this.totblister += parseInt(res[i].Blister);
+      this.totjigdamage += parseInt(res[i].JigDamage);
+      this.tothandmou += parseInt(res[i].HandMouRej);
+
       this.avgokqty = Math.round((this.totokqty)/( this.totInsp ) * 100);
-     this.avgholdqty =  Math.round((this.totholdqty)/( this.totInsp ) * 100);
-    this.avgrejection = Math.round((this.totrejection)/( this.totInsp ) * 100);
-    this.avgmismatch =  Math.round((this.totmismatch)/( this.totInsp ) * 100);
-    this.avgbuffring =  Math.round((this.totbuffring)/( this.totInsp ) * 100);
-    this.avgpitting =  Math.round((this.totpitting)/( this.totInsp ) * 100);
-    this.avgskipplating =  Math.round((this.totskipplating)/( this.totInsp ) * 100);
-    this.avgnickle =  Math.round((this.totnickle)/( this.totInsp ) * 100);
-    this.avgscratchmrk = Math.round((this.totscratchmrk)/( this.totInsp ) * 100);
-    this.avgpatchmrk =  Math.round((this.totpatchmrk)/( this.totInsp ) * 100);
-    this.avgrough =  Math.round((this.totrough)/( this.totInsp ) * 100);
-    this.avgsilvermrk =  Math.round((this.totsilvermrk)/( this.totInsp ) * 100);
-    this.avgcrburn =  Math.round((this.totcrburn)/( this.totInsp ) * 100);
-    this.avgwarpage =  Math.round((this.totwarpage)/( this.totInsp ) * 100);
-    this.avgmoulding =  Math.round((this.totmoulding)/( this.totInsp ) * 100);
-    this.avgdent = Math.round((this.totdent)/( this.totInsp ) * 100);
-    this.avgother =  Math.round((this.totother)/( this.totInsp ) * 100);
-    this.avgpinhole =  Math.round((this.totpinhole)/( this.totInsp ) * 100);
-    this.avgdotplct =  Math.round((this.totdotplct)/( this.totInsp ) * 100);
-    this.avgcopperbr = Math.round((this.totcopperbr)/( this.totInsp ) * 100);
-    this.avgwhitemrk =  Math.round((this.totwhitemrk)/( this.totInsp ) * 100);
-    this.avgwatermrk = Math.round((this.totwatermrk)/( this.totInsp ) * 100);
-    this.avgblister = Math.round((this.totblister)/( this.totInsp ) * 100);
-    this.avgjigdamage =  Math.round((this.totjigdamage)/( this.totInsp ) * 100);
-    this.avghandmou =  Math.round((this.tothandmou)/( this.totInsp ) * 100);
-
-
-     
+      this.avgholdqty =  Math.round((this.totholdqty)/( this.totInsp ) * 100);
+      this.avgrejection = Math.round((this.totrejection)/( this.totInsp ) * 100);
+      this.avgmismatch =  Math.round((this.totmismatch)/( this.totInsp ) * 100);
+      this.avgbuffring =  Math.round((this.totbuffring)/( this.totInsp ) * 100);
+      this.avgpitting =  Math.round((this.totpitting)/( this.totInsp ) * 100);
+      this.avgskipplating =  Math.round((this.totskipplating)/( this.totInsp ) * 100);
+      this.avgnickle =  Math.round((this.totnickle)/( this.totInsp ) * 100);
+      this.avgscratchmrk = Math.round((this.totscratchmrk)/( this.totInsp ) * 100);
+      this.avgpatchmrk =  Math.round((this.totpatchmrk)/( this.totInsp ) * 100);
+      this.avgrough =  Math.round((this.totrough)/( this.totInsp ) * 100);
+      this.avgsilvermrk =  Math.round((this.totsilvermrk)/( this.totInsp ) * 100);
+      this.avgcrburn =  Math.round((this.totcrburn)/( this.totInsp ) * 100);
+      this.avgwarpage =  Math.round((this.totwarpage)/( this.totInsp ) * 100);
+      this.avgmoulding =  Math.round((this.totmoulding)/( this.totInsp ) * 100);
+      this.avgdent = Math.round((this.totdent)/( this.totInsp ) * 100);
+      this.avgother =  Math.round((this.totother)/( this.totInsp ) * 100);
+      this.avgpinhole =  Math.round((this.totpinhole)/( this.totInsp ) * 100);
+      this.avgdotplct =  Math.round((this.totdotplct)/( this.totInsp ) * 100);
+      this.avgcopperbr = Math.round((this.totcopperbr)/( this.totInsp ) * 100);
+      this.avgwhitemrk =  Math.round((this.totwhitemrk)/( this.totInsp ) * 100);
+      this.avgwatermrk = Math.round((this.totwatermrk)/( this.totInsp ) * 100);
+      this.avgblister = Math.round((this.totblister)/( this.totInsp ) * 100);
+      this.avgjigdamage =  Math.round((this.totjigdamage)/( this.totInsp ) * 100);
+      this.avghandmou =  Math.round((this.tothandmou)/( this.totInsp ) * 100);
     }
   }
-   ExportToExcel(){
-    // if(this.ResponseData.length > 0)
-      ETE();
+  public async ExportToExcel(){
+    var date= new Date();
+    ETE('ChromeDetail_'+ this.datepipe.transform(date,'dd/MM/yyyy') +'.xls');
    }
    SearchTextBox(){
     var filterData = this.searchPipe.transform(this.ResponseDataCopy, this.searchText);
     if(filterData == 'Empty')
+    {
       this.json = this.ResponseDataCopy;
+      this.TotalAvgData(this.json);
+    }
     else
+    {
       this.json = filterData;
+      this.TotalAvgData(this.json);
+    }
   }
    
 }

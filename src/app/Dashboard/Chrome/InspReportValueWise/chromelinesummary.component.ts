@@ -20,7 +20,8 @@ declare var ETE: any;
 })
 
 export class ChromeLineSummary{
-     busy: Subscription;
+  p;
+  busy: Subscription;
   ResponseData;
   ResponseDataCopy;
   //css class
@@ -160,7 +161,7 @@ search()
          this.json = JSON.parse(res);
            this.ResponseDataCopy = this.json;
           this.TotalData(this.json);
-          this.Avgdata(this.json);
+          
 
      });
 
@@ -180,35 +181,61 @@ search()
 
    TotalData(res){
     var i;
- this.totTotalInspection = 0;
- this.totProductionvalue = 0;
+            this.totTotalInspection = 0;
+            this.totProductionvalue = 0;
 
- this.totTotalInspectionValue = 0;
- this.totOkValue = 0;
- this.totHoldValue = 0;
- this.totRejectedValue = 0;
- this.totBufferingQtyValue = 0;
- this.totPittingValue = 0;
- this.totSkipPlatingValue = 0;
- this.totNickleShowValue = 0;
- this.totScratchMarksValue = 0;
- this.totPatchMarksValue = 0;
- this.totRoughnessValue = 0;
- this.totSilverMarkValue = 0;
- this.totCrBurnValue = 0;
- this.totWarPageValue = 0;
- this.totMouldingRejValue = 0;
- this.totDentValue = 0;
- this.totMismatchQtyValue  = 0;
- this.totOtherValue = 0;
- this.totPinHole = 0;
- this.totDotPlastic = 0;
- this.totCopperBurning = 0;
- this.totWhiteMark = 0;
- this.totWaterMark = 0;
- this.totBlister = 0;
- this.totJigDamage = 0;
- this.totHandMouRej = 0;
+            this.totTotalInspectionValue = 0;
+            this.totOkValue = 0;
+            this.totHoldValue = 0;
+            this.totRejectedValue = 0;
+            this.totBufferingQtyValue = 0;
+            this.totPittingValue = 0;
+            this.totSkipPlatingValue = 0;
+            this.totNickleShowValue = 0;
+            this.totScratchMarksValue = 0;
+            this.totPatchMarksValue = 0;
+            this.totRoughnessValue = 0;
+            this.totSilverMarkValue = 0;
+            this.totCrBurnValue = 0;
+            this.totWarPageValue = 0;
+            this.totMouldingRejValue = 0;
+            this.totDentValue = 0;
+            this.totMismatchQtyValue  = 0;
+            this.totOtherValue = 0;
+            this.totPinHole = 0;
+            this.totDotPlastic = 0;
+            this.totCopperBurning = 0;
+            this.totWhiteMark = 0;
+            this.totWaterMark = 0;
+            this.totBlister = 0;
+            this.totJigDamage = 0;
+            this.totHandMouRej = 0;
+             this.avgOkValue = 0;
+          
+          this.avgHoldValue = 0;
+          this.avgRejectedValue = 0;
+          this.avgBufferingQtyValue = 0;
+          this.avgPittingValue = 0;
+          this.avgSkipPlatingValue = 0;
+          this.avgNickleShowValue = 0;
+          this.avgScratchMarksValue = 0;
+          this.avgPatchMarksValue = 0;
+          this.avgRoughnessValue = 0;
+          this.avgSilverMarkValue = 0;
+          this.avgCrBurnValue = 0;
+          this.avgWarPageValue = 0;
+          this.avgMouldingRejValue = 0;
+          this.avgDentValue = 0;
+          this.avgMismatchQtyValue  = 0;
+          this.avgOtherValue = 0;
+          this.avgPinHole = 0;
+          this.avgDotPlastic = 0;
+          this.avgCopperBurning = 0;
+          this.avgWhiteMark = 0;
+          this.avgWaterMark = 0;
+          this.avgBlister = 0;
+          this.avgJigDamage = 0;
+          this.avgHandMouRej = 0; 
 
  for(i=0; i < res.length; i++)
  {              this.totTotalInspection += parseInt(res[i].TotalInspection);
@@ -239,67 +266,37 @@ search()
                 this.totBlister += parseInt(res[i].Blister);
                 this.totJigDamage += parseInt(res[i].JigDamage);
                 this.totHandMouRej += parseInt(res[i].HandMouRej);
+                this.avgOkValue = Math.round((this.totOkValue)/( this.totTotalInspectionValue ) * 100);
+
+                this.avgHoldValue = Math.round((this.totHoldValue)/( this.totTotalInspectionValue ) * 100);
+                this.avgRejectedValue = Math.round((this.totRejectedValue)/( this.totTotalInspectionValue ) * 100);
+                this.avgBufferingQtyValue = Math.round((this.totBufferingQtyValue)/( this.totTotalInspectionValue ) * 100);
+                this.avgPittingValue = Math.round((this.totPittingValue)/( this.totTotalInspectionValue ) * 100);
+                this.avgSkipPlatingValue = Math.round((this.totSkipPlatingValue)/( this.totTotalInspectionValue ) * 100);
+                this.avgNickleShowValue = Math.round((this.totNickleShowValue)/( this.totTotalInspectionValue ) * 100);
+                this.avgScratchMarksValue = Math.round((this.totScratchMarksValue)/( this.totTotalInspectionValue ) * 100);
+                this.avgPatchMarksValue = Math.round((this.totPatchMarksValue)/( this.totTotalInspectionValue ) * 100);
+                this.avgRoughnessValue = Math.round((this.totRoughnessValue)/( this.totTotalInspectionValue ) * 100);
+                this.avgSilverMarkValue = Math.round((this.totSilverMarkValue)/( this.totTotalInspectionValue ) * 100);
+                this.avgCrBurnValue = Math.round((this.totCrBurnValue)/( this.totTotalInspectionValue ) * 100);
+                this.avgWarPageValue = Math.round((this.totWarPageValue)/( this.totTotalInspectionValue ) * 100);
+                this.avgMouldingRejValue = Math.round((this.totMouldingRejValue)/( this.totTotalInspectionValue ) * 100);
+                this.avgDentValue = Math.round((this.totDentValue)/( this.totTotalInspectionValue ) * 100);
+                this.avgMismatchQtyValue  = Math.round((this.totMismatchQtyValue)/( this.totTotalInspectionValue ) * 100);
+                this.avgOtherValue = Math.round((this.totOtherValue)/( this.totTotalInspectionValue ) * 100);
+                this.avgPinHole = Math.round((this.totPinHole)/( this.totTotalInspectionValue ) * 100);
+                this.avgDotPlastic = Math.round((this.totDotPlastic)/( this.totTotalInspectionValue ) * 100);
+                this.avgCopperBurning = Math.round((this.totCopperBurning)/( this.totTotalInspectionValue ) * 100);
+                this.avgWhiteMark = Math.round((this.totWhiteMark)/( this.totTotalInspectionValue ) * 100);
+                this.avgWaterMark = Math.round((this.totWaterMark)/( this.totTotalInspectionValue ) * 100);
+                this.avgBlister = Math.round((this.totBlister)/( this.totTotalInspectionValue ) * 100);
+                this.avgJigDamage = Math.round((this.totJigDamage)/( this.totTotalInspectionValue ) * 100);
+                this.avgHandMouRej = Math.round((this.totHandMouRej)/( this.totTotalInspectionValue ) * 100); 
                 
  }
    }
 
-    Avgdata(res){
-    var i;
- 
- this.avgOkValue = 0;
- this.avgHoldValue = 0;
- this.avgRejectedValue = 0;
- this.avgBufferingQtyValue = 0;
- this.avgPittingValue = 0;
- this.avgSkipPlatingValue = 0;
- this.avgNickleShowValue = 0;
- this.avgScratchMarksValue = 0;
- this.avgPatchMarksValue = 0;
- this.avgRoughnessValue = 0;
- this.avgSilverMarkValue = 0;
- this.avgCrBurnValue = 0;
- this.avgWarPageValue = 0;
- this.avgMouldingRejValue = 0;
- this.avgDentValue = 0;
- this.avgMismatchQtyValue  = 0;
- this.avgOtherValue = 0;
- this.avgPinHole = 0;
- this.avgDotPlastic = 0;
- this.avgCopperBurning = 0;
- this.avgWhiteMark = 0;
- this.avgWaterMark = 0;
- this.avgBlister = 0;
- this.avgJigDamage = 0;
- this.avgHandMouRej = 0; 
-     for(i = 0; i < res.length; i++)
-    {
-            this.avgOkValue = Math.round((this.totOkValue)/( this.totTotalInspectionValue ) * 100);
-            this.avgHoldValue = Math.round((this.totHoldValue)/( this.totTotalInspectionValue ) * 100);
-            this.avgRejectedValue = Math.round((this.totRejectedValue)/( this.totTotalInspectionValue ) * 100);
-            this.avgBufferingQtyValue = Math.round((this.totBufferingQtyValue)/( this.totTotalInspectionValue ) * 100);
-            this.avgPittingValue = Math.round((this.totPittingValue)/( this.totTotalInspectionValue ) * 100);
-            this.avgSkipPlatingValue = Math.round((this.totSkipPlatingValue)/( this.totTotalInspectionValue ) * 100);
-            this.avgNickleShowValue = Math.round((this.totNickleShowValue)/( this.totTotalInspectionValue ) * 100);
-            this.avgScratchMarksValue = Math.round((this.totScratchMarksValue)/( this.totTotalInspectionValue ) * 100);
-            this.avgPatchMarksValue = Math.round((this.totPatchMarksValue)/( this.totTotalInspectionValue ) * 100);
-            this.avgRoughnessValue = Math.round((this.totRoughnessValue)/( this.totTotalInspectionValue ) * 100);
-            this.avgSilverMarkValue = Math.round((this.totSilverMarkValue)/( this.totTotalInspectionValue ) * 100);
-            this.avgCrBurnValue = Math.round((this.totCrBurnValue)/( this.totTotalInspectionValue ) * 100);
-            this.avgWarPageValue = Math.round((this.totWarPageValue)/( this.totTotalInspectionValue ) * 100);
-            this.avgMouldingRejValue = Math.round((this.totMouldingRejValue)/( this.totTotalInspectionValue ) * 100);
-            this.avgDentValue = Math.round((this.totDentValue)/( this.totTotalInspectionValue ) * 100);
-            this.avgMismatchQtyValue  = Math.round((this.totMismatchQtyValue)/( this.totTotalInspectionValue ) * 100);
-            this.avgOtherValue = Math.round((this.totOtherValue)/( this.totTotalInspectionValue ) * 100);
-            this.avgPinHole = Math.round((this.totPinHole)/( this.totTotalInspectionValue ) * 100);
-            this.avgDotPlastic = Math.round((this.totDotPlastic)/( this.totTotalInspectionValue ) * 100);
-            this.avgCopperBurning = Math.round((this.totCopperBurning)/( this.totTotalInspectionValue ) * 100);
-            this.avgWhiteMark = Math.round((this.totWhiteMark)/( this.totTotalInspectionValue ) * 100);
-            this.avgWaterMark = Math.round((this.totWaterMark)/( this.totTotalInspectionValue ) * 100);
-            this.avgBlister = Math.round((this.totBlister)/( this.totTotalInspectionValue ) * 100);
-            this.avgJigDamage = Math.round((this.totJigDamage)/( this.totTotalInspectionValue ) * 100);
-            this.avgHandMouRej = Math.round((this.totHandMouRej)/( this.totTotalInspectionValue ) * 100); 
-    }
-}
+    
    ExportToExcel(){
     // if(this.ResponseData.length > 0)
       ETE();

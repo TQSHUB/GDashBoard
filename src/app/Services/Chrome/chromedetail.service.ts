@@ -9,7 +9,7 @@ import 'rxjs/add/operator/catch';
 
 export class ChromeDetailService{
      
-      host: string = 'http://202.71.9.14:4002';
+        host: string = 'http://202.71.9.14:4002';
      constructor(private http: Http){
             
     }

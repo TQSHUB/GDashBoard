@@ -14,7 +14,7 @@
                 <div class="box box-default">
                 <div class="box-header with-border">
                     <h3 class="box-title"><i class="fa fa-bar-chart-o"></i>&nbsp;Yearly Inspection for {{calledComponent}}</h3>
-                    <div style="float: right; margin-right: 30px;">
+                    <div style="float: right; margin-right: 90px;">
                         <label Style="padding-left: 5px;padding-right: 5px;background-color: #3c8dbc; margin-right: 5px; color: black;text-align: center;font-weight: bolder;">{{Idata1 | number : '1.2-2'}}</label>
                         <label Style="padding-left: 5px;padding-right: 5px;background-color: #00a65a; margin-right: 5px; color: black;text-align: center;font-weight: bolder;">{{Idata2 | number : '1.2-2'}}</label>
                         <label Style="padding-left: 5px;padding-right: 5px;background-color: #f39c12; margin-right: 5px; color: black;text-align: center;font-weight: bolder;">{{Idata3 | number : '1.2-2'}}</label>
@@ -22,6 +22,9 @@
                         <label Style="padding-left: 5px;padding-right: 5px;background-color: #f56954; margin-right: 5px; color: black;text-align: center;font-weight: bolder;">{{Idata5 | number : '1.2-2'}} %</label>
                     </div>
                     <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" (click)="refreshChartYearlyInspection()">
+                            <i class="fa fa-refresh"></i>
+                        </button>
                         <button type="button" class="btn btn-box-tool" data-widget="collapse">
                             <i class="fa fa-minus"></i>
                         </button>
@@ -45,10 +48,13 @@
                 <div class="box box-default">
                 <div class="box-header with-border">
                     <h3 class="box-title"><i class="fa fa-bar-chart-o"></i>&nbsp;Yearly Rounds for {{calledComponent}}</h3>
-                    <div style="float: right; margin-right: 30px;">
+                    <div style="float: right; margin-right: 90px;">
                         <label Style="padding-left: 5px;padding-right: 5px;background-color: #038686; margin-right: 5px; color: white;text-align: center;font-weight: bolder;">{{Rdata1 | number : '1.2-2'}}</label>
                     </div>
                     <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" (click)="refreshChartYearlyRoundNo()">
+                            <i class="fa fa-refresh"></i>
+                        </button>
                         <button type="button" class="btn btn-box-tool" data-widget="collapse">
                             <i class="fa fa-minus"></i>
                         </button>
@@ -70,9 +76,12 @@
                 <div class="box box-default">
                 <div class="box-header with-border">
                     <h3 class="box-title"><i class="fa fa-bar-chart-o"></i>&nbsp;Yearly Rejectionwise Defect for {{calledComponent}}</h3>
-                    <div style="float: right; margin-right: 30px;">
+                    <div style="float: right; margin-right: 90px;">
                     </div>
                     <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" (click)="YearlyTopRejectionDefect()">
+                            <i class="fa fa-refresh"></i>
+                        </button>
                         <button type="button" class="btn btn-box-tool" data-widget="collapse">
                             <i class="fa fa-minus"></i>
                         </button>
@@ -96,9 +105,12 @@
                 <div class="box box-default">
                 <div class="box-header with-border">
                     <h3 class="box-title"><i class="fa fa-bar-chart-o"></i>&nbsp;Top Componentwise Rejection for {{calledComponent}}</h3>
-                    <div style="float: right; margin-right: 30px;">
+                    <div style="float: right; margin-right: 90px;">
                     </div>
                     <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" (click)="refreshYearlyDefects()">
+                            <i class="fa fa-refresh"></i>
+                        </button>
                         <button type="button" class="btn btn-box-tool" data-widget="collapse">
                             <i class="fa fa-minus"></i>
                         </button>
@@ -122,7 +134,7 @@
                 <div class="box box-default">
                 <div class="box-header with-border">
                     <h3 class="box-title"><i class="fa fa-pie-chart"></i>&nbsp;Yearly Defects for {{calledComponent}}</h3>
-                    <div style="float: right; margin-right: 30px;">
+                    <div style="float: right; margin-right: 90px;">
                         <label Style="padding-left: 5px;padding-right: 5px;background-color: #f56954; margin-right: 5px; color: black;text-align: center;font-weight: bolder;">{{Ddata1 | number : '1.2-2'}} Lac</label>
                         <label Style="padding-left: 5px;padding-right: 5px;background-color: #00a65a; margin-right: 5px; color: black;text-align: center;font-weight: bolder;">{{Ddata2 | number : '1.2-2'}} Lac</label>
                         <label Style="padding-left: 5px;padding-right: 5px;background-color: #f39c12; margin-right: 5px; color: black;text-align: center;font-weight: bolder;">{{Ddata3 | number : '1.2-2'}} Lac</label>
@@ -130,6 +142,9 @@
                         <label Style="padding-left: 5px;padding-right: 5px;background-color: #3c8dbc; margin-right: 5px; color: black;text-align: center;font-weight: bolder;">{{Ddata5 | number : '1.2-2'}} Lac</label>
                     </div>
                     <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" (click)="refreshYearlyRejectionDefet()">
+                            <i class="fa fa-refresh"></i>
+                        </button>
                         <button type="button" class="btn btn-box-tool" data-widget="collapse">
                             <i class="fa fa-minus"></i>
                         </button>

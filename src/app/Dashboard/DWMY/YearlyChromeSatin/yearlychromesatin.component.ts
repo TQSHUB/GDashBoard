@@ -77,6 +77,22 @@ export class yearlyChromeSatinComponent {
         this.YearlyRejectionDefet();
     }
 
+    refreshChartYearlyInspection(){
+        this.YearlyInspection();
+    }
+    refreshChartYearlyRoundNo(){
+        this.YearlyRoundNo();
+    }
+    refreshYearlyTopRejectionDefect(){
+        this.YearlyTopRejectionDefect();
+    }
+    refreshYearlyDefects(){
+        this.YearlyDefects();
+    }
+    refreshYearlyRejectionDefet(){
+        this.YearlyRejectionDefet();
+    }
+
     YearlyInspection(){
     this.busy = this.yearlyService.GetYearlyInspection(this.calledComponent).subscribe(res => {
         this.yearlyInspectionResponse = JSON.parse(res);
@@ -86,6 +102,10 @@ export class yearlyChromeSatinComponent {
 
   ChartBindYearlyInspection(res){
     var lables = [];var d1 = [];var d2 =[];var d3=[];var d4=[];var d5=[];var i;
+        this.Idata1 = 0;
+        this.Idata2 = 0;
+        this.Idata3 = 0;
+        this.Idata4 = 0;
     for(i =0; i< res.length; i++){
         lables.push(res[i].Labels);
         d1.push(res[i].Data1);
@@ -119,6 +139,7 @@ export class yearlyChromeSatinComponent {
 
   ChartBindYearlyRoundNo(res, pdata, edata){
     var lables = [];var d1 = [];var d2 =[];var d3=[];var i;
+    this.Rdata1 = 0;
     for(i =0; i< res.length; i++){
         lables.push(res[i].Labels);
         d1.push(res[i].Data);
@@ -185,6 +206,11 @@ YearlyDefects(){
 
   ChartBindYearlyDefects(res){
     var lables = [];var d1 = [];var i;
+    this.Ddata1 = 0;
+    this.Ddata2 = 0;
+    this.Ddata3 = 0;
+    this.Ddata4 = 0;
+    this.Ddata5 = 0;
     for(i =0; i< res.length; i++){
         lables.push(res[i].Labels);
         d1.push(res[i].Data);

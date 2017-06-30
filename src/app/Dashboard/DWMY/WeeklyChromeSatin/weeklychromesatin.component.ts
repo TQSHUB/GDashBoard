@@ -76,7 +76,21 @@ export class WeeklyChromeSatinComponent {
         this.WeeklyDefects();
         this.WeeklyRejectionDefect();
     }
-
+    refreshWeeklyInspection(){
+        this.WeeklyInspection();
+    }
+     refreshWeeklyRoundNo(){
+        this.WeeklyRoundNo();
+    }
+    refreshWeeklyTopRejectionDefect(){
+        this.WeeklyTopRejectionDefect();
+    }
+    refreshWeeklyDefects(){
+        this.WeeklyDefects();
+    }
+    refreshWeeklyRejectionDefect(){
+        this.WeeklyRejectionDefect();
+    }
     WeeklyInspection(){
     this.busy = this.weeklyService.GetWeeklyInspection(this.calledComponent).subscribe(res => {
         this.weeklyInspectionResponse = JSON.parse(res);
@@ -86,6 +100,10 @@ export class WeeklyChromeSatinComponent {
 
   ChartBindWeeklyInspection(res){
     var lables = [];var d1 = [];var d2 =[];var d3=[];var d4=[];var d5=[];var i;
+        this.Idata1 = 0;
+        this.Idata2 = 0;
+        this.Idata3 = 0;
+        this.Idata4 = 0;
     for(i =0; i< res.length; i++){
         lables.push(res[i].Labels);
         d1.push(res[i].Data1);
@@ -119,6 +137,7 @@ export class WeeklyChromeSatinComponent {
 
   ChartBindWeeklyRoundNo(res, pdata, edata){
     var lables = [];var d1 = [];var d2 =[];var d3=[];var i;
+    this.Rdata1 = 0;
     for(i =0; i< res.length; i++){
         lables.push(res[i].Labels);
         d1.push(res[i].Data);
@@ -186,6 +205,11 @@ WeeklyDefects(){
 
   ChartBindWeeklyDefects(res){
     var lables = [];var d1 = [];var i;
+    this.Ddata1 = 0;
+    this.Ddata2 = 0;
+    this.Ddata3 = 0;
+    this.Ddata4 = 0;
+    this.Ddata5 = 0;
     for(i =0; i< res.length; i++){
         lables.push(res[i].Labels);
         d1.push(res[i].Data);

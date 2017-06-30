@@ -20,7 +20,7 @@ declare var ETE: any;
 })
 
 export class SatinDetailComponet{
-    
+  p;
   busy: Subscription;
   ResponseData;
   ResponseDataCopy;
