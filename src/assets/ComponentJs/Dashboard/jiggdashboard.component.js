@@ -54,6 +54,7 @@ function cvsrvsr(Mdesignlabels, Mrepairdata, Mrectifydata){
         var jiggrepair = Mrepairdata;
         var jiggrectify = Mrectifydata;
 
+        Chart.defaults.global.legend.display = false;  
         var chartDatarectify = {
             labels: jiggLabels,
             datasets: [{
@@ -89,6 +90,7 @@ function cvsRJigg(CPlabels, CPdata, CHRdata){
         var djData1 = CPdata;
         var djData2 = CHRdata;
 
+        Chart.defaults.global.legend.display = false;  
         var chartRoundjigg = {
             labels: djLabels,
             datasets: [{
@@ -124,6 +126,7 @@ function cvsRJigg2(CPlabelsSatin, CPdataSatin, SRdata){
         var djData1 = CPdataSatin;
         var djData2 = SRdata;
 
+        Chart.defaults.global.legend.display = false;  
         var chartRoundjigg2 = {
             labels: djLabels,
             datasets: [{
@@ -158,6 +161,7 @@ function cvsjigguse(CRlabels, CRdata){
         var djLabels = CRlabels;
           var djData1 = CRdata;
 
+          Chart.defaults.global.legend.display = false;  
           var chartDatajigg = {
               labels: djLabels,
               datasets: [{
@@ -168,7 +172,6 @@ function cvsjigguse(CRlabels, CRdata){
               ]
 
           };
-
 
           var ctx1 = document.getElementById("cvsjigguse").getContext("2d");
           var opt3 = {

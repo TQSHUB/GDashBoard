@@ -122,7 +122,8 @@ function ppcMonthlySatin(slabels, stround, stotal, spercentage, sJiggTot){
         var stotal = stotal;
         var spercentage = spercentage;
         var sJiggTot = sJiggTot;
-
+        
+        Chart.defaults.global.legend.display = false;   
         var sChartDataArray = {
             labels: sclabels,
             datasets: [
