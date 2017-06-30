@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
     name: "search"
 })
 
-export class SearchPipe implements PipeTransform{
+export class SearchPipeCRQty implements PipeTransform{
     transform(value, term){
         if(term == '' || term == null)
             return 'Empty';

@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { DatePipe, CurrencyPipe } from '@angular/common';
-import { SearchPipe } from './searchtable.pipe'
+import { SearchPipeCRQty } from './searchtable.pipe'
 import { JsonDate } from '../../../Pipes/jsondate.pipe';
 import {GenericTableComponent, GtConfig} from '@angular-generic-table/core';
 import * as $ from 'jquery';
@@ -16,11 +16,12 @@ declare var ETE: any;
 @Component({
     selector: 'Chrome-Rejection',
     templateUrl: 'chromerejectiondetail.component.html',
-     providers: [ChromeRejectionQtyService,DatePipe,SearchPipe, JsonDate]
+     providers: [ChromeRejectionQtyService,DatePipe,SearchPipeCRQty, JsonDate]
 })
 
 export class ChromeRejectionQtyComponet{
-        busy: Subscription;
+  p;
+  busy: Subscription;
   ResponseData;
   ResponseDataCopy;
   //css class
@@ -95,7 +96,7 @@ export class ChromeRejectionQtyComponet{
    avgJigDamage = 0;
    avgHandMouRej = 0;
 
-   constructor(private chromerejectiondetailService: ChromeRejectionQtyService, private datepipe: DatePipe, private searchPipe: SearchPipe, private jsondate: JsonDate){}
+   constructor(private chromerejectiondetailService: ChromeRejectionQtyService, private datepipe: DatePipe, private searchPipe: SearchPipeCRQty, private jsondate: JsonDate){}
     ngOnInit(){
     var script = document.createElement('script');
     document.body.appendChild(script);

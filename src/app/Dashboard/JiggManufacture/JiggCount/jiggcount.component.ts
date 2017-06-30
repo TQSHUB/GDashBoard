@@ -13,7 +13,8 @@ import {DatePipe} from '@angular/common'
 })
 
 export class JiggCount{  
-  
+  p;
+  page;
   busy: Subscription;
   Alias_Names;
   JigCode;
@@ -90,25 +91,34 @@ export class JiggCount{
   SearchJiggCount()
   {
          var FromDate = $("input[name=FromDate]").val();
-         var ToDate = $("input[name=ToDate]").val(); 
-         //console.log(this.FromDate);
-         //console.log(this.ToDate);
+         var ToDate = $("input[name=ToDate]").val();
+         console.log(ToDate); 
+
+         var initial = FromDate.split(/\//);
+         var initial1 = (initial[1] + '/' + initial[0] + '/' + initial[2]);
+         console.log(initial1);
+
+         var initial2 = ToDate.split(/\//);
+         var initial3 = (initial2[1] + '/' + initial2[0] + '/' + initial2[2]);
+         console.log(initial3);
+         
          if(FromDate == '' && ToDate == '' )
            { 
-               this.FromDate = '';
-               this.ToDate = '';
+               initial1 = '';
+               initial3 = '';
            }
            else
            {
-                this.FromDate = this.datepipe.transform(FromDate,"MM/dd/yyyy");
-                this.ToDate = this.datepipe.transform(ToDate,"MM/dd/yyyy"); 
+                initial1 = this.datepipe.transform(initial1,"MM/dd/yyyy");
+                initial3 = this.datepipe.transform(initial3,"MM/dd/yyyy"); 
+                
            }
 
         var itemtype = $("#ItemType").val();
         if(itemtype == 'NULL')
         itemtype = '';
 
-        this.busy = this.jiggcountdata.getJigCountdetail(this.FromDate,this.ToDate,itemtype,this.Jiggcode).subscribe(res => {
+        this.busy = this.jiggcountdata.getJigCountdetail(initial1,initial3,itemtype,this.Jiggcode).subscribe(res => {
         this.ResponseData1 = res.Data;
         //console.log(this.ResponseData1);
         

@@ -8,6 +8,8 @@ import { Observable } from 'rxjs/Rx';
 import { host } from '../../../Configurations/application.config';
 import * as $ from 'jquery';
 
+declare var sum: any;
+
 @Component({
     selector: 'satinrejectionreview',
     templateUrl: './satinrejectionreview.component.html',
@@ -71,6 +73,9 @@ export class SatinRejectionReviewComponent{
     updatedata;
     display_message;
     display_message_class;
+
+    date;
+    LowGlass;
 
     constructor(private router: Router, private http: Http, private satinrejectionreviewservice: SatinRejectionReviewService, private datepipe: DatePipe){}
 
@@ -234,7 +239,7 @@ export class SatinRejectionReviewComponent{
         this.Rejectedqty, this.Okqty, this.PinHole, this.SkipPlating, this.HandMouRej, this.ProMouRej,
         this.WhtMark, this.PinMark, this.WarPage, this.SilverMarks, this.DotPlastc, this.ChormBrng, 
         this.DentMarks, this.Scratches, this.CoprBrng, this.JigDmg, this.HighGloss, this.LowGloss, 
-        this.ShadVarton, this.Nickel, this.Roughness, this.Blister, this.BlackSpot, this.SatinMark, 
+        this.ShadVarton, this.PatchMarks, this.Nickel, this.Roughness, this.Blister, this.BlackSpot, this.SatinMark, 
         this.ChemclMark, this.TouchBrng, this.Other, this.WaterMark, this.Remark)
             .subscribe(res => {
                 this.insertdata = JSON.parse(res.Data);
@@ -279,7 +284,7 @@ export class SatinRejectionReviewComponent{
         this.Rejectedqty, this.Okqty, this.PinHole, this.SkipPlating, this.HandMouRej, this.ProMouRej,
         this.WhtMark, this.PinMark, this.WarPage, this.SilverMarks, this.DotPlastc, this.ChormBrng, 
         this.DentMarks, this.Scratches, this.CoprBrng, this.JigDmg, this.HighGloss, this.LowGloss, 
-        this.ShadVarton, this.Nickel, this.Roughness, this.Blister, this.BlackSpot, this.SatinMark, 
+        this.ShadVarton, this.PatchMarks, this.Nickel, this.Roughness, this.Blister, this.BlackSpot, this.SatinMark, 
         this.ChemclMark, this.TouchBrng, this.Other, this.WaterMark, this.Remark)
             .subscribe(res => {
                 this.updatedata = JSON.parse(res.Data);
@@ -350,5 +355,9 @@ export class SatinRejectionReviewComponent{
         this.display_message_class = '';
         this.display_message = '';
         }, 2000);
+    }
+
+    Total(){
+        sum();
     }
 }

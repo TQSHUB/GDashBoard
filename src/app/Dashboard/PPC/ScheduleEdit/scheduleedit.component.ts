@@ -19,6 +19,7 @@ declare var ETEJson: any;
   providers: [ScheduleEditService, DatePipe, SearchPipePPCScheduleEdit],
 })
 export class ScheduleEditComponent {
+  p;
   busy: Subscription;
   ResponseData;
   ResponseDataCopy;
@@ -49,6 +50,10 @@ export class ScheduleEditComponent {
   totalScheduleQty = 0;
   totalOkQty = 0;
 
+  Months = [{id :'1',name: 'January'},{id :'2',name: 'February'},{id :'3',name: 'March'},{id :'4',name: 'April'},{id :'5',name: 'May'},
+            {id :'6',name: 'June'},{id :'7',name: 'July'},{id :'8',name: 'August'},{id :'9',name: 'September'},{id :'10',name: 'October'},
+            {id :'11',name: 'November'},{id :'12',name: 'December'}]
+
 
 
   constructor(private http: Http, private scheduleEditService: ScheduleEditService, private datepipe: DatePipe, private searchPipe: SearchPipePPCScheduleEdit){}
@@ -59,11 +64,23 @@ export class ScheduleEditComponent {
     script.src = '../../assets/ComponentJs/PPC/ppcdailyreport.component.js';
 
     this.getBindCustomer_ByName();
-    this.getBindItems_ByAliasName();
+    this.getBindItems_ByAliasName();  
+  }
 
+  ngAfterViewInit(){
     var d = new Date();
-    $("#Month").val(d.getMonth() + 1);
-    this.SearchMonthly(); 
+    $("#selectMonths").val(d.getMonth() + 1);
+    this.SearchMonthly();
+
+    var monthenddate = new Date();
+    var monthstartdate = new Date(monthenddate.getFullYear(), monthenddate.getMonth(),1);
+    
+    /*var monthenddate = new Date(d.getFullYear(), d.getMonth() + 1, 1);
+    monthenddate.setDate(monthenddate.getDate() - 1);*/
+
+    this.FromDate = this.datepipe.transform(monthstartdate,'dd/MM/yyyy');
+    this.ToDate = this.datepipe.transform(monthenddate,'dd/MM/yyyy');
+
   }
 
   TotalData(res){
@@ -82,8 +99,7 @@ export class ScheduleEditComponent {
   }
 
   SearchMonthly(){
-    var Month = $("#Month").val();
-    console.log(Month);
+    var Month = $("#selectMonths").val();
     if(Month == 'NULL')
     {
       alert('Please Select Month');

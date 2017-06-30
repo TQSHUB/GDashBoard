@@ -14,7 +14,7 @@
                 <div class="box box-default">
                 <div class="box-header with-border">
                     <h3 class="box-title"><i class="fa fa-bar-chart-o"></i>&nbsp;Monthly Inspection for Chrome</h3>
-                    <div style="float: right; margin-right: 30px;">
+                    <div style="float: right; margin-right: 90px;">
                         <label Style="margin-right: 4px;font-weight: bold;">Total Inspection : </label><label Style="padding-left: 5px;padding-right: 5px;background-color: #3c8dbc; margin-right: 5px; color: white;text-align: center;font-weight: bolder;">{{TotalInspectionChrome | number : '1.2-2'}}</label>
                         <label Style="margin-right: 4px;font-weight: bold;">Ok Value : </label><label Style="padding-left: 5px;padding-right: 5px;background-color: #00a65a; margin-right: 5px; color: white;text-align: center;font-weight: bolder;">{{OkValueChrome | number : '1.2-2'}}</label>
                         <label Style="margin-right: 4px;font-weight: bold;">Hold Value : </label><label Style="padding-left: 5px;padding-right: 5px;background-color: #f39c12; margin-right: 5px; color: white;text-align: center;font-weight: bolder;">{{HoldValueChrome | number : '1.2-2'}}</label>
@@ -22,6 +22,9 @@
                         <label Style="margin-right: 4px;font-weight: bold;">Rejection Value(%) : </label><label Style="padding-left: 5px;padding-right: 5px;background-color: #f56954; margin-right: 5px; color: white;text-align: center;font-weight: bolder;">{{RejectionValuePerChrome | number : '1.2-2'}} %</label>
                     </div>
                     <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" (click)="refreshgetMonthlyInspectionChrome()">
+                            <i class="fa fa-refresh"></i>
+                        </button>
                         <button type="button" class="btn btn-box-tool" data-widget="collapse">
                             <i class="fa fa-minus"></i>
                         </button>
@@ -45,13 +48,16 @@
                 <div class="box box-default">
                 <div class="box-header with-border">
                     <h3 class="box-title"><i class="fa fa-bar-chart-o"></i>&nbsp;Monthly Rounds for Chrome</h3>
-                    <div style="float: right; margin-right: 30px;">
+                    <div style="float: right; margin-right: 90px;">
                         <label Style="margin-right: 4px;font-weight: bold;">Insp. Pending Rounds : </label><label Style="padding-left: 5px;padding-right: 5px;background-color: #3c8dbc; margin-right: 5px; color: white;text-align: center;font-weight: bolder;">{{InspPendingRoundChrome | number : '1.2-2'}}</label>
                         <label Style="margin-right: 4px;font-weight: bold;">Produced Rounds : </label><label Style="padding-left: 5px;padding-right: 5px;background-color: #00a65a; margin-right: 5px; color: white;text-align: center;font-weight: bolder;">{{ProducedRoundChrome | number : '1.2-2'}}</label>
                         <label Style="margin-right: 4px;font-weight: bold;">Empty Rounds : </label><label Style="padding-left: 5px;padding-right: 5px;background-color: #f39c12; margin-right: 5px; color: white;text-align: center;font-weight: bolder;">{{EmptyRoundChrome | number : '1.2-2'}}</label>
                         <label Style="margin-right: 4px;font-weight: bold;">Aggregate Rounds : </label><label Style="padding-left: 5px;padding-right: 5px;background-color: #d2d6de; margin-right: 5px; color: black;text-align: center;font-weight: bolder;">{{AggregateRoundChrome | number : '1.2-2'}}</label>
                     </div>
                     <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" (click)="refreshgetMonthlyRoundNoChrome()">
+                            <i class="fa fa-refresh"></i>
+                        </button>
                         <button type="button" class="btn btn-box-tool" data-widget="collapse">
                             <i class="fa fa-minus"></i>
                         </button>
@@ -85,7 +91,7 @@
                 <div class="box box-default">
                 <div class="box-header with-border">
                     <h3 class="box-title"><i class="fa fa-bar-chart-o"></i>&nbsp;Monthly Inspection for Satin</h3>
-                    <div style="float: right; margin-right: 30px;">
+                    <div style="float: right; margin-right: 90px;">
                         <label Style="margin-right: 4px;font-weight: bold;">Total Inspection : </label><label Style="padding-left: 5px;padding-right: 5px;background-color: #3c8dbc; margin-right: 5px; color: white;text-align: center;font-weight: bolder;">{{TotalInspectionSatin | number : '1.2-2'}}</label>
                         <label Style="margin-right: 4px;font-weight: bold;">Ok Value : </label><label Style="padding-left: 5px;padding-right: 5px;background-color: #00a65a; margin-right: 5px; color: white;text-align: center;font-weight: bolder;">{{OkValueSatin | number : '1.2-2'}}</label>
                         <label Style="margin-right: 4px;font-weight: bold;">Hold Value : </label><label Style="padding-left: 5px;padding-right: 5px;background-color: #f39c12; margin-right: 5px; color: white;text-align: center;font-weight: bolder;">{{HoldValueSatin | number : '1.2-2'}}</label>
@@ -93,6 +99,9 @@
                         <label Style="margin-right: 4px;font-weight: bold;">Rejection Value(%) : </label><label Style="padding-left: 5px;padding-right: 5px;background-color: #f56954; margin-right: 5px; color: white;text-align: center;font-weight: bolder;">{{RejectionValuePerSatin | number : '1.2-2'}} %</label>
                     </div>
                     <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" (click)="refreshgetMonthlyInspectionSatine()">
+                            <i class="fa fa-refresh"></i>
+                        </button>
                         <button type="button" class="btn btn-box-tool" data-widget="collapse">
                             <i class="fa fa-minus"></i>
                         </button>
@@ -116,13 +125,16 @@
                 <div class="box box-default">
                 <div class="box-header with-border">
                     <h3 class="box-title"><i class="fa fa-bar-chart-o"></i>&nbsp;Monthly Rounds for Satin</h3>
-                    <div style="float: right; margin-right: 30px;">
+                    <div style="float: right; margin-right: 90px;">
                         <label Style="margin-right: 4px;font-weight: bold;">Insp. Pending Rounds : </label><label Style="padding-left: 5px;padding-right: 5px;background-color: #3c8dbc; margin-right: 5px; color: white;text-align: center;font-weight: bolder;">{{InspPendingRoundSatin | number : '1.2-2'}}</label>
                         <label Style="margin-right: 4px;font-weight: bold;">Produced Rounds : </label><label Style="padding-left: 5px;padding-right: 5px;background-color: #00a65a; margin-right: 5px; color: white;text-align: center;font-weight: bolder;">{{ProducedRoundSatin | number : '1.2-2'}}</label>
                         <label Style="margin-right: 4px;font-weight: bold;">Empty Rounds : </label><label Style="padding-left: 5px;padding-right: 5px;background-color: #f39c12; margin-right: 5px; color: white;text-align: center;font-weight: bolder;">{{EmptyRoundSatin | number : '1.2-2'}}</label>
                         <label Style="margin-right: 4px;font-weight: bold;">Aggregate Rounds : </label><label Style="padding-left: 5px;padding-right: 5px;background-color: #d2d6de; margin-right: 5px; color: black;text-align: center;font-weight: bolder;">{{AggregateRoundSatin | number : '1.2-2'}}</label>
                     </div>
                     <div class="box-tools pull-right">
+                         <button type="button" class="btn btn-box-tool" (click)="refreshgetMonthlyRoundNoSatine()">
+                            <i class="fa fa-refresh"></i>
+                        </button>
                         <button type="button" class="btn btn-box-tool" data-widget="collapse">
                             <i class="fa fa-minus"></i>
                         </button>

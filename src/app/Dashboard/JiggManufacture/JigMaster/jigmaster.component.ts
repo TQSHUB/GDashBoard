@@ -15,6 +15,7 @@ import { SearchPipeJigMaster } from './searchtable.pipe';
 })
 
 export class JigMasterComponent{
+    p;
     busy: Subscription;
 
     id;

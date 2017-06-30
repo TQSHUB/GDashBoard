@@ -34,7 +34,7 @@ export class JiggMfgEntry  {
             cmbsearch: cmbsearch,
             ddljigg: ddljigg,
         });
-        return this.http.put( host +'JigMfgEntry/getjiggData',body,{headers:headers})
+        return this.http.post( host +'JigMfgEntry/getjiggData',body,{headers:headers})
         .map(res => res.json());
     }
 

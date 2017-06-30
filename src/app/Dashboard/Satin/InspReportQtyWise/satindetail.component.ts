@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { DatePipe, CurrencyPipe } from '@angular/common';
-import { SearchPipe } from './searchtable.pipe'
+import { SearchPipeSIRQty } from './searchtable.pipe'
 import { JsonDate } from '../../../Pipes/jsondate.pipe';
 import {GenericTableComponent, GtConfig} from '@angular-generic-table/core';
 import * as $ from 'jquery';
@@ -16,11 +16,11 @@ declare var ETE: any;
 @Component({
     selector: 'Satin-Detail',
     templateUrl: 'satindetail.component.html',
-     providers: [SatinDetailService,DatePipe,SearchPipe, JsonDate]
+     providers: [SatinDetailService,DatePipe,SearchPipeSIRQty, JsonDate]
 })
 
 export class SatinDetailComponet{
-    
+  p;
   busy: Subscription;
   ResponseData;
   ResponseDataCopy;
@@ -109,7 +109,7 @@ export class SatinDetailComponet{
   avgSilverMark = 0;
   avgWarPage = 0;
 
-   constructor(private satinDetailService: SatinDetailService, private datepipe: DatePipe, private searchPipe: SearchPipe, private jsondate: JsonDate){}
+   constructor(private satinDetailService: SatinDetailService, private datepipe: DatePipe, private searchPipe: SearchPipeSIRQty, private jsondate: JsonDate){}
 
     ngOnInit(){
     var script = document.createElement('script');

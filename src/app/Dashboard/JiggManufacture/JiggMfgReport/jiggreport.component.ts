@@ -16,7 +16,7 @@ declare var ETE: any;
 })
 
 export class JiggReportComponent{
-
+    page;
     Alias_Names;
     JiggMfgReportRes;
     Headers;
