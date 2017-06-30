@@ -12,7 +12,6 @@ import {GenericTableComponent, GtConfig} from '@angular-generic-table/core';
 import * as $ from 'jquery';
 
 declare var ETE: any;
-declare var EtoE: any;
 
 @Component({
     selector: 'Chrome-Detail',
@@ -313,11 +312,9 @@ export class ChromeDetailComponet{
       this.avghandmou =  Math.round((this.tothandmou)/( this.totInsp ) * 100);
     }
   }
-   ExportToExcel(){
-    // if(this.ResponseData.length > 0)
-      ETE();
-      //EtoE();
-      //window.open('data:application/vnd.ms-excel,' +  encodeURIComponent($('div[id$=table_wrapper]').html()));
+  public async ExportToExcel(){
+    var date= new Date();
+    ETE('ChromeDetail_'+ this.datepipe.transform(date,'dd/MM/yyyy') +'.xls');
    }
    SearchTextBox(){
     var filterData = this.searchPipe.transform(this.ResponseDataCopy, this.searchText);

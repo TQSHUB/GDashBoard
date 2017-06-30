@@ -59,6 +59,7 @@ SearchTextBox(){
   }
 
   ExportToExcel(){
-    ETE();
+    var date= new Date();
+    ETE('PPCSummary_'+ this.datepipe.transform(date,'dd/MM/yyyy') +'.xls');
   }
 }

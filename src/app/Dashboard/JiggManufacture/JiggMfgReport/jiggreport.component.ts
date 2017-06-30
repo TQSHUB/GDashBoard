@@ -113,7 +113,8 @@ export class JiggReportComponent{
     }
 
     ExportToExcel(){
-      ETE(this.JiggMfgReportRes);
+      var date= new Date();
+      ETE('JiggMfgReport_'+ this.datepipe.transform(date,'dd/MM/yyyy') +'.xls');
     }
 
     inStringBuilder(a: any){
