@@ -51,7 +51,7 @@ export class JiggingReportComponent{
         this.FromDate = date;
         this.ToDate = date;
 
-        console.log(this.FromDate);
+        //console.log(this.FromDate);
 
         this.getBindItems_ByAliasName();
         this.getBindCustomer_ByName();
@@ -88,7 +88,7 @@ export class JiggingReportComponent{
         var FromDate = $("input[name=FromDate]").val();
         var ToDate = $("input[name=ToDate]").val();
 
-        if(FromDate == '' && ToDate == '')
+        /*if(FromDate == '' && ToDate == '')
         {
             this.FromDate = '';
             this.ToDate = '';
@@ -97,7 +97,7 @@ export class JiggingReportComponent{
         {
             this.FromDate = this.datepipe.transform(FromDate,"MM/dd/yyyy");
             this.ToDate = this.datepipe.transform(ToDate,"MM/dd/yyyy");
-        }
+        }*/
 
         if(itemtype_string == 'NULL')
             itemtype_string = '';

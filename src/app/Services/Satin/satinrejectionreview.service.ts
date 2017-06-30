@@ -166,7 +166,7 @@ export class SatinRejectionReviewService{
             Water_Mark: wtrmrk,
             Remark: rmrk
         });
-        return this.http.post( host +'SatinRejectionReview/UpdateData',body,{headers:headers})
+        return this.http.put( host +'SatinRejectionReview/UpdateData',body,{headers:headers})
             .map(res => res.json());
     }
 }

@@ -76,4 +76,5 @@ export class JigMasterService{
         return this.http.delete(host + 'JiggMst/DeleteJiggItemNames/' + id)
             .map(res => res.json());
     }
+   
 }

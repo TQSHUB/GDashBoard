@@ -14,16 +14,27 @@
                         <div class="row">
                             <div class="form-group">                                
                                 <div class="col-sm-10 col-md-4">
-                                    <label for="lblfullname">Jigg Name</label>
-                                    <input type="text" name="txtjiggname" [(ngModel)]="txtjiggname" class="form-control" id="txtjiggname" required>                                    
+                                    <!--<label for="lblfullname">Jigg Name</label>-->
+                                    <div class="input-group" >
+                                       <span class="input-group-addon">Jigg Name</span>
+                                          <input type="text" name="txtjiggname" [(ngModel)]="txtjiggname" class="form-control" id="txtjiggname" required>                                    
+                                    </div>
                                 </div>
                                 
                                 <div class="col-sm-10 col-md-4" style="margin-bottom: 20px">
-                                    <label for="lblfullname">Item Name</label>
+                                    <!--<label for="lblfullname">Item Name</label>-->
                                     <!--<div class="input-group" >-->
+                                   <div class="input-group" >
+                                            <span class="input-group-addon">Item Name</span>
                                         <select id="Item_Names" class="form-control select2" style="width: 100%;">
                                             <option *ngFor="let Item of allitems"  [value]="Item.Code">{{Item.Alias_Name}}</option>
                                         </select>
+                                      <span class="input-group-btn">
+                                         <button class="btn btn-default" type="button">
+                                             <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true" (click)="selectedAliasName()"></span>
+                                         </button>
+                                       </span>
+                                   </div>
                                     <!--</div>-->
                                 </div>
                             </div>
@@ -60,6 +71,7 @@
                                             <th>Id</th>
                                             <th>Code</th>
                                             <th>Alias Name</th>
+                                            <th>Active</th>
                                             <th>Item Id</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
@@ -70,13 +82,20 @@
                                             <td>{{JiggMst.Id}}</td>
                                             <td>{{JiggMst.Jig_Code}}</td>
                                             <td>{{JiggMst.Alias_Name}}</td>
+                                             <td>
+                                                 <span *ngIf="JiggMst.Active=='0'">Yes</span>
+                                                 <span *ngIf="JiggMst.Active=='1'">No</span>
+                                                
+                                             </td>
                                             <td>{{JiggMst.Item_Id}}</td>
                                             <td><a (click)="selectedJiggandAliasName(JiggMst)"><span class="btn glyphicon glyphicon-pencil" data-toggle="modal" data-target=".bs-example-modal-sm-edit"></span></a></td>
                                             <td><a (click)="deleteJiggandItemNames(JiggMst)"><span class="btn glyphicon glyphicon-trash" data-toggle="modal" data-target=".bs-example-modal-sm-delete"></span></a></td>
                                         </tr>
                                     </tbody>
                                 </table>
-                                <pagination-controls class="text-right" (pageChange)="p = $event"></pagination-controls>
+                                <div class="col-md-7 col-md-offset-1 col-sm-12" *ngIf="alljiggmstdata_aliasname">
+                                    <pagination-controls class="text-right" (pageChange)="p = $event"></pagination-controls>                   
+                                </div>
                             </div>
                         </div>
                     </form>                

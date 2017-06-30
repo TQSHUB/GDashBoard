@@ -24,6 +24,8 @@ export class JigMasterComponent{
     aliasname;
     jiggid;
 
+    item = [];
+
     txtjiggname;
     ddaliasname;
 
@@ -187,4 +189,5 @@ export class JigMasterComponent{
         else
             this.alljiggmstdata_aliasname = filterdata;
     }
+    
 }

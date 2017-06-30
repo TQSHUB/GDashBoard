@@ -29,7 +29,7 @@
                                 <div class="input-group-addon">
                                     <span class="input-group">Line Type</span>
                                 </div>
-                                <select id="ItemType"  class="form-control select2"  style="width: 100%;" name="ItemType">
+                                <select id="LineType"  class="form-control select2"  style="width: 100%;" name="LineType">
                                     <!--<option selected="selected" value="NULL">Select</option>-->
                                     <option value="Satin">Satin</option>
                                 </select>
@@ -42,7 +42,8 @@
                             <div class="input-group" >
                                 <span class="input-group-addon">Part Name</span>
                                 <select id="Alias_Names"  class="form-control select2" data-placeholder="Select" style="width: 100%;">
-                                    <option *ngFor="let Alias of Alias_Names" [value]="Alias['Item Code']">{{Alias['Alias Name']}}</option>
+                                    <option value="NULL"></option>
+                                    <option *ngFor="let Alias of ResponseData" [value]="Alias['Item Code']">{{Alias['Alias Name']}}</option>
                                 </select>
                                 <span class="input-group-btn">
                                     <button class="btn btn-default" type="button">
@@ -93,7 +94,7 @@
                                     </button>
                                 </span>
                             </div>
-                            <label class="pull-left" >{{display_message}}</label>
+                            <label class="pull-left" style="color: red;">{{display_message_entry}}</label>
                         </div>
                     </div>
                 </form>
@@ -312,8 +313,9 @@
                         </div>
                         <div class="col-sm-10 col-md-3"style="margin-bottom: 20px">
                         </div>
-                        <div class="col-sm-10 col-md-3"style="margin-bottom: 20px">
+                        <div class="col-sm-10 col-md-3"style="margin-bottom: 20px" [ngClass]="display_message_class">
                             <button  style="margin-left: 140px;" type="button" class="btn btn-primary pull-right" (click)="FunctionOnCaption()">{{flag}}</button>
+                            <label class="pull-left" >{{display_message}}</label>
                         </div>
                     </div>
                     <div class="row">

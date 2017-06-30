@@ -66,13 +66,10 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <pagination-controls class="text-right" (pageChange)="p = $event"></pagination-controls>
+                                <div class="col-md-7 col-md-offset-1 col-sm-12" *ngIf="allcustmasters">
+                                    <pagination-controls class="text-right" (pageChange)="p = $event"></pagination-controls>                   
+                                </div>
                             </div>
-                                <!--<div class="modal-footer" [ngClass]="display_message_class">
-                                <label class="pull-left" >{{display_message}}</label>
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary"(click)='createStudent()'>Add Student</button>
-                                </div>-->
                         </div>
                     </form>                
                 </div>

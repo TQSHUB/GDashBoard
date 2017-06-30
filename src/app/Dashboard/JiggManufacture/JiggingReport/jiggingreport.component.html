@@ -62,13 +62,13 @@
 
                     <div class="row">
                         <div class="form-group">
-                            <div class="col-sm-10 col-md-4" style="margin-bottom: 20px">
+                            <div class="col-sm-12 col-md-4" style="margin-bottom: 20px">
                                 <label for="lblaliasname">Alias Name</label>
                                 <select id="Alias_Names"  class="form-control select2" multiple="multiple" data-placeholder="Select" style="width: 100%;">
                                     <option *ngFor="let Alias of Alias_Names" [value]="Alias.Code">{{Alias.Alias_Name}}</option>
                                 </select>
                             </div>                                
-                            <div class="col-sm-10 col-md-4">
+                            <div class="col-sm-12 col-md-4">
                                 <label for="lblcustname">Customer Name</label>
                                 <select id="Customer_Names" class="form-control select2" multiple="multiple" data-placeholder="Select" style="width: 100%;">
                                     <option *ngFor="let Customer of Customer_Names" [value]="Customer.Code">{{Customer.Name}}</option>
@@ -233,7 +233,7 @@
                     <div class="col-md-4 col-sm-12">
                         <button class="btn btn-primary" id="export" (click)="ExportToExcel()">Export to Excel</button>
                     </div>
-                    <div class="col-md-7 col-md-offset-1 col-sm-12">
+                    <div class="col-md-7 col-md-offset-1 col-sm-12" *ngIf="ResponseData">
                         <pagination-controls class="text-right" (pageChange)="p = $event"></pagination-controls>                   
                     </div>
                 </div>

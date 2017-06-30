@@ -243,7 +243,8 @@ uploadFile(){
   }
 
   ExportToExcel(){
-      ETE();
+      var date= new Date();
+      ETE('PPC_'+ this.datepipe.transform(date,'dd/MM/yyyy') +'.xls');
   }
 
   TotalData(res){
