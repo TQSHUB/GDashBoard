@@ -1,0 +1,53 @@
+.scrolling table {
+table-layout: inherit;
+ *margin-left: -100px;/*ie7*/
+}
+.scrolling td, th {
+    vertical-align: top;
+	padding: 10px;
+	/*min-width: 100px;*/
+    white-space: nowrap;
+}
+.scrolling th#First {
+	position: absolute;
+ *position: relative; /*ie7*/
+	left: 0px;
+	width: 150px;
+    border-bottom-width: 0px !important;
+    border-left-width: 0px !important;
+    border-right-width: 0px !important;
+}
+.scrolling th#Second {
+	position: absolute;
+ *position: relative; /*ie7*/
+	left: 150px;
+	width: 150px;
+    border-bottom-width: 0px !important;
+    border-left-width: 0px !important;
+    border-right-width: 0px !important;
+}
+.scrolling td#First {
+	position: absolute;
+ *position: relative; /*ie7*/
+	left: 0px;
+	width: 150px;
+    border-bottom-width: 0px !important;
+    border-left-width: 0px !important;
+    border-right-width: 0px !important;
+}
+.scrolling td#Second {
+	position: absolute;
+ *position: relative; /*ie7*/
+	left: 150px;
+	width: 150px;
+    border-bottom-width: 0px !important;
+    border-left-width: 0px !important;
+    border-right-width: 0px !important;
+}
+.outer {
+	position: relative
+}
+.inner {
+	overflow-x: auto;
+	margin-left: 490px;
+}

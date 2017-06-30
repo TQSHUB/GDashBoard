@@ -16,7 +16,8 @@ declare var ETE: any;
 @Component({
     selector: 'Chrome-lineSummary',
     templateUrl: 'chromelinesummary.component.html',
-      providers: [ChromeLineSummaryService,DatePipe,SearchPipeCIRVal, JsonDate]
+      providers: [ChromeLineSummaryService,DatePipe,SearchPipeCIRVal, JsonDate],
+      styleUrls: ['./chromelinesummary.component.css']
 })
 
 export class ChromeLineSummary{

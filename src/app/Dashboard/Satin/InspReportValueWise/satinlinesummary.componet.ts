@@ -16,7 +16,8 @@ declare var ETE: any;
 @Component({
     selector: 'Satin-lineSummary',
     templateUrl: 'satinlinesummary.component.html',
-      providers: [SatinLineSummaryService,DatePipe,SearchPipeSIRVal, JsonDate]
+      providers: [SatinLineSummaryService,DatePipe,SearchPipeSIRVal, JsonDate],
+      styleUrls: ['./satinlinesummary.component.css']
 })
 
 export class SatinLineSummary{
