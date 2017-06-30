@@ -329,7 +329,7 @@
                 </table>
 
 
-                 <table class="table table-responsive table-striped table-bordered" id="myTableHidden" style="width: 100%; display: none;">
+              <table class="table table-responsive table-striped table-bordered"  id="myTableHidden" style="width: 100%; display: none;">
                     <thead>
                         <tr style="border: none">
                                
@@ -530,8 +530,10 @@
                             <!--<td><a (click)="selectedCustomer(response)"><span class="btn glyphicon glyphicon-pencil" data-toggle="modal" data-target=".bs-example-modal-sm-edit"></span></a></td>-->
                         </tr>
                     </tbody>
+              
                 </table>
-                
+
+               
                 <!--<gt-column-settings [genericTable]="myTable" #columnSettings>
                     <div class="table table-responsive table-striped">
                         <generic-table #myTable [gtSettings]="configObject.settings" [gtFields]="configObject.fields" [gtData]="configObject.data" [gtOptions]="{highlightSearch:true, rowSelection:true}"></generic-table>
@@ -560,3 +562,4 @@
     </div>
     <!-- /.container -->
   </div>
+   <div [ngBusy]="busy"></div>

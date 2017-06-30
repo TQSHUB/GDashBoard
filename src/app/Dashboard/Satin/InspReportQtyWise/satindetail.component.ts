@@ -343,11 +343,7 @@ export class SatinDetailComponet{
               this.avgWarPage = Math.round((this.totWarPage)/( this.totInsp ) * 100);
     } 
  }
- ExportToExcel(){
-    // if(this.ResponseData.length > 0)
-      ETE();
-   }
-
+   
     SearchTextBox(){
     var filterData = this.searchPipe.transform(this.ResponseDataCopy, this.searchText);
     if(filterData == 'Empty')
@@ -355,4 +351,10 @@ export class SatinDetailComponet{
     else
       this.json = filterData;
   }
+
+  ExportToExcel(){
+    // if(this.ResponseData.length > 0)
+      ETE();
+   }
+
 }
