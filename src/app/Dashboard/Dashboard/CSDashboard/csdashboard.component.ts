@@ -199,12 +199,12 @@ export class CSDashboardComponent {
   //Satin Monthly
   getMonthlyRoundNoSatine(){
     this.busy = this.csDashboardService.getMonthlyRoundNo('Satin').subscribe(res => {
-      this.ChromeMonthlyResponse = JSON.parse(res);
+      this.SatinMonthlyResponse = JSON.parse(res);
       this.csDashboardService.GetMonthlyPending('Satin').subscribe(res => {
         this.ChromePendingResponse = JSON.parse(res);
         this.csDashboardService.GetMonthlyEmptyRound('Satin').subscribe(res => {
           this.ChromeEmptyResponse = JSON.parse(res);
-          this.ChartBindSMR(this.ChromeMonthlyResponse, this.ChromePendingResponse, this.ChromeEmptyResponse)
+          this.ChartBindSMR(this.SatinMonthlyResponse, this.ChromePendingResponse, this.ChromeEmptyResponse)
         });
       });
     });
