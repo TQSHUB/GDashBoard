@@ -27,11 +27,12 @@
                                    <div class="input-group" >
                                             <span class="input-group-addon">Item Name</span>
                                         <select id="Item_Names" class="form-control select2" style="width: 100%;">
+                                            <option selected="selected" value="empty">--Select--</option>
                                             <option *ngFor="let Item of allitems"  [value]="Item.Code">{{Item.Alias_Name}}</option>
                                         </select>
                                       <span class="input-group-btn">
                                          <button class="btn btn-default" type="button">
-                                             <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true"></span>
+                                             <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true" (click)="GetAliasName()"></span>
                                          </button>
                                        </span>
                                    </div>
@@ -106,3 +107,5 @@
     </div>
     <!-- /.container -->
 </div>
+
+<div [ngBusy]="busy"></div>

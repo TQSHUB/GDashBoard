@@ -16,7 +16,8 @@ declare var ETE: any;
 @Component({
     selector: 'Chrome-Detail',
     templateUrl: 'chromedetail.component.html',
-    providers: [ChromeDetailService,DatePipe,SearchPipeCIRQty, JsonDate]
+    providers: [ChromeDetailService,DatePipe,SearchPipeCIRQty, JsonDate],
+    styleUrls: ['./chromedetail.component.css']
 })
 
 export class ChromeDetailComponet{

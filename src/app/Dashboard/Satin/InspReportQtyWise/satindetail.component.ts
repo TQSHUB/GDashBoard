@@ -16,7 +16,9 @@ declare var ETE: any;
 @Component({
     selector: 'Satin-Detail',
     templateUrl: 'satindetail.component.html',
+    styleUrls: ['./satindetail.component.css'],
      providers: [SatinDetailService,DatePipe,SearchPipeSIRQty, JsonDate]
+     
 })
 
 export class SatinDetailComponet{
