@@ -206,7 +206,8 @@ inStringBuilder(a: any){
   }
 
   ExportToExcel(){
-      ETE();
+      var date= new Date();
+      ETE('PPCEntry_'+ this.datepipe.transform(date,'dd/MM/yyyy') +'.xls');
   }
 
   TotalData(res){

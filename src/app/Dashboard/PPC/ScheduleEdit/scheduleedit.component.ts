@@ -246,7 +246,10 @@ uploadFile(){
 
   ExportToExcel(){
     if(this.ResponseData.length > 0)
-      ETE();
+    {
+      var date= new Date();
+      ETE('ScheduleEdit_'+ this.datepipe.transform(date,'dd/MM/yyyy') +'.xls');
+    }
     else
     {
       var response;
