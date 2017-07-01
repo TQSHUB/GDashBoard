@@ -14,7 +14,8 @@ declare var ETEJson: any;
 @Component({
     selector: 'jiggingreport',
     templateUrl: './jiggingreport.component.html',
-    providers: [JiggingReportService, DatePipe]
+    providers: [JiggingReportService, DatePipe],
+    styleUrls: ['./jiggingreport.component.css']
 })
 
 export class JiggingReportComponent{
@@ -155,7 +156,10 @@ export class JiggingReportComponent{
         var alias_string, customer_string, natureofcomp_string, itemtype_string, loadingshift_string;
         
         if(this.ResponseData.length > 0)
-            ETE();
+        {
+            var date= new Date();
+            ETE('JiggingReport_'+ this.datepipe.transform(date,'dd/MM/yyyy') +'.xls');
+        }
         else
         {
             var response;

@@ -32,7 +32,7 @@ export class SatinRejectionReviewComponent{
     RejQty = 'None';
     linetype;
 
-    flag = '';
+    flag = 'INSERT';
     ddRejType;
 
     //bindrejectiondata
@@ -235,7 +235,7 @@ export class SatinRejectionReviewComponent{
                 //console.log(this.ResponseData);
             });
         
-        this.bindalldata();
+        //this.bindalldata();
         $('#RejType').val(0);
         this.clearValues();
     }
