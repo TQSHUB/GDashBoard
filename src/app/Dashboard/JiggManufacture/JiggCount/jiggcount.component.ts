@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import * as $ from 'jquery';
 import {DatePipe} from '@angular/common'
 
+declare var ETE: any;
 
 @Component({
   selector: 'jiggcount',
@@ -123,5 +124,9 @@ export class JiggCount{
         //console.log(this.ResponseData1);
         
     })
+  }
+    ExportToExcel(){
+      var date= new Date();
+      ETE('JiggCount_'+ this.datepipe.transform(date,'dd/MM/yyyy') +'.xls');
   }
 }
