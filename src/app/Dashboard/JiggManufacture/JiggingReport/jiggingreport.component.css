@@ -20,7 +20,7 @@ table-layout: inherit;
 .scrolling th#Second {
 	position: absolute;
  *position: relative; /*ie7*/
-	left: 120px;
+	left: 130px;
 	width: 155px;
     border-bottom-width: 0px !important;
     border-left-width: 0px !important;
@@ -48,7 +48,7 @@ table-layout: inherit;
 .scrolling td#Second {
 	position: absolute;
  *position: relative; /*ie7*/
-	left: 120px;
+	left: 130px;
 	width: 155px;
     border-bottom-width: 0px !important;
     border-left-width: 0px !important;

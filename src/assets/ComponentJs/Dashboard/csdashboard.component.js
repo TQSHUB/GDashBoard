@@ -38,6 +38,25 @@ function cvsChromeInspection(CIlabels, CIdata1, CIdata2, CIdata3, CIdata4, CIdat
                  type: 'line',
                  //  backgroundColor: window.chartColors.white,
                  data: dData5
+             },
+             {
+                 label: "",
+                 type: 'line',
+                 options: {
+                     legend: {
+                         display: false
+                     },
+                     tooltips: {
+                         callbacks: {
+                             label: function (tooltipItem) {
+                                 console.log(tooltipItem)
+                                 return tooltipItem.yLabel;
+                             }
+                         }
+                     }
+                 },
+                 //  backgroundColor: window.chartColors.white,
+                 data: [15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15]
              }
         ]
 
@@ -207,6 +226,25 @@ function cvsSatinInspection(CIlabels, CIdata1, CIdata2, CIdata3, CIdata4, CIdata
                  type: 'line',
                  //  backgroundColor: window.chartColors.white,
                  data: dData5
+             },
+             {
+                 label: "",
+                 type: 'line',
+                 options: {
+                     legend: {
+                         display: false
+                     },
+                     tooltips: {
+                         callbacks: {
+                             label: function (tooltipItem) {
+                                 console.log(tooltipItem)
+                                 return tooltipItem.yLabel;
+                             }
+                         }
+                     }
+                 },
+                 //  backgroundColor: window.chartColors.white,
+                 data: [15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15]
              }
         ]
 
