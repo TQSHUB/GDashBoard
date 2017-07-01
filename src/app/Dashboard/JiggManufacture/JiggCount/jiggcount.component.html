@@ -88,11 +88,50 @@
                 </tr>
                 </tbody>
               </table>
+              <table id="myTableHidden" class="table table-bordered table-striped table-responsive" style="width: 100%;display: none;">
+                <thead>
+                <tr>
+                  <th>Jigg Code</th>
+                  <th>Alias Name</th>
+                  <th>Component Name</th>
+                  <th>Count</th>
+                  <th>Image</th>
+                  
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of ResponseData">
+                  <td>{{item.JiggCode}}</td>
+                  <td>{{item.Alias_Name}}</td>
+                  <td>{{item.Component_Name}}</td>
+                  <td>{{item.Count}}</td>
+                  <!--<td><a href="<%("ImgUrl") %>"></a></td>-->
+                  <!--<td><p>{{item.Count}}<img src="../../assets/{{item.image}} "/></p></td>-->
+                    <td>
+                      <div style="height: 64px; width: 64px;position: relative;">
+                        <img src="../../assets/{{item.image}} "/>
+                          <p style="position: absolute; top: 15px ; left :12px; z-index: 100; ">
+                            {{item.Count}}
+                          </p>
+                      </div>
+                  </td>
+                   
+                </tr>
+                </tbody>
+              </table>
             </div>
-            <div *ngIf="ResponseData">
-              <pagination-controls (pageChange)="p = $event"></pagination-controls>
             </div>
+            <div class="box-footer">
+            <div id="dvjson"></div>
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                    <button class="btn btn-primary" id="export" (click)="ExportToExcel()">Export to Excel</button>
+                </div>
+                <div class="col-md-7 col-md-offset-1 col-sm-12">
+                    <pagination-controls class="text-right" (pageChange)="p = $event"></pagination-controls>                   
+                </div>
             </div>
+        </div>
             </div>
             <!-- /.box-body -->
             <div class="modal fade bs-example-modal-sm-edit" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
